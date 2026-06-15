@@ -66,8 +66,27 @@ nothing skipped, then layer in business logic and package an EXE.
   - Live recompute grid (less wt / net wt / amount) + totals; New/Save/Reload.
   - Verified: 4 unit tests (`tests/test_purchase_service.py`) pass; save→reload
     round-trips (100g → net 96.060g → ₹480,300 line → ₹494,709 grand total).
-- Next: accounting vouchers (receipt/payment/journal), order and repair flows,
-  then report query + export — ported window by window.
+- **Accounting vouchers** (`app/modules/accounting.py`, `w_rcpt` / `w_pmnt` /
+  `w_journal`) — port of the GMINE double-entry posting:
+  - `app/services/accounting_service.py` — builds the two balanced `daybook`
+    rows per voucher (Dr +amt/opaccode=Cr, Cr −amt/opaccode=Dr) with the voucher
+    `control` code; validates positive amount and distinct accounts.
+  - `app/repositories/accounting_repository.py` — account list from `accountm`
+    (seeds a basic chart of accounts on SQLite), slno sequence, posts to
+    `daybook` + `daybookpart`, and running account balances.
+  - One voucher form serves all three types, pre-wired (Receipt Dr Cash,
+    Payment Cr Cash, Journal free) with a live day-book grid and balances.
+  - Verified: 4 unit tests pass; Receipt ₹1,500 then Payment ₹400 leave
+    Cash = ₹1,100 with a balanced day book.
+- Next: order and repair flows, then report query + export — ported window by
+  window.
+
+### Phase 4 coverage so far
+12 windows have hand-written business logic (`w_itemgrp`, `w_item`, `w_sucu`,
+`w_smith`, `w_salestype`, `w_sales`, `w_sales_full`, `w_purchase`,
+`w_purchase_withbc`, `w_rcpt`, `w_pmnt`, `w_journal`); the remaining 319 render
+through the generic engine. 13 unit tests pass; all 331 modules build with 0
+errors.
 
 ## Phase 5 — Full ERP EXE ✅ (build configured)
 - `JewelleryERP.spec`: PyInstaller spec that bundles the PB source folders and
