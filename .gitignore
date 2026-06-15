@@ -1,0 +1,23 @@
+# Local extraction of the PB source (the app reads pbl.zip directly)
+extracted/
+pygui/extracted/
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+
+# Demo database created at runtime
+pygui/jewellery_erp.db
+*.sqlite
+
+# OS / editor
+.DS_Store
+*.swp
+.idea/
+.vscode/
+
+# Runtime SQLite demo DB (created next to db.py)
+pygui/runtime/jewellery_erp.db

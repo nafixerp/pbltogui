@@ -1,0 +1,5 @@
+PySide6>=6.6
+reportlab>=4.0
+# pyodbc is only needed to connect to the live SQL Anywhere / SQL Server DB.
+# It is optional for the bundled SQLite demo mode.
+pyodbc>=5.0; platform_system == "Windows"
