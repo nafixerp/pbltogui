@@ -78,15 +78,25 @@ nothing skipped, then layer in business logic and package an EXE.
     Payment Cr Cash, Journal free) with a live day-book grid and balances.
   - Verified: 4 unit tests pass; Receipt ₹1,500 then Payment ₹400 leave
     Cash = ₹1,100 with a balanced day book.
-- Next: order and repair flows, then report query + export — ported window by
-  window.
+- **Order entry** (`app/modules/order.py`, `w_order`) — port of the GMINE order
+  math:
+  - `app/services/order_service.py` — order line value
+    `(weight − stone + wastage)·rate + making + stone` (algebraically the sales
+    line, so `SalesLine` is reused) and order totals with
+    `balance = grand_total − exchange − advance`.
+  - `app/repositories/order_repository.py` — customer lookup (shared), order-no
+    generation, header+detail save/load to `orderm`/`orderd`.
+  - Order form with item grid, due date, exchange/advance inputs and a live
+    balance. Verified: 3 unit tests pass; ₹65,045 total − ₹5,000 exchange −
+    ₹10,000 advance = ₹50,045 balance, save→reload exact.
+- Next: repair/remake flow, then report query + export — ported window by window.
 
 ### Phase 4 coverage so far
-12 windows have hand-written business logic (`w_itemgrp`, `w_item`, `w_sucu`,
+13 windows have hand-written business logic (`w_itemgrp`, `w_item`, `w_sucu`,
 `w_smith`, `w_salestype`, `w_sales`, `w_sales_full`, `w_purchase`,
-`w_purchase_withbc`, `w_rcpt`, `w_pmnt`, `w_journal`); the remaining 319 render
-through the generic engine. 13 unit tests pass; all 331 modules build with 0
-errors.
+`w_purchase_withbc`, `w_rcpt`, `w_pmnt`, `w_journal`, `w_order`); the remaining
+318 render through the generic engine. 16 unit tests pass; all 331 modules build
+with 0 errors.
 
 ## Phase 5 — Full ERP EXE ✅ (build configured)
 - `JewelleryERP.spec`: PyInstaller spec that bundles the PB source folders and
