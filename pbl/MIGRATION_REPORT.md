@@ -89,14 +89,24 @@ nothing skipped, then layer in business logic and package an EXE.
   - Order form with item grid, due date, exchange/advance inputs and a live
     balance. Verified: 3 unit tests pass; ₹65,045 total − ₹5,000 exchange −
     ₹10,000 advance = ₹50,045 balance, save→reload exact.
-- Next: repair/remake flow, then report query + export — ported window by window.
+- **Repair / Remake memos** (`app/modules/repair.py`, `w_reprenter` /
+  `w_reprno`) — port of the GMINE service-memo flow:
+  - `app/services/repair_service.py` — line net weight = weight − stone, and memo
+    totals (qty, gross wt, net wt, estimated cost).
+  - `app/repositories/repair_repository.py` — memo-no generation, header+detail
+    save/load to `repairm`/`repaird` with the `givrec` (Receipt/Issue) flag.
+  - One job-card form serves both directions (Receipt from party / Issue to
+    party) with complaint, purity, stock type and est. cost per line.
+  - Verified: 2 unit tests pass; net wt 9.000g, complaint and `givrec`
+    round-trip on save→reload.
+- Next: report query + export — ported window by window.
 
 ### Phase 4 coverage so far
-13 windows have hand-written business logic (`w_itemgrp`, `w_item`, `w_sucu`,
+15 windows have hand-written business logic (`w_itemgrp`, `w_item`, `w_sucu`,
 `w_smith`, `w_salestype`, `w_sales`, `w_sales_full`, `w_purchase`,
-`w_purchase_withbc`, `w_rcpt`, `w_pmnt`, `w_journal`, `w_order`); the remaining
-318 render through the generic engine. 16 unit tests pass; all 331 modules build
-with 0 errors.
+`w_purchase_withbc`, `w_rcpt`, `w_pmnt`, `w_journal`, `w_order`, `w_reprenter`,
+`w_reprno`); the remaining 316 render through the generic engine. 18 unit tests
+pass; all 331 modules build with 0 errors.
 
 ## Phase 5 — Full ERP EXE ✅ (build configured)
 - `JewelleryERP.spec`: PyInstaller spec that bundles the PB source folders and

@@ -41,3 +41,4 @@ from app.modules import sales    # noqa: E402,F401
 from app.modules import purchase  # noqa: E402,F401
 from app.modules import accounting  # noqa: E402,F401
 from app.modules import order  # noqa: E402,F401
+from app.modules import repair  # noqa: E402,F401
