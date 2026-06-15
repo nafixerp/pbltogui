@@ -37,3 +37,4 @@ def registered_windows() -> set[str]:
 # Import concrete modules so their @register decorators run. Add new modules
 # here as they are converted in Phase 4.
 from app.modules import masters  # noqa: E402,F401
+from app.modules import sales    # noqa: E402,F401

@@ -37,11 +37,25 @@ nothing skipped, then layer in business logic and package an EXE.
 - `app/modules/` registry: a hand-written implementation registered by PB window
   name takes over from the generic renderer; everything else keeps rendering, so
   coverage never regresses.
-- Converted so far: master-data CRUD (`app/modules/masters.py`) — column
-  introspection + Add/Save/Delete against the live DB, registered for
-  `w_itemgrp`, `w_item`, `w_sucu`, `w_smith`, `w_salestype`.
-- Next: sales/purchase billing math, accounting vouchers, order/repair flows,
-  and report query + export, ported window by window.
+- **Master data** (`app/modules/masters.py`) — column introspection +
+  Add/Save/Delete against the live DB; registered for `w_itemgrp`, `w_item`,
+  `w_sucu`, `w_smith`, `w_salestype`.
+- **Sales billing** (`app/modules/sales.py`, `w_sales` / `w_sales_full`) —
+  faithful port of the `w_sales` math:
+  - `app/services/sales_service.py` — `Decimal` line math (net wt, value-add =
+    wastage·rate + making, amount = net·rate + value-add + stone) and the bill
+    GST split (inter-state IGST vs intra-state CGST/SGST), tax-inclusive reverse
+    calc and round-off — exactly as in the PowerBuilder source.
+  - `app/repositories/sales_repository.py` — customer/item lookups, bill-number
+    generation, and atomic header+detail save/load to `salesm`/`salesd`
+    (portable SQL Anywhere / SQL Server / SQLite).
+  - Live recompute grid + totals panel; New / Save / Reload.
+  - Verified: 5 unit tests (`tests/test_sales_service.py`) pass; save→reload
+    round-trips against the test DB (₹63,150 line → ₹65,045 grand total).
+  - Pending increment: the deep general-ledger posting (`daybook`, `pdclist`,
+    `stkandprofit`, …) that the original also writes.
+- Next: purchase billing, accounting vouchers (receipt/payment/journal), order
+  and repair flows, then report query + export — ported window by window.
 
 ## Phase 5 — Full ERP EXE ✅ (build configured)
 - `JewelleryERP.spec`: PyInstaller spec that bundles the PB source folders and
