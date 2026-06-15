@@ -99,14 +99,25 @@ nothing skipped, then layer in business logic and package an EXE.
     party) with complaint, purity, stock type and est. cost per line.
   - Verified: 2 unit tests pass; net wt 9.000g, complaint and `givrec`
     round-trip on save→reload.
-- Next: report query + export — ported window by window.
+- **Reporting framework + Sales Register** (`app/reports/`, `w_saleregister`):
+  - `app/reports/framework.py` — a reusable report engine: a `ReportSpec`
+    (title + parameters + `run(values)`), a `ReportView` with a parameter bar,
+    results grid and **CSV / PDF export** (reportlab). This is the PySide6
+    equivalent of a GMINE report window + DataWindow; new reports only need a
+    spec.
+  - `app/reports/sales_register.py` — bill-wise Sales Register over a date range
+    (port of `d_saleregister`'s `rdate1`/`rdate2`), with a totals row.
+  - Verified: 2 seeded bills produce a register totalling ₹133,900; CSV export
+    (header + rows) and a valid `%PDF-1.4` export both confirmed.
+- Reports remaining: the other ~150 report windows can be added quickly by
+  writing a `ReportSpec` each (query + parameters) against the shared framework.
 
 ### Phase 4 coverage so far
-15 windows have hand-written business logic (`w_itemgrp`, `w_item`, `w_sucu`,
+16 windows have hand-written business logic (`w_itemgrp`, `w_item`, `w_sucu`,
 `w_smith`, `w_salestype`, `w_sales`, `w_sales_full`, `w_purchase`,
 `w_purchase_withbc`, `w_rcpt`, `w_pmnt`, `w_journal`, `w_order`, `w_reprenter`,
-`w_reprno`); the remaining 316 render through the generic engine. 18 unit tests
-pass; all 331 modules build with 0 errors.
+`w_reprno`, `w_saleregister`); the remaining 315 render through the generic
+engine. 18 unit tests pass; all 331 modules build with 0 errors.
 
 ## Phase 5 — Full ERP EXE ✅ (build configured)
 - `JewelleryERP.spec`: PyInstaller spec that bundles the PB source folders and
