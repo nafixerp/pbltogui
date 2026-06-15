@@ -54,8 +54,20 @@ nothing skipped, then layer in business logic and package an EXE.
     round-trips against the test DB (₹63,150 line → ₹65,045 grand total).
   - Pending increment: the deep general-ledger posting (`daybook`, `pdclist`,
     `stkandprofit`, …) that the original also writes.
-- Next: purchase billing, accounting vouchers (receipt/payment/journal), order
-  and repair flows, then report query + export — ported window by window.
+- **Purchase billing** (`app/modules/purchase.py`, `w_purchase` /
+  `w_purchase_withbc`) — faithful port of the `w_purchase` math:
+  - `app/services/purchase_service.py` — less weight =
+    (weight − stone − mud)·less% / 100, net weight = weight − less − stone, and
+    amount = (qty or net)·rate + stone + making; totals reuse the shared GST
+    split.
+  - `app/repositories/purchase_repository.py` — supplier/item lookups, doc-number
+    generation, header+detail save/load to `purchasem`/`purchased` (incl. `mud`,
+    so reloads round-trip exactly).
+  - Live recompute grid (less wt / net wt / amount) + totals; New/Save/Reload.
+  - Verified: 4 unit tests (`tests/test_purchase_service.py`) pass; save→reload
+    round-trips (100g → net 96.060g → ₹480,300 line → ₹494,709 grand total).
+- Next: accounting vouchers (receipt/payment/journal), order and repair flows,
+  then report query + export — ported window by window.
 
 ## Phase 5 — Full ERP EXE ✅ (build configured)
 - `JewelleryERP.spec`: PyInstaller spec that bundles the PB source folders and

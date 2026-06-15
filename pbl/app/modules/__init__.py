@@ -38,3 +38,4 @@ def registered_windows() -> set[str]:
 # here as they are converted in Phase 4.
 from app.modules import masters  # noqa: E402,F401
 from app.modules import sales    # noqa: E402,F401
+from app.modules import purchase  # noqa: E402,F401
