@@ -124,7 +124,19 @@ def save_bill(header: dict, lines: list[SalesLine]) -> str:
              float(ln.stone_wgt), float(ln.stone_price), float(ln.making),
              float(ln.wastage), float(ln.rate), float(ln.amount)))
     _post_gl(billno, header)
+    _post_stock(billno, header, lines)
     return billno
+
+
+def _post_stock(billno: str, header: dict, lines):
+    """Reduce item stock for the sale (best-effort)."""
+    try:
+        from app.repositories import stock_repository
+        from app.services.stock_service import OUTWARD
+        stock_repository.post_document(billno, "S", OUTWARD,
+                                       header.get("tdate"), lines)
+    except Exception:
+        pass
 
 
 def _post_gl(billno: str, header: dict):

@@ -128,6 +128,16 @@ nothing skipped, then layer in business logic and package an EXE.
   - Verified: a ₹61,800 sale + ₹103,000 purchase leave the Day Book and Trial
     Balance tallying at ₹164,800 Dr = Cr; re-saving the bill keeps exactly its
     3 ledger rows (idempotent). 3 unit tests in `tests/test_gl_service.py`.
+- **Stock integration + Stock Register** (`app/services/stock_service.py`,
+  `app/repositories/stock_repository.py`, `app/reports/stock_register.py`,
+  `w_stockregister`) — port of the GMINE `items`/`itemsstk` stock update:
+  - Purchases increase, sales decrease the running per-item stock (qty / weight /
+    stone wt); every movement is recorded in a `stockledger`. Posting is
+    idempotent by document number, so a bill re-save reverses then re-applies its
+    movements (never double-counts).
+  - Stock Register shows opening / inward / outward / closing per item over a
+    date range. Verified: buy 20g, sell 6g → closing 14g (op 0 / in 20 / out 6),
+    idempotent on re-save. 2 unit tests in `tests/test_stock_service.py`.
 
 ### Phase 4 coverage so far
 21 windows have hand-written business logic — masters (`w_itemgrp`, `w_item`,
@@ -135,9 +145,10 @@ nothing skipped, then layer in business logic and package an EXE.
 (`w_purchase`, `w_purchase_withbc`), Accounting (`w_rcpt`, `w_pmnt`,
 `w_journal`), Order (`w_order`), Repair (`w_reprenter`, `w_reprno`) and Reports
 (`w_saleregister`, `w_purhregister`, `w_daybookreport`, `w_trialbal`,
-`w_acledger`, `w_cashbookreport`); the remaining 310 render through the generic
-engine. Sales and Purchase bills also post to the general ledger. 21 unit tests
-pass; all 331 modules build with 0 errors.
+`w_acledger`, `w_cashbookreport`, `w_stockregister`); the remaining 309 render
+through the generic engine. Sales and Purchase bills also post to the general
+ledger and update item stock. 23 unit tests pass; all 331 modules build with 0
+errors.
 
 ## Phase 5 — Full ERP EXE ✅ (build configured)
 - `JewelleryERP.spec`: PyInstaller spec that bundles the PB source folders and

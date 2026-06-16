@@ -110,7 +110,19 @@ def save_bill(header: dict, lines: list[PurchaseLine]) -> str:
              float(ln.less_perc), float(ln.less_wgt), float(ln.making),
              float(ln.rate), float(ln.amount)))
     _post_gl(docno, header)
+    _post_stock(docno, header, lines)
     return docno
+
+
+def _post_stock(docno: str, header: dict, lines):
+    """Increase item stock for the purchase (best-effort)."""
+    try:
+        from app.repositories import stock_repository
+        from app.services.stock_service import INWARD
+        stock_repository.post_document(docno, "P", INWARD,
+                                       header.get("tdate"), lines)
+    except Exception:
+        pass
 
 
 def _post_gl(docno: str, header: dict):
