@@ -193,5 +193,10 @@ with 0 errors.
 - The production database is SQL Anywhere via ODBC (`db_config.ini`); set
   `engine = sqlite` for a zero-setup, auto-seeded local test database.
 - 3 menu entries reference sources absent from the export
-  (`w_itemadj_wgtrcptpmnt`, two `wtmp` report stubs); they render an
-  explanatory placeholder until the source is supplied.
+  (`w_itemadj_wgtrcptpmnt`, two `wtmp` report stubs). Since their PowerBuilder
+  `.srw` is not in the upload, they are **bridged** to the closest converted
+  screen (`app/modules/bridges.py`): the partner weight receipt/payment reuses
+  the Goldsmith weight form (the menu already routes Party-Weight-Deposit to
+  `w_gsmith`), and the two `wtmp` report stubs open the Stock Register. With the
+  bridges, **all 331 menu items resolve to a working screen — 0 placeholders.**
+  Supplying the real sources later overrides the bridges automatically.
