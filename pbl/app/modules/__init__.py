@@ -44,3 +44,6 @@ from app.modules import order  # noqa: E402,F401
 from app.modules import repair  # noqa: E402,F401
 # Converted reports (register through the same module registry).
 from app.reports import sales_register  # noqa: E402,F401
+from app.reports import purchase_register  # noqa: E402,F401
+from app.reports import day_book  # noqa: E402,F401
+from app.reports import trial_balance  # noqa: E402,F401

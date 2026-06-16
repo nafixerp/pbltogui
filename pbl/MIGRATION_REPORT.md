@@ -99,25 +99,27 @@ nothing skipped, then layer in business logic and package an EXE.
     party) with complaint, purity, stock type and est. cost per line.
   - Verified: 2 unit tests pass; net wt 9.000g, complaint and `givrec`
     round-trip on save→reload.
-- **Reporting framework + Sales Register** (`app/reports/`, `w_saleregister`):
-  - `app/reports/framework.py` — a reusable report engine: a `ReportSpec`
-    (title + parameters + `run(values)`), a `ReportView` with a parameter bar,
-    results grid and **CSV / PDF export** (reportlab). This is the PySide6
-    equivalent of a GMINE report window + DataWindow; new reports only need a
-    spec.
-  - `app/reports/sales_register.py` — bill-wise Sales Register over a date range
-    (port of `d_saleregister`'s `rdate1`/`rdate2`), with a totals row.
-  - Verified: 2 seeded bills produce a register totalling ₹133,900; CSV export
-    (header + rows) and a valid `%PDF-1.4` export both confirmed.
-- Reports remaining: the other ~150 report windows can be added quickly by
-  writing a `ReportSpec` each (query + parameters) against the shared framework.
+- **Reports on the shared framework** — added on top of `app/reports/framework.py`:
+  - **Sales Register** (`w_saleregister`) — bill-wise over a date range.
+  - **Purchase Register** (`w_purhregister`) — document-wise over a date range.
+  - **Day Book** (`w_daybookreport`) — `daybook` postings with account names and
+    Dr/Cr split; totals tally (Dr == Cr).
+  - **Trial Balance** (`w_trialbal`) — closing balance per account (opening +
+    movements up to a date), Dr/Cr columns; totals tally.
+  - Each report is a ~40-line `ReportSpec`; all get the parameter bar, grid and
+    CSV/PDF export for free. Verified end-to-end: Day Book Dr=Cr=₹7,800 and
+    Trial Balance Dr=Cr=₹5,000 both balance.
+- Reports remaining: the other ~145 report windows can be added the same way (a
+  `ReportSpec` each) against the shared framework.
 
 ### Phase 4 coverage so far
-16 windows have hand-written business logic (`w_itemgrp`, `w_item`, `w_sucu`,
-`w_smith`, `w_salestype`, `w_sales`, `w_sales_full`, `w_purchase`,
-`w_purchase_withbc`, `w_rcpt`, `w_pmnt`, `w_journal`, `w_order`, `w_reprenter`,
-`w_reprno`, `w_saleregister`); the remaining 315 render through the generic
-engine. 18 unit tests pass; all 331 modules build with 0 errors.
+19 windows have hand-written business logic — masters (`w_itemgrp`, `w_item`,
+`w_sucu`, `w_smith`, `w_salestype`), Sales (`w_sales`, `w_sales_full`), Purchase
+(`w_purchase`, `w_purchase_withbc`), Accounting (`w_rcpt`, `w_pmnt`,
+`w_journal`), Order (`w_order`), Repair (`w_reprenter`, `w_reprno`) and Reports
+(`w_saleregister`, `w_purhregister`, `w_daybookreport`, `w_trialbal`); the
+remaining 312 render through the generic engine. 18 unit tests pass; all 331
+modules build with 0 errors.
 
 ## Phase 5 — Full ERP EXE ✅ (build configured)
 - `JewelleryERP.spec`: PyInstaller spec that bundles the PB source folders and
