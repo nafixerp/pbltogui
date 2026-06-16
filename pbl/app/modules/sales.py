@@ -17,9 +17,9 @@ from decimal import Decimal
 from PySide6.QtCore import Qt
 from PySide6.QtGui import QDoubleValidator
 from PySide6.QtWidgets import (
-    QCheckBox, QComboBox, QFormLayout, QGridLayout, QGroupBox, QHBoxLayout,
-    QHeaderView, QLabel, QLineEdit, QMessageBox, QPushButton, QTableWidget,
-    QTableWidgetItem, QVBoxLayout, QWidget,
+    QCheckBox, QComboBox, QFileDialog, QFormLayout, QGridLayout, QGroupBox,
+    QHBoxLayout, QHeaderView, QLabel, QLineEdit, QMessageBox, QPushButton,
+    QTableWidget, QTableWidgetItem, QVBoxLayout, QWidget,
 )
 
 from app import modules
@@ -125,7 +125,7 @@ class SalesBillingForm(QWidget):
 
         actions = QVBoxLayout()
         for label, slot in (("New", self._new_bill), ("Save", self._save),
-                            ("Reload", self._reload)):
+                            ("Reload", self._reload), ("Print", self._print)):
             b = QPushButton(label); b.clicked.connect(slot)
             actions.addWidget(b)
         actions.addStretch(1)
@@ -250,6 +250,27 @@ class SalesBillingForm(QWidget):
         self.ed_taxperc.setText(str(head.get("taxperc", 0)))
         self.chk_interstate.setChecked(str(head.get("interstate")) == "Y")
         self._recompute()
+
+    def _print(self):
+        lines = self._collect_lines()
+        if not lines:
+            QMessageBox.warning(self, "Sales", "Nothing to print.")
+            return
+        billno = self.ed_billno.text() or "invoice"
+        path, _ = QFileDialog.getSaveFileName(
+            self, "Print Invoice", f"{billno}.pdf", "PDF (*.pdf)")
+        if not path:
+            return
+        header = {"billno": billno, "tdate": self.ed_date.text(),
+                  "salestype": self.cb_type.currentText(),
+                  "custname": self.cb_cust.currentText()}
+        try:
+            from app.reports.invoice import build_invoice_pdf
+            build_invoice_pdf(path, header, lines, self._totals)
+        except Exception as exc:
+            QMessageBox.critical(self, "Sales", f"Print failed: {exc}")
+            return
+        QMessageBox.information(self, "Sales", f"Invoice saved: {path}")
 
 
 def _factory(window):

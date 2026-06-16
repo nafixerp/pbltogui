@@ -189,6 +189,17 @@ with 0 errors.
 - `JewelleryERP.spec`: PyInstaller spec that bundles the PB source folders and
   `project_tree.txt`. `pyinstaller JewelleryERP.spec` → `dist/JewelleryERP.exe`.
 
+## Invoice printing & tests
+- **Tax invoice PDF** (`app/reports/invoice.py`) — the Sales form's **Print**
+  button generates a GST tax-invoice / estimate PDF: shop header, line items
+  (net wt / rate / making / stone / amount), the CGST/SGST/IGST split, round-off,
+  grand total and the **amount in words** (Indian numbering). Verified: a
+  ₹65,045 bill renders a valid PDF reading "Rupees Sixty Five Thousand Forty Five
+  Only".
+- **Runnable test suite** — `pytest.ini` + `tests/conftest.py` (forces the
+  SQLite engine, fixes the import path) so the whole suite runs with `pytest`.
+  **32 tests pass.**
+
 ## Notes
 - The production database is SQL Anywhere via ODBC (`db_config.ini`); set
   `engine = sqlite` for a zero-setup, auto-seeded local test database.
