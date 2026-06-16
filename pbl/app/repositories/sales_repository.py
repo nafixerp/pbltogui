@@ -123,7 +123,22 @@ def save_bill(header: dict, lines: list[SalesLine]) -> str:
             (billno, i, ln.code, ln.name, float(ln.qty), float(ln.weight),
              float(ln.stone_wgt), float(ln.stone_price), float(ln.making),
              float(ln.wastage), float(ln.rate), float(ln.amount)))
+    _post_gl(billno, header)
     return billno
+
+
+def _post_gl(billno: str, header: dict):
+    """Post the sale to the accounting day book (best-effort)."""
+    try:
+        from types import SimpleNamespace
+        from app.services import gl_service
+        totals = SimpleNamespace(
+            grand_total=header["total"], taxable=header["taxable"],
+            cgst=header["cgst"], sgst=header["sgst"], igst=header["igst"],
+            round_off=header["roundoff"])
+        gl_service.post_sale(billno, header.get("tdate"), totals)
+    except Exception:
+        pass  # never block the bill save on GL posting
 
 
 def load_bill(billno: str):

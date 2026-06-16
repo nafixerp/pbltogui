@@ -116,6 +116,18 @@ nothing skipped, then layer in business logic and package an EXE.
     ₹2,200 Dr and the debtor ledger at ₹5,000 Cr.
 - Reports remaining: the other ~143 report windows can be added the same way (a
   `ReportSpec` each) against the shared framework.
+- **General-ledger integration** (`app/services/gl_service.py`) — saved Sales and
+  Purchase bills now post a balanced compound voucher to `daybook`, so they flow
+  into the Day Book, Trial Balance, Account Ledger and Cash Book automatically:
+  - Sale: Dr Debtor/Cash total, Cr Sales (taxable), Cr GST Output (tax), Cr/Dr
+    Round Off. Purchase: Dr Purchase (taxable) + GST Input + Round Off, Cr
+    Creditor/Cash total.
+  - `accounting_service.make_multi_rows` builds/validates the balanced legs;
+    `accounting_repository.post_legs` posts them keyed by bill number (`refno`)
+    so a re-save replaces — never duplicates — the voucher.
+  - Verified: a ₹61,800 sale + ₹103,000 purchase leave the Day Book and Trial
+    Balance tallying at ₹164,800 Dr = Cr; re-saving the bill keeps exactly its
+    3 ledger rows (idempotent). 3 unit tests in `tests/test_gl_service.py`.
 
 ### Phase 4 coverage so far
 21 windows have hand-written business logic — masters (`w_itemgrp`, `w_item`,
@@ -124,7 +136,8 @@ nothing skipped, then layer in business logic and package an EXE.
 `w_journal`), Order (`w_order`), Repair (`w_reprenter`, `w_reprno`) and Reports
 (`w_saleregister`, `w_purhregister`, `w_daybookreport`, `w_trialbal`,
 `w_acledger`, `w_cashbookreport`); the remaining 310 render through the generic
-engine. 18 unit tests pass; all 331 modules build with 0 errors.
+engine. Sales and Purchase bills also post to the general ledger. 21 unit tests
+pass; all 331 modules build with 0 errors.
 
 ## Phase 5 — Full ERP EXE ✅ (build configured)
 - `JewelleryERP.spec`: PyInstaller spec that bundles the PB source folders and
