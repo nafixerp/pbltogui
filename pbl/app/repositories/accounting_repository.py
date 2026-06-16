@@ -32,7 +32,7 @@ _SEED_ACCOUNTS = [
     ("SUNDRD", "Sundry Debtors", "A"), ("SUNDRC", "Sundry Creditors", "L"),
     ("GSTOUT", "GST Output", "L"), ("GSTIN", "GST Input", "A"),
     ("EXPENS", "General Expenses", "E"), ("CAPITL", "Capital Account", "L"),
-    ("ROUNDOFF", "Round Off", "I"),
+    ("ROUNDOFF", "Round Off", "I"), ("KURI", "Kuri / Scheme Collection", "L"),
 ]
 
 

@@ -151,6 +151,19 @@ nothing skipped, then layer in business logic and package an EXE.
     45.8g. 3 unit tests in `tests/test_goldsmith_service.py`. This same screen
     backs Goldsmith, Jewellery and Party-Weight-Deposit in the menu.
 
+- **Kuri / Scheme collection** (`app/modules/kuri.py`, `w_kuricolln`) — port of
+  the GMINE chit/scheme collection:
+  - `app/services/kuri_service.py` — gold-scheme weight = amount / gold rate, and
+    a member summary (installment count, total amount, total weight).
+  - `app/repositories/kuri_repository.py` — member list (`clients_kuridet`),
+    installment/receipt numbering, records each collection in `kuricolln` and
+    posts a cash receipt to the day book (Dr Cash, Cr Kuri liability) keyed by
+    receipt no.
+  - Collection form with live amount→weight, a member ledger and running totals.
+  - Verified: three collections (₹6,000 + ₹6,000 + ₹3,000) give 3 installments /
+    ₹15,000 / 2.500 g, and post Cash +₹15,000 / Kuri −₹15,000 to the ledger.
+    3 unit tests in `tests/test_kuri_service.py`.
+
 #### Coverage of the modules you asked about
 All render through the generic engine today (controls + tables parsed from their
 PowerBuilder source); Goldsmith/Jewellery now also has hand-written logic:
@@ -166,10 +179,11 @@ Kuri/Scheme (`w_sucu_kuri`, `w_kuricolln`, `w_kuri_intpost`, `w_kuri_draw`,
 (`w_purchase`, `w_purchase_withbc`), Accounting (`w_rcpt`, `w_pmnt`,
 `w_journal`), Order (`w_order`), Repair (`w_reprenter`, `w_reprno`) and Reports
 (`w_saleregister`, `w_purhregister`, `w_daybookreport`, `w_trialbal`,
-`w_acledger`, `w_cashbookreport`, `w_stockregister`) and Goldsmith (`w_gsmith`);
-the remaining 308 render through the generic engine. Sales and Purchase bills
-also post to the general ledger and update item stock. 26 unit tests pass; all
-331 modules build with 0 errors.
+`w_acledger`, `w_cashbookreport`, `w_stockregister`), Goldsmith (`w_gsmith`) and
+Kuri (`w_kuricolln`); the remaining 307 render through the generic engine. Sales
+and Purchase bills also post to the general ledger and update item stock, and
+Kuri collections post cash receipts. 29 unit tests pass; all 331 modules build
+with 0 errors.
 
 ## Phase 5 — Full ERP EXE ✅ (build configured)
 - `JewelleryERP.spec`: PyInstaller spec that bundles the PB source folders and
