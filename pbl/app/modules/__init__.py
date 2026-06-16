@@ -47,3 +47,5 @@ from app.reports import sales_register  # noqa: E402,F401
 from app.reports import purchase_register  # noqa: E402,F401
 from app.reports import day_book  # noqa: E402,F401
 from app.reports import trial_balance  # noqa: E402,F401
+from app.reports import ac_ledger  # noqa: E402,F401
+from app.reports import cash_book  # noqa: E402,F401

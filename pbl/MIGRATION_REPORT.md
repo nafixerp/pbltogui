@@ -106,20 +106,25 @@ nothing skipped, then layer in business logic and package an EXE.
     Dr/Cr split; totals tally (Dr == Cr).
   - **Trial Balance** (`w_trialbal`) — closing balance per account (opening +
     movements up to a date), Dr/Cr columns; totals tally.
+  - **Account Ledger** (`w_acledger`) — per-account movements with opening
+    balance b/f and a running Dr/Cr balance; account picker from `accountm`.
+  - **Cash Book** (`w_cashbookreport`) — Cash account ledger with receipts /
+    payments and a running cash balance.
   - Each report is a ~40-line `ReportSpec`; all get the parameter bar, grid and
     CSV/PDF export for free. Verified end-to-end: Day Book Dr=Cr=₹7,800 and
-    Trial Balance Dr=Cr=₹5,000 both balance.
-- Reports remaining: the other ~145 report windows can be added the same way (a
+    Trial Balance Dr=Cr=₹5,000 balance; Cash Book / CASH ledger close at
+    ₹2,200 Dr and the debtor ledger at ₹5,000 Cr.
+- Reports remaining: the other ~143 report windows can be added the same way (a
   `ReportSpec` each) against the shared framework.
 
 ### Phase 4 coverage so far
-19 windows have hand-written business logic — masters (`w_itemgrp`, `w_item`,
+21 windows have hand-written business logic — masters (`w_itemgrp`, `w_item`,
 `w_sucu`, `w_smith`, `w_salestype`), Sales (`w_sales`, `w_sales_full`), Purchase
 (`w_purchase`, `w_purchase_withbc`), Accounting (`w_rcpt`, `w_pmnt`,
 `w_journal`), Order (`w_order`), Repair (`w_reprenter`, `w_reprno`) and Reports
-(`w_saleregister`, `w_purhregister`, `w_daybookreport`, `w_trialbal`); the
-remaining 312 render through the generic engine. 18 unit tests pass; all 331
-modules build with 0 errors.
+(`w_saleregister`, `w_purhregister`, `w_daybookreport`, `w_trialbal`,
+`w_acledger`, `w_cashbookreport`); the remaining 310 render through the generic
+engine. 18 unit tests pass; all 331 modules build with 0 errors.
 
 ## Phase 5 — Full ERP EXE ✅ (build configured)
 - `JewelleryERP.spec`: PyInstaller spec that bundles the PB source folders and
