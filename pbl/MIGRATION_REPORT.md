@@ -138,6 +138,27 @@ nothing skipped, then layer in business logic and package an EXE.
   - Stock Register shows opening / inward / outward / closing per item over a
     date range. Verified: buy 20g, sell 6g → closing 14g (op 0 / in 20 / out 6),
     idempotent on re-save. 2 unit tests in `tests/test_stock_service.py`.
+- **Goldsmith / Jewellery transaction** (`app/modules/goldsmith.py`, `w_gsmith`)
+  — port of the GMINE smith weight ledger:
+  - `app/services/goldsmith_service.py` — net weight = weight − stone and fine
+    (touch) weight = net × touch / 100, with memo totals and the given−received
+    fine-weight balance.
+  - `app/repositories/goldsmith_repository.py` — smith list, memo-no generation,
+    header+detail save/load to `smithm`/`smithd`, and the outstanding fine-weight
+    balance per smith from `smithd`.
+  - Given/Received memo form with live net + fine weight and the smith's running
+    fine balance. Verified: give 100g @91.6 then receive 50g @91.6 → fine balance
+    45.8g. 3 unit tests in `tests/test_goldsmith_service.py`. This same screen
+    backs Goldsmith, Jewellery and Party-Weight-Deposit in the menu.
+
+#### Coverage of the modules you asked about
+All render through the generic engine today (controls + tables parsed from their
+PowerBuilder source); Goldsmith/Jewellery now also has hand-written logic:
+Goldsmith/Jewellery (`w_gsmith` ✓ logic, `w_gsmithnewwrk`, `w_jewl_update`),
+Diamond/Pres.Stone purchase (`w_diamond_purchase`, `w_diamond_preturn`),
+Kuri/Scheme (`w_sucu_kuri`, `w_kuricolln`, `w_kuri_intpost`, `w_kuri_draw`,
+`w_kuri_finish`, `w_schm_partpayment`), Barcode (`w_barcode_entry`,
+`w_barcode_entryall`, `w_counter_issue`, `w_barcodestkverify`).
 
 ### Phase 4 coverage so far
 21 windows have hand-written business logic — masters (`w_itemgrp`, `w_item`,
@@ -145,10 +166,10 @@ nothing skipped, then layer in business logic and package an EXE.
 (`w_purchase`, `w_purchase_withbc`), Accounting (`w_rcpt`, `w_pmnt`,
 `w_journal`), Order (`w_order`), Repair (`w_reprenter`, `w_reprno`) and Reports
 (`w_saleregister`, `w_purhregister`, `w_daybookreport`, `w_trialbal`,
-`w_acledger`, `w_cashbookreport`, `w_stockregister`); the remaining 309 render
-through the generic engine. Sales and Purchase bills also post to the general
-ledger and update item stock. 23 unit tests pass; all 331 modules build with 0
-errors.
+`w_acledger`, `w_cashbookreport`, `w_stockregister`) and Goldsmith (`w_gsmith`);
+the remaining 308 render through the generic engine. Sales and Purchase bills
+also post to the general ledger and update item stock. 26 unit tests pass; all
+331 modules build with 0 errors.
 
 ## Phase 5 — Full ERP EXE ✅ (build configured)
 - `JewelleryERP.spec`: PyInstaller spec that bundles the PB source folders and
