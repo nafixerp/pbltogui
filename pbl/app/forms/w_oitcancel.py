@@ -21,6 +21,7 @@ WINDOW = Window(
     controls=[],
     tables=['itemsothers', 'oitemtranm', 'oitemtrand', 'daybook', 'stkandprofit', 'delpart', 'daybookpart'],
     source_path='w_oitcancel.srw',
+    opens=['w_oithelp'],
 )
 
 

@@ -21,6 +21,7 @@ WINDOW = Window(
     controls=[],
     tables=['accountm', 'clients', 'clients_kuridet', 'clientspict', 'kuritype', 'daybook', 'clients_advanced', 'userd'],
     source_path='w_sucu_kuri.srw',
+    opens=['w_clientshelp', 'w_camera', 'w_clientsgrp', 'w_clientsroute', 'w_cbachdhelp', 'w_kuritype_master'],
 )
 
 

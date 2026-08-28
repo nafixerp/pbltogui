@@ -21,6 +21,7 @@ WINDOW = Window(
     controls=[],
     tables=['suspentry', 'accountm', 'daybook', 'kuricolln', 'daybookratewgt', 'stkandprof', 'clients', 'generali', 'daybookpart', 'delpart', 'userd'],
     source_path='w_susprcptpmnt.srw',
+    opens=['w_suspmaster', 'w_acsusphelp', 'w_cbachdhelp'],
 )
 
 

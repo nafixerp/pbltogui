@@ -22,6 +22,7 @@ WINDOW = Window(
     tables=[],
     source_path='w_staff_attendance_rep.srw',
     report={'dataobject': 'd_staff_attendancerep_details', 'sql': 'SELECT clients.name AS clients_name, clients.addr1 AS clients_addr1, clients.addr2 AS clients_addr2, clients.addr3 AS clients_addr3, clients.code AS clients_code, staffcheckin.tdate AS staffcheckin_tdate, staffcheckin.ttime AS staffcheckin_ttime, staffcheckin.stat AS staffcheckin_stat, clients.idno AS clients_idno FROM clients, staffcheckin WHERE clients.code = staffcheckin.code ORDER BY staffcheckin.tdate ASC, staffcheckin.ttime ASC, clients.name ASC', 'args': ['rdate1', 'rdate2'], 'arg_types': {'rdate1': 'date', 'rdate2': 'date'}, 'tables': ['clients', 'staffcheckin'], 'columns': [{'name': 'clients_name', 'label': 'clients_name', 'type': 'char'}, {'name': 'clients_addr1', 'label': 'clients_addr1', 'type': 'char'}, {'name': 'clients_addr2', 'label': 'clients_addr2', 'type': 'char'}, {'name': 'clients_addr3', 'label': 'clients_addr3', 'type': 'char'}, {'name': 'clients_code', 'label': 'clients_code', 'type': 'char'}, {'name': 'staffcheckin_tdate', 'label': 'staffcheckin_tdate', 'type': 'date'}, {'name': 'staffcheckin_ttime', 'label': 'staffcheckin_ttime', 'type': 'time'}, {'name': 'staffcheckin_stat', 'label': 'staffcheckin_stat', 'type': 'long'}, {'name': 'clients_idno', 'label': 'clients_idno', 'type': 'long'}]},
+    opens=['w_clientshelp'],
 )
 
 

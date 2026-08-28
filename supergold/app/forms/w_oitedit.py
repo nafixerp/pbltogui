@@ -21,6 +21,7 @@ WINDOW = Window(
     controls=[],
     tables=['oitemtranm'],
     source_path='w_oitedit.srw',
+    opens=['w_oithelp', 'w_otheritemtran'],
 )
 
 

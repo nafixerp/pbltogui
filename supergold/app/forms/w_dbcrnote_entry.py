@@ -21,6 +21,7 @@ WINDOW = Window(
     controls=[],
     tables=['daybook', 'accountm', 'clients', 'generali', 'daybookpart', 'delpart', 'userd'],
     source_path='w_dbcrnote_entry.srw',
+    opens=['w_cbachdhelp'],
 )
 
 

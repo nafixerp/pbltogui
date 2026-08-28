@@ -21,6 +21,7 @@ WINDOW = Window(
     controls=[],
     tables=['daybook', 'items', 'smithd', 'purchaserd', 'itemsstk', 'purchaserm', 'barcode', 'barcode_dmddet', 'clients', 'smithm', 'purchased_dmddet', 'purchased', 'advafter', 'barcodedmd', 'generali', 'generals', 'generald', 'daybookpart', 'delpart', 'userd'],
     source_path='w_diamond_preturn.srw',
+    opens=['w_stktypehlp', 'w_clientshelp', 'w_sucu', 'w_preturn_view', 'w_itemhelp', 'w_itemtmphelp', 'w_rmno'],
 )
 
 

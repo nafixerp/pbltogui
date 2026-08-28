@@ -21,6 +21,7 @@ WINDOW = Window(
     controls=[],
     tables=['items', 'salesm', 'itemsstk', 'orderm', 'salesd', 'salesrd', 'purchased', 'daybook', 'barcode', 'salesrm', 'purchasem', 'stkandprofit', 'oglist', 'delpart', 'userd', 'daybookpart'],
     source_path='w_scancel.srw',
+    opens=['w_salehelp', 'w_passverify_modify', 'w_tran_view'],
 )
 
 

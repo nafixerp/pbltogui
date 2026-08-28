@@ -30,7 +30,8 @@ class GeneratedForm(PBWindowForm):
     WINDOW: Window = Window(name="", title="", width=2400, height=1500,
                             controls=[], tables=[], source_path="")
 
-    def __init__(self, parsed: Window | None = None, parent=None):
+    def __init__(self, parsed: Window | None = None, parent=None,
+                 seed: dict | None = None):
         # ``parsed`` is what the module registry passes when the PowerBuilder
         # source is also available; the generated layout is used either way.
         window = Window(
@@ -38,9 +39,10 @@ class GeneratedForm(PBWindowForm):
             width=self.WINDOW.width, height=self.WINDOW.height,
             controls=[], tables=list(self.WINDOW.tables),
             source_path=self.WINDOW.source_path,
-            grid=self.WINDOW.grid, report=self.WINDOW.report)
+            grid=self.WINDOW.grid, report=self.WINDOW.report,
+            opens=list(self.WINDOW.opens))
         self._canvas = None
-        super().__init__(window, parent)
+        super().__init__(window, parent, seed=seed)
 
     # -- declaration API used by the generated modules ---------------------
     def add(self, kind: str, name: str, x: int, y: int, width: int, height: int,

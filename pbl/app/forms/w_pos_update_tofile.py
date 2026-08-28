@@ -23,6 +23,7 @@ WINDOW = Window(
     source_path='w_pos_update_tofile.srw',
     grid={'control': 'dw_possys', 'dataobject': 'd_possyssel', 'table': 'codehelp', 'keys': ['code'], 'columns': [{'name': 'code', 'label': 'code', 'type': 'char'}]},
     report={'dataobject': 'd_possyssel', 'sql': 'SELECT codehelp.code AS codehelp_code FROM codehelp', 'args': [], 'arg_types': {}, 'tables': ['codehelp'], 'columns': [{'name': 'code', 'label': 'code', 'type': 'char'}]},
+    opens=['w_cbachdhelp', 'w_possysentry'],
 )
 
 

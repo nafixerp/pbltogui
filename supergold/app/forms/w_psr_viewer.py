@@ -21,6 +21,7 @@ WINDOW = Window(
     controls=[],
     tables=['items'],
     source_path='w_psr_viewer.srw',
+    opens=['w_repsetup'],
 )
 
 

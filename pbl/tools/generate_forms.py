@@ -90,6 +90,8 @@ def module_source(window: str, doc: dict, title: str) -> str:
         extra += f"\n    grid={doc['grid']!r},"
     if doc.get("report"):
         extra += f"\n    report={doc['report']!r},"
+    if doc.get("opens"):
+        extra += f"\n    opens={doc['opens']!r},"
     body = "\n".join(control_line(c) for c in doc.get("controls", []))
     if not body:
         body = "        pass"

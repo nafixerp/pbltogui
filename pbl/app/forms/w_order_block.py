@@ -21,6 +21,7 @@ WINDOW = Window(
     controls=[],
     tables=['orderm'],
     source_path='w_order_block.srw',
+    opens=['w_orderhelp'],
 )
 
 

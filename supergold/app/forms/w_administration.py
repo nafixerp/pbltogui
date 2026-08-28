@@ -21,6 +21,7 @@ WINDOW = Window(
     controls=[],
     tables=['purchasem', 'daybook', 'purchased', 'purchased_dmddet', 'purchaserd', 'purchaserm', 'daybookpart'],
     source_path='w_administration.srw',
+    opens=['w_updaterep', 'w_set', 'w_changedocno', 'w_dates', 'w_rearangevouchernos', 'w_slnoupdt', 'w_sqlupdt', 'w_ok', 'w_updatestock', 'w_initialisedocno', 'w_initialise', 'w_idno', 'w_pchange2'],
 )
 
 

@@ -281,3 +281,27 @@ with 0 errors.
   hand-written implementations always win over a generated form.
 - All 317 modules import and build; every one of the 393 menu items resolves to
   a hand-written module or a generated form.
+
+
+## Phase 9 — Flow, printing and the utility screens ✅
+- **Screen flow.** `tools/build_catalog.py` records which windows a screen's
+  scripts open (`opens`), so the bill-number screens (Edit / Cancel / Reprint /
+  Order Sale …) carry the record you select into the entry screen: *Open …* and
+  double-click both work, and the target's retrieval arguments are seeded from
+  the row (`:rslno` from `slno`, `:rbillno` from `billno`, …). 60 screens have a
+  working flow button. `app/ui/navigation.py` keeps the forms independent of the
+  main window.
+- **Printing.** `app/ui/printing.py` renders the rows on show as a table
+  document and sends it through the standard print dialog; every record list and
+  every data view has a Print button next to its CSV/PDF export.
+- **Utility screens** are now real (`app/modules/utilities.py`): Day Lock
+  (inserts/deletes `daylock` rows over a date range, as `w_daylock` did),
+  Backup (SQLite file copy, `BACKUP DATABASE DIRECTORY` on SQL Anywhere,
+  `BACKUP DATABASE TO DISK` on SQL Server), Calendar, Reminders (add/delete),
+  Change Password (`fpencrypt` into `userm.pcode`) and About.
+- Coverage over the 393 menu items: 41 hand-written, 115 editable grids,
+  72 field-mapped, 89 data views, 17 flow screens, 59 form + record list.
+- Not converted, deliberately: the cancellation postings (stock/ledger
+  reversal), the reports the original builds in code, the designed bill print
+  layouts other than the sales tax invoice, and the two hardware/second-database
+  screens.

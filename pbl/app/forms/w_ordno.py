@@ -21,6 +21,7 @@ WINDOW = Window(
     controls=[],
     tables=['orderm', 'salesm'],
     source_path='w_ordno.srw',
+    opens=['w_osalehelp', 'w_ordersale'],
 )
 
 

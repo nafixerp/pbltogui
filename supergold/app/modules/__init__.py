@@ -44,6 +44,7 @@ from app.modules import order  # noqa: E402,F401
 from app.modules import repair  # noqa: E402,F401
 from app.modules import goldsmith  # noqa: E402,F401
 from app.modules import kuri  # noqa: E402,F401
+from app.modules import utilities  # noqa: E402,F401
 # Bridges for menu items whose PB source is missing from the export (loaded last
 # so real modules/reports above take precedence).
 from app.modules import bridges  # noqa: E402,F401

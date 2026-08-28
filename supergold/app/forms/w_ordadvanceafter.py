@@ -21,6 +21,7 @@ WINDOW = Window(
     controls=[],
     tables=['items', 'orderdga', 'advafter', 'daybook', 'orderm', 'generali', 'daybookpart'],
     source_path='w_ordadvanceafter.srw',
+    opens=['w_osalehelp', 'w_rcptpmnt_view', 'w_itemhelp', 'w_stktypeqtype'],
 )
 
 

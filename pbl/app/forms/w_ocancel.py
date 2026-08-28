@@ -21,6 +21,7 @@ WINDOW = Window(
     controls=[],
     tables=['items', 'itemsstk', 'orderm', 'purchased', 'orderdga', 'salesrd', 'salesm', 'orderd', 'purchasem', 'salesrm', 'orderdmodel', 'daybook', 'stkandprofit', 'oglist', 'delpart', 'daybookpart'],
     source_path='w_ocancel.srw',
+    opens=['w_orderhelp', 'w_tran_view'],
 )
 
 

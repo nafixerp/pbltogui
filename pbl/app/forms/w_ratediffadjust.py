@@ -21,6 +21,7 @@ WINDOW = Window(
     controls=[],
     tables=['salesm', 'daybook', 'collection', 'clients', 'daybookratewgt', 'salesd', 'generali', 'daybookpart'],
     source_path='w_ratediffadjust.srw',
+    opens=['w_clientshelp', 'w_salehelp'],
 )
 
 

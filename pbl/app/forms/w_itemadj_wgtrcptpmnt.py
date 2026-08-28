@@ -21,6 +21,7 @@ WINDOW = Window(
     controls=[],
     tables=['items', 'itemadj', 'wgtrcptpmnt', 'itemsstk', 'accountm', 'generali'],
     source_path='w_itemadj_wgtrcptpmnt.srw',
+    opens=['w_sucu_kuri', 'w_cbachdhelp', 'w_clientshelp'],
 )
 
 

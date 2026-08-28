@@ -21,6 +21,7 @@ WINDOW = Window(
     controls=[],
     tables=['loan'],
     source_path='w_loanedit.srw',
+    opens=['w_loanhelp', 'w_loanentry_amt'],
 )
 
 

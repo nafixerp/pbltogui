@@ -21,6 +21,7 @@ WINDOW = Window(
     controls=[],
     tables=['refinerym', 'refineryd'],
     source_path='w_refneditno.srw',
+    opens=['w_refnallhelp', 'w_refnhelp', 'w_refnenter', 'w_refnreturn1', 'w_refinary'],
 )
 
 

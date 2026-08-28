@@ -21,6 +21,7 @@ WINDOW = Window(
     controls=[],
     tables=['loan', 'loan_dates', 'loan_items', 'daybook', 'pdclist', 'delpart', 'daybookpart'],
     source_path='w_loancancel.srw',
+    opens=['w_loanhelp'],
 )
 
 

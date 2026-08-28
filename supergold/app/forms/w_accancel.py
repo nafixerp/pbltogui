@@ -21,6 +21,7 @@ WINDOW = Window(
     controls=[],
     tables=['daybook', 'collection', 'advafter', 'kuricolln', 'daybookratewgt', 'stkandprofit', 'suspentry', 'orderdga', 'daybookpart', 'delpart'],
     source_path='w_accancel.srw',
+    opens=['w_accentyhelp'],
 )
 
 

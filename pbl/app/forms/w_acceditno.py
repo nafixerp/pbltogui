@@ -21,6 +21,7 @@ WINDOW = Window(
     controls=[],
     tables=['pdclist', 'advafter', 'suspentry', 'daybookpart'],
     source_path='w_acceditno.srw',
+    opens=['w_accentyhelp', 'w_susprcptpmnt', 'w_ordadvanceafter', 'w_rcpt', 'w_pmnt', 'w_dbcrnote_entry'],
 )
 
 

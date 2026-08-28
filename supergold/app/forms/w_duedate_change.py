@@ -21,6 +21,7 @@ WINDOW = Window(
     controls=[],
     tables=['clients'],
     source_path='w_duedate_change.srw',
+    opens=['w_clientshelp'],
 )
 
 

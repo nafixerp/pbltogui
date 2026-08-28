@@ -21,6 +21,7 @@ WINDOW = Window(
     controls=[],
     tables=['barcode', 'items', 'itemsstk', 'itemadj', 'stk', 'item', 'generali'],
     source_path='w_barcode_entryall.srw',
+    opens=['w_barcodelist', 'w_itemhelp'],
 )
 
 

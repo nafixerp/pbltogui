@@ -21,6 +21,7 @@ WINDOW = Window(
     controls=[],
     tables=['accountm', 'clientsgs', 'clients', 'clientspict', 'daybook', 'smithm', 'refinerym', 'userd'],
     source_path='w_smith.srw',
+    opens=['w_achdgrp', 'w_clientsgrp', 'w_clientshelp'],
 )
 
 

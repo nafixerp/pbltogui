@@ -21,6 +21,7 @@ WINDOW = Window(
     controls=[],
     tables=['salesrm', 'items', 'itemsstk', 'salesrd', 'daybook', 'salesm', 'stkandprofit', 'delpart', 'daybookpart'],
     source_path='w_sretcancel.srw',
+    opens=['w_salerethelp', 'w_tran_view'],
 )
 
 

@@ -21,6 +21,7 @@ WINDOW = Window(
     controls=[],
     tables=['daybook', 'pdclist', 'clients', 'accountm', 'collection', 'generali', 'daybookpart'],
     source_path='w_pdc_colln.srw',
+    opens=['w_pdc_chqhelp'],
 )
 
 

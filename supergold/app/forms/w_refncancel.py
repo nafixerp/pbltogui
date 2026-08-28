@@ -21,6 +21,7 @@ WINDOW = Window(
     controls=[],
     tables=['items', 'itemsstk', 'refinerym', 'refineryd', 'daybook', 'stkandprofit', 'oglist', 'delpart', 'daybookpart'],
     source_path='w_refncancel.srw',
+    opens=['w_refnallhelp'],
 )
 
 

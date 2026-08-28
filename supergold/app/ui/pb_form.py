@@ -27,6 +27,13 @@ from PySide6.QtWidgets import (
 from app import pb_parser
 from app.reports.generic import GenericDataView
 from app.services import crud_service
+from app.ui import navigation
+from app.ui.printing import print_table
+
+
+def _pretty_window(name: str) -> str:
+    """w_sales -> Sales, for a button caption."""
+    return name[2:].replace("_", " ").title() if name.startswith("w_") else name
 from app.pb_parser import PBU
 
 import db
@@ -41,9 +48,10 @@ _STD_BUTTON = {
 class PBWindowForm(QWidget):
     """Generic, faithful renderer for a parsed PowerBuilder window."""
 
-    def __init__(self, window: pb_parser.Window, parent=None):
+    def __init__(self, window: pb_parser.Window, parent=None, seed: dict | None = None):
         super().__init__(parent)
         self.window_def = window
+        self.seed = seed or {}
         self._inputs: dict[str, QWidget] = {}
         self._rows: list = []
         self._current_row: dict | None = None
@@ -243,7 +251,8 @@ class PBWindowForm(QWidget):
         if self.grid_mode or (self.mapping is not None and self.mapping.writable):
             return self._data_grid()
         if self.window_def.report:
-            view = GenericDataView(self.window_def.report, self.window_def.title)
+            view = GenericDataView(self.window_def.report, self.window_def.title,
+                                   seed=self.seed)
             box = QGroupBox(f"Data — {self.window_def.report.get('dataobject', '')}")
             lay = QVBoxLayout(box)
             lay.addWidget(view)
@@ -275,6 +284,13 @@ class PBWindowForm(QWidget):
             btn = QPushButton(caption)
             btn.clicked.connect(slot)
             tools.addWidget(btn)
+        print_btn = QPushButton("Print")
+        print_btn.clicked.connect(self._print_records)
+        tools.addWidget(print_btn)
+        for target in self._flow_targets()[:2]:
+            btn = QPushButton(f"Open {_pretty_window(target)}")
+            btn.clicked.connect(lambda _=False, w=target: self._open_next(w))
+            tools.addWidget(btn)
         tools.addStretch(1)
         self._status = QLabel()
         self._status.setStyleSheet("color:#4a5a6a;")
@@ -290,6 +306,8 @@ class PBWindowForm(QWidget):
         else:
             self._grid.setEditTriggers(QTableWidget.NoEditTriggers)
             self._grid.itemSelectionChanged.connect(self._grid_selected)
+            if self._flow_targets():
+                self._grid.itemDoubleClicked.connect(lambda *_: self._open_next())
         self._grid.setSelectionBehavior(QTableWidget.SelectRows)
         self._grid.setSelectionMode(QTableWidget.SingleSelection)
         lay.addWidget(self._grid)
@@ -408,6 +426,41 @@ class PBWindowForm(QWidget):
             return
         self._refresh()
         self._flash("Deleted.")
+
+    # -- flow to the next screen ------------------------------------------
+    def _flow_targets(self) -> list:
+        """Screens this window leads to (its own scripts name them).
+
+        Only screens this build actually has, and the entry screens before the
+        record-picker helpers — this window already lists the records itself.
+        """
+        from app import forms
+
+        known = [w for w in (self.window_def.opens or [])
+                 if w and forms.get_form(w) is not None]
+        entry = [w for w in known if "help" not in w]
+        return entry + [w for w in known if w not in entry]
+
+    def _selected_record(self) -> dict:
+        """The row the user is on, whichever data area this screen uses."""
+        if self._current_row:
+            return dict(self._current_row)
+        if self._view is not None and self._view.selected_row():
+            return dict(self._view.selected_row())
+        if self._grid is not None and self._rows:
+            idx = self._grid.currentRow()
+            if 0 <= idx < len(self._rows) and self._rows[idx]:
+                return dict(self._rows[idx])
+        return {}
+
+    def _open_next(self, window: str = ""):
+        targets = self._flow_targets()
+        if not targets:
+            return
+        target = window or targets[0]
+        record = self._selected_record()
+        if not navigation.open_window(target, record, self.window_def.title):
+            self._info(f"This option opens {target}.")
 
     def _update_status(self):
         if self._status is None:
@@ -562,6 +615,17 @@ class PBWindowForm(QWidget):
             parent = parent.parent()
         if isinstance(parent, QTabWidget):
             parent.removeTab(parent.indexOf(self))
+
+    def _print_records(self):
+        rows = self._rows if self._rows else []
+        if self.grid_mode or not rows:
+            rows = [self._row_values(r) for r in range(self._grid.rowCount())] \
+                if (self._grid is not None and self.grid_mode) else rows
+        if not rows:
+            self._info("Nothing to print — load some records first.")
+            return
+        columns = list(rows[0].keys())
+        print_table(self, self.window_def.title, columns, rows)
 
     def _confirm(self, question: str) -> bool:
         return QMessageBox.question(

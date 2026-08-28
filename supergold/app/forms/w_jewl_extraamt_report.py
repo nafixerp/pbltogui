@@ -22,6 +22,7 @@ WINDOW = Window(
     tables=['accountm'],
     source_path='w_jewl_extraamt_report.srw',
     report={'dataobject': 'd_jewl_extraamt_report', 'sql': 'SELECT smithm.tdate AS smithm_tdate, smithm.docno AS smithm_docno, smithm.smithcode AS smithm_smithcode, smithm.tmcharge AS smithm_tmcharge, smithm.tdsperc AS smithm_tdsperc, smithm.tdsamt AS smithm_tdsamt, smithm.acidcharge AS smithm_acidcharge, smithm.discount AS smithm_discount, (select clients.name from clients where clients.code = smithm.smithcode) as name, (select clients.ctype from clients where clients.code = smithm.smithcode) as ctype FROM smithm ORDER BY smithm.tdate ASC, smithm.docno ASC', 'args': ['rdate1', 'rdate2', 'rlevel'], 'arg_types': {'rdate1': 'date', 'rdate2': 'date', 'rlevel': 'number'}, 'tables': ['smithm'], 'columns': [{'name': 'tdate', 'label': 'Date', 'type': 'date'}, {'name': 'docno', 'label': 'Doc No', 'type': 'char'}, {'name': 'smithcode', 'label': 'Party', 'type': 'char'}, {'name': 'tmcharge', 'label': 'MC+St.Amt', 'type': 'decimal'}, {'name': 'tdsperc', 'label': 'tdsperc', 'type': 'decimal'}, {'name': 'tdsamt', 'label': 'TDS Amt', 'type': 'decimal'}, {'name': 'name', 'label': 'name', 'type': 'char'}, {'name': 'ctype', 'label': 'ctype', 'type': 'char'}, {'name': 'acidcharge', 'label': 'acidcharge', 'type': 'decimal'}, {'name': 'discount', 'label': 'discount', 'type': 'decimal'}]},
+    opens=['w_clientshelp'],
 )
 
 

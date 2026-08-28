@@ -21,6 +21,7 @@ WINDOW = Window(
     controls=[],
     tables=['clients', 'items', 'clientsgrp', 'oglist', 'itemgrp', 'clientsgs', 'smithd', 'refineryd', 'kuricolln', 'orderdga'],
     source_path='w_stockbal_smithjewlstock_rep.srw',
+    opens=['w_smithledger'],
 )
 
 

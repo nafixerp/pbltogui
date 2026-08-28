@@ -23,6 +23,7 @@ WINDOW = Window(
     source_path='w_kuri_intpost.srw',
     grid={'control': 'dw_dim', 'dataobject': 'd_kuri_intpost', 'table': 'clients', 'keys': ['code'], 'columns': [{'name': 'code', 'label': 'Party', 'type': 'char'}, {'name': 'name', 'label': 'name', 'type': 'char'}, {'name': 'tcolln', 'label': 'tcolln', 'type': 'decimal'}, {'name': 'intamt', 'label': 'intamt', 'type': 'decimal'}]},
     report={'dataobject': 'd_kuri_intpost', 'sql': 'SELECT clients.code AS clients_code, clients.name AS clients_name, (select sum(kuricolln.amount) from kuricolln where kuricolln.code = clients.code and kuricolln.tdate <= :rdate and kuricolln.control <= :rlevel) as tcolln, 0.001 as intamt FROM clients', 'args': ['rdate', 'rlevel'], 'arg_types': {'rdate': 'date', 'rlevel': 'number'}, 'tables': ['clients'], 'columns': [{'name': 'code', 'label': 'Party', 'type': 'char'}, {'name': 'name', 'label': 'name', 'type': 'char'}, {'name': 'tcolln', 'label': 'tcolln', 'type': 'decimal'}, {'name': 'intamt', 'label': 'intamt', 'type': 'decimal'}]},
+    opens=['w_clientshelp'],
 )
 
 

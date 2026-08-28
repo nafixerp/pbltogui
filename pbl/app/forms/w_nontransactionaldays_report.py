@@ -21,6 +21,7 @@ WINDOW = Window(
     controls=[],
     tables=['daybook', 'accountm', 'smithm', 'clients'],
     source_path='w_nontransactionaldays_report.srw',
+    opens=['w_sucu', 'w_smith', 'w_achd'],
 )
 
 

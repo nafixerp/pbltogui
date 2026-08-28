@@ -22,6 +22,7 @@ WINDOW = Window(
     tables=['clients', 'daybook'],
     source_path='w_rcptdetail.srw',
     report={'dataobject': 'd_rcptdetail', 'sql': 'SELECT daybook.tdate AS daybook_tdate, daybook.amount AS daybook_amount, daybookpart.vchno AS daybookpart_vchno, daybookpart.particular AS daybookpart_particular, daybookpart.duedate AS daybookpart_duedate FROM daybook, daybookpart WHERE daybook.slno = daybookpart.slno AND daybook.control <= :rlevel AND daybook.tdate between :rdate1 and :rdate2 AND daybook.accode = :rcode ORDER BY daybook.tdate ASC', 'args': ['rdate1', 'rdate2', 'rlevel', 'rcode', 'racname', 'ropbal', 'rclbal'], 'arg_types': {'rdate1': 'date', 'rdate2': 'date', 'rlevel': 'number', 'rcode': 'string', 'racname': 'string', 'ropbal': 'decimal', 'rclbal': 'decimal'}, 'tables': ['daybook', 'daybookpart'], 'columns': [{'name': 'daybook_tdate', 'label': 'daybook_tdate', 'type': 'date'}, {'name': 'daybook_amount', 'label': 'daybook_amount', 'type': 'decimal'}, {'name': 'daybookpart_vchno', 'label': 'daybookpart_vchno', 'type': 'char'}, {'name': 'daybookpart_particular', 'label': 'daybookpart_particular', 'type': 'char'}, {'name': 'daybookpart_duedate', 'label': 'daybookpart_duedate', 'type': 'date'}]},
+    opens=['w_clientshelp'],
 )
 
 

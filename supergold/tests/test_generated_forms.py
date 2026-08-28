@@ -67,6 +67,8 @@ def test_sample_forms_build_with_their_controls(qapp, window):
 
 
 def test_form_keeps_the_screen_behaviour(qapp):
+    import db
+    db.init_db()                      # the local schema this build ships with
     form = forms.get_form("w_itemsubgrp")()
     assert form.grid_mode                       # edits its DataWindow's table
     assert form.mapping.table == "itemsubgrp"

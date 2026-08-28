@@ -21,6 +21,7 @@ WINDOW = Window(
     controls=[],
     tables=['accountm'],
     source_path='w_partywgtbal_opbal.srw',
+    opens=['w_sucu_kuri', 'w_cbachdhelp', 'w_clientshelp'],
 )
 
 

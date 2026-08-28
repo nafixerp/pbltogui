@@ -21,6 +21,7 @@ WINDOW = Window(
     controls=[],
     tables=['clients', 'daybook', 'kuricolln', 'clients_kuridet', 'transact', 'olecustomcontrol', 'kuritype', 'kcomntable', 'pos', 'server', 'txt', 'paycollect', 'generali', 'daybookpart'],
     source_path='w_pos_update.srw',
+    opens=['w_cbachdhelp'],
 )
 
 

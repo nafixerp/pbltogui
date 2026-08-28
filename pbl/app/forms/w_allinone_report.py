@@ -21,6 +21,7 @@ WINDOW = Window(
     controls=[],
     tables=['salesrm', 'salesd', 'salesrd', 'purchased', 'purchaserd', 'salesm', 'purchasem', 'purchaserm', 'smithm', 'smithd'],
     source_path='w_allinone_report.srw',
+    opens=['w_allreportsummary'],
 )
 
 

@@ -21,6 +21,7 @@ WINDOW = Window(
     controls=[],
     tables=['itemadj', 'refineryd', 'items', 'smithm', 'smithd', 'repaird', 'purchasem', 'purchaserm', 'salesm', 'salesrm', 'itemgrp', 'purchased', 'purchaserd', 'salesrd', 'orderdga', 'salesd', 'date'],
     source_path='w_stockregister.srw',
+    opens=['w_itemhelp'],
 )
 
 

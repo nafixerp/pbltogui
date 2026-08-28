@@ -21,6 +21,7 @@ WINDOW = Window(
     controls=[],
     tables=['userm'],
     source_path='w_passverify2.srw',
+    opens=['w_pchange'],
 )
 
 

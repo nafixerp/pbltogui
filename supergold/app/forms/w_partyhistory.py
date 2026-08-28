@@ -21,6 +21,7 @@ WINDOW = Window(
     controls=[],
     tables=['daybook', 'items', 'accountm', 'purchased', 'salesrd', 'date', 'purchaserm', 'purchasem', 'purchaserd', 'salesm', 'salesd', 'salesrm', 'smithm', 'smithd', 'refinerym', 'refineryd', 'orderm', 'orderd', 'repairm', 'repaird', 'oitemtranm', 'oitemtrand'],
     source_path='w_partyhistory.srw',
+    opens=['w_clientshelp'],
 )
 
 

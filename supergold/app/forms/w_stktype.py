@@ -21,6 +21,7 @@ WINDOW = Window(
     controls=[],
     tables=['stktype', 'itemsstk', 'salesd', 'salesrd', 'purchased', 'purchaserd', 'smithd', 'refineryd', 'repaird', 'itemadj'],
     source_path='w_stktype.srw',
+    opens=['w_defstktypeset', 'w_stktypehlp'],
 )
 
 

@@ -21,6 +21,7 @@ WINDOW = Window(
     controls=[],
     tables=['items', 'barcode', 'itemsstk', 'itemadj', 'bc', 'stk', 'item', 'generali'],
     source_path='w_itemadj_multi.srw',
+    opens=['w_dates', 'w_itemhelp'],
 )
 
 

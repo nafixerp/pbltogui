@@ -22,6 +22,7 @@ WINDOW = Window(
     tables=['accountm', 'daybook'],
     source_path='w_jewelsummary.srw',
     report={'dataobject': 'd_jewlsummary', 'sql': 'SELECT onerec.field AS onerec_field FROM onerec', 'args': ['rdate1', 'rdate2', 'rlevel', 'rcode', 'rname', 'rclbalance'], 'arg_types': {'rdate1': 'date', 'rdate2': 'date', 'rlevel': 'number', 'rcode': 'string', 'rname': 'string', 'rclbalance': 'decimal'}, 'tables': ['onerec'], 'columns': [{'name': 'field', 'label': 'field', 'type': 'char'}]},
+    opens=['w_clientshelp'],
 )
 
 

@@ -21,6 +21,7 @@ WINDOW = Window(
     controls=[],
     tables=['salesm', 'spdmddet'],
     source_path='w_sreprintmpc.srw',
+    opens=['w_salehelp'],
 )
 
 

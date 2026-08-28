@@ -21,6 +21,7 @@ WINDOW = Window(
     controls=[],
     tables=[],
     source_path='w_daysummarydate_mala.srw',
+    opens=['w_daysummary_mala'],
 )
 
 

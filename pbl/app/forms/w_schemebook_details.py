@@ -21,6 +21,7 @@ WINDOW = Window(
     controls=[],
     tables=['kuricolln', 'clients', 'clients_kuridet'],
     source_path='w_schemebook_details.srw',
+    opens=['w_clientshelp'],
 )
 
 

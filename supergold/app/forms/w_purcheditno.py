@@ -21,6 +21,7 @@ WINDOW = Window(
     controls=[],
     tables=['purchasem', 'purchaserm', 'purchaserd', 'purchased'],
     source_path='w_purcheditno.srw',
+    opens=['w_purchhelp', 'w_purchase_amtentry', 'w_diamond_preturn', 'w_purchase_ret', 'w_diamond_purchase', 'w_purchase_withbc', 'w_purchase'],
 )
 
 

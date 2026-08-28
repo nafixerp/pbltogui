@@ -21,6 +21,7 @@ WINDOW = Window(
     controls=[],
     tables=['items', 'daybook', 'itemsstk', 'smithd', 'barcode', 'purchaserd', 'purchasem', 'purchased', 'barcode_dmddet', 'clients', 'smithm', 'advafter', 'purchased_dmddet', 'purchaserm', 'barcodedmd', 'orderm', 'clientsgs', 'generali', 'generals', 'generald', 'daybookpart', 'delpart', 'userd'],
     source_path='w_diamond_purchase.srw',
+    opens=['w_stktypehlp', 'w_camera', 'w_clientshelp', 'w_osalehelp', 'w_sucu', 'w_exchange', 'w_gsmithprint_view', 'w_purchase_view', 'w_barcodelist', 'w_itemhelp', 'w_itemtmphelp', 'w_stktypeqtype', 'w_rmno'],
 )
 
 

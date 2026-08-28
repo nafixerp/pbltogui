@@ -22,6 +22,7 @@ WINDOW = Window(
     tables=['daybook', 'kurifinishdet', 'clients_kuridet', 'clients', 'generali', 'daybookpart'],
     source_path='w_kuri_finish.srw',
     report={'dataobject': 'd_kuri_finish', 'sql': 'SELECT clients.code AS clients_code, clients.name AS clients_name, clients_kuridet.totamt AS clients_kuridet_totamt, clients_kuridet.bonus AS clients_kuridet_bonus, clients_kuridet.collnopbal AS clients_kuridet_collnopbal, (select sum(kuricolln.amount) from kuricolln where kuricolln.code = clients.code and kuricolln.tdate <= :rdate and kuricolln.control <= :rlevel) as totcolln2, (clients_kuridet.collnopbal + ifnull(totcolln2,0,totcolln2) ) as totcolln FROM clients, clients_kuridet WHERE clients.code = clients_kuridet.code ORDER BY clients.code ASC', 'args': ['rdate', 'rktype', 'rlevel', 'rgrate'], 'arg_types': {'rdate': 'date', 'rktype': 'string', 'rlevel': 'number', 'rgrate': 'number'}, 'tables': ['clients', 'clients_kuridet'], 'columns': [{'name': 'clients_code', 'label': 'clients_code', 'type': 'char'}, {'name': 'clients_name', 'label': 'clients_name', 'type': 'char'}, {'name': 'clients_kuridet_totamt', 'label': 'clients_kuridet_totamt', 'type': 'decimal'}, {'name': 'totcolln2', 'label': 'totcolln2', 'type': 'decimal'}, {'name': 'clients_kuridet_bonus', 'label': 'clients_kuridet_bonus', 'type': 'decimal'}, {'name': 'clients_kuridet_collnopbal', 'label': 'clients_kuridet_collnopbal', 'type': 'decimal'}, {'name': 'ctotcolln', 'label': 'ctotcolln', 'type': 'decimal'}]},
+    opens=['w_clientshelp'],
 )
 
 

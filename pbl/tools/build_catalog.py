@@ -25,6 +25,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.dirname(HERE))
 
 from app import menu_loader, pb_menu, pb_parser  # noqa: E402
+from app.pb_parser import decode_pb  # noqa: E402
 
 
 def node_to_dict(node) -> dict:
@@ -116,9 +117,22 @@ def _report_spec(win, source_dir: str) -> dict | None:
     }
 
 
+def _opens(win, source_dir: str) -> list:
+    """Other windows this screen's scripts open (the original's own flow)."""
+    path = pb_parser.find_source(os.path.basename(win.source_path), source_dir)
+    if not path:
+        return []
+    try:
+        targets = pb_menu._targets(decode_pb(path))
+    except Exception:
+        return []
+    return [t for t in targets if t != win.name]
+
+
 def window_to_dict(win, source_dir: str = "") -> dict:
     grid = _grid_spec(win, source_dir) if source_dir else None
     report = _report_spec(win, source_dir) if source_dir else None
+    opens = _opens(win, source_dir) if source_dir else []
     doc = {
         "name": win.name,
         "title": win.title,
@@ -136,6 +150,8 @@ def window_to_dict(win, source_dir: str = "") -> dict:
         doc["grid"] = grid
     if report:
         doc["report"] = report
+    if opens:
+        doc["opens"] = opens
     return doc
 
 

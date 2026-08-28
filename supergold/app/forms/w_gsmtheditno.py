@@ -21,6 +21,7 @@ WINDOW = Window(
     controls=[],
     tables=['smithm'],
     source_path='w_gsmtheditno.srw',
+    opens=['w_gsmthhelp', 'w_gsmith'],
 )
 
 

@@ -21,6 +21,7 @@ WINDOW = Window(
     controls=[],
     tables=['salesm', 'daybook', 'orderm', 'items', 'itemsstk', 'advafter', 'purchasem', 'counter', 'salesd', 'salesrm', 'salesrd', 'purchased', 'salestype', 'spdmddet', 'generali', 'generals', 'daybookpart', 'userm'],
     source_path='w_est_to_bill.srw',
+    opens=['w_salehelp_estconfirm_bills', 'w_salehelp_estconfirm', 'w_diamond_sales_print', 'w_sales_view'],
 )
 
 

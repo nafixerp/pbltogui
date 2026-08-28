@@ -21,6 +21,7 @@ WINDOW = Window(
     controls=[],
     tables=['smithm'],
     source_path='w_gsmthreprint.srw',
+    opens=['w_gsmthhelp', 'w_gsmithprint_view'],
 )
 
 

@@ -21,6 +21,7 @@ WINDOW = Window(
     controls=[],
     tables=['repairm', 'refinerym', 'orderm', 'clients', 'salesm', 'smithm', 'oitemtranm', 'daybook', 'accountm', 'spdmddet', 'salesrm', 'purchasem', 'purchaserm', 'daybookratewgt', 'collection', 'advafter', 'barcode', 'wgtrcptpmnt', 'refineryd', 'oitemtrand', 'repaird', 'itemadj', 'kuricolln', 'kurifinishdet', 'kuriint', 'itemsothers', 'salesd', 'salesrd', 'purchased', 'purchased_dmddet', 'purchaserd', 'suspentry', 'orderd', 'orderdga', 'orderdmodel', 'smithd', 'barcodedoc', 'clients_kuridet', 'clientsgs', 'items', 'itemsstk', 'accountgbs', 'accountg', 'barcode_dmddet', 'barcodedmd', 'counter', 'sman', 'itemgrp', 'stktype', 'staffleave', 'pcard', 'pcardtable', 'file', 'itemsqtype', 'daybookpart', 'delpart'],
     source_path='w_datatransfer2.srw',
+    opens=['w_tranwait'],
 )
 
 

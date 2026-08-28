@@ -36,6 +36,9 @@
     "width": 1175,
     "height": 116
    }
+  ],
+  "opens": [
+   "w_companycreate"
   ]
  },
  "w_about": {
@@ -600,6 +603,9 @@
     "height": 76,
     "text": "Malayalam :"
    }
+  ],
+  "opens": [
+   "w_regional"
   ]
  },
  "w_setup": {
@@ -653,6 +659,9 @@
     "text": "&Cancel",
     "taborder": 20
    }
+  ],
+  "opens": [
+   "w_regional"
   ]
  },
  "w_item": {
@@ -1701,7 +1710,18 @@
      "type": "char"
     }
    ]
-  }
+  },
+  "opens": [
+   "w_itemhelp",
+   "w_itemsubgrp",
+   "w_itemgrp",
+   "w_clientshelp",
+   "w_itemcode_change",
+   "w_itemlist_mcwstg",
+   "w_regional",
+   "w_stocklist",
+   "w_stockledger"
+  ]
  },
  "w_itemtmp": {
   "name": "w_itemtmp",
@@ -1843,7 +1863,11 @@
      "type": "char"
     }
    ]
-  }
+  },
+  "opens": [
+   "w_regional",
+   "w_itemhelp"
+  ]
  },
  "w_item_others": {
   "name": "w_item_others",
@@ -2107,6 +2131,9 @@
     "text": "E&xit",
     "taborder": 150
    }
+  ],
+  "opens": [
+   "w_item_others_help"
   ]
  },
  "w_itemgrp": {
@@ -2384,6 +2411,10 @@
     "text": "E&xit",
     "taborder": 120
    }
+  ],
+  "opens": [
+   "w_regional",
+   "w_itemgrphelp"
   ]
  },
  "w_itemsubgrp": {
@@ -2606,7 +2637,11 @@
      "type": "char"
     }
    ]
-  }
+  },
+  "opens": [
+   "w_regional",
+   "w_itemhelp"
+  ]
  },
  "w_counter": {
   "name": "w_counter",
@@ -2885,7 +2920,10 @@
      "type": "decimal"
     }
    ]
-  }
+  },
+  "opens": [
+   "w_itemhelp"
+  ]
  },
  "w_mctable": {
   "name": "w_mctable",
@@ -3070,7 +3108,10 @@
      "type": "decimal"
     }
    ]
-  }
+  },
+  "opens": [
+   "w_itemhelp"
+  ]
  },
  "w_partymctable": {
   "name": "w_partymctable",
@@ -3248,7 +3289,13 @@
      "type": "char"
     }
    ]
-  }
+  },
+  "opens": [
+   "w_clientshelp",
+   "w_smith",
+   "w_item",
+   "w_models"
+  ]
  },
  "w_stktype": {
   "name": "w_stktype",
@@ -3456,6 +3503,10 @@
     "height": 60,
     "text": "To give"
    }
+  ],
+  "opens": [
+   "w_defstktypeset",
+   "w_stktypehlp"
   ]
  },
  "w_models": {
@@ -4095,7 +4146,10 @@
      "type": "long"
     }
    ]
-  }
+  },
+  "opens": [
+   "w_itemhelp"
+  ]
  },
  "w_sucu": {
   "name": "w_sucu",
@@ -5175,7 +5229,19 @@
      "type": "char"
     }
    ]
-  }
+  },
+  "opens": [
+   "w_camera",
+   "w_pcard",
+   "w_clientsarea",
+   "w_achdgrp",
+   "w_clientsroute",
+   "w_sucu_advanced",
+   "w_clientsgrp",
+   "w_clientshelp",
+   "w_cbachdhelp",
+   "w_custopbills"
+  ]
  },
  "w_smith": {
   "name": "w_smith",
@@ -5980,6 +6046,11 @@
     "text": "E&xit",
     "taborder": 390
    }
+  ],
+  "opens": [
+   "w_achdgrp",
+   "w_clientsgrp",
+   "w_clientshelp"
   ]
  },
  "w_achd": {
@@ -6495,6 +6566,12 @@
     "text": "Code Rename",
     "taborder": 180
    }
+  ],
+  "opens": [
+   "w_accode_rename",
+   "w_achdbsgrp",
+   "w_achdgrp",
+   "w_cbachdhelp"
   ]
  },
  "w_accounts_position": {
@@ -6942,7 +7019,10 @@
      "type": "decimal"
     }
    ]
-  }
+  },
+  "opens": [
+   "w_cbachdhelp"
+  ]
  },
  "w_sman": {
   "name": "w_sman",
@@ -7535,7 +7615,11 @@
      "type": "char"
     }
    ]
-  }
+  },
+  "opens": [
+   "w_regional",
+   "w_itemhelp"
+  ]
  },
  "w_gifttable": {
   "name": "w_gifttable",
@@ -8239,7 +8323,10 @@
      "type": "decimal"
     }
    ]
-  }
+  },
+  "opens": [
+   "w_clientshelp"
+  ]
  },
  "w_passverify2": {
   "name": "w_passverify2",
@@ -8289,6 +8376,9 @@
     "text": "delta",
     "taborder": 30
    }
+  ],
+  "opens": [
+   "w_pchange"
   ]
  },
  "w_useraccess": {
@@ -10163,6 +10253,27 @@
     "text": "E&xit",
     "taborder": 200
    }
+  ],
+  "opens": [
+   "w_stktypeqtype",
+   "w_osalehelp",
+   "w_itemhelp",
+   "w_itemtmphelp",
+   "w_rmno",
+   "w_mcharge_perc",
+   "w_wstgmclist",
+   "w_wastage",
+   "w_itemadjpopup",
+   "w_vaperc",
+   "w_mcharge",
+   "w_dmdpopup",
+   "w_vachange",
+   "w_jewlcode",
+   "w_calander2",
+   "w_cbachdhelp",
+   "w_clientshelp",
+   "w_sucu",
+   "w_diamond_sales_print"
   ]
  },
  "w_sales": {
@@ -11965,6 +12076,33 @@
     "height": 76,
     "text": "Scheme Bal"
    }
+  ],
+  "opens": [
+   "w_passverify_modify",
+   "w_sales_status",
+   "w_stktypeqtype",
+   "w_calander2",
+   "w_clientshelp",
+   "w_cbachdhelp",
+   "w_printcheck",
+   "w_sreturn",
+   "w_exchange",
+   "w_sucu",
+   "w_loanentry",
+   "w_diamond_sales_print",
+   "w_sales_view",
+   "w_mcharge_perc",
+   "w_rmno",
+   "w_itemhelp",
+   "w_itemtmphelp",
+   "w_wstgmclist",
+   "w_wastage",
+   "w_itemadjpopup",
+   "w_vaperc",
+   "w_mcharge",
+   "w_dmdpopup",
+   "w_vachange",
+   "w_jewlcode"
   ]
  },
  "w_seditbillno": {
@@ -12052,6 +12190,11 @@
     "text": "E&xit",
     "taborder": 40
    }
+  ],
+  "opens": [
+   "w_salehelp",
+   "w_ordersale",
+   "w_sales"
   ]
  },
  "w_scancel": {
@@ -12154,6 +12297,11 @@
     "text": "E&xit",
     "taborder": 40
    }
+  ],
+  "opens": [
+   "w_salehelp",
+   "w_passverify_modify",
+   "w_tran_view"
   ]
  },
  "w_sreprintmpc": {
@@ -12251,6 +12399,9 @@
     "height": 76,
     "text": "&View"
    }
+  ],
+  "opens": [
+   "w_salehelp"
   ]
  },
  "w_est_to_bill": {
@@ -12560,6 +12711,12 @@
     "text": "E&xit",
     "taborder": 90
    }
+  ],
+  "opens": [
+   "w_salehelp_estconfirm_bills",
+   "w_salehelp_estconfirm",
+   "w_diamond_sales_print",
+   "w_sales_view"
   ]
  },
  "w_printconfirm": {
@@ -12942,7 +13099,15 @@
      "type": "long"
     }
    ]
-  }
+  },
+  "opens": [
+   "w_tran_view",
+   "w_sales_view_only",
+   "w_sales_view",
+   "w_diamond_sales_print",
+   "w_clientshelp",
+   "w_sucu"
+  ]
  },
  "w_salesreturn": {
   "name": "w_salesreturn",
@@ -13794,6 +13959,25 @@
     "height": 76,
     "text": "Laser Print"
    }
+  ],
+  "opens": [
+   "w_stktypeqtype",
+   "w_salehelp",
+   "w_clientshelp",
+   "w_sucu",
+   "w_salesreturn_view",
+   "w_mcharge_perc",
+   "w_rmno",
+   "w_itemhelp",
+   "w_itemtmphelp",
+   "w_wstgmclist",
+   "w_wastage",
+   "w_itemadjpopup",
+   "w_vaperc",
+   "w_mcharge",
+   "w_dmdpopup",
+   "w_vachange",
+   "w_jewlcode"
   ]
  },
  "w_sreteditbillno": {
@@ -13881,6 +14065,10 @@
     "text": "E&xit",
     "taborder": 40
    }
+  ],
+  "opens": [
+   "w_salerethelp",
+   "w_salesreturn"
   ]
  },
  "w_sretcancel": {
@@ -13976,6 +14164,10 @@
     "text": "E&xit",
     "taborder": 40
    }
+  ],
+  "opens": [
+   "w_salerethelp",
+   "w_tran_view"
   ]
  },
  "w_sretreprint": {
@@ -14064,6 +14256,10 @@
     "text": "E&xit",
     "taborder": 40
    }
+  ],
+  "opens": [
+   "w_salerethelp",
+   "w_salesreturn_view"
   ]
  },
  "w_purchase_withbc": {
@@ -14712,6 +14908,19 @@
     "height": 68,
     "text": "Print BC After Save"
    }
+  ],
+  "opens": [
+   "w_stktypehlp",
+   "w_clientshelp",
+   "w_osalehelp",
+   "w_sucu",
+   "w_exchange",
+   "w_purchase_vat_print",
+   "w_barcodelist",
+   "w_itemtmphelp",
+   "w_stktypeqtype",
+   "w_rmno",
+   "w_itemhelp"
   ]
  },
  "w_purchase": {
@@ -15777,7 +15986,20 @@
      "type": "decimal"
     }
    ]
-  }
+  },
+  "opens": [
+   "w_stktypehlp",
+   "w_clientshelp",
+   "w_osalehelp",
+   "w_sucu",
+   "w_exchange",
+   "w_purchase_view",
+   "w_purchase_vat_print",
+   "w_itemtmphelp",
+   "w_stktypeqtype",
+   "w_rmno",
+   "w_itemhelp"
+  ]
  },
  "w_purcheditno": {
   "name": "w_purcheditno",
@@ -15865,6 +16087,15 @@
     "text": "E&xit",
     "taborder": 40
    }
+  ],
+  "opens": [
+   "w_purchhelp",
+   "w_purchase_amtentry",
+   "w_diamond_preturn",
+   "w_purchase_ret",
+   "w_diamond_purchase",
+   "w_purchase_withbc",
+   "w_purchase"
   ]
  },
  "w_pcancel": {
@@ -15968,6 +16199,10 @@
     "text": "E&xit",
     "taborder": 30
    }
+  ],
+  "opens": [
+   "w_purchhelp",
+   "w_tran_view"
   ]
  },
  "w_preprint": {
@@ -16055,6 +16290,11 @@
     "text": "E&xit",
     "taborder": 50
    }
+  ],
+  "opens": [
+   "w_purchhelp",
+   "w_preturn_view",
+   "w_purchase_view"
   ]
  },
  "w_purchase_confirm": {
@@ -16247,7 +16487,10 @@
      "type": "char"
     }
    ]
-  }
+  },
+  "opens": [
+   "w_tran_view"
+  ]
  },
  "w_purchase_ret": {
   "name": "w_purchase_ret",
@@ -16739,6 +16982,14 @@
     "height": 84,
     "text": "Interstate"
    }
+  ],
+  "opens": [
+   "w_clientshelp",
+   "w_sucu",
+   "w_preturn_view",
+   "w_stktypehlp",
+   "w_stktypeqtype",
+   "w_itemhelp"
   ]
  },
  "w_diamond_purchase": {
@@ -17629,6 +17880,21 @@
     "height": 84,
     "text": "Interstate"
    }
+  ],
+  "opens": [
+   "w_stktypehlp",
+   "w_camera",
+   "w_clientshelp",
+   "w_osalehelp",
+   "w_sucu",
+   "w_exchange",
+   "w_gsmithprint_view",
+   "w_purchase_view",
+   "w_barcodelist",
+   "w_itemhelp",
+   "w_itemtmphelp",
+   "w_stktypeqtype",
+   "w_rmno"
   ]
  },
  "w_diamond_preturn": {
@@ -18351,6 +18617,15 @@
     "height": 84,
     "text": "Interstate"
    }
+  ],
+  "opens": [
+   "w_stktypehlp",
+   "w_clientshelp",
+   "w_sucu",
+   "w_preturn_view",
+   "w_itemhelp",
+   "w_itemtmphelp",
+   "w_rmno"
   ]
  },
  "w_gsmith": {
@@ -19369,7 +19644,24 @@
      "type": "char"
     }
    ]
-  }
+  },
+  "opens": [
+   "w_stktypeqtype",
+   "w_gsmthrefhelp",
+   "w_gsmithnewwrk",
+   "w_repairhelp",
+   "w_clientshelp",
+   "w_smith",
+   "w_gsmithprint_view",
+   "w_barcodelist",
+   "w_mc_smith",
+   "w_itemhelp",
+   "w_mcharge",
+   "w_wastage",
+   "w_ageinghelp",
+   "w_osalehelp",
+   "w_orderitemhelp"
+  ]
  },
  "w_gsmtheditno": {
   "name": "w_gsmtheditno",
@@ -19437,6 +19729,10 @@
     "text": "E&xit",
     "taborder": 30
    }
+  ],
+  "opens": [
+   "w_gsmthhelp",
+   "w_gsmith"
   ]
  },
  "w_gsmthcancel": {
@@ -19516,6 +19812,10 @@
     "text": "E&xit",
     "taborder": 30
    }
+  ],
+  "opens": [
+   "w_gsmthhelp",
+   "w_tran_view"
   ]
  },
  "w_gsmthreprint": {
@@ -19584,6 +19884,10 @@
     "text": "E&xit",
     "taborder": 30
    }
+  ],
+  "opens": [
+   "w_gsmthhelp",
+   "w_gsmithprint_view"
   ]
  },
  "w_gsmithnewwrk": {
@@ -19829,7 +20133,12 @@
      "type": "long"
     }
    ]
-  }
+  },
+  "opens": [
+   "w_orderhelp",
+   "w_itemhelp",
+   "w_clientshelp"
+  ]
  },
  "w_refnenter": {
   "name": "w_refnenter",
@@ -20125,6 +20434,12 @@
     "text": "E&xit",
     "taborder": 70
    }
+  ],
+  "opens": [
+   "w_clientshelp",
+   "w_refineryprint_view",
+   "w_stktypeqtype",
+   "w_itemhelp"
   ]
  },
  "w_refnretdocno": {
@@ -20193,6 +20508,10 @@
     "text": "Exit",
     "taborder": 30
    }
+  ],
+  "opens": [
+   "w_refnhelp",
+   "w_refnreturn1"
   ]
  },
  "w_refinary": {
@@ -20556,6 +20875,12 @@
     "height": 76,
     "text": "Amount Paid :"
    }
+  ],
+  "opens": [
+   "w_clientshelp",
+   "w_refineryprint_view",
+   "w_stktypeqtype",
+   "w_itemhelp"
   ]
  },
  "w_refneditno": {
@@ -20635,6 +20960,13 @@
     "text": "Exit",
     "taborder": 40
    }
+  ],
+  "opens": [
+   "w_refnallhelp",
+   "w_refnhelp",
+   "w_refnenter",
+   "w_refnreturn1",
+   "w_refinary"
   ]
  },
  "w_refncancel": {
@@ -20712,6 +21044,9 @@
     "text": "E&xit",
     "taborder": 40
    }
+  ],
+  "opens": [
+   "w_refnallhelp"
   ]
  },
  "w_jewl_update": {
@@ -21058,7 +21393,10 @@
      "type": "long"
     }
    ]
-  }
+  },
+  "opens": [
+   "w_clientshelp"
+  ]
  },
  "w_order": {
   "name": "w_order",
@@ -22291,7 +22629,24 @@
      "type": "char"
     }
    ]
-  }
+  },
+  "opens": [
+   "w_clientshelp",
+   "w_cbachdhelp",
+   "w_ordermodels",
+   "w_sreturn",
+   "w_gadvance",
+   "w_sucu",
+   "w_exchange",
+   "w_orderprint_view",
+   "w_sel_smith",
+   "w_itemhelp",
+   "w_itemtmphelp",
+   "w_wastage",
+   "w_mcharge",
+   "w_stktypeqtype",
+   "w_mcharge_perc"
+  ]
  },
  "w_ordereditbillno": {
   "name": "w_ordereditbillno",
@@ -22360,6 +22715,10 @@
     "text": "E&xit",
     "taborder": 40
    }
+  ],
+  "opens": [
+   "w_orderhelp",
+   "w_order"
   ]
  },
  "w_ordadvanceafter": {
@@ -22635,6 +22994,12 @@
     "text": "E&xit",
     "taborder": 60
    }
+  ],
+  "opens": [
+   "w_osalehelp",
+   "w_rcptpmnt_view",
+   "w_itemhelp",
+   "w_stktypeqtype"
   ]
  },
  "w_ordno": {
@@ -22704,6 +23069,10 @@
     "text": "Exit",
     "taborder": 40
    }
+  ],
+  "opens": [
+   "w_osalehelp",
+   "w_ordersale"
   ]
  },
  "w_ordsale_editno": {
@@ -22791,6 +23160,10 @@
     "text": "E&xit",
     "taborder": 40
    }
+  ],
+  "opens": [
+   "w_salehelp",
+   "w_ordersale"
   ]
  },
  "w_ordersale": {
@@ -24060,6 +24433,28 @@
     "taborder": 350,
     "dataobject": "d_saleprint_thermal"
    }
+  ],
+  "opens": [
+   "w_tran_view",
+   "w_clientshelp",
+   "w_cbachdhelp",
+   "w_sreturn",
+   "w_sucu",
+   "w_exchange",
+   "w_sales_status",
+   "w_passverify_modify",
+   "w_sales_view",
+   "w_diamond_sales_print",
+   "w_dmdpopup",
+   "w_stktypeqtype",
+   "w_itemhelp",
+   "w_itemtmphelp",
+   "w_itemadjpopup",
+   "w_wastage",
+   "w_vaperc",
+   "w_mcharge",
+   "w_rmno",
+   "w_mcharge_perc"
   ]
  },
  "w_order_update": {
@@ -24189,6 +24584,9 @@
     "text": "E&xit",
     "taborder": 40
    }
+  ],
+  "opens": [
+   "w_orderhelp"
   ]
  },
  "w_order_ratefix": {
@@ -24267,6 +24665,9 @@
     "text": "E&xit",
     "taborder": 40
    }
+  ],
+  "opens": [
+   "w_orderhelp"
   ]
  },
  "w_ocancel": {
@@ -24351,6 +24752,10 @@
     "text": "E&xit",
     "taborder": 30
    }
+  ],
+  "opens": [
+   "w_orderhelp",
+   "w_tran_view"
   ]
  },
  "w_oreprint": {
@@ -24652,7 +25057,11 @@
      "type": "char"
     }
    ]
-  }
+  },
+  "opens": [
+   "w_orderhelp",
+   "w_orderprint_view"
+  ]
  },
  "w_reprenter": {
   "name": "w_reprenter",
@@ -25098,7 +25507,14 @@
      "type": "char"
     }
    ]
-  }
+  },
+  "opens": [
+   "w_clientshelp",
+   "w_repairprint_view",
+   "w_stktypeqtype",
+   "w_itemhelp",
+   "w_repcomplhelp"
+  ]
  },
  "w_repreditno": {
   "name": "w_repreditno",
@@ -25167,6 +25583,11 @@
     "text": "E&xit",
     "taborder": 40
    }
+  ],
+  "opens": [
+   "w_repairhelp",
+   "w_reprenter",
+   "w_reprreturn"
   ]
  },
  "w_rprcancel": {
@@ -25242,6 +25663,9 @@
     "text": "E&xit",
     "taborder": 30
    }
+  ],
+  "opens": [
+   "w_repairhelp"
   ]
  },
  "w_reprreprint": {
@@ -25479,7 +25903,11 @@
      "type": "char"
     }
    ]
-  }
+  },
+  "opens": [
+   "w_repairhelp",
+   "w_repairprint_view"
+  ]
  },
  "w_reprno": {
   "name": "w_reprno",
@@ -25571,6 +25999,10 @@
     "text": "E&xit",
     "taborder": 40
    }
+  ],
+  "opens": [
+   "w_repairhelp",
+   "w_reprreturn"
   ]
  },
  "w_itemadj": {
@@ -26107,6 +26539,9 @@
     "text": "E&xit",
     "taborder": 250
    }
+  ],
+  "opens": [
+   "w_itemhelp"
   ]
  },
  "w_itemadj_multi": {
@@ -26395,6 +26830,10 @@
     "text": "E&xit",
     "taborder": 100
    }
+  ],
+  "opens": [
+   "w_dates",
+   "w_itemhelp"
   ]
  },
  "w_stockaddless": {
@@ -27121,7 +27560,11 @@
      "type": "decimal"
     }
    ]
-  }
+  },
+  "opens": [
+   "w_stocklist_popup",
+   "w_itemhistory"
+  ]
  },
  "w_itemadjhelp": {
   "name": "w_itemadjhelp",
@@ -27641,6 +28084,11 @@
     "text": "E&xit",
     "taborder": 150
    }
+  ],
+  "opens": [
+   "w_sucu_kuri",
+   "w_cbachdhelp",
+   "w_clientshelp"
   ]
  },
  "w_itemadjview": {
@@ -28162,7 +28610,10 @@
      "type": "decimal"
     }
    ]
-  }
+  },
+  "opens": [
+   "w_clientshelp"
+  ]
  },
  "w_partywgtbal_opbal": {
   "name": "w_partywgtbal_opbal",
@@ -28284,6 +28735,11 @@
     "text": "E&xit",
     "taborder": 50
    }
+  ],
+  "opens": [
+   "w_sucu_kuri",
+   "w_cbachdhelp",
+   "w_clientshelp"
   ]
  },
  "w_loanentry_amt": {
@@ -28854,7 +29310,11 @@
      "type": "decimal"
     }
    ]
-  }
+  },
+  "opens": [
+   "w_clientshelp",
+   "w_sucu"
+  ]
  },
  "w_loanedit": {
   "name": "w_loanedit",
@@ -28922,6 +29382,10 @@
     "text": "E&xit",
     "taborder": 21
    }
+  ],
+  "opens": [
+   "w_loanhelp",
+   "w_loanentry_amt"
   ]
  },
  "w_loancancel": {
@@ -28988,6 +29452,9 @@
     "text": "E&xit",
     "taborder": 21
    }
+  ],
+  "opens": [
+   "w_loanhelp"
   ]
  },
  "w_loancolln": {
@@ -29519,6 +29986,10 @@
     "text": "E&xit",
     "taborder": 140
    }
+  ],
+  "opens": [
+   "w_loandates",
+   "w_loanhelp"
   ]
  },
  "w_loan_termination": {
@@ -30046,6 +30517,10 @@
     "text": "E&xit",
     "taborder": 140
    }
+  ],
+  "opens": [
+   "w_itemhelp",
+   "w_loanhelp"
   ]
  },
  "w_finance_entry": {
@@ -30483,6 +30958,12 @@
     "text": "E&xit",
     "taborder": 170
    }
+  ],
+  "opens": [
+   "w_finance_help",
+   "w_sucu_kuri",
+   "w_cbachdhelp",
+   "w_clientshelp"
   ]
  },
  "w_finance_help": {
@@ -31006,7 +31487,10 @@
      "type": "decimal"
     }
    ]
-  }
+  },
+  "opens": [
+   "w_cbachdhelp"
+  ]
  },
  "w_staff_attand_update": {
   "name": "w_staff_attand_update",
@@ -31177,6 +31661,9 @@
     "taborder": 30,
     "dataobject": "d_staff_machlist"
    }
+  ],
+  "opens": [
+   "w_staff_userinfo"
   ]
  },
  "w_staffleave": {
@@ -31583,6 +32070,9 @@
     "height": 76,
     "text": "Speed Print"
    }
+  ],
+  "opens": [
+   "w_staffwgttranhelp"
   ]
  },
  "w_otheritemtran": {
@@ -31911,6 +32401,11 @@
     "height": 76,
     "text": "Net Total :"
    }
+  ],
+  "opens": [
+   "w_clientshelp",
+   "w_sucu",
+   "w_item_others_help"
   ]
  },
  "w_oitedit": {
@@ -31980,6 +32475,10 @@
     "text": "E&xit",
     "taborder": 21
    }
+  ],
+  "opens": [
+   "w_oithelp",
+   "w_otheritemtran"
   ]
  },
  "w_oitcancel": {
@@ -32055,6 +32554,9 @@
     "text": "E&xit",
     "taborder": 21
    }
+  ],
+  "opens": [
+   "w_oithelp"
   ]
  },
  "w_barcode_entry": {
@@ -33360,6 +33862,18 @@
     "height": 72,
     "text": "OK"
    }
+  ],
+  "opens": [
+   "w_barcode_dochelp",
+   "w_models",
+   "w_itemsubgrp",
+   "w_camera",
+   "w_barcode_stickerwgt",
+   "w_barcodelist",
+   "w_itemhelp",
+   "w_barcodehelp",
+   "w_bcno",
+   "w_itemtmphelp"
   ]
  },
  "w_barcode_entryall": {
@@ -33761,6 +34275,10 @@
     "height": 80,
     "text": "BC Save on Print"
    }
+  ],
+  "opens": [
+   "w_barcodelist",
+   "w_itemhelp"
   ]
  },
  "w_counter_issue": {
@@ -34599,7 +35117,10 @@
      "type": "decimal"
     }
    ]
-  }
+  },
+  "opens": [
+   "w_itemhelp"
+  ]
  },
  "w_modeltrans": {
   "name": "w_modeltrans",
@@ -34899,6 +35420,12 @@
     "text": "E&xit",
     "taborder": 130
    }
+  ],
+  "opens": [
+   "w_itemhelp",
+   "w_modeltranhelp",
+   "w_clientshelp",
+   "w_sucu"
   ]
  },
  "w_modeltranhelp": {
@@ -35516,7 +36043,11 @@
      "type": "long"
     }
    ]
-  }
+  },
+  "opens": [
+   "w_itemhelp",
+   "w_cbachdhelp"
+  ]
  },
  "w_gsmithsuspense": {
   "name": "w_gsmithsuspense",
@@ -35728,7 +36259,11 @@
      "type": "long"
     }
    ]
-  }
+  },
+  "opens": [
+   "w_itemhelp",
+   "w_clientshelp"
+  ]
  },
  "w_stksummary": {
   "name": "w_stksummary",
@@ -36591,6 +37126,9 @@
     "text": "E&xit",
     "taborder": 4
    }
+  ],
+  "opens": [
+   "w_itemhelp"
   ]
  },
  "w_sucu_kuri": {
@@ -37599,6 +38137,14 @@
     "text": "E&xit",
     "taborder": 510
    }
+  ],
+  "opens": [
+   "w_clientshelp",
+   "w_camera",
+   "w_clientsgrp",
+   "w_clientsroute",
+   "w_cbachdhelp",
+   "w_kuritype_master"
   ]
  },
  "w_kuricolln": {
@@ -37927,7 +38473,11 @@
      "type": "char"
     }
    ]
-  }
+  },
+  "opens": [
+   "w_rcptpmnt_view",
+   "w_clientshelp"
+  ]
  },
  "w_kuri_intpost": {
   "name": "w_kuri_intpost",
@@ -38138,7 +38688,10 @@
      "type": "decimal"
     }
    ]
-  }
+  },
+  "opens": [
+   "w_clientshelp"
+  ]
  },
  "w_kuri_draw": {
   "name": "w_kuri_draw",
@@ -38330,6 +38883,9 @@
     "height": 80,
     "text": "Fr"
    }
+  ],
+  "opens": [
+   "w_clientshelp"
   ]
  },
  "w_kuri_finish": {
@@ -38565,7 +39121,10 @@
      "type": "decimal"
     }
    ]
-  }
+  },
+  "opens": [
+   "w_clientshelp"
+  ]
  },
  "w_schm_partpayment": {
   "name": "w_schm_partpayment",
@@ -38896,6 +39455,10 @@
     "text": "&Save",
     "taborder": 80
    }
+  ],
+  "opens": [
+   "w_rcptpmnt_view",
+   "w_clientshelp"
   ]
  },
  "w_schm_finish": {
@@ -39173,6 +39736,9 @@
     "height": 80,
     "text": "Fr"
    }
+  ],
+  "opens": [
+   "w_clientshelp"
   ]
  },
  "w_pos_update_tofile": {
@@ -39454,7 +40020,11 @@
      "type": "char"
     }
    ]
-  }
+  },
+  "opens": [
+   "w_cbachdhelp",
+   "w_possysentry"
+  ]
  },
  "w_pos_update": {
   "name": "w_pos_update",
@@ -39753,6 +40323,9 @@
     "width": 2825,
     "height": 176
    }
+  ],
+  "opens": [
+   "w_cbachdhelp"
   ]
  },
  "w_passbook_print": {
@@ -40069,6 +40642,9 @@
     "height": 104,
     "text": "Set Def"
    }
+  ],
+  "opens": [
+   "w_clientshelp"
   ]
  },
  "w_rcpt": {
@@ -40791,7 +41367,11 @@
      "type": "char"
     }
    ]
-  }
+  },
+  "opens": [
+   "w_cbachdhelp",
+   "w_rcptpmnt_view"
+  ]
  },
  "w_pmnt": {
   "name": "w_pmnt",
@@ -41474,7 +42054,14 @@
      "type": "char"
     }
    ]
-  }
+  },
+  "opens": [
+   "w_cbachdhelp",
+   "w_smith",
+   "w_sucu",
+   "w_achd",
+   "w_rcptpmnt_view"
+  ]
  },
  "w_dailystatement_entry": {
   "name": "w_dailystatement_entry",
@@ -41675,6 +42262,10 @@
     "text": "E&xit",
     "taborder": 60
    }
+  ],
+  "opens": [
+   "w_rcptpmnt_view",
+   "w_cbachdhelp"
   ]
  },
  "w_susprcptpmnt": {
@@ -42030,6 +42621,11 @@
     "height": 80,
     "text": "Send Sms"
    }
+  ],
+  "opens": [
+   "w_suspmaster",
+   "w_acsusphelp",
+   "w_cbachdhelp"
   ]
  },
  "w_acceditno": {
@@ -42101,6 +42697,14 @@
     "text": "E&xit",
     "taborder": 21
    }
+  ],
+  "opens": [
+   "w_accentyhelp",
+   "w_susprcptpmnt",
+   "w_ordadvanceafter",
+   "w_rcpt",
+   "w_pmnt",
+   "w_dbcrnote_entry"
   ]
  },
  "w_custbillwisealoc": {
@@ -42633,7 +43237,10 @@
      "type": "decimal"
     }
    ]
-  }
+  },
+  "opens": [
+   "w_clientshelp"
+  ]
  },
  "w_suppbillwisealoc": {
   "name": "w_suppbillwisealoc",
@@ -43087,7 +43694,10 @@
      "type": "char"
     }
    ]
-  }
+  },
+  "opens": [
+   "w_clientshelp"
+  ]
  },
  "w_journal": {
   "name": "w_journal",
@@ -43287,6 +43897,10 @@
     "height": 68,
     "text": "&Print"
    }
+  ],
+  "opens": [
+   "w_journhelp",
+   "w_cbachdhelp"
   ]
  },
  "w_dbcrnote_entry": {
@@ -43614,6 +44228,9 @@
     "height": 80,
     "text": "Send Sms"
    }
+  ],
+  "opens": [
+   "w_cbachdhelp"
   ]
  },
  "w_purchase_amtentry": {
@@ -43989,7 +44606,11 @@
      "type": "char"
     }
    ]
-  }
+  },
+  "opens": [
+   "w_clientshelp",
+   "w_rcptpmnt_view"
+  ]
  },
  "w_accancel": {
   "name": "w_accancel",
@@ -44066,6 +44687,9 @@
     "text": "E&xit",
     "taborder": 21
    }
+  ],
+  "opens": [
+   "w_accentyhelp"
   ]
  },
  "w_acreprint": {
@@ -44145,6 +44769,10 @@
     "text": "E&xit",
     "taborder": 21
    }
+  ],
+  "opens": [
+   "w_accentyhelp",
+   "w_rcptpmnt_view"
   ]
  },
  "w_discafter": {
@@ -44384,6 +45012,9 @@
     "text": "E&xit",
     "taborder": 80
    }
+  ],
+  "opens": [
+   "w_salehelp"
   ]
  },
  "w_pdc_colln": {
@@ -44651,6 +45282,9 @@
     "text": "E&xit",
     "taborder": 80
    }
+  ],
+  "opens": [
+   "w_pdc_chqhelp"
   ]
  },
  "w_ratediffadjust": {
@@ -44955,6 +45589,10 @@
     "text": "E&xit",
     "taborder": 90
    }
+  ],
+  "opens": [
+   "w_clientshelp",
+   "w_salehelp"
   ]
  },
  "w_duedate_change": {
@@ -45047,6 +45685,9 @@
     "text": "&OK",
     "taborder": 30
    }
+  ],
+  "opens": [
+   "w_clientshelp"
   ]
  },
  "w_acgrpamtallocn": {
@@ -45357,7 +45998,10 @@
      "type": "decimal"
     }
    ]
-  }
+  },
+  "opens": [
+   "w_cbachdhelp"
+  ]
  },
  "w_acstartdate_change": {
   "name": "w_acstartdate_change",
@@ -45450,6 +46094,9 @@
     "text": "&OK",
     "taborder": 30
    }
+  ],
+  "opens": [
+   "w_cbachdhelp"
   ]
  },
  "w_amttowgt_entry": {
@@ -45692,6 +46339,9 @@
     "text": "E&xit",
     "taborder": 80
    }
+  ],
+  "opens": [
+   "w_clientshelp"
   ]
  },
  "w_payment_confirm": {
@@ -46605,7 +47255,11 @@
      "type": "decimal"
     }
    ]
-  }
+  },
+  "opens": [
+   "w_diamond_sales_print",
+   "w_sales_view"
+  ]
  },
  "w_mnthsalereport": {
   "name": "w_mnthsalereport",
@@ -46913,7 +47567,10 @@
      "type": "char"
     }
    ]
-  }
+  },
+  "opens": [
+   "w_mnthgraph"
+  ]
  },
  "w_salechklist": {
   "name": "w_salechklist",
@@ -47309,7 +47966,10 @@
      "type": "char"
     }
    ]
-  }
+  },
+  "opens": [
+   "w_clientshelp"
+  ]
  },
  "w_saleregister": {
   "name": "w_saleregister",
@@ -48025,7 +48685,11 @@
      "type": "time"
     }
    ]
-  }
+  },
+  "opens": [
+   "w_clientshelp",
+   "w_itemhelp"
+  ]
  },
  "w_saleretregister": {
   "name": "w_saleretregister",
@@ -48446,7 +49110,10 @@
      "type": "char"
     }
    ]
-  }
+  },
+  "opens": [
+   "w_itemhelp"
+  ]
  },
  "w_netsalesrep": {
   "name": "w_netsalesrep",
@@ -49019,7 +49686,10 @@
      "type": "char"
     }
    ]
-  }
+  },
+  "opens": [
+   "w_cbachdhelp"
+  ]
  },
  "w_salesbarcoderep": {
   "name": "w_salesbarcoderep",
@@ -49641,7 +50311,10 @@
      "type": "decimal"
     }
    ]
-  }
+  },
+  "opens": [
+   "w_itemhelp"
+  ]
  },
  "w_salesbarcode_profit_rep": {
   "name": "w_salesbarcode_profit_rep",
@@ -50509,7 +51182,11 @@
      "type": "char"
     }
    ]
-  }
+  },
+  "opens": [
+   "w_clientshelp",
+   "w_itemhelp"
+  ]
  },
  "w_vacheck": {
   "name": "w_vacheck",
@@ -51622,7 +52299,12 @@
      "type": "char"
     }
    ]
-  }
+  },
+  "opens": [
+   "w_clientshelp",
+   "w_sales_status",
+   "w_cbachdhelp"
+  ]
  },
  "w_purhbook": {
   "name": "w_purhbook",
@@ -52079,7 +52761,10 @@
      "type": "char"
     }
    ]
-  }
+  },
+  "opens": [
+   "w_purchase_vat_print"
+  ]
  },
  "w_purhchklist": {
   "name": "w_purhchklist",
@@ -52356,7 +53041,10 @@
      "type": "char"
     }
    ]
-  }
+  },
+  "opens": [
+   "w_clientshelp"
+  ]
  },
  "w_purhregister": {
   "name": "w_purhregister",
@@ -52936,7 +53624,11 @@
      "type": "char"
     }
    ]
-  }
+  },
+  "opens": [
+   "w_clientshelp",
+   "w_itemhelp"
+  ]
  },
  "w_purhretregister": {
   "name": "w_purhretregister",
@@ -53270,7 +53962,10 @@
      "type": "char"
     }
    ]
-  }
+  },
+  "opens": [
+   "w_itemhelp"
+  ]
  },
  "w_stockregister": {
   "name": "w_stockregister",
@@ -53477,6 +54172,9 @@
     "taborder": 50,
     "dataobject": "d_stockregister"
    }
+  ],
+  "opens": [
+   "w_itemhelp"
   ]
  },
  "w_taxreport": {
@@ -54485,7 +55183,11 @@
      "type": "char"
     }
    ]
-  }
+  },
+  "opens": [
+   "w_itemhelp",
+   "w_clientshelp"
+  ]
  },
  "w_smithledger": {
   "name": "w_smithledger",
@@ -54925,7 +55627,11 @@
      "type": "decimal"
     }
    ]
-  }
+  },
+  "opens": [
+   "w_repsetup",
+   "w_clientshelp"
+  ]
  },
  "w_smithwasummary": {
   "name": "w_smithwasummary",
@@ -55275,7 +55981,10 @@
      "type": "char"
     }
    ]
-  }
+  },
+  "opens": [
+   "w_smithledger"
+  ]
  },
  "w_smithwasummary2": {
   "name": "w_smithwasummary2",
@@ -55551,7 +56260,10 @@
      "type": "char"
     }
    ]
-  }
+  },
+  "opens": [
+   "w_smithledger"
+  ]
  },
  "w_smithageingreport": {
   "name": "w_smithageingreport",
@@ -55800,7 +56512,10 @@
      "type": "decimal"
     }
    ]
-  }
+  },
+  "opens": [
+   "w_smithledger"
+  ]
  },
  "w_smithmcsummary": {
   "name": "w_smithmcsummary",
@@ -56184,7 +56899,10 @@
      "type": "long"
     }
    ]
-  }
+  },
+  "opens": [
+   "w_clientshelp"
+  ]
  },
  "w_smithjewl_fixunfix_rep": {
   "name": "w_smithjewl_fixunfix_rep",
@@ -56395,7 +57113,10 @@
      "type": "decimal"
     }
    ]
-  }
+  },
+  "opens": [
+   "w_clientshelp"
+  ]
  },
  "w_suculist": {
   "name": "w_suculist",
@@ -56734,7 +57455,10 @@
      "type": "char"
     }
    ]
-  }
+  },
+  "opens": [
+   "w_lettermerge"
+  ]
  },
  "w_refnentryrep": {
   "name": "w_refnentryrep",
@@ -56972,7 +57696,10 @@
      "type": "char"
     }
    ]
-  }
+  },
+  "opens": [
+   "w_clientshelp"
+  ]
  },
  "w_refnsummary": {
   "name": "w_refnsummary",
@@ -57220,7 +57947,10 @@
      "type": "decimal"
     }
    ]
-  }
+  },
+  "opens": [
+   "w_clientshelp"
+  ]
  },
  "w_refnanalysis": {
   "name": "w_refnanalysis",
@@ -57469,7 +58199,10 @@
      "type": "decimal"
     }
    ]
-  }
+  },
+  "opens": [
+   "w_clientshelp"
+  ]
  },
  "w_acsummary": {
   "name": "w_acsummary",
@@ -57673,7 +58406,10 @@
      "type": "char"
     }
    ]
-  }
+  },
+  "opens": [
+   "w_clientshelp"
+  ]
  },
  "w_lesscomparisonrep": {
   "name": "w_lesscomparisonrep",
@@ -57941,7 +58677,10 @@
      "type": "char"
     }
    ]
-  }
+  },
+  "opens": [
+   "w_clientshelp"
+  ]
  },
  "w_jewlprof_rep": {
   "name": "w_jewlprof_rep",
@@ -58138,7 +58877,10 @@
      "type": "decimal"
     }
    ]
-  }
+  },
+  "opens": [
+   "w_clientshelp"
+  ]
  },
  "w_tdsreport": {
   "name": "w_tdsreport",
@@ -58319,7 +59061,10 @@
      "type": "char"
     }
    ]
-  }
+  },
+  "opens": [
+   "w_clientshelp"
+  ]
  },
  "w_jewl_extraamt_report": {
   "name": "w_jewl_extraamt_report",
@@ -58510,7 +59255,10 @@
      "type": "decimal"
     }
    ]
-  }
+  },
+  "opens": [
+   "w_clientshelp"
+  ]
  },
  "w_jewlrep_email": {
   "name": "w_jewlrep_email",
@@ -59133,7 +59881,10 @@
      "type": "char"
     }
    ]
-  }
+  },
+  "opens": [
+   "w_clientshelp"
+  ]
  },
  "w_orderentry": {
   "name": "w_orderentry",
@@ -59954,7 +60705,12 @@
      "type": "char"
     }
    ]
-  }
+  },
+  "opens": [
+   "w_clientshelp",
+   "w_partyaddr",
+   "w_itemhelp"
+  ]
  },
  "w_orderenquiry": {
   "name": "w_orderenquiry",
@@ -60272,7 +61028,10 @@
      "type": "decimal"
     }
    ]
-  }
+  },
+  "opens": [
+   "w_orderhelp"
+  ]
  },
  "w_orderpend": {
   "name": "w_orderpend",
@@ -60650,7 +61409,10 @@
      "type": "char"
     }
    ]
-  }
+  },
+  "opens": [
+   "w_osalehelp"
+  ]
  },
  "w_ordersales": {
   "name": "w_ordersales",
@@ -61793,7 +62555,10 @@
      "type": "date"
     }
    ]
-  }
+  },
+  "opens": [
+   "w_itemhelp"
+  ]
  },
  "w_order_ordnolist": {
   "name": "w_order_ordnolist",
@@ -62104,7 +62869,10 @@
      "type": "date"
     }
    ]
-  }
+  },
+  "opens": [
+   "w_osalehelp"
+  ]
  },
  "w_order_process": {
   "name": "w_order_process",
@@ -62667,7 +63435,12 @@
      "type": "char"
     }
    ]
-  }
+  },
+  "opens": [
+   "w_itemhelp",
+   "w_clientshelp",
+   "w_osalehelp"
+  ]
  },
  "w_orderrep_email": {
   "name": "w_orderrep_email",
@@ -63105,7 +63878,10 @@
      "type": "long"
     }
    ]
-  }
+  },
+  "opens": [
+   "w_clientshelp"
+  ]
  },
  "w_remakereport": {
   "name": "w_remakereport",
@@ -64080,7 +64856,10 @@
      "type": "decimal"
     }
    ]
-  }
+  },
+  "opens": [
+   "w_acledgerpopup"
+  ]
  },
  "w_loanbalance_rep": {
   "name": "w_loanbalance_rep",
@@ -64531,6 +65310,9 @@
     "height": 68,
     "text": "Show Interest"
    }
+  ],
+  "opens": [
+   "w_loanhelp"
   ]
  },
  "w_loanentry_item_rep": {
@@ -65172,7 +65954,11 @@
      "type": "char"
     }
    ]
-  }
+  },
+  "opens": [
+   "w_item_others_help",
+   "w_clientshelp"
+  ]
  },
  "w_oistockledger": {
   "name": "w_oistockledger",
@@ -66240,7 +67026,13 @@
      "type": "date"
     }
    ]
-  }
+  },
+  "opens": [
+   "w_duedate_change",
+   "w_clientshelp",
+   "w_cbachdhelp",
+   "w_acledger"
+  ]
  },
  "w_partycreditbills": {
   "name": "w_partycreditbills",
@@ -66736,7 +67528,12 @@
      "type": "char"
     }
    ]
-  }
+  },
+  "opens": [
+   "w_partyaddr",
+   "w_cbachdhelp",
+   "w_clientshelp"
+  ]
  },
  "w_custaccoutsummary": {
   "name": "w_custaccoutsummary",
@@ -67077,7 +67874,11 @@
      "type": "decimal"
     }
    ]
-  }
+  },
+  "opens": [
+   "w_cbachdhelp",
+   "w_acledgerpopup"
+  ]
  },
  "w_custbillwisercvble": {
   "name": "w_custbillwisercvble",
@@ -67482,7 +68283,11 @@
      "type": "decimal"
     }
    ]
-  }
+  },
+  "opens": [
+   "w_cbachdhelp",
+   "w_custbillwise"
+  ]
  },
  "w_rcptdetail": {
   "name": "w_rcptdetail",
@@ -67671,7 +68476,10 @@
      "type": "date"
     }
    ]
-  }
+  },
+  "opens": [
+   "w_clientshelp"
+  ]
  },
  "w_pmntdetail": {
   "name": "w_pmntdetail",
@@ -67860,7 +68668,10 @@
      "type": "date"
     }
    ]
-  }
+  },
+  "opens": [
+   "w_clientshelp"
+  ]
  },
  "w_partysummaryrep": {
   "name": "w_partysummaryrep",
@@ -68161,7 +68972,10 @@
      "type": "char"
     }
    ]
-  }
+  },
+  "opens": [
+   "w_clientshelp"
+  ]
  },
  "w_custbillwise": {
   "name": "w_custbillwise",
@@ -68515,7 +69329,10 @@
      "type": "decimal"
     }
    ]
-  }
+  },
+  "opens": [
+   "w_clientshelp"
+  ]
  },
  "w_custcollectionrep": {
   "name": "w_custcollectionrep",
@@ -68829,7 +69646,10 @@
      "type": "decimal"
     }
    ]
-  }
+  },
+  "opens": [
+   "w_clientshelp"
+  ]
  },
  "w_duedaterep": {
   "name": "w_duedaterep",
@@ -69131,7 +69951,11 @@
      "type": "char"
     }
    ]
-  }
+  },
+  "opens": [
+   "w_cbachdhelp",
+   "w_clientshelp"
+  ]
  },
  "w_partyhistory": {
   "name": "w_partyhistory",
@@ -69367,6 +70191,9 @@
     "taborder": 50,
     "dataobject": "d_partyhistory"
    }
+  ],
+  "opens": [
+   "w_clientshelp"
   ]
  },
  "w_customer_visitreport": {
@@ -69931,7 +70758,10 @@
      "type": "decimal"
     }
    ]
-  }
+  },
+  "opens": [
+   "w_clientshelp"
+  ]
  },
  "w_customer_list": {
   "name": "w_customer_list",
@@ -70898,7 +71728,11 @@
      "type": "decimal"
     }
    ]
-  }
+  },
+  "opens": [
+   "w_cbachdhelp",
+   "w_custbillwise"
+  ]
  },
  "w_staffsummary": {
   "name": "w_staffsummary",
@@ -71132,7 +71966,10 @@
      "type": "long"
     }
    ]
-  }
+  },
+  "opens": [
+   "w_acledgerpopup"
+  ]
  },
  "w_staff_log_report": {
   "name": "w_staff_log_report",
@@ -71589,7 +72426,10 @@
      "type": "long"
     }
    ]
-  }
+  },
+  "opens": [
+   "w_clientshelp"
+  ]
  },
  "w_staff_leaverep": {
   "name": "w_staff_leaverep",
@@ -71779,7 +72619,10 @@
      "type": "decimal"
     }
    ]
-  }
+  },
+  "opens": [
+   "w_clientshelp"
+  ]
  },
  "w_staffwgt_report": {
   "name": "w_staffwgt_report",
@@ -72937,7 +73780,11 @@
      "type": "decimal"
     }
    ]
-  }
+  },
+  "opens": [
+   "w_cbachdhelp",
+   "w_clientshelp"
+  ]
  },
  "w_kuri_chart_rep": {
   "name": "w_kuri_chart_rep",
@@ -73170,7 +74017,10 @@
      "type": "decimal"
     }
    ]
-  }
+  },
+  "opens": [
+   "w_clientshelp"
+  ]
  },
  "w_schemebook_report": {
   "name": "w_schemebook_report",
@@ -73721,7 +74571,11 @@
      "type": "char"
     }
    ]
-  }
+  },
+  "opens": [
+   "w_clientshelp",
+   "w_cbachdhelp"
+  ]
  },
  "w_schemecolln_report": {
   "name": "w_schemecolln_report",
@@ -74095,7 +74949,11 @@
      "type": "char"
     }
    ]
-  }
+  },
+  "opens": [
+   "w_cbachdhelp",
+   "w_clientshelp"
+  ]
  },
  "w_schemebook_details": {
   "name": "w_schemebook_details",
@@ -74180,6 +75038,9 @@
     "taborder": 120,
     "dataobject": "d_schemebook_details"
    }
+  ],
+  "opens": [
+   "w_clientshelp"
   ]
  },
  "w_schemematurity_report": {
@@ -74575,7 +75436,11 @@
      "type": "decimal"
     }
    ]
-  }
+  },
+  "opens": [
+   "w_cbachdhelp",
+   "w_clientshelp"
+  ]
  },
  "w_schemebook_comnrep": {
   "name": "w_schemebook_comnrep",
@@ -75293,7 +76158,11 @@
      "type": "char"
     }
    ]
-  }
+  },
+  "opens": [
+   "w_cbachdhelp",
+   "w_clientshelp"
+  ]
  },
  "w_partywgtpend_report": {
   "name": "w_partywgtpend_report",
@@ -75577,7 +76446,11 @@
      "type": "decimal"
     }
    ]
-  }
+  },
+  "opens": [
+   "w_clientshelp",
+   "w_deposit_book_report"
+  ]
  },
  "w_finance_book_report": {
   "name": "w_finance_book_report",
@@ -75894,7 +76767,11 @@
      "type": "decimal"
     }
    ]
-  }
+  },
+  "opens": [
+   "w_cbachdhelp",
+   "w_clientshelp"
+  ]
  },
  "w_acledger": {
   "name": "w_acledger",
@@ -76222,7 +77099,11 @@
      "type": "char"
     }
    ]
-  }
+  },
+  "opens": [
+   "w_acsusphelp",
+   "w_cbachdhelp"
+  ]
  },
  "w_acledger_group": {
   "name": "w_acledger_group",
@@ -76476,7 +77357,11 @@
      "type": "char"
     }
    ]
-  }
+  },
+  "opens": [
+   "w_cbachdhelp",
+   "w_acledgerpopup"
+  ]
  },
  "w_daybookreport": {
   "name": "w_daybookreport",
@@ -76960,7 +77845,11 @@
      "type": "long"
     }
    ]
-  }
+  },
+  "opens": [
+   "w_sales_view",
+   "w_diamond_sales_print"
+  ]
  },
  "w_rcptpmnts": {
   "name": "w_rcptpmnts",
@@ -77596,7 +78485,11 @@
      "type": "char"
     }
    ]
-  }
+  },
+  "opens": [
+   "w_susp_totmp",
+   "w_cbachdhelp"
+  ]
  },
  "w_cashflowreport": {
   "name": "w_cashflowreport",
@@ -77797,6 +78690,9 @@
     "text": "E&xit",
     "taborder": 11
    }
+  ],
+  "opens": [
+   "w_acledgerpopup"
   ]
  },
  "w_bankbookreport": {
@@ -78437,7 +79333,12 @@
      "type": "char"
     }
    ]
-  }
+  },
+  "opens": [
+   "w_pdc_colln",
+   "w_clientshelp",
+   "w_repsetup"
+  ]
  },
  "w_journrpt": {
   "name": "w_journrpt",
@@ -78865,7 +79766,15 @@
      "type": "long"
     }
    ]
-  }
+  },
+  "opens": [
+   "w_tranerror",
+   "w_acgrpdetails",
+   "w_acledgerpopup",
+   "w_sucu",
+   "w_smith",
+   "w_achd"
+  ]
  },
  "w_trialbal_term": {
   "name": "w_trialbal_term",
@@ -79154,7 +80063,13 @@
      "type": "char"
     }
    ]
-  }
+  },
+  "opens": [
+   "w_calander2",
+   "w_tranerror",
+   "w_acgrpdetails",
+   "w_acledgerpopup"
+  ]
  },
  "w_pandlac_trading": {
   "name": "w_pandlac_trading",
@@ -79357,6 +80272,9 @@
     "taborder": 40,
     "dataobject": "d_balancesheet"
    }
+  ],
+  "opens": [
+   "w_balsheet_schedule"
   ]
  },
  "w_group_accountsummary": {
@@ -79640,7 +80558,10 @@
      "type": "decimal"
     }
    ]
-  }
+  },
+  "opens": [
+   "w_acledgerpopup"
+  ]
  },
  "w_account_grpwise_expand_rep": {
   "name": "w_account_grpwise_expand_rep",
@@ -79862,6 +80783,14 @@
     "text": "&BS Head",
     "taborder": 70
    }
+  ],
+  "opens": [
+   "w_achd",
+   "w_achdbsgrp",
+   "w_achdgrp",
+   "w_sucu",
+   "w_smith",
+   "w_acledgerpopup"
   ]
  },
  "w_trans_rearrange_report": {
@@ -80395,7 +81324,11 @@
      "type": "long"
     }
    ]
-  }
+  },
+  "opens": [
+   "w_sales_view",
+   "w_diamond_sales_print"
+  ]
  },
  "w_accountlist": {
   "name": "w_accountlist",
@@ -80702,7 +81635,16 @@
      "type": "decimal"
     }
    ]
-  }
+  },
+  "opens": [
+   "w_achd",
+   "w_achdbsgrp",
+   "w_achdgrp",
+   "w_repsetup",
+   "w_sucu",
+   "w_smith",
+   "w_acledgerpopup"
+  ]
  },
  "w_nontransactionaldays_report": {
   "name": "w_nontransactionaldays_report",
@@ -80828,6 +81770,11 @@
     "taborder": 130,
     "dataobject": "d_nontransactionaldays_rep"
    }
+  ],
+  "opens": [
+   "w_sucu",
+   "w_smith",
+   "w_achd"
   ]
  },
  "w_account_checking": {
@@ -81815,7 +82762,10 @@
      "type": "long"
     }
    ]
-  }
+  },
+  "opens": [
+   "w_itemhelp"
+  ]
  },
  "w_stockregister_summary": {
   "name": "w_stockregister_summary",
@@ -82191,7 +83141,10 @@
      "type": "decimal"
     }
    ]
-  }
+  },
+  "opens": [
+   "w_itemhelp"
+  ]
  },
  "w_itemhistory": {
   "name": "w_itemhistory",
@@ -82591,7 +83544,11 @@
      "type": "real"
     }
    ]
-  }
+  },
+  "opens": [
+   "w_repsetup",
+   "w_itemhelp"
+  ]
  },
  "w_rolreport": {
   "name": "w_rolreport",
@@ -82793,7 +83750,10 @@
      "type": "decimal"
     }
    ]
-  }
+  },
+  "opens": [
+   "w_itemhelp"
+  ]
  },
  "w_itemrate_report": {
   "name": "w_itemrate_report",
@@ -83101,7 +84061,12 @@
      "type": "char"
     }
    ]
-  }
+  },
+  "opens": [
+   "w_stocklist_popup",
+   "w_itemhistory",
+   "w_item"
+  ]
  },
  "w_costlist": {
   "name": "w_costlist",
@@ -83813,7 +84778,11 @@
      "type": "decimal"
     }
    ]
-  }
+  },
+  "opens": [
+   "w_stockledger_popup",
+   "w_itemhistory"
+  ]
  },
  "w_ratehistory": {
   "name": "w_ratehistory",
@@ -84606,6 +85575,9 @@
     "taborder": 50,
     "dataobject": "d_stockbal_smithjewlstock_grp_rep"
    }
+  ],
+  "opens": [
+   "w_smithledger"
   ]
  },
  "w_barcodelist": {
@@ -85348,7 +86320,15 @@
      "type": "char"
     }
    ]
-  }
+  },
+  "opens": [
+   "w_barcode_entry",
+   "w_clientshelp",
+   "w_barcode_dochelp",
+   "w_barcode_rename",
+   "w_itemhelp",
+   "w_barcode_history"
+  ]
  },
  "w_bcstkverifyrep": {
   "name": "w_bcstkverifyrep",
@@ -86157,7 +87137,12 @@
      "type": "char"
     }
    ]
-  }
+  },
+  "opens": [
+   "w_clientshelp",
+   "w_barcode_dochelp",
+   "w_itemhelp"
+  ]
  },
  "w_barcode_history": {
   "name": "w_barcode_history",
@@ -86281,6 +87266,9 @@
     "width": 421,
     "height": 84
    }
+  ],
+  "opens": [
+   "w_barcodehelp"
   ]
  },
  "w_barcode_stocklist": {
@@ -86858,7 +87846,12 @@
      "type": "char"
     }
    ]
-  }
+  },
+  "opens": [
+   "w_costrate_change",
+   "w_itemhelp",
+   "w_barcode_history"
+  ]
  },
  "w_barcode_comparison_report": {
   "name": "w_barcode_comparison_report",
@@ -87461,7 +88454,11 @@
      "type": "decimal"
     }
    ]
-  }
+  },
+  "opens": [
+   "w_stocklist_dmdplt_det",
+   "w_item"
+  ]
  },
  "w_stockledger_stktype": {
   "name": "w_stockledger_stktype",
@@ -88413,7 +89410,11 @@
      "type": "decimal"
     }
    ]
-  }
+  },
+  "opens": [
+   "w_stockledger_popup",
+   "w_itemhistory"
+  ]
  },
  "w_stockledger": {
   "name": "w_stockledger",
@@ -89541,7 +90542,11 @@
      "type": "decimal"
     }
    ]
-  }
+  },
+  "opens": [
+   "w_stockledger_popup",
+   "w_itemhistory"
+  ]
  },
  "w_stocklist": {
   "name": "w_stocklist",
@@ -89904,7 +90909,12 @@
      "type": "decimal"
     }
    ]
-  }
+  },
+  "opens": [
+   "w_stocklist_popup",
+   "w_itemhistory",
+   "w_item"
+  ]
  },
  "w_stocklist_stktype": {
   "name": "w_stocklist_stktype",
@@ -90239,7 +91249,11 @@
      "type": "decimal"
     }
    ]
-  }
+  },
+  "opens": [
+   "w_stocklist_popup",
+   "w_itemhistory"
+  ]
  },
  "w_stocklist_uptoadate": {
   "name": "w_stocklist_uptoadate",
@@ -90771,7 +91785,11 @@
      "type": "decimal"
     }
    ]
-  }
+  },
+  "opens": [
+   "w_itemhelp",
+   "w_itemhistory"
+  ]
  },
  "w_stocklist_check": {
   "name": "w_stocklist_check",
@@ -91126,7 +92144,12 @@
      "type": "decimal"
     }
    ]
-  }
+  },
+  "opens": [
+   "w_stocklist_popup",
+   "w_itemhistory",
+   "w_item"
+  ]
  },
  "w_termsummary": {
   "name": "w_termsummary",
@@ -92042,6 +93065,9 @@
     "height": 80,
     "text": "View before Print"
    }
+  ],
+  "opens": [
+   "w_allreportsummary"
   ]
  },
  "w_monthendrep": {
@@ -92238,7 +93264,10 @@
      "type": "decimal"
     }
    ]
-  }
+  },
+  "opens": [
+   "w_monthenddet"
+  ]
  },
  "w_daysummarydate_mala": {
   "name": "w_daysummarydate_mala",
@@ -92312,6 +93341,9 @@
     "text": "E&xit",
     "taborder": 30
    }
+  ],
+  "opens": [
+   "w_daysummary_mala"
   ]
  },
  "w_termsummary_mala": {
@@ -93258,7 +94290,10 @@
      "type": "decimal"
     }
    ]
-  }
+  },
+  "opens": [
+   "w_purity_entry"
+  ]
  },
  "w_stkandprofitreport": {
   "name": "w_stkandprofitreport",
@@ -93688,6 +94723,21 @@
     "text": "Lic Reset",
     "taborder": 51
    }
+  ],
+  "opens": [
+   "w_updaterep",
+   "w_set",
+   "w_changedocno",
+   "w_dates",
+   "w_rearangevouchernos",
+   "w_slnoupdt",
+   "w_sqlupdt",
+   "w_ok",
+   "w_updatestock",
+   "w_initialisedocno",
+   "w_initialise",
+   "w_idno",
+   "w_pchange2"
   ]
  },
  "w_daylock": {
@@ -95092,7 +96142,11 @@
      "type": "char"
     }
    ]
-  }
+  },
+  "opens": [
+   "w_phoneptype",
+   "w_phonebooklist"
+  ]
  },
  "w_appointments": {
   "name": "w_appointments",
@@ -95448,6 +96502,9 @@
     "height": 76,
     "text": "Search :"
    }
+  ],
+  "opens": [
+   "w_repsetup"
   ]
  },
  "w_datatransfer2": {
@@ -95909,6 +96966,9 @@
     "text": "Exit",
     "taborder": 50
    }
+  ],
+  "opens": [
+   "w_tranwait"
   ]
  },
  "w_reminderrep": {

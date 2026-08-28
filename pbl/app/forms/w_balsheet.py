@@ -21,6 +21,7 @@ WINDOW = Window(
     controls=[],
     tables=['accountm', 'accountgbs', 'daybook'],
     source_path='w_balsheet.srw',
+    opens=['w_balsheet_schedule'],
 )
 
 

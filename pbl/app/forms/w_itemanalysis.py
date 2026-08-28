@@ -22,6 +22,7 @@ WINDOW = Window(
     tables=[],
     source_path='w_itemanalysis.srw',
     report={'dataobject': 'd_itemanalysis', 'sql': 'SELECT items.name AS items_name, salesd.qty AS salesd_qty, salesd.weight AS salesd_weight, salesm.slno AS salesm_slno, salesm.control AS salesm_control FROM items, salesd, salesm WHERE items.code = salesd.code AND salesd.slno = salesm.slno AND salesm.control <= :rlevel AND items.itype = :rtype ORDER BY items.name ASC', 'args': ['rdate1', 'rdate2', 'rlevel', 'rtype', 'rcode'], 'arg_types': {'rdate1': 'date', 'rdate2': 'date', 'rlevel': 'number', 'rtype': 'string', 'rcode': 'string'}, 'tables': ['items', 'salesd', 'salesm'], 'columns': [{'name': 'items_name', 'label': 'items_name', 'type': 'char'}, {'name': 'salesd_qty', 'label': 'salesd_qty', 'type': 'long'}, {'name': 'salesd_weight', 'label': 'salesd_weight', 'type': 'decimal'}, {'name': 'salesm_slno', 'label': 'salesm_slno', 'type': 'decimal'}, {'name': 'salesm_control', 'label': 'salesm_control', 'type': 'long'}]},
+    opens=['w_itemhelp'],
 )
 
 

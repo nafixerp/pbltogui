@@ -22,6 +22,7 @@ WINDOW = Window(
     tables=['daybook', 'accountm', 'date', 'suspentry', 'suspac', 'clients'],
     source_path='w_suspledger.srw',
     report={'dataobject': 'd_suspledger_entrybal', 'sql': 'SELECT suspentry.amount AS suspentry_amount, suspentry.pend AS suspentry_pend, suspentry.scode AS suspentry_scode, suspentry.tdate AS suspentry_tdate, suspentry.note AS suspentry_note, suspentry.vchno AS suspentry_vchno, (select suspac.name from suspac where suspac.code = suspentry.scode ) as suspacname, (select sum(se.amount) from suspentry se where se.pslno = suspentry.slno ) as totrcpt FROM suspentry ORDER BY suspentry.accode ASC, suspentry.tdate ASC, suspentry.slno ASC', 'args': ['rdate1', 'rdate2', 'rlevel', 'rcode', 'racname', 'ropbal'], 'arg_types': {'rdate1': 'date', 'rdate2': 'date', 'rlevel': 'number', 'rcode': 'string', 'racname': 'string', 'ropbal': 'decimal'}, 'tables': ['suspentry'], 'columns': [{'name': 'suspacname', 'label': 'suspacname', 'type': 'char'}, {'name': 'totrcpt', 'label': 'totrcpt', 'type': 'decimal'}, {'name': 'suspentry_amount', 'label': 'suspentry_amount', 'type': 'decimal'}, {'name': 'suspentry_pend', 'label': 'suspentry_pend', 'type': 'char'}, {'name': 'suspentry_scode', 'label': 'suspentry_scode', 'type': 'char'}, {'name': 'suspentry_tdate', 'label': 'suspentry_tdate', 'type': 'date'}, {'name': 'suspentry_note', 'label': 'suspentry_note', 'type': 'char'}, {'name': 'suspentry_vchno', 'label': 'suspentry_vchno', 'type': 'char'}]},
+    opens=['w_susp_totmp', 'w_cbachdhelp'],
 )
 
 

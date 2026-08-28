@@ -23,6 +23,7 @@ WINDOW = Window(
     source_path='w_itemtmp.srw',
     grid={'control': 'dw_sman', 'dataobject': 'd_itemtmp', 'table': 'itemstmp', 'keys': ['code', 'name'], 'columns': [{'name': 'code', 'label': 'Code', 'type': 'char'}, {'name': 'name', 'label': 'Name', 'type': 'char'}, {'name': 'mname', 'label': 'Malayalam Name', 'type': 'char'}, {'name': 'iqtype', 'label': 'iqtype', 'type': 'char'}]},
     report={'dataobject': 'd_itemtmp', 'sql': 'SELECT itemstmp.code AS itemstmp_code, itemstmp.name AS itemstmp_name, itemstmp.mname AS itemstmp_mname, itemstmp.iqtype AS itemstmp_iqtype FROM itemstmp ORDER BY itemstmp.code ASC, itemstmp.name ASC', 'args': [], 'arg_types': {}, 'tables': ['itemstmp'], 'columns': [{'name': 'code', 'label': 'Code', 'type': 'char'}, {'name': 'name', 'label': 'Name', 'type': 'char'}, {'name': 'mname', 'label': 'Malayalam Name', 'type': 'char'}, {'name': 'iqtype', 'label': 'iqtype', 'type': 'char'}]},
+    opens=['w_regional', 'w_itemhelp'],
 )
 
 

@@ -21,6 +21,7 @@ WINDOW = Window(
     controls=[],
     tables=['items', 'itemsstk', 'daybook', 'salesm', 'barcode', 'clients', 'salesd', 'purchased', 'spdmddet', 'stkandprofit', 'salesrd', 'mctable', 'salesrm', 'orderm', 'purchasem', 'itemadj', 'itemstmp', 'wstg', 'barcodedmd', 'accountm', 'generals', 'generali', 'userd', 'generald', 'daybookpart', 'delpart', 'userm'],
     source_path='w_sales_full.srw',
+    opens=['w_stktypeqtype', 'w_osalehelp', 'w_itemhelp', 'w_itemtmphelp', 'w_rmno', 'w_mcharge_perc', 'w_wstgmclist', 'w_wastage', 'w_itemadjpopup', 'w_vaperc', 'w_mcharge', 'w_dmdpopup', 'w_vachange', 'w_jewlcode', 'w_calander2', 'w_cbachdhelp', 'w_clientshelp', 'w_sucu', 'w_diamond_sales_print'],
 )
 
 

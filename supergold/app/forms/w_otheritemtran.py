@@ -21,6 +21,7 @@ WINDOW = Window(
     controls=[],
     tables=['itemsothers', 'daybook', 'oitemtranm', 'oitemtrand', 'clients', 'accountm', 'generali', 'daybookpart', 'delpart'],
     source_path='w_otheritemtran.srw',
+    opens=['w_clientshelp', 'w_sucu', 'w_item_others_help'],
 )
 
 

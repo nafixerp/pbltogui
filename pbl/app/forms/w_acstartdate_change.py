@@ -21,6 +21,7 @@ WINDOW = Window(
     controls=[],
     tables=['accountm'],
     source_path='w_acstartdate_change.srw',
+    opens=['w_cbachdhelp'],
 )
 
 

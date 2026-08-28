@@ -21,6 +21,7 @@ WINDOW = Window(
     controls=[],
     tables=['repairm', 'items', 'itemsstk', 'repaird', 'daybook', 'delpart', 'daybookpart'],
     source_path='w_rprcancel.srw',
+    opens=['w_repairhelp'],
 )
 
 

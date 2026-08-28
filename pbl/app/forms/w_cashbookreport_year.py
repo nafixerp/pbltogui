@@ -21,6 +21,7 @@ WINDOW = Window(
     controls=[],
     tables=['accountm', 'daybook'],
     source_path='w_cashbookreport_year.srw',
+    opens=['w_acledgerpopup'],
 )
 
 

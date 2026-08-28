@@ -23,6 +23,7 @@ WINDOW = Window(
     source_path='w_stafftrans.srw',
     grid={'control': 'dw_trans', 'dataobject': 'd_stafftrans', 'table': 'clients', 'keys': ['code'], 'columns': [{'name': 'code', 'label': 'code', 'type': 'char'}, {'name': 'name', 'label': 'Name', 'type': 'char'}, {'name': 'salary', 'label': 'salary', 'type': 'decimal'}, {'name': 'amount', 'label': 'Amount', 'type': 'decimal'}, {'name': 'opbalance', 'label': 'opbalance', 'type': 'decimal'}, {'name': 'opbalanceb', 'label': 'opbalanceb', 'type': 'decimal'}, {'name': 'ttran', 'label': 'ttran', 'type': 'decimal'}]},
     report={'dataobject': 'd_stafftrans', 'sql': 'SELECT clients.code AS clients_code, clients.name AS clients_name, clients.salary AS clients_salary, clients.opbalance AS clients_opbalance, clients.opbalanceb AS clients_opbalanceb, 0.00 as amount, (select sum(daybook.amount) from daybook where daybook.accode = clients.code and daybook.control <= :rlevel and daybook.tdate <= :rdate) ttran FROM clients ORDER BY clients.name ASC', 'args': ['rdate', 'rlevel'], 'arg_types': {'rdate': 'date', 'rlevel': 'number'}, 'tables': ['clients'], 'columns': [{'name': 'code', 'label': 'code', 'type': 'char'}, {'name': 'name', 'label': 'Name', 'type': 'char'}, {'name': 'salary', 'label': 'salary', 'type': 'decimal'}, {'name': 'amount', 'label': 'Amount', 'type': 'decimal'}, {'name': 'opbalance', 'label': 'opbalance', 'type': 'decimal'}, {'name': 'opbalanceb', 'label': 'opbalanceb', 'type': 'decimal'}, {'name': 'ttran', 'label': 'ttran', 'type': 'decimal'}]},
+    opens=['w_cbachdhelp'],
 )
 
 

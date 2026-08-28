@@ -14,6 +14,7 @@ from PySide6.QtWidgets import (
 import db
 
 from app import catalog, forms, menu_loader, modules, pb_menu, pb_parser
+from app.ui import navigation
 from app.menu_loader import MenuNode
 from app.ui.pb_form import PBWindowForm
 
@@ -37,6 +38,7 @@ class MainWindow(QMainWindow):
         self.tabs.tabCloseRequested.connect(lambda i: self.tabs.removeTab(i))
         self.setCentralWidget(self.tabs)
 
+        navigation.set_opener(self.open_window)
         self._build_menubar()
         self._build_explorer()
         self._show_welcome()
@@ -151,7 +153,19 @@ class MainWindow(QMainWindow):
         idx = self.tabs.addTab(widget, node.label)
         self.tabs.setCurrentIndex(idx)
 
-    def _build_module_widget(self, node: MenuNode) -> QWidget:
+    def open_window(self, window: str, params: dict | None = None, label: str = ""):
+        """Open a screen by window name, seeded with a record (screen flow)."""
+        node = next((leaf for leaf in menu_loader.iter_leaves(self.sections)
+                     if leaf.window == window), None)
+        if node is None:
+            node = MenuNode(label=label or window, window=window,
+                            source_ref=f"{window}.srw")
+        widget = self._build_module_widget(node, seed=params or {})
+        widget.setProperty("window_name", window)
+        idx = self.tabs.addTab(widget, node.label)
+        self.tabs.setCurrentIndex(idx)
+
+    def _build_module_widget(self, node: MenuNode, seed: dict | None = None) -> QWidget:
         parsed = None
         if node.source_ref:
             path = pb_parser.find_source(node.source_ref, BASE_DIR)
@@ -166,7 +180,12 @@ class MainWindow(QMainWindow):
         factory = modules.get_factory(node.window or "")
         if factory is not None:
             try:
-                return factory(parsed)
+                # Hand-written modules take the parsed window; the ones that can
+                # start from a chosen record also accept it.
+                try:
+                    return factory(parsed, seed=seed) if seed else factory(parsed)
+                except TypeError:
+                    return factory(parsed)
             except Exception as exc:  # never let one module break navigation
                 return self._error_widget(node, exc)
 
@@ -174,12 +193,12 @@ class MainWindow(QMainWindow):
         form_cls = forms.get_form(node.window or "")
         if form_cls is not None:
             try:
-                return form_cls(parsed)
+                return form_cls(parsed, seed=seed)
             except Exception as exc:
                 return self._error_widget(node, exc)
 
         if parsed is not None:
-            return PBWindowForm(parsed)
+            return PBWindowForm(parsed, seed=seed)
         return self._missing_widget(node)
 
     def _missing_widget(self, node: MenuNode) -> QWidget:

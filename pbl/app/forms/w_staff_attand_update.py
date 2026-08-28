@@ -21,6 +21,7 @@ WINDOW = Window(
     controls=[],
     tables=['datepicker', 'staff_log', 'olecustomcontrol', 'clients', 'machine'],
     source_path='w_staff_attand_update.srw',
+    opens=['w_staff_userinfo'],
 )
 
 

@@ -21,6 +21,7 @@ WINDOW = Window(
     controls=[],
     tables=['itemgrp', 'items'],
     source_path='w_itemgrp.srw',
+    opens=['w_regional', 'w_itemgrphelp'],
 )
 
 

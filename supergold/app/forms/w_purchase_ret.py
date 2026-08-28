@@ -21,6 +21,7 @@ WINDOW = Window(
     controls=[],
     tables=['daybook', 'items', 'purchaserd', 'purchaserm', 'itemsstk', 'barcode', 'stkandprofit', 'salestype', 'clients', 'barcodedmd', 'sman', 'accountm', 'itemsqtype', 'generali', 'generals', 'userd', 'daybookpart', 'delpart'],
     source_path='w_purchase_ret.srw',
+    opens=['w_clientshelp', 'w_sucu', 'w_preturn_view', 'w_stktypehlp', 'w_stktypeqtype', 'w_itemhelp'],
 )
 
 

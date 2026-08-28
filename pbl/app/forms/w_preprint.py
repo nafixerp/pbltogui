@@ -21,6 +21,7 @@ WINDOW = Window(
     controls=[],
     tables=['purchasem', 'purchaserm'],
     source_path='w_preprint.srw',
+    opens=['w_purchhelp', 'w_preturn_view', 'w_purchase_view'],
 )
 
 

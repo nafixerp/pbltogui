@@ -21,6 +21,7 @@ WINDOW = Window(
     controls=[],
     tables=['salesrm', 'salesrd'],
     source_path='w_sretreprint.srw',
+    opens=['w_salerethelp', 'w_salesreturn_view'],
 )
 
 

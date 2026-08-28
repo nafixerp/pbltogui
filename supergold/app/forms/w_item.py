@@ -23,6 +23,7 @@ WINDOW = Window(
     source_path='w_item.srw',
     grid={'control': 'dw_smith', 'dataobject': 'd_smith', 'table': 'codehelp', 'keys': ['code'], 'columns': [{'name': 'code', 'label': 'code', 'type': 'char'}]},
     report={'dataobject': 'd_smith', 'sql': 'SELECT codehelp.code AS codehelp_code FROM codehelp', 'args': [], 'arg_types': {}, 'tables': ['codehelp'], 'columns': [{'name': 'code', 'label': 'code', 'type': 'char'}]},
+    opens=['w_itemhelp', 'w_itemsubgrp', 'w_itemgrp', 'w_clientshelp', 'w_itemcode_change', 'w_itemlist_mcwstg', 'w_regional', 'w_stocklist', 'w_stockledger'],
 )
 
 

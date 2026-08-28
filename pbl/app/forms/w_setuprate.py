@@ -21,6 +21,7 @@ WINDOW = Window(
     controls=[],
     tables=['ratehistory', 'generald', 'userd', 'generals'],
     source_path='w_setuprate.srw',
+    opens=['w_regional'],
 )
 
 

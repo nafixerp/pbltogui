@@ -21,6 +21,7 @@ WINDOW = Window(
     controls=[],
     tables=['itemsothers', 'otheritemtrans'],
     source_path='w_item_others.srw',
+    opens=['w_item_others_help'],
 )
 
 

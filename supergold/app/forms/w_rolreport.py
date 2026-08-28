@@ -23,6 +23,7 @@ WINDOW = Window(
     source_path='w_rolreport.srw',
     grid={'control': 'dw_itemlist', 'dataobject': 'd_rolreport', 'table': 'items', 'keys': ['code'], 'columns': [{'name': 'code', 'label': 'Code', 'type': 'char'}, {'name': 'name', 'label': 'name', 'type': 'char'}, {'name': 'qty', 'label': 'Qty', 'type': 'long'}, {'name': 'weight', 'label': 'Weight', 'type': 'decimal'}, {'name': 'qtyb', 'label': 'qtyb', 'type': 'long'}, {'name': 'weightb', 'label': 'weightb', 'type': 'decimal'}, {'name': 'rollower', 'label': 'rollower', 'type': 'decimal'}, {'name': 'rolupper', 'label': 'rolupper', 'type': 'decimal'}]},
     report={'dataobject': 'd_rolreport', 'sql': 'SELECT items.code AS items_code, items.name AS items_name, items.qty AS items_qty, items.weight AS items_weight, items.qtyb AS items_qtyb, items.weightb AS items_weightb, items.rollower AS items_rollower, items.rolupper AS items_rolupper FROM items ORDER BY items.name ASC', 'args': ['rlevel'], 'arg_types': {'rlevel': 'number'}, 'tables': ['items'], 'columns': [{'name': 'code', 'label': 'Code', 'type': 'char'}, {'name': 'name', 'label': 'name', 'type': 'char'}, {'name': 'qty', 'label': 'Qty', 'type': 'long'}, {'name': 'weight', 'label': 'Weight', 'type': 'decimal'}, {'name': 'qtyb', 'label': 'qtyb', 'type': 'long'}, {'name': 'weightb', 'label': 'weightb', 'type': 'decimal'}, {'name': 'rollower', 'label': 'rollower', 'type': 'decimal'}, {'name': 'rolupper', 'label': 'rolupper', 'type': 'decimal'}]},
+    opens=['w_itemhelp'],
 )
 
 

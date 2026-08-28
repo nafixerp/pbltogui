@@ -21,6 +21,7 @@ WINDOW = Window(
     controls=[],
     tables=['daybook', 'kurifinishdet', 'clients_kuridet', 'collection', 'kuricolln', 'daybookratewgt', 'accountm', 'generali', 'daybookpart', 'delpart'],
     source_path='w_journal.srw',
+    opens=['w_journhelp', 'w_cbachdhelp'],
 )
 
 

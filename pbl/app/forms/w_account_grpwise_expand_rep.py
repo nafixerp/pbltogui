@@ -21,6 +21,7 @@ WINDOW = Window(
     controls=[],
     tables=['daybook', 'accountm', 'accountg', 'date', 'clients'],
     source_path='w_account_grpwise_expand_rep.srw',
+    opens=['w_achd', 'w_achdbsgrp', 'w_achdgrp', 'w_sucu', 'w_smith', 'w_acledgerpopup'],
 )
 
 

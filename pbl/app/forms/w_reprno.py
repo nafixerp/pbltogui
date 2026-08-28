@@ -21,6 +21,7 @@ WINDOW = Window(
     controls=[],
     tables=['repairm', 'smithm'],
     source_path='w_reprno.srw',
+    opens=['w_repairhelp', 'w_reprreturn'],
 )
 
 

@@ -21,6 +21,7 @@ WINDOW = Window(
     controls=[],
     tables=['olecontrol', 'generals'],
     source_path='w_companyselect.srw',
+    opens=['w_companycreate'],
 )
 
 

@@ -21,6 +21,7 @@ WINDOW = Window(
     controls=[],
     tables=['daybook', 'salesm', 'orderm', 'advafter'],
     source_path='w_discafter.srw',
+    opens=['w_salehelp'],
 )
 
 

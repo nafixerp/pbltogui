@@ -21,6 +21,7 @@ WINDOW = Window(
     controls=[],
     tables=['pdclist', 'daybookpart'],
     source_path='w_acreprint.srw',
+    opens=['w_accentyhelp', 'w_rcptpmnt_view'],
 )
 
 

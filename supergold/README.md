@@ -95,15 +95,22 @@ Levels of conversion:
 
   | What the screen gives you | Menu items |
   |---|---|
-  | Hand-written module (full business logic) | 37 |
+  | Hand-written module (full business logic) | 41 |
   | Editable DataWindow grid (add / edit / delete) | 115 |
   | Mapped fields (add / edit / delete) | 72 |
-  | Data view: the window's own query, parameters, totals, CSV/PDF | 89 |
-  | Form + read-only record list | 80 |
+  | Data view: the window's own query, parameters, totals, print, CSV/PDF | 89 |
+  | Form + record list, with the flow to the next screen | 17 |
+  | Form + read-only record list | 59 |
 
-  The last group is mostly the bill-number pickers (Edit / Cancel / Reprint) and
-  a few screens that build their query in code — they open and show their data,
-  but the action behind them still needs its own logic.
+  **Every screen prints** — the rows on show go through the standard print
+  dialog — and **60 screens carry you to the next one**: pick a bill in an
+  Edit / Reprint window and press *Open …*, and the entry screen opens on that
+  record, the way the original chained its windows.
+
+  The last group is the cancellation screens and the few reports the original
+  builds in code: they open and show their data, but the posting behind them
+  (stock and ledger reversal) still needs its own logic — see *What is not
+  converted*.
 
 ## Records — adding, editing and deleting
 
@@ -147,6 +154,24 @@ in `data/field_map.json` — no code change needed:
   }
 }
 ```
+
+## What is not converted
+
+Honestly, so you know before you rely on it:
+
+* **Cancellation screens** (Sales / Purchase / Goldsmith / Order / Loan /
+  Receipt cancel) list the documents but do not post the cancellation. The
+  original reverses stock, weights and ledger balances in the same step; doing
+  that from a generic screen would corrupt data, so it is left to a hand-written
+  module.
+* **A few reports the original builds in code** — Balance Sheet, Profit & Loss,
+  Day Report, Daily All Report, Party History, Yearly Cash Balance — have no
+  stored query to run, so they open as a form.
+* **Printing uses a plain tabular layout**, not the original's designed bill
+  formats. The sales tax invoice is the one exception: it has a real converted
+  layout (`app/reports/invoice.py`).
+* **Company Select** and **Show WM Weight** depend on things outside the
+  software (a second database, a weighing-machine port).
 
 ## Users and access
 

@@ -21,6 +21,7 @@ WINDOW = Window(
     controls=[],
     tables=['items', 'itemsstk', 'refinerym', 'daybook', 'refineryd', 'clients', 'accountm', 'sman', 'generali', 'daybookpart', 'delpart'],
     source_path='w_refinary.srw',
+    opens=['w_clientshelp', 'w_refineryprint_view', 'w_stktypeqtype', 'w_itemhelp'],
 )
 
 

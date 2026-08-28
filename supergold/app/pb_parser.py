@@ -59,6 +59,7 @@ class Window:
     source_path: str
     grid: dict | None = None      # the DataWindow this screen edits, if any
     report: dict | None = None    # the DataWindow this screen displays, if any
+    opens: list = field(default_factory=list)   # screens this one leads to
 
 
 def decode_pb(path: str) -> str:

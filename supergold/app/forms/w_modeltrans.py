@@ -21,6 +21,7 @@ WINDOW = Window(
     controls=[],
     tables=['items', 'modelm', 'barcode', 'itemadj', 'clients', 'generali'],
     source_path='w_modeltrans.srw',
+    opens=['w_itemhelp', 'w_modeltranhelp', 'w_clientshelp', 'w_sucu'],
 )
 
 

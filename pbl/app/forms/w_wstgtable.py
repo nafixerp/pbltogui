@@ -22,6 +22,7 @@ WINDOW = Window(
     tables=['wstgtable', 'items'],
     source_path='w_wstgtable.srw',
     report={'dataobject': 'd_wstgmast', 'sql': 'SELECT wstgtable.weight1 AS wstgtable_weight1, wstgtable.weight2 AS wstgtable_weight2, wstgtable.wastage AS wstgtable_wastage, wstgtable.perc AS wstgtable_perc FROM wstgtable', 'args': ['rcode', 'rtype'], 'arg_types': {'rcode': 'string', 'rtype': 'string'}, 'tables': ['wstgtable'], 'columns': [{'name': 'weight1', 'label': 'From Wgt', 'type': 'decimal'}, {'name': 'weight2', 'label': 'To Wgt', 'type': 'decimal'}, {'name': 'wastage', 'label': 'Wastage', 'type': 'decimal'}, {'name': 'perc', 'label': '%', 'type': 'decimal'}]},
+    opens=['w_itemhelp'],
 )
 
 

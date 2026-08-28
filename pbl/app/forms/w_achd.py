@@ -21,6 +21,7 @@ WINDOW = Window(
     controls=[],
     tables=['accountm', 'daybook', 'userd', 'generals'],
     source_path='w_achd.srw',
+    opens=['w_accode_rename', 'w_achdbsgrp', 'w_achdgrp', 'w_cbachdhelp'],
 )
 
 

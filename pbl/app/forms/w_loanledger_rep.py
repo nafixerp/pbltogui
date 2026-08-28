@@ -21,6 +21,7 @@ WINDOW = Window(
     controls=[],
     tables=['loan', 'loancolln', 'clients'],
     source_path='w_loanledger_rep.srw',
+    opens=['w_loanhelp'],
 )
 
 

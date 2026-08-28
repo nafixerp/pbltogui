@@ -21,6 +21,7 @@ WINDOW = Window(
     controls=[],
     tables=['orderm'],
     source_path='w_order_ratefix.srw',
+    opens=['w_orderhelp'],
 )
 
 

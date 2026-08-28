@@ -21,6 +21,7 @@ WINDOW = Window(
     controls=[],
     tables=['items', 'itemsstk', 'smithm', 'barcode', 'smithd', 'itemadj', 'daybook', 'stkandprofit', 'oglist', 'delpart', 'daybookpart'],
     source_path='w_gsmthcancel.srw',
+    opens=['w_gsmthhelp', 'w_tran_view'],
 )
 
 

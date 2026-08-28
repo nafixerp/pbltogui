@@ -21,6 +21,7 @@ WINDOW = Window(
     controls=[],
     tables=['daybook', 'item', 'salesm', 'purchasem', 'wgt', 'fr', 'rcvd', 'application', 'party', 'account', 'generals', 'generald', 'generali'],
     source_path='w_setup.srw',
+    opens=['w_regional'],
 )
 
 

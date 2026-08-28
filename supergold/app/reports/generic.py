@@ -27,6 +27,7 @@ from PySide6.QtWidgets import (
 
 import db
 from app.reports.framework import export_csv, export_pdf
+from app.ui.printing import print_table
 
 _ARG_RE = re.compile(r":(\w+)")
 _NUMERIC_TYPES = ("decimal", "number", "long", "int", "real", "double", "money")
@@ -44,6 +45,24 @@ def bind(sql: str, values: dict) -> tuple:
     return _ARG_RE.sub(swap, sql), params
 
 
+def seed_value(arg: str, record: dict):
+    """Match a retrieval argument to a value in the record handed over.
+
+    ``:rslno`` takes ``slno`` from the selected row (also ``salesm_slno``), so
+    opening an entry screen from a bill list lands on that bill.
+    """
+    if not record:
+        return None
+    wanted = arg.lower()
+    if wanted.startswith("r") and len(wanted) > 1:
+        wanted = wanted[1:]
+    for key, value in record.items():
+        low = key.lower()
+        if low == wanted or low.endswith("_" + wanted):
+            return value
+    return None
+
+
 def default_for(name: str, kind: str):
     kind = (kind or "").lower()
     if kind in _DATE_TYPES or name.lower().startswith(("rdate", "date")):
@@ -58,10 +77,11 @@ def default_for(name: str, kind: str):
 class GenericDataView(QWidget):
     """The original DataWindow of a screen, running as a real data view."""
 
-    def __init__(self, spec: dict, title: str = "", parent=None):
+    def __init__(self, spec: dict, title: str = "", parent=None, seed: dict | None = None):
         super().__init__(parent)
         self.spec = spec or {}
         self.title = title or self.spec.get("dataobject", "Data")
+        self.seed = seed or {}
         self._rows: list = []
         self._columns: list = []
         self._param_widgets: dict = {}
@@ -83,7 +103,8 @@ class GenericDataView(QWidget):
             outer.addWidget(box)
 
         actions = QHBoxLayout()
-        for caption, slot in (("Run", self.run), ("Export CSV", self._export_csv),
+        for caption, slot in (("Run", self.run), ("Print", self._print),
+                              ("Export CSV", self._export_csv),
                               ("Export PDF", self._export_pdf)):
             btn = QPushButton(caption)
             btn.clicked.connect(slot)
@@ -106,7 +127,9 @@ class GenericDataView(QWidget):
         return pretty.replace("_", " ").title()
 
     def _param_widget(self, name: str, kind: str) -> QWidget:
-        default = default_for(name, kind)
+        default = seed_value(name, self.seed)
+        if default is None:
+            default = default_for(name, kind)
         if isinstance(default, datetime.date):
             w = QDateEdit()
             w.setCalendarPopup(True)
@@ -192,6 +215,19 @@ class GenericDataView(QWidget):
                 item.setTextAlignment(Qt.AlignRight | Qt.AlignVCenter)
                 self._grid.setItem(r, c, item)
         self._grid.resizeColumnsToContents()
+
+    def selected_row(self) -> dict:
+        """The row the user has selected, for a screen that opens another."""
+        idx = self._grid.currentRow()
+        if 0 <= idx < len(self._rows):
+            return dict(self._rows[idx])
+        return {}
+
+    def _print(self):
+        if not self._rows:
+            QMessageBox.information(self, self.title, "Run the query first.")
+            return
+        print_table(self, self.title, self._columns, self._rows)
 
     def _message(self, text: str):
         self._grid.setRowCount(1)

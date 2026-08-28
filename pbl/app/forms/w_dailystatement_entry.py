@@ -21,6 +21,7 @@ WINDOW = Window(
     controls=[],
     tables=['daybook', 'accountm', 'generali', 'daybookpart'],
     source_path='w_dailystatement_entry.srw',
+    opens=['w_rcptpmnt_view', 'w_cbachdhelp'],
 )
 
 
