@@ -1,0 +1,3609 @@
+{
+ "sections": [
+  {
+   "label": "File",
+   "children": [
+    {
+     "label": "Printer Setup"
+    },
+    {
+     "label": "Company Select",
+     "shortcut": "Alt+Z",
+     "window": "w_companyselect",
+     "source_ref": "gminedi\\w_companyselect.srw",
+     "alternates": [
+      "w_companyselect"
+     ]
+    },
+    {
+     "label": "Exit",
+     "window": "w_about",
+     "source_ref": "gminegen\\w_about.srw",
+     "alternates": [
+      "w_about"
+     ]
+    }
+   ]
+  },
+  {
+   "label": "Master",
+   "children": [
+    {
+     "label": "Update Settings",
+     "children": [
+      {
+       "label": "Rate",
+       "window": "w_setuprate_international",
+       "source_ref": "gminem1\\w_setuprate_international.srw",
+       "alternates": [
+        "w_setuprate_international",
+        "w_setuprate"
+       ]
+      },
+      {
+       "label": "Application",
+       "window": "w_setup",
+       "source_ref": "gminem1\\w_setup.srw",
+       "alternates": [
+        "w_setup"
+       ]
+      }
+     ]
+    },
+    {
+     "label": "Items",
+     "children": [
+      {
+       "label": "Item Details",
+       "window": "w_item",
+       "source_ref": "gminem1\\w_item.srw",
+       "alternates": [
+        "w_item"
+       ]
+      },
+      {
+       "label": "Item Temp",
+       "window": "w_itemtmp",
+       "source_ref": "gminem1\\w_itemtmp.srw",
+       "alternates": [
+        "w_itemtmp"
+       ]
+      },
+      {
+       "label": "Other Items",
+       "window": "w_item_others",
+       "source_ref": "gminem1\\w_item_others.srw",
+       "alternates": [
+        "w_item_others"
+       ]
+      },
+      {
+       "label": "Groups",
+       "window": "w_itemgrp",
+       "source_ref": "gminem1\\w_itemgrp.srw",
+       "alternates": [
+        "w_itemgrp"
+       ]
+      },
+      {
+       "label": "Sub Groups",
+       "window": "w_itemsubgrp",
+       "source_ref": "gminem1\\w_itemsubgrp.srw",
+       "alternates": [
+        "w_itemsubgrp"
+       ]
+      },
+      {
+       "label": "Quality Type",
+       "window": "w_itemqualitytype",
+       "source_ref": "gminem1\\w_itemqualitytype.srw",
+       "alternates": [
+        "w_itemqualitytype"
+       ]
+      },
+      {
+       "label": "Counters",
+       "window": "w_counter",
+       "source_ref": "gminem1\\w_counter.srw",
+       "alternates": [
+        "w_counter"
+       ]
+      },
+      {
+       "label": "Wastage Table",
+       "window": "w_wstgtable",
+       "source_ref": "gminem1\\w_wstgtable.srw",
+       "alternates": [
+        "w_wstgtable"
+       ]
+      },
+      {
+       "label": "MC Table",
+       "window": "w_mctable",
+       "source_ref": "gminem1\\w_mctable.srw",
+       "alternates": [
+        "w_mctable"
+       ]
+      },
+      {
+       "label": "Party MC Table",
+       "window": "w_partymctable",
+       "source_ref": "gminem2\\w_partymctable.srw",
+       "alternates": [
+        "w_partymctable"
+       ]
+      },
+      {
+       "label": "Stock Type",
+       "window": "w_stktype",
+       "source_ref": "gminem1\\w_stktype.srw",
+       "alternates": [
+        "w_stktype"
+       ]
+      },
+      {
+       "label": "Models",
+       "window": "w_models",
+       "source_ref": "w_models.srw",
+       "alternates": [
+        "w_models"
+       ]
+      },
+      {
+       "label": "Op.Stock Entry",
+       "window": "w_items_opstock",
+       "source_ref": "gminem1\\w_items_opstock.srw",
+       "alternates": [
+        "w_items_opstock"
+       ]
+      },
+      {
+       "label": "ReOrder Level Table",
+       "window": "w_reorder_master",
+       "source_ref": "gminem1\\w_reorder_master.srw",
+       "alternates": [
+        "w_reorder_master"
+       ]
+      }
+     ]
+    },
+    {
+     "label": "Customer",
+     "window": "w_sucu",
+     "source_ref": "gminem2\\w_sucu.srw",
+     "alternates": [
+      "w_sucu"
+     ]
+    },
+    {
+     "label": "Supplier",
+     "window": "w_sucu",
+     "source_ref": "gminem2\\w_sucu.srw",
+     "alternates": [
+      "w_sucu"
+     ]
+    },
+    {
+     "label": "Goldsmith",
+     "window": "w_smith",
+     "source_ref": "gminem2\\w_smith.srw",
+     "alternates": [
+      "w_smith"
+     ]
+    },
+    {
+     "label": "Refiner",
+     "window": "w_smith",
+     "source_ref": "gminem2\\w_smith.srw",
+     "alternates": [
+      "w_smith"
+     ]
+    },
+    {
+     "label": "Jewellery",
+     "window": "w_smith",
+     "source_ref": "gminem2\\w_smith.srw",
+     "alternates": [
+      "w_smith"
+     ]
+    },
+    {
+     "label": "Depositers (Wgt)",
+     "window": "w_smith",
+     "source_ref": "gminem2\\w_smith.srw",
+     "alternates": [
+      "w_smith"
+     ]
+    },
+    {
+     "label": "Accounts",
+     "children": [
+      {
+       "label": "Account",
+       "window": "w_achd",
+       "source_ref": "gminem3\\w_achd.srw",
+       "alternates": [
+        "w_achd"
+       ]
+      },
+      {
+       "label": "Position Settings",
+       "window": "w_accounts_position",
+       "source_ref": "gminem3\\w_accounts_position.srw",
+       "alternates": [
+        "w_accounts_position"
+       ]
+      },
+      {
+       "label": "Book Stock",
+       "window": "w_bookstock",
+       "source_ref": "gminegen\\w_bookstock.srw",
+       "alternates": [
+        "w_bookstock"
+       ]
+      },
+      {
+       "label": "Op.Stock Value Set",
+       "window": "w_stockvalueset",
+       "source_ref": "gminegen\\w_stockvalueset.srw",
+       "alternates": [
+        "w_stockvalueset"
+       ]
+      },
+      {
+       "label": "C/o Party Limit",
+       "window": "w_copartylimit",
+       "source_ref": "gminem3\\w_copartylimit.srw",
+       "alternates": [
+        "w_copartylimit"
+       ]
+      }
+     ]
+    },
+    {
+     "label": "Staff",
+     "window": "w_sucu",
+     "source_ref": "gminem2\\w_sucu.srw",
+     "alternates": [
+      "w_sucu"
+     ]
+    },
+    {
+     "label": "Sales Man",
+     "window": "w_sman",
+     "source_ref": "gminem2\\w_sman.srw",
+     "alternates": [
+      "w_sman"
+     ]
+    },
+    {
+     "label": "Bill Type",
+     "window": "w_salestype",
+     "source_ref": "gminem2\\w_salestype.srw",
+     "alternates": [
+      "w_salestype"
+     ]
+    },
+    {
+     "label": "States/Emirates",
+     "window": "w_states",
+     "source_ref": "gminem2\\w_states.srw",
+     "alternates": [
+      "w_states"
+     ]
+    },
+    {
+     "label": "Repair Complaints",
+     "window": "w_repaircompl",
+     "source_ref": "gminem2\\w_repaircompl.srw",
+     "alternates": [
+      "w_repaircompl"
+     ]
+    },
+    {
+     "label": "Gift Table",
+     "window": "w_gifttable",
+     "source_ref": "gminem2\\w_gifttable.srw",
+     "alternates": [
+      "w_gifttable"
+     ]
+    },
+    {
+     "label": "Prev. Card Table",
+     "window": "w_pcardtable",
+     "source_ref": "gminem2\\w_pcardtable.srw",
+     "alternates": [
+      "w_pcardtable"
+     ]
+    },
+    {
+     "label": "Denomination Master",
+     "window": "w_denom_master",
+     "source_ref": "gminem3\\w_denom_master.srw",
+     "alternates": [
+      "w_denom_master"
+     ]
+    },
+    {
+     "label": "Op.Bill Creation",
+     "children": [
+      {
+       "label": "Customers",
+       "window": "w_custopbills",
+       "source_ref": "gminet7\\w_custopbills.srw",
+       "alternates": [
+        "w_custopbills"
+       ]
+      }
+     ]
+    },
+    {
+     "label": "Users",
+     "children": [
+      {
+       "label": "Change Password",
+       "window": "w_passverify2",
+       "source_ref": "gminegen\\w_passverify2.srw",
+       "alternates": [
+        "w_passverify2"
+       ]
+      },
+      {
+       "label": "Provide Access",
+       "window": "w_useraccess",
+       "source_ref": "gminegen\\w_useraccess.srw",
+       "alternates": [
+        "w_useraccess"
+       ]
+      },
+      {
+       "label": "Users History",
+       "window": "w_userhistory",
+       "source_ref": "gminer3\\w_userhistory.srw",
+       "alternates": [
+        "w_userhistory"
+       ]
+      }
+     ]
+    },
+    {
+     "label": "Incharge",
+     "children": [
+      {
+       "label": "Master",
+       "window": "w_incharge_master",
+       "source_ref": "gminegen\\w_incharge_master.srw",
+       "alternates": [
+        "w_incharge_master"
+       ]
+      },
+      {
+       "label": "Change",
+       "window": "w_incharge_select",
+       "source_ref": "gminegen\\w_incharge_select.srw",
+       "alternates": [
+        "w_incharge_select"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "label": "Transactions",
+   "children": [
+    {
+     "label": "Sales",
+     "children": [
+      {
+       "label": "Estimate",
+       "shortcut": "Shift+F2",
+       "window": "w_sales_full",
+       "source_ref": "gminet1\\w_sales_full.srw",
+       "alternates": [
+        "w_sales_full",
+        "w_sales"
+       ]
+      },
+      {
+       "label": "Bill",
+       "shortcut": "F2",
+       "window": "w_sales",
+       "source_ref": "gminet1\\w_sales.srw",
+       "alternates": [
+        "w_sales"
+       ]
+      },
+      {
+       "label": "Edit",
+       "window": "w_seditbillno",
+       "source_ref": "gminet1\\w_seditbillno.srw",
+       "alternates": [
+        "w_seditbillno"
+       ]
+      },
+      {
+       "label": "Cancel",
+       "window": "w_scancel",
+       "source_ref": "gminet6\\w_scancel.srw",
+       "alternates": [
+        "w_scancel"
+       ]
+      },
+      {
+       "label": "Reprint",
+       "window": "w_sreprintmpc",
+       "source_ref": "gminet6\\w_sreprintmpc.srw",
+       "alternates": [
+        "w_sreprintmpc"
+       ]
+      },
+      {
+       "label": "Bill Confirmation",
+       "shortcut": "Alt+F8",
+       "window": "w_est_to_bill",
+       "source_ref": "gminet1\\w_est_to_bill.srw",
+       "alternates": [
+        "w_est_to_bill",
+        "w_printconfirm"
+       ]
+      }
+     ]
+    },
+    {
+     "label": "Sales Return",
+     "children": [
+      {
+       "label": "Estimate",
+       "window": "w_salesreturn",
+       "source_ref": "gminet1\\w_salesreturn.srw",
+       "alternates": [
+        "w_salesreturn"
+       ]
+      },
+      {
+       "label": "Bill",
+       "shortcut": "Ctrl+F2",
+       "window": "w_salesreturn",
+       "source_ref": "gminet1\\w_salesreturn.srw",
+       "alternates": [
+        "w_salesreturn"
+       ]
+      },
+      {
+       "label": "Edit",
+       "window": "w_sreteditbillno",
+       "source_ref": "gminet1\\w_sreteditbillno.srw",
+       "alternates": [
+        "w_sreteditbillno"
+       ]
+      },
+      {
+       "label": "Cancel",
+       "window": "w_sretcancel",
+       "source_ref": "gminet6\\w_sretcancel.srw",
+       "alternates": [
+        "w_sretcancel"
+       ]
+      },
+      {
+       "label": "Reprint",
+       "window": "w_sretreprint",
+       "source_ref": "gminet6\\w_sretreprint.srw",
+       "alternates": [
+        "w_sretreprint"
+       ]
+      }
+     ]
+    },
+    {
+     "label": "Purchase",
+     "children": [
+      {
+       "label": "Estimate",
+       "shortcut": "Shift+F3",
+       "window": "w_purchase_withbc",
+       "source_ref": "gminet2\\w_purchase_withbc.srw",
+       "alternates": [
+        "w_purchase_withbc",
+        "w_purchase"
+       ]
+      },
+      {
+       "label": "Bill",
+       "shortcut": "F3",
+       "window": "w_purchase_withbc",
+       "source_ref": "gminet2\\w_purchase_withbc.srw",
+       "alternates": [
+        "w_purchase_withbc",
+        "w_purchase"
+       ]
+      },
+      {
+       "label": "Edit",
+       "window": "w_purcheditno",
+       "source_ref": "w_purcheditno.srw",
+       "alternates": [
+        "w_purcheditno"
+       ]
+      },
+      {
+       "label": "Cancel",
+       "window": "w_pcancel",
+       "source_ref": "w_pcancel.srw",
+       "alternates": [
+        "w_pcancel"
+       ]
+      },
+      {
+       "label": "Reprint",
+       "window": "w_preprint",
+       "source_ref": "w_preprint.srw",
+       "alternates": [
+        "w_preprint"
+       ]
+      },
+      {
+       "label": "Confirmation",
+       "shortcut": "Ctrl+F8",
+       "window": "w_purchase_confirm",
+       "source_ref": "gminet2\\w_purchase_confirm.srw",
+       "alternates": [
+        "w_purchase_confirm"
+       ]
+      }
+     ]
+    },
+    {
+     "label": "Purchase Return",
+     "children": [
+      {
+       "label": "Estimate",
+       "window": "w_purchase_ret",
+       "source_ref": "gminet2\\w_purchase_ret.srw",
+       "alternates": [
+        "w_purchase_ret"
+       ]
+      },
+      {
+       "label": "Bill",
+       "shortcut": "Ctrl+F3",
+       "window": "w_purchase_ret",
+       "source_ref": "gminet2\\w_purchase_ret.srw",
+       "alternates": [
+        "w_purchase_ret"
+       ]
+      },
+      {
+       "label": "Edit",
+       "window": "w_purcheditno",
+       "source_ref": "w_purcheditno.srw",
+       "alternates": [
+        "w_purcheditno"
+       ]
+      },
+      {
+       "label": "Cancel",
+       "window": "w_pcancel",
+       "source_ref": "w_pcancel.srw",
+       "alternates": [
+        "w_pcancel"
+       ]
+      },
+      {
+       "label": "Reprint",
+       "window": "w_preprint",
+       "source_ref": "w_preprint.srw",
+       "alternates": [
+        "w_preprint"
+       ]
+      }
+     ]
+    },
+    {
+     "label": "Diamonds/Pres.Stone",
+     "children": [
+      {
+       "label": "Purchase",
+       "children": [
+        {
+         "label": "New",
+         "window": "w_diamond_purchase",
+         "source_ref": "gminet2\\w_diamond_purchase.srw",
+         "alternates": [
+          "w_diamond_purchase"
+         ]
+        },
+        {
+         "label": "Edit",
+         "window": "w_purcheditno",
+         "source_ref": "w_purcheditno.srw",
+         "alternates": [
+          "w_purcheditno"
+         ]
+        },
+        {
+         "label": "Cancel",
+         "window": "w_pcancel",
+         "source_ref": "w_pcancel.srw",
+         "alternates": [
+          "w_pcancel"
+         ]
+        },
+        {
+         "label": "Reprint",
+         "window": "w_preprint",
+         "source_ref": "w_preprint.srw",
+         "alternates": [
+          "w_preprint"
+         ]
+        }
+       ]
+      },
+      {
+       "label": "Purchase Return",
+       "children": [
+        {
+         "label": "New",
+         "window": "w_diamond_preturn",
+         "source_ref": "gminet2\\w_diamond_preturn.srw",
+         "alternates": [
+          "w_diamond_preturn"
+         ]
+        },
+        {
+         "label": "Edit",
+         "window": "w_purcheditno",
+         "source_ref": "w_purcheditno.srw",
+         "alternates": [
+          "w_purcheditno"
+         ]
+        },
+        {
+         "label": "Cancel",
+         "window": "w_pcancel",
+         "source_ref": "w_pcancel.srw",
+         "alternates": [
+          "w_pcancel"
+         ]
+        },
+        {
+         "label": "Reprint",
+         "window": "w_preprint",
+         "source_ref": "w_preprint.srw",
+         "alternates": [
+          "w_preprint"
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "label": "Goldsmith",
+     "children": [
+      {
+       "label": "Transaction",
+       "shortcut": "Ctrl+G",
+       "window": "w_gsmith",
+       "source_ref": "gminet4\\w_gsmith.srw",
+       "alternates": [
+        "w_gsmith"
+       ]
+      },
+      {
+       "label": "Edit",
+       "window": "w_gsmtheditno",
+       "source_ref": "gminet4\\w_gsmtheditno.srw",
+       "alternates": [
+        "w_gsmtheditno"
+       ]
+      },
+      {
+       "label": "Cancel",
+       "window": "w_gsmthcancel",
+       "source_ref": "gminet4\\w_gsmthcancel.srw",
+       "alternates": [
+        "w_gsmthcancel"
+       ]
+      },
+      {
+       "label": "Reprint",
+       "window": "w_gsmthreprint",
+       "source_ref": "gminet4\\w_gsmthreprint.srw",
+       "alternates": [
+        "w_gsmthreprint"
+       ]
+      },
+      {
+       "label": "New Work Note",
+       "shortcut": "Ctrl+N",
+       "window": "w_gsmithnewwrk",
+       "source_ref": "gminet4\\w_gsmithnewwrk.srw",
+       "alternates": [
+        "w_gsmithnewwrk"
+       ]
+      }
+     ]
+    },
+    {
+     "label": "Refinery",
+     "children": [
+      {
+       "label": "New Entry",
+       "shortcut": "Ctrl+Y",
+       "window": "w_refnenter",
+       "source_ref": "gminet4\\w_refnenter.srw",
+       "alternates": [
+        "w_refnenter"
+       ]
+      },
+      {
+       "label": "Returns",
+       "shortcut": "Ctrl+Shift+Y",
+       "window": "w_refnretdocno",
+       "source_ref": "gminet4\\w_refnretdocno.srw",
+       "alternates": [
+        "w_refnretdocno"
+       ]
+      },
+      {
+       "label": "All in one Entry",
+       "window": "w_refinary",
+       "source_ref": "gminet4\\w_refinary.srw",
+       "alternates": [
+        "w_refinary"
+       ]
+      },
+      {
+       "label": "Edit",
+       "window": "w_refneditno",
+       "source_ref": "gminet4\\w_refneditno.srw",
+       "alternates": [
+        "w_refneditno"
+       ]
+      },
+      {
+       "label": "Cancel",
+       "window": "w_refncancel",
+       "source_ref": "gminet4\\w_refncancel.srw",
+       "alternates": [
+        "w_refncancel"
+       ]
+      }
+     ]
+    },
+    {
+     "label": "Jewellery",
+     "children": [
+      {
+       "label": "Transaction",
+       "shortcut": "Ctrl+J",
+       "window": "w_gsmith",
+       "source_ref": "gminet4\\w_gsmith.srw",
+       "alternates": [
+        "w_gsmith"
+       ]
+      },
+      {
+       "label": "Edit",
+       "window": "w_gsmtheditno",
+       "source_ref": "gminet4\\w_gsmtheditno.srw",
+       "alternates": [
+        "w_gsmtheditno"
+       ]
+      },
+      {
+       "label": "Cancel",
+       "window": "w_gsmthcancel",
+       "source_ref": "gminet4\\w_gsmthcancel.srw",
+       "alternates": [
+        "w_gsmthcancel"
+       ]
+      },
+      {
+       "label": "Reprint",
+       "window": "w_gsmthreprint",
+       "source_ref": "gminet4\\w_gsmthreprint.srw",
+       "alternates": [
+        "w_gsmthreprint"
+       ]
+      },
+      {
+       "label": "Update from HO",
+       "window": "w_jewl_update",
+       "source_ref": "gminet4\\w_jewl_update.srw",
+       "alternates": [
+        "w_jewl_update"
+       ]
+      }
+     ]
+    },
+    {
+     "label": "Party Wgt Deposit",
+     "children": [
+      {
+       "label": "Transaction",
+       "window": "w_gsmith",
+       "source_ref": "gminet4\\w_gsmith.srw",
+       "alternates": [
+        "w_gsmith"
+       ]
+      },
+      {
+       "label": "Edit",
+       "window": "w_gsmtheditno",
+       "source_ref": "gminet4\\w_gsmtheditno.srw",
+       "alternates": [
+        "w_gsmtheditno"
+       ]
+      },
+      {
+       "label": "Cancel",
+       "window": "w_gsmthcancel",
+       "source_ref": "gminet4\\w_gsmthcancel.srw",
+       "alternates": [
+        "w_gsmthcancel"
+       ]
+      },
+      {
+       "label": "Reprint",
+       "window": "w_gsmthreprint",
+       "source_ref": "gminet4\\w_gsmthreprint.srw",
+       "alternates": [
+        "w_gsmthreprint"
+       ]
+      },
+      {
+       "label": "Interest Posting",
+       "window": "w_depositors_intpost",
+       "source_ref": "gminet5\\w_depositors_intpost.srw",
+       "alternates": [
+        "w_depositors_intpost"
+       ]
+      }
+     ]
+    },
+    {
+     "label": "Order",
+     "children": [
+      {
+       "label": "New Order",
+       "shortcut": "Ctrl+O",
+       "window": "w_order",
+       "source_ref": "gminet3\\w_order.srw",
+       "alternates": [
+        "w_order"
+       ]
+      },
+      {
+       "label": "Edit Order Entry",
+       "window": "w_ordereditbillno",
+       "source_ref": "gminet3\\w_ordereditbillno.srw",
+       "alternates": [
+        "w_ordereditbillno"
+       ]
+      },
+      {
+       "label": "Advance After",
+       "window": "w_ordadvanceafter",
+       "source_ref": "gminet3\\w_ordadvanceafter.srw",
+       "alternates": [
+        "w_ordadvanceafter"
+       ]
+      },
+      {
+       "label": "Order Sale",
+       "shortcut": "Ctrl+S",
+       "window": "w_ordno",
+       "source_ref": "gminet3\\w_ordno.srw",
+       "alternates": [
+        "w_ordno"
+       ]
+      },
+      {
+       "label": "Edit Order Sale",
+       "window": "w_ordsale_editno",
+       "source_ref": "gminet3\\w_ordsale_editno.srw",
+       "alternates": [
+        "w_ordsale_editno"
+       ]
+      },
+      {
+       "label": "Sale W/o Order",
+       "window": "w_ordersale",
+       "source_ref": "gminet3\\w_ordersale.srw",
+       "alternates": [
+        "w_ordersale"
+       ]
+      },
+      {
+       "label": "Update from Jewelleries",
+       "shortcut": "Ctrl+Shift+J",
+       "window": "w_order_update",
+       "source_ref": "gminet3\\w_order_update.srw",
+       "alternates": [
+        "w_order_update"
+       ]
+      },
+      {
+       "label": "Block/Unblock an Order",
+       "window": "w_order_block",
+       "source_ref": "gminet3\\w_order_block.srw",
+       "alternates": [
+        "w_order_block"
+       ]
+      },
+      {
+       "label": "Order Rate Fix",
+       "window": "w_order_ratefix",
+       "source_ref": "gminet3\\w_order_ratefix.srw",
+       "alternates": [
+        "w_order_ratefix"
+       ]
+      },
+      {
+       "label": "Cancel",
+       "window": "w_ocancel",
+       "source_ref": "gminet3\\w_ocancel.srw",
+       "alternates": [
+        "w_ocancel"
+       ]
+      },
+      {
+       "label": "Reprint",
+       "window": "w_oreprint",
+       "source_ref": "gminet3\\w_oreprint.srw",
+       "alternates": [
+        "w_oreprint"
+       ]
+      }
+     ]
+    },
+    {
+     "label": "Remake / Repair",
+     "children": [
+      {
+       "label": "Rcpt Memo To Party",
+       "children": [
+        {
+         "label": "New",
+         "window": "w_reprenter",
+         "source_ref": "gminet5\\w_reprenter.srw",
+         "alternates": [
+          "w_reprenter"
+         ]
+        },
+        {
+         "label": "Edit",
+         "window": "w_repreditno",
+         "source_ref": "gminet5\\w_repreditno.srw",
+         "alternates": [
+          "w_repreditno"
+         ]
+        },
+        {
+         "label": "Cancel",
+         "window": "w_rprcancel",
+         "source_ref": "gminehlp\\w_rprcancel.srw",
+         "alternates": [
+          "w_rprcancel"
+         ]
+        },
+        {
+         "label": "Reprint",
+         "window": "w_reprreprint",
+         "source_ref": "gminet5\\w_reprreprint.srw",
+         "alternates": [
+          "w_reprreprint"
+         ]
+        }
+       ]
+      },
+      {
+       "label": "Issue Memo To Smith",
+       "children": [
+        {
+         "label": "New",
+         "window": "w_gsmith",
+         "source_ref": "gminet4\\w_gsmith.srw",
+         "alternates": [
+          "w_gsmith"
+         ]
+        },
+        {
+         "label": "Edit",
+         "window": "w_gsmtheditno",
+         "source_ref": "gminet4\\w_gsmtheditno.srw",
+         "alternates": [
+          "w_gsmtheditno"
+         ]
+        },
+        {
+         "label": "Cancel",
+         "window": "w_gsmthcancel",
+         "source_ref": "gminet4\\w_gsmthcancel.srw",
+         "alternates": [
+          "w_gsmthcancel"
+         ]
+        },
+        {
+         "label": "Reprint",
+         "window": "w_gsmthreprint",
+         "source_ref": "gminet4\\w_gsmthreprint.srw",
+         "alternates": [
+          "w_gsmthreprint"
+         ]
+        }
+       ]
+      },
+      {
+       "label": "Rcpt Memo From Smith",
+       "children": [
+        {
+         "label": "New",
+         "window": "w_gsmith",
+         "source_ref": "gminet4\\w_gsmith.srw",
+         "alternates": [
+          "w_gsmith"
+         ]
+        },
+        {
+         "label": "Edit",
+         "window": "w_gsmtheditno",
+         "source_ref": "gminet4\\w_gsmtheditno.srw",
+         "alternates": [
+          "w_gsmtheditno"
+         ]
+        },
+        {
+         "label": "Cancel",
+         "window": "w_gsmthcancel",
+         "source_ref": "gminet4\\w_gsmthcancel.srw",
+         "alternates": [
+          "w_gsmthcancel"
+         ]
+        },
+        {
+         "label": "Reprint",
+         "window": "w_gsmthreprint",
+         "source_ref": "gminet4\\w_gsmthreprint.srw",
+         "alternates": [
+          "w_gsmthreprint"
+         ]
+        }
+       ]
+      },
+      {
+       "label": "Issue Memo To Party",
+       "children": [
+        {
+         "label": "New",
+         "window": "w_reprno",
+         "source_ref": "gminet5\\w_reprno.srw",
+         "alternates": [
+          "w_reprno"
+         ]
+        },
+        {
+         "label": "Edit",
+         "window": "w_repreditno",
+         "source_ref": "gminet5\\w_repreditno.srw",
+         "alternates": [
+          "w_repreditno"
+         ]
+        },
+        {
+         "label": "Cancel",
+         "window": "w_rprcancel",
+         "source_ref": "gminehlp\\w_rprcancel.srw",
+         "alternates": [
+          "w_rprcancel"
+         ]
+        },
+        {
+         "label": "Reprint"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "label": "Item Adjustment",
+     "children": [
+      {
+       "label": "Stock Transfer",
+       "shortcut": "Ctrl+A",
+       "window": "w_itemadj",
+       "source_ref": "gminet5\\w_itemadj.srw",
+       "alternates": [
+        "w_itemadj"
+       ]
+      },
+      {
+       "label": "Stock Tranfer(Barcode)",
+       "shortcut": "Ctrl+Alt+A",
+       "window": "w_itemadj",
+       "source_ref": "gminet5\\w_itemadj.srw",
+       "alternates": [
+        "w_itemadj"
+       ]
+      },
+      {
+       "label": "Stock Transfer Multi Entry",
+       "window": "w_itemadj_multi",
+       "source_ref": "gminet5\\w_itemadj_multi.srw",
+       "alternates": [
+        "w_itemadj_multi"
+       ]
+      },
+      {
+       "label": "Stock Add - Less",
+       "shortcut": "Ctrl+K",
+       "window": "w_stockaddless",
+       "source_ref": "gminet5\\w_stockaddless.srw",
+       "alternates": [
+        "w_stockaddless"
+       ]
+      },
+      {
+       "label": "Stock Add - Less Edit",
+       "window": "w_itemaddlesshelp",
+       "source_ref": "gminehlp\\w_itemaddlesshelp.srw",
+       "alternates": [
+        "w_itemaddlesshelp",
+        "w_stockaddless"
+       ]
+      },
+      {
+       "label": "Stock Adjustment",
+       "window": "w_stockadj",
+       "source_ref": "gminet5\\w_stockadj.srw",
+       "alternates": [
+        "w_stockadj"
+       ]
+      },
+      {
+       "label": "Edit",
+       "window": "w_itemadj_wgtrcptpmnt",
+       "source_ref": "w_itemadj_wgtrcptpmnt.srw",
+       "alternates": [
+        "w_itemadjhelp",
+        "w_itemadj_wgtrcptpmnt",
+        "w_itemadj"
+       ]
+      },
+      {
+       "label": "Cancel",
+       "window": "w_itemadjhelp",
+       "source_ref": "gminehlp\\w_itemadjhelp.srw",
+       "alternates": [
+        "w_itemadjhelp",
+        "w_itemadjview"
+       ]
+      }
+     ]
+    },
+    {
+     "label": "Partners Deposit(Wgt)",
+     "children": [
+      {
+       "label": "New",
+       "shortcut": "Ctrl+W",
+       "window": "w_itemadj_wgtrcptpmnt",
+       "source_ref": "w_itemadj_wgtrcptpmnt.srw",
+       "alternates": [
+        "w_itemadj_wgtrcptpmnt"
+       ]
+      },
+      {
+       "label": "Edit",
+       "window": "w_itemadj_wgtrcptpmnt",
+       "source_ref": "w_itemadj_wgtrcptpmnt.srw",
+       "alternates": [
+        "w_wgtrcptpmnt_help",
+        "w_itemadj_wgtrcptpmnt"
+       ]
+      },
+      {
+       "label": "Cancel",
+       "window": "w_wgtrcptpmnt_help",
+       "source_ref": "gminet5\\w_wgtrcptpmnt_help.srw",
+       "alternates": [
+        "w_wgtrcptpmnt_help"
+       ]
+      },
+      {
+       "label": "Reprint",
+       "window": "w_wgtrcptpmnt_help",
+       "source_ref": "gminet5\\w_wgtrcptpmnt_help.srw",
+       "alternates": [
+        "w_wgtrcptpmnt_help"
+       ]
+      },
+      {
+       "label": "Intrest Posting",
+       "window": "w_wgtrcptpmnt_intpost",
+       "source_ref": "gminet5\\w_wgtrcptpmnt_intpost.srw",
+       "alternates": [
+        "w_wgtrcptpmnt_intpost"
+       ]
+      },
+      {
+       "label": "Op.Weight Entry",
+       "window": "w_partywgtbal_opbal",
+       "source_ref": "gminet5\\w_partywgtbal_opbal.srw",
+       "alternates": [
+        "w_partywgtbal_opbal"
+       ]
+      }
+     ]
+    },
+    {
+     "label": "Loan",
+     "children": [
+      {
+       "label": "New Loan",
+       "window": "w_loanentry_amt",
+       "source_ref": "gminet3\\w_loanentry_amt.srw",
+       "alternates": [
+        "w_loanentry_amt"
+       ]
+      },
+      {
+       "label": "Edit Loan",
+       "window": "w_loanedit",
+       "source_ref": "gminet3\\w_loanedit.srw",
+       "alternates": [
+        "w_loanedit"
+       ]
+      },
+      {
+       "label": "Cancel Loan",
+       "window": "w_loancancel",
+       "source_ref": "gminet3\\w_loancancel.srw",
+       "alternates": [
+        "w_loancancel"
+       ]
+      },
+      {
+       "label": "Loan Collection",
+       "window": "w_loancolln",
+       "source_ref": "gminet3\\w_loancolln.srw",
+       "alternates": [
+        "w_loancolln"
+       ]
+      },
+      {
+       "label": "Loan Termination",
+       "window": "w_loan_termination",
+       "source_ref": "gminet3\\w_loan_termination.srw",
+       "alternates": [
+        "w_loan_termination"
+       ]
+      }
+     ]
+    },
+    {
+     "label": "Finance",
+     "children": [
+      {
+       "label": "Finance Issue",
+       "window": "w_finance_entry",
+       "source_ref": "w_finance_entry.srw",
+       "alternates": [
+        "w_finance_entry"
+       ]
+      },
+      {
+       "label": "Finance Settlement",
+       "window": "w_finance_entry",
+       "source_ref": "w_finance_entry.srw",
+       "alternates": [
+        "w_finance_entry"
+       ]
+      },
+      {
+       "label": "Edit",
+       "window": "w_finance_help",
+       "source_ref": "gminet5\\w_finance_help.srw",
+       "alternates": [
+        "w_finance_help",
+        "w_finance_entry"
+       ]
+      },
+      {
+       "label": "Cancel",
+       "window": "w_finance_help",
+       "source_ref": "gminet5\\w_finance_help.srw",
+       "alternates": [
+        "w_finance_help"
+       ]
+      },
+      {
+       "label": "Reprint",
+       "window": "w_finance_help",
+       "source_ref": "gminet5\\w_finance_help.srw",
+       "alternates": [
+        "w_finance_help"
+       ]
+      }
+     ]
+    },
+    {
+     "label": "Staff",
+     "children": [
+      {
+       "label": "Transaction",
+       "window": "w_stafftrans",
+       "source_ref": "gminet5\\w_stafftrans.srw",
+       "alternates": [
+        "w_stafftrans"
+       ]
+      },
+      {
+       "label": "Staff Log Update",
+       "window": "w_staff_attand_update",
+       "source_ref": "gminet5\\w_staff_attand_update.srw",
+       "alternates": [
+        "w_staff_attand_update"
+       ]
+      },
+      {
+       "label": "Leave Entry",
+       "window": "w_staffleave",
+       "source_ref": "gminet5\\w_staffleave.srw",
+       "alternates": [
+        "w_staffleave"
+       ]
+      },
+      {
+       "label": "Wgt Transaction",
+       "window": "w_staffwgttran",
+       "source_ref": "gminet5\\w_staffwgttran.srw",
+       "alternates": [
+        "w_staffwgttran"
+       ]
+      }
+     ]
+    },
+    {
+     "label": "Other Items Trans",
+     "children": [
+      {
+       "label": "Sales",
+       "children": [
+        {
+         "label": "New",
+         "window": "w_otheritemtran",
+         "source_ref": "gminet6\\w_otheritemtran.srw",
+         "alternates": [
+          "w_otheritemtran"
+         ]
+        },
+        {
+         "label": "Edit",
+         "window": "w_oitedit",
+         "source_ref": "w_oitedit.srw",
+         "alternates": [
+          "w_oitedit"
+         ]
+        },
+        {
+         "label": "Cancel",
+         "window": "w_oitcancel",
+         "source_ref": "w_oitcancel.srw",
+         "alternates": [
+          "w_oitcancel"
+         ]
+        },
+        {
+         "label": "Reprint"
+        }
+       ]
+      },
+      {
+       "label": "Purchase",
+       "children": [
+        {
+         "label": "New",
+         "window": "w_otheritemtran",
+         "source_ref": "gminet6\\w_otheritemtran.srw",
+         "alternates": [
+          "w_otheritemtran"
+         ]
+        },
+        {
+         "label": "Edit",
+         "window": "w_oitedit",
+         "source_ref": "w_oitedit.srw",
+         "alternates": [
+          "w_oitedit"
+         ]
+        },
+        {
+         "label": "Cancel",
+         "window": "w_oitcancel",
+         "source_ref": "w_oitcancel.srw",
+         "alternates": [
+          "w_oitcancel"
+         ]
+        },
+        {
+         "label": "Reprint"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "label": "Barcode",
+     "children": [
+      {
+       "label": "Barcode Single Entry",
+       "window": "w_barcode_entry",
+       "source_ref": "gminem1\\w_barcode_entry.srw",
+       "alternates": [
+        "w_barcode_entry"
+       ]
+      },
+      {
+       "label": "Barcode Multi Entry",
+       "window": "w_barcode_entryall",
+       "source_ref": "gminem1\\w_barcode_entryall.srw",
+       "alternates": [
+        "w_barcode_entryall"
+       ]
+      },
+      {
+       "label": "Counter Issue",
+       "window": "w_counter_issue",
+       "source_ref": "gminem1\\w_counter_issue.srw",
+       "alternates": [
+        "w_counter_issue"
+       ]
+      },
+      {
+       "label": "Stock Verification",
+       "window": "w_barcodestkverify",
+       "source_ref": "gminem1\\w_barcodestkverify.srw",
+       "alternates": [
+        "w_barcodestkverify"
+       ]
+      }
+     ]
+    },
+    {
+     "label": "Stock Suspense Entry",
+     "children": [
+      {
+       "label": "New Issue",
+       "shortcut": "Ctrl+F8",
+       "window": "w_modeltrans",
+       "source_ref": "w_modeltrans.srw",
+       "alternates": [
+        "w_modeltrans"
+       ]
+      },
+      {
+       "label": "New Receipt",
+       "window": "w_modeltrans",
+       "source_ref": "w_modeltrans.srw",
+       "alternates": [
+        "w_modeltrans"
+       ]
+      },
+      {
+       "label": "Cancel",
+       "window": "w_modeltranhelp",
+       "source_ref": "w_modeltranhelp.srw",
+       "alternates": [
+        "w_modeltranhelp"
+       ]
+      },
+      {
+       "label": "Reprint",
+       "window": "w_modeltranhelp",
+       "source_ref": "w_modeltranhelp.srw",
+       "alternates": [
+        "w_modeltranhelp"
+       ]
+      }
+     ]
+    },
+    {
+     "label": "Purity Testing",
+     "children": [
+      {
+       "label": "New",
+       "window": "w_purity_entry",
+       "source_ref": "gminet5\\w_purity_entry.srw",
+       "alternates": [
+        "w_purity_entry"
+       ]
+      },
+      {
+       "label": "Edit"
+      },
+      {
+       "label": "Cancel"
+      },
+      {
+       "label": "Reprint"
+      }
+     ]
+    },
+    {
+     "label": "Ruff Work",
+     "shortcut": "Ctrl+U",
+     "window": "w_ruffwork",
+     "source_ref": "gminet6\\w_ruffwork.srw",
+     "alternates": [
+      "w_ruffwork"
+     ]
+    },
+    {
+     "label": "Smith Suspense Entry",
+     "window": "w_gsmithsuspense",
+     "source_ref": "gminet4\\w_gsmithsuspense.srw",
+     "alternates": [
+      "w_gsmithsuspense"
+     ]
+    },
+    {
+     "label": "Stock Summary",
+     "children": [
+      {
+       "label": "Cost wise",
+       "window": "w_stksummary",
+       "source_ref": "gminer9\\w_stksummary.srw",
+       "alternates": [
+        "w_stksummary"
+       ]
+      },
+      {
+       "label": "Rate wise",
+       "window": "w_stksummary_rate",
+       "source_ref": "gminer9\\w_stksummary_rate.srw",
+       "alternates": [
+        "w_stksummary_rate"
+       ]
+      }
+     ]
+    },
+    {
+     "label": "Purity Certificate",
+     "window": "w_puritycertificate",
+     "source_ref": "gminet7\\w_puritycertificate.srw",
+     "alternates": [
+      "w_puritycertificate"
+     ]
+    },
+    {
+     "label": "Kuri Details",
+     "children": [
+      {
+       "label": "Enter Customers",
+       "window": "w_sucu_kuri",
+       "source_ref": "gminem2\\w_sucu_kuri.srw",
+       "alternates": [
+        "w_sucu_kuri"
+       ]
+      },
+      {
+       "label": "Kuri Collection",
+       "shortcut": "Alt+K",
+       "window": "w_kuricolln",
+       "source_ref": "gminet7\\w_kuricolln.srw",
+       "alternates": [
+        "w_kuricolln"
+       ]
+      },
+      {
+       "label": "Interest Posting",
+       "window": "w_kuri_intpost",
+       "source_ref": "gminet7\\w_kuri_intpost.srw",
+       "alternates": [
+        "w_kuri_intpost"
+       ]
+      },
+      {
+       "label": "Kuri Draw",
+       "window": "w_kuri_draw",
+       "source_ref": "gminet7\\w_kuri_draw.srw",
+       "alternates": [
+        "w_kuri_draw"
+       ]
+      },
+      {
+       "label": "Kuri Finish",
+       "window": "w_kuri_finish",
+       "source_ref": "gminet7\\w_kuri_finish.srw",
+       "alternates": [
+        "w_kuri_finish"
+       ]
+      }
+     ]
+    },
+    {
+     "label": "Scheme Details",
+     "children": [
+      {
+       "label": "Customer Registration",
+       "shortcut": "Ctrl+M",
+       "window": "w_sucu_kuri",
+       "source_ref": "gminem2\\w_sucu_kuri.srw",
+       "alternates": [
+        "w_sucu_kuri"
+       ]
+      },
+      {
+       "label": "Scheme Collection",
+       "shortcut": "Ctrl+L",
+       "window": "w_kuricolln",
+       "source_ref": "gminet7\\w_kuricolln.srw",
+       "alternates": [
+        "w_kuricolln"
+       ]
+      },
+      {
+       "label": "Scheme Part Refund",
+       "window": "w_schm_partpayment",
+       "source_ref": "gminet7\\w_schm_partpayment.srw",
+       "alternates": [
+        "w_schm_partpayment"
+       ]
+      },
+      {
+       "label": "Interest Posting",
+       "window": "w_kuri_intpost",
+       "source_ref": "gminet7\\w_kuri_intpost.srw",
+       "alternates": [
+        "w_kuri_intpost"
+       ]
+      },
+      {
+       "label": "Scheme Finished",
+       "window": "w_schm_finish",
+       "source_ref": "gminet7\\w_schm_finish.srw",
+       "alternates": [
+        "w_schm_finish"
+       ]
+      },
+      {
+       "label": "POS Upload",
+       "window": "w_pos_update_tofile",
+       "source_ref": "gminet7\\w_pos_update_tofile.srw",
+       "alternates": [
+        "w_pos_update_tofile"
+       ]
+      },
+      {
+       "label": "POS Download",
+       "window": "w_pos_update",
+       "source_ref": "gminet7\\w_pos_update.srw",
+       "alternates": [
+        "w_pos_update"
+       ]
+      },
+      {
+       "label": "Pass Book Print",
+       "window": "w_passbook_print",
+       "source_ref": "gminet7\\w_passbook_print.srw",
+       "alternates": [
+        "w_passbook_print"
+       ]
+      }
+     ]
+    },
+    {
+     "label": "Accounts",
+     "children": [
+      {
+       "label": "Receipt",
+       "shortcut": "Alt+F2",
+       "window": "w_rcpt",
+       "source_ref": "gminet7\\w_rcpt.srw",
+       "alternates": [
+        "w_rcpt"
+       ]
+      },
+      {
+       "label": "Payment",
+       "shortcut": "Alt+F3",
+       "window": "w_pmnt",
+       "source_ref": "gminet7\\w_pmnt.srw",
+       "alternates": [
+        "w_pmnt"
+       ]
+      },
+      {
+       "label": "Daily Statement Entry",
+       "shortcut": "Ctrl+Alt+F2",
+       "window": "w_dailystatement_entry",
+       "source_ref": "gminet7\\w_dailystatement_entry.srw",
+       "alternates": [
+        "w_dailystatement_entry"
+       ]
+      },
+      {
+       "label": "Suspense Entry",
+       "shortcut": "Ctrl+Shift+S",
+       "window": "w_susprcptpmnt",
+       "source_ref": "gminet7\\w_susprcptpmnt.srw",
+       "alternates": [
+        "w_susprcptpmnt"
+       ]
+      },
+      {
+       "label": "Edit Rcpt/Pmnt entry",
+       "window": "w_acceditno",
+       "source_ref": "gminet7\\w_acceditno.srw",
+       "alternates": [
+        "w_acceditno"
+       ]
+      },
+      {
+       "label": "Customer Billwise Rcpt",
+       "shortcut": "Alt+F1",
+       "window": "w_custbillwisealoc",
+       "source_ref": "gminet7\\w_custbillwisealoc.srw",
+       "alternates": [
+        "w_custbillwisealoc"
+       ]
+      },
+      {
+       "label": "Supplier Billwise Payment",
+       "window": "w_suppbillwisealoc",
+       "source_ref": "gminet7\\w_suppbillwisealoc.srw",
+       "alternates": [
+        "w_suppbillwisealoc"
+       ]
+      },
+      {
+       "label": "Journal",
+       "shortcut": "Alt+J",
+       "window": "w_journal",
+       "source_ref": "gminet7\\w_journal.srw",
+       "alternates": [
+        "w_journal"
+       ]
+      },
+      {
+       "label": "Debit/Credit Note",
+       "window": "w_dbcrnote_entry",
+       "source_ref": "gminet7\\w_dbcrnote_entry.srw",
+       "alternates": [
+        "w_dbcrnote_entry"
+       ]
+      },
+      {
+       "label": "Expense Voucher Entry",
+       "window": "w_purchase_amtentry",
+       "source_ref": "gminet2\\w_purchase_amtentry.srw",
+       "alternates": [
+        "w_purchase_amtentry"
+       ]
+      },
+      {
+       "label": "Cancel",
+       "window": "w_accancel",
+       "source_ref": "gminet7\\w_accancel.srw",
+       "alternates": [
+        "w_accancel"
+       ]
+      },
+      {
+       "label": "Reprint",
+       "window": "w_acreprint",
+       "source_ref": "gminehlp\\w_acreprint.srw",
+       "alternates": [
+        "w_acreprint"
+       ]
+      },
+      {
+       "label": "Discount Allocation",
+       "shortcut": "Ctrl+D",
+       "window": "w_discafter",
+       "source_ref": "gminet1\\w_discafter.srw",
+       "alternates": [
+        "w_discafter"
+       ]
+      },
+      {
+       "label": "Cheque Clearance",
+       "window": "w_pdc_colln",
+       "source_ref": "gminet7\\w_pdc_colln.srw",
+       "alternates": [
+        "w_pdc_colln"
+       ]
+      },
+      {
+       "label": "Rate Diff Adjustment",
+       "window": "w_ratediffadjust",
+       "source_ref": "gminet3\\w_ratediffadjust.srw",
+       "alternates": [
+        "w_ratediffadjust"
+       ]
+      },
+      {
+       "label": "Change Duedate",
+       "window": "w_duedate_change",
+       "source_ref": "gminet7\\w_duedate_change.srw",
+       "alternates": [
+        "w_duedate_change"
+       ]
+      },
+      {
+       "label": "Group Amt Allocation",
+       "window": "w_acgrpamtallocn",
+       "source_ref": "gminet5\\w_acgrpamtallocn.srw",
+       "alternates": [
+        "w_acgrpamtallocn"
+       ]
+      },
+      {
+       "label": "A/c Restart Date",
+       "window": "w_acstartdate_change",
+       "source_ref": "gminet7\\w_acstartdate_change.srw",
+       "alternates": [
+        "w_acstartdate_change"
+       ]
+      },
+      {
+       "label": "Amt, Wgt Transfer Entry",
+       "window": "w_amttowgt_entry",
+       "source_ref": "gminet7\\w_amttowgt_entry.srw",
+       "alternates": [
+        "w_amttowgt_entry"
+       ]
+      },
+      {
+       "label": "Payment Confirmation",
+       "window": "w_payment_confirm",
+       "source_ref": "gminet7\\w_payment_confirm.srw",
+       "alternates": [
+        "w_payment_confirm"
+       ]
+      },
+      {
+       "label": "Denomination Entry",
+       "window": "w_denom_trans",
+       "source_ref": "gminet7\\w_denom_trans.srw",
+       "alternates": [
+        "w_denom_trans"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "label": "Reports",
+   "children": [
+    {
+     "label": "Sales",
+     "children": [
+      {
+       "label": "Sales Book",
+       "window": "w_salesbook",
+       "source_ref": "w_salesbook.srw",
+       "alternates": [
+        "w_salesbook"
+       ]
+      },
+      {
+       "label": "Sales Return Book",
+       "window": "w_salesbook",
+       "source_ref": "w_salesbook.srw",
+       "alternates": [
+        "w_salesbook"
+       ]
+      },
+      {
+       "label": "Monthly Sales",
+       "window": "w_mnthsalereport",
+       "source_ref": "gminer1\\w_mnthsalereport.srw",
+       "alternates": [
+        "w_mnthsalereport"
+       ]
+      },
+      {
+       "label": "Sales Check List",
+       "window": "w_salechklist",
+       "source_ref": "gminer1\\w_salechklist.srw",
+       "alternates": [
+        "w_salechklist"
+       ]
+      },
+      {
+       "label": "Sales Register",
+       "window": "w_saleregister",
+       "source_ref": "gminer1\\w_saleregister.srw",
+       "alternates": [
+        "w_saleregister"
+       ]
+      },
+      {
+       "label": "Sales Return Register",
+       "window": "w_saleretregister",
+       "source_ref": "gminer1\\w_saleretregister.srw",
+       "alternates": [
+        "w_saleretregister"
+       ]
+      },
+      {
+       "label": "Net Sales Report",
+       "window": "w_netsalesrep",
+       "source_ref": "gminer1\\w_netsalesrep.srw",
+       "alternates": [
+        "w_netsalesrep"
+       ]
+      },
+      {
+       "label": "Barcode Register",
+       "window": "w_salesbarcoderep",
+       "source_ref": "gminer1\\w_salesbarcoderep.srw",
+       "alternates": [
+        "w_salesbarcoderep"
+       ]
+      },
+      {
+       "label": "Marked List",
+       "window": "w_markeditemlist",
+       "source_ref": "gminer1\\w_markeditemlist.srw",
+       "alternates": [
+        "w_markeditemlist"
+       ]
+      },
+      {
+       "label": "Barcode Profit Report",
+       "window": "w_salesbarcode_profit_rep",
+       "source_ref": "gminer1\\w_salesbarcode_profit_rep.srw",
+       "alternates": [
+        "w_salesbarcode_profit_rep"
+       ]
+      },
+      {
+       "label": "MC Profit Report",
+       "window": "w_saleregister_mcprofit",
+       "source_ref": "gminer1\\w_saleregister_mcprofit.srw",
+       "alternates": [
+        "w_saleregister_mcprofit"
+       ]
+      },
+      {
+       "label": "V/A Check List",
+       "window": "w_vacheck",
+       "source_ref": "gminer9\\w_vacheck.srw",
+       "alternates": [
+        "w_vacheck"
+       ]
+      },
+      {
+       "label": "VA Check Report",
+       "window": "w_salesvarep",
+       "source_ref": "gminer1\\w_salesvarep.srw",
+       "alternates": [
+        "w_salesvarep"
+       ]
+      },
+      {
+       "label": "Delivery Status Report",
+       "window": "w_sales_dstatus_rep",
+       "source_ref": "gminer1\\w_sales_dstatus_rep.srw",
+       "alternates": [
+        "w_sales_dstatus_rep"
+       ]
+      }
+     ]
+    },
+    {
+     "label": "Purchase",
+     "children": [
+      {
+       "label": "Purchase Book",
+       "window": "w_purhbook",
+       "source_ref": "gminer2\\w_purhbook.srw",
+       "alternates": [
+        "w_purhbook"
+       ]
+      },
+      {
+       "label": "Purchase Check List",
+       "window": "w_purhchklist",
+       "source_ref": "gminer2\\w_purhchklist.srw",
+       "alternates": [
+        "w_purhchklist"
+       ]
+      },
+      {
+       "label": "Purchase Register",
+       "window": "w_purhregister",
+       "source_ref": "gminer2\\w_purhregister.srw",
+       "alternates": [
+        "w_purhregister"
+       ]
+      },
+      {
+       "label": "Purchase Return Register",
+       "window": "w_purhretregister",
+       "source_ref": "gminer2\\w_purhretregister.srw",
+       "alternates": [
+        "w_purhretregister"
+       ]
+      }
+     ]
+    },
+    {
+     "label": "Tax Reports",
+     "children": [
+      {
+       "label": "Stock Register",
+       "window": "w_stockregister",
+       "source_ref": "gminer6\\w_stockregister.srw",
+       "alternates": [
+        "w_stockregister"
+       ]
+      },
+      {
+       "label": "Sales Book",
+       "window": "w_taxreport",
+       "source_ref": "w_taxreport.srw",
+       "alternates": [
+        "w_taxreport"
+       ]
+      },
+      {
+       "label": "Purchase Book",
+       "window": "w_taxreport",
+       "source_ref": "w_taxreport.srw",
+       "alternates": [
+        "w_taxreport"
+       ]
+      },
+      {
+       "label": "Smith Book",
+       "window": "w_taxreport",
+       "source_ref": "w_taxreport.srw",
+       "alternates": [
+        "w_taxreport"
+       ]
+      },
+      {
+       "label": "Jewllery Book",
+       "window": "w_taxreport",
+       "source_ref": "w_taxreport.srw",
+       "alternates": [
+        "w_taxreport"
+       ]
+      },
+      {
+       "label": "Outstanding Tax Report",
+       "window": "w_taxreport",
+       "source_ref": "w_taxreport.srw",
+       "alternates": [
+        "w_taxreport"
+       ]
+      }
+     ]
+    },
+    {
+     "label": "Goldsmith",
+     "children": [
+      {
+       "label": "Transactions",
+       "window": "w_smithentry",
+       "source_ref": "gminer3\\w_smithentry.srw",
+       "alternates": [
+        "w_smithentry"
+       ]
+      },
+      {
+       "label": "Smith Ledger",
+       "window": "w_smithledger",
+       "source_ref": "gminer3\\w_smithledger.srw",
+       "alternates": [
+        "w_smithledger"
+       ]
+      },
+      {
+       "label": "Wgt./Amt. Summary",
+       "children": [
+        {
+         "label": "Simple",
+         "window": "w_smithwasummary",
+         "source_ref": "gminer3\\w_smithwasummary.srw",
+         "alternates": [
+          "w_smithwasummary"
+         ]
+        },
+        {
+         "label": "Details",
+         "window": "w_smithwasummary2",
+         "source_ref": "w_smithwasummary2.srw",
+         "alternates": [
+          "w_smithwasummary2"
+         ]
+        }
+       ]
+      },
+      {
+       "label": "Ageing Report",
+       "window": "w_smithageingreport",
+       "source_ref": "gminer3\\w_smithageingreport.srw",
+       "alternates": [
+        "w_smithageingreport"
+       ]
+      },
+      {
+       "label": "Smith Trans Summary",
+       "window": "w_smithmcsummary",
+       "source_ref": "gminer3\\w_smithmcsummary.srw",
+       "alternates": [
+        "w_smithmcsummary"
+       ]
+      },
+      {
+       "label": "Lot No Report",
+       "window": "w_smithjewl_lot_rep",
+       "source_ref": "gminer3\\w_smithjewl_lot_rep.srw",
+       "alternates": [
+        "w_smithjewl_lot_rep"
+       ]
+      },
+      {
+       "label": "Fix/Unfix Report",
+       "window": "w_smithjewl_fixunfix_rep",
+       "source_ref": "gminer3\\w_smithjewl_fixunfix_rep.srw",
+       "alternates": [
+        "w_smithjewl_fixunfix_rep"
+       ]
+      },
+      {
+       "label": "Smith List",
+       "window": "w_suculist",
+       "source_ref": "gminer4\\w_suculist.srw",
+       "alternates": [
+        "w_suculist"
+       ]
+      }
+     ]
+    },
+    {
+     "label": "Refinery",
+     "children": [
+      {
+       "label": "Refinery Entry Report",
+       "window": "w_refnentryrep",
+       "source_ref": "gminer3\\w_refnentryrep.srw",
+       "alternates": [
+        "w_refnentryrep"
+       ]
+      },
+      {
+       "label": "Refiner's Summary",
+       "window": "w_refnsummary",
+       "source_ref": "gminer3\\w_refnsummary.srw",
+       "alternates": [
+        "w_refnsummary"
+       ]
+      },
+      {
+       "label": "Analysis",
+       "window": "w_refnanalysis",
+       "source_ref": "gminer3\\w_refnanalysis.srw",
+       "alternates": [
+        "w_refnanalysis"
+       ]
+      },
+      {
+       "label": "A/c Summary",
+       "window": "w_acsummary",
+       "source_ref": "gminer8\\w_acsummary.srw",
+       "alternates": [
+        "w_acsummary"
+       ]
+      },
+      {
+       "label": "Less Comparison Report",
+       "window": "w_lesscomparisonrep",
+       "source_ref": "gminer3\\w_lesscomparisonrep.srw",
+       "alternates": [
+        "w_lesscomparisonrep"
+       ]
+      }
+     ]
+    },
+    {
+     "label": "Jewellery",
+     "children": [
+      {
+       "label": "Transactions",
+       "window": "w_smithentry",
+       "source_ref": "gminer3\\w_smithentry.srw",
+       "alternates": [
+        "w_smithentry"
+       ]
+      },
+      {
+       "label": "Jewellery Ledger",
+       "window": "w_smithledger",
+       "source_ref": "gminer3\\w_smithledger.srw",
+       "alternates": [
+        "w_smithledger"
+       ]
+      },
+      {
+       "label": "Ageing Report",
+       "window": "w_smithageingreport",
+       "source_ref": "gminer3\\w_smithageingreport.srw",
+       "alternates": [
+        "w_smithageingreport"
+       ]
+      },
+      {
+       "label": "Wgt/Amt Summary",
+       "window": "w_smithwasummary",
+       "source_ref": "gminer3\\w_smithwasummary.srw",
+       "alternates": [
+        "w_smithwasummary"
+       ]
+      },
+      {
+       "label": "Wgt/Amt Analysis",
+       "window": "w_smithwasummary2",
+       "source_ref": "w_smithwasummary2.srw",
+       "alternates": [
+        "w_smithwasummary2"
+       ]
+      },
+      {
+       "label": "Sales/Purchase Item Report",
+       "window": "w_jewelsummary",
+       "source_ref": "gminer4\\w_jewelsummary.srw",
+       "alternates": [
+        "w_jewelsummary"
+       ]
+      },
+      {
+       "label": "Profit Report",
+       "window": "w_jewlprof_rep",
+       "source_ref": "gminer3\\w_jewlprof_rep.srw",
+       "alternates": [
+        "w_jewlprof_rep"
+       ]
+      },
+      {
+       "label": "Jewl Trans Summary",
+       "window": "w_smithmcsummary",
+       "source_ref": "gminer3\\w_smithmcsummary.srw",
+       "alternates": [
+        "w_smithmcsummary"
+       ]
+      },
+      {
+       "label": "TDS Report",
+       "window": "w_tdsreport",
+       "source_ref": "gminer4\\w_tdsreport.srw",
+       "alternates": [
+        "w_tdsreport"
+       ]
+      },
+      {
+       "label": "Extra Amt Report",
+       "window": "w_jewl_extraamt_report",
+       "source_ref": "gminer4\\w_jewl_extraamt_report.srw",
+       "alternates": [
+        "w_jewl_extraamt_report"
+       ]
+      },
+      {
+       "label": "A/c Summary",
+       "window": "w_acsummary",
+       "source_ref": "gminer8\\w_acsummary.srw",
+       "alternates": [
+        "w_acsummary"
+       ]
+      },
+      {
+       "label": "Send Mail To Jewl",
+       "window": "w_jewlrep_email",
+       "source_ref": "gminer3\\w_jewlrep_email.srw",
+       "alternates": [
+        "w_jewlrep_email"
+       ]
+      }
+     ]
+    },
+    {
+     "label": "Party Wgt Deposit",
+     "children": [
+      {
+       "label": "Transactions",
+       "window": "w_smithentry",
+       "source_ref": "gminer3\\w_smithentry.srw",
+       "alternates": [
+        "w_smithentry"
+       ]
+      },
+      {
+       "label": "Depositer Ledger",
+       "window": "w_smithledger",
+       "source_ref": "gminer3\\w_smithledger.srw",
+       "alternates": [
+        "w_smithledger"
+       ]
+      },
+      {
+       "label": "Wgt/Amt Summary",
+       "window": "w_smithwasummary",
+       "source_ref": "gminer3\\w_smithwasummary.srw",
+       "alternates": [
+        "w_smithwasummary"
+       ]
+      }
+     ]
+    },
+    {
+     "label": "Order",
+     "children": [
+      {
+       "label": "Order Entries",
+       "window": "w_orderentry",
+       "source_ref": "gminer2\\w_orderentry.srw",
+       "alternates": [
+        "w_orderentry"
+       ]
+      },
+      {
+       "label": "Pending Register",
+       "window": "w_orderpendreg",
+       "source_ref": "gminer2\\w_orderpendreg.srw",
+       "alternates": [
+        "w_orderpendreg"
+       ]
+      },
+      {
+       "label": "Order Enquiry",
+       "window": "w_orderenquiry",
+       "source_ref": "gminer2\\w_orderenquiry.srw",
+       "alternates": [
+        "w_orderenquiry"
+       ]
+      },
+      {
+       "label": "Pending Details",
+       "window": "w_orderpend",
+       "source_ref": "gminer2\\w_orderpend.srw",
+       "alternates": [
+        "w_orderpend"
+       ]
+      },
+      {
+       "label": "Order Returns",
+       "window": "w_ordersales",
+       "source_ref": "gminer2\\w_ordersales.srw",
+       "alternates": [
+        "w_ordersales"
+       ]
+      },
+      {
+       "label": "Order Advance Report",
+       "window": "w_orderadvrep",
+       "source_ref": "gminer2\\w_orderadvrep.srw",
+       "alternates": [
+        "w_orderadvrep"
+       ]
+      },
+      {
+       "label": "Order Sale Prof Analysis",
+       "window": "w_order_prof_rep",
+       "source_ref": "gminer2\\w_order_prof_rep.srw",
+       "alternates": [
+        "w_order_prof_rep"
+       ]
+      },
+      {
+       "label": "Sample Stock Register",
+       "window": "w_samplestkregister",
+       "source_ref": "gminer2\\w_samplestkregister.srw",
+       "alternates": [
+        "w_samplestkregister"
+       ]
+      },
+      {
+       "label": "Order Nos List",
+       "window": "w_order_ordnolist",
+       "source_ref": "gminer2\\w_order_ordnolist.srw",
+       "alternates": [
+        "w_order_ordnolist"
+       ]
+      },
+      {
+       "label": "Order Process",
+       "shortcut": "Ctrl+P",
+       "window": "w_order_process",
+       "source_ref": "gminer2\\w_order_process.srw",
+       "alternates": [
+        "w_order_process"
+       ]
+      },
+      {
+       "label": "Send Mail To HO",
+       "shortcut": "Ctrl+E",
+       "window": "w_orderrep_email",
+       "source_ref": "gminer2\\w_orderrep_email.srw",
+       "alternates": [
+        "w_orderrep_email"
+       ]
+      }
+     ]
+    },
+    {
+     "label": "Remake",
+     "children": [
+      {
+       "label": "Remake Reports",
+       "window": "w_remakereport",
+       "source_ref": "gminer2\\w_remakereport.srw",
+       "alternates": [
+        "w_remakereport"
+       ]
+      },
+      {
+       "label": "Remake Pending",
+       "window": "w_repairpend",
+       "source_ref": "gminer2\\w_repairpend.srw",
+       "alternates": [
+        "w_repairpend"
+       ]
+      },
+      {
+       "label": "Remake Returns",
+       "window": "w_repairreturns",
+       "source_ref": "gminer2\\w_repairreturns.srw",
+       "alternates": [
+        "w_repairreturns"
+       ]
+      }
+     ]
+    },
+    {
+     "label": "Loan",
+     "children": [
+      {
+       "label": "Entry Report",
+       "window": "w_loanentry_rep",
+       "source_ref": "gminer9\\w_loanentry_rep.srw",
+       "alternates": [
+        "w_loanentry_rep"
+       ]
+      },
+      {
+       "label": "Balance Report",
+       "window": "w_loanbalance_rep",
+       "source_ref": "gminer9\\w_loanbalance_rep.srw",
+       "alternates": [
+        "w_loanbalance_rep"
+       ]
+      },
+      {
+       "label": "Loan Ledger",
+       "window": "w_loanledger_rep",
+       "source_ref": "gminer9\\w_loanledger_rep.srw",
+       "alternates": [
+        "w_loanledger_rep"
+       ]
+      },
+      {
+       "label": "Item Report",
+       "window": "w_loanentry_item_rep",
+       "source_ref": "gminer9\\w_loanentry_item_rep.srw",
+       "alternates": [
+        "w_loanentry_item_rep"
+       ]
+      }
+     ]
+    },
+    {
+     "label": "Other Item Reports",
+     "children": [
+      {
+       "label": "Sales Book",
+       "window": "w_oitbook",
+       "source_ref": "w_oitbook.srw",
+       "alternates": [
+        "w_oitbook"
+       ]
+      },
+      {
+       "label": "Sales Register",
+       "window": "w_oitregister",
+       "source_ref": "w_oitregister.srw",
+       "alternates": [
+        "w_oitregister"
+       ]
+      },
+      {
+       "label": "Purchase Book",
+       "window": "w_oitbook",
+       "source_ref": "w_oitbook.srw",
+       "alternates": [
+        "w_oitbook"
+       ]
+      },
+      {
+       "label": "Purchase Register",
+       "window": "w_oitregister",
+       "source_ref": "w_oitregister.srw",
+       "alternates": [
+        "w_oitregister"
+       ]
+      },
+      {
+       "label": "Stock Ledger",
+       "window": "w_oistockledger",
+       "source_ref": "gminer6\\w_oistockledger.srw",
+       "alternates": [
+        "w_oistockledger"
+       ]
+      },
+      {
+       "label": "Stock List",
+       "window": "w_oistocklist",
+       "source_ref": "gminer6\\w_oistocklist.srw",
+       "alternates": [
+        "w_oistocklist"
+       ]
+      }
+     ]
+    },
+    {
+     "label": "Customers",
+     "children": [
+      {
+       "label": "A/c Receivable",
+       "window": "w_acrcvblesummary",
+       "source_ref": "w_acrcvblesummary.srw",
+       "alternates": [
+        "w_acrcvblesummary"
+       ]
+      },
+      {
+       "label": "Credit Bill Details",
+       "window": "w_partycreditbills",
+       "source_ref": "gminer4\\w_partycreditbills.srw",
+       "alternates": [
+        "w_partycreditbills"
+       ]
+      },
+      {
+       "label": "Customer Summary",
+       "window": "w_custaccoutsummary",
+       "source_ref": "gminer4\\w_custaccoutsummary.srw",
+       "alternates": [
+        "w_custaccoutsummary"
+       ]
+      },
+      {
+       "label": "Billwise Receivable",
+       "window": "w_custbillwisercvble",
+       "source_ref": "gminer4\\w_custbillwisercvble.srw",
+       "alternates": [
+        "w_custbillwisercvble"
+       ]
+      },
+      {
+       "label": "Received Details",
+       "window": "w_rcptdetail",
+       "source_ref": "w_rcptdetail.srw",
+       "alternates": [
+        "w_rcptdetail"
+       ]
+      },
+      {
+       "label": "Payment Details",
+       "window": "w_pmntdetail",
+       "source_ref": "w_pmntdetail.srw",
+       "alternates": [
+        "w_pmntdetail"
+       ]
+      },
+      {
+       "label": "Customer Sales Summary",
+       "window": "w_partysummaryrep",
+       "source_ref": "gminer4\\w_partysummaryrep.srw",
+       "alternates": [
+        "w_partysummaryrep"
+       ]
+      },
+      {
+       "label": "Billwise Details",
+       "window": "w_custbillwise",
+       "source_ref": "w_custbillwise.srw",
+       "alternates": [
+        "w_custbillwise"
+       ]
+      },
+      {
+       "label": "Bill Collection Details",
+       "window": "w_custcollectionrep",
+       "source_ref": "gminer4\\w_custcollectionrep.srw",
+       "alternates": [
+        "w_custcollectionrep"
+       ]
+      },
+      {
+       "label": "A/c Summary",
+       "window": "w_acsummary",
+       "source_ref": "gminer8\\w_acsummary.srw",
+       "alternates": [
+        "w_acsummary"
+       ]
+      },
+      {
+       "label": "Duedate Report",
+       "window": "w_duedaterep",
+       "source_ref": "w_duedaterep.srw",
+       "alternates": [
+        "w_duedaterep"
+       ]
+      },
+      {
+       "label": "Party History",
+       "window": "w_partyhistory",
+       "source_ref": "gminer4\\w_partyhistory.srw",
+       "alternates": [
+        "w_partyhistory"
+       ]
+      },
+      {
+       "label": "Visit Report",
+       "window": "w_customer_visitreport",
+       "source_ref": "gminer4\\w_customer_visitreport.srw",
+       "alternates": [
+        "w_customer_visitreport"
+       ]
+      },
+      {
+       "label": "Prev. Card Point Report",
+       "window": "w_sales_pcardpoint_rep",
+       "source_ref": "gminer1\\w_sales_pcardpoint_rep.srw",
+       "alternates": [
+        "w_sales_pcardpoint_rep"
+       ]
+      },
+      {
+       "label": "Customer List",
+       "window": "w_customer_list",
+       "source_ref": "gminer4\\w_customer_list.srw",
+       "alternates": [
+        "w_customer_list"
+       ]
+      }
+     ]
+    },
+    {
+     "label": "Supplier",
+     "children": [
+      {
+       "label": "A/c Payable",
+       "window": "w_acrcvblesummary",
+       "source_ref": "w_acrcvblesummary.srw",
+       "alternates": [
+        "w_acrcvblesummary"
+       ]
+      },
+      {
+       "label": "Duedate Report",
+       "window": "w_duedaterep",
+       "source_ref": "w_duedaterep.srw",
+       "alternates": [
+        "w_duedaterep"
+       ]
+      },
+      {
+       "label": "A/c Summary",
+       "window": "w_acsummary",
+       "source_ref": "gminer8\\w_acsummary.srw",
+       "alternates": [
+        "w_acsummary"
+       ]
+      },
+      {
+       "label": "Billwise Payable",
+       "window": "w_suppbillwisepayable",
+       "source_ref": "gminer4\\w_suppbillwisepayable.srw",
+       "alternates": [
+        "w_suppbillwisepayable"
+       ]
+      },
+      {
+       "label": "Supplier List",
+       "window": "w_suculist",
+       "source_ref": "gminer4\\w_suculist.srw",
+       "alternates": [
+        "w_suculist"
+       ]
+      }
+     ]
+    },
+    {
+     "label": "Staff",
+     "children": [
+      {
+       "label": "Summary",
+       "window": "w_staffsummary",
+       "source_ref": "w_staffsummary.srw",
+       "alternates": [
+        "w_staffsummary"
+       ]
+      },
+      {
+       "label": "Term Summary",
+       "window": "w_staffsummary",
+       "source_ref": "w_staffsummary.srw",
+       "alternates": [
+        "w_staffsummary"
+       ]
+      },
+      {
+       "label": "Ledger",
+       "window": "w_acsummary",
+       "source_ref": "gminer8\\w_acsummary.srw",
+       "alternates": [
+        "w_acsummary"
+       ]
+      },
+      {
+       "label": "Staff Log Report",
+       "window": "w_staff_log_report",
+       "source_ref": "gminer8\\w_staff_log_report.srw",
+       "alternates": [
+        "w_staff_log_report"
+       ]
+      },
+      {
+       "label": "Attendance Report",
+       "window": "w_staff_attendance_rep",
+       "source_ref": "gminer8\\w_staff_attendance_rep.srw",
+       "alternates": [
+        "w_staff_attendance_rep"
+       ]
+      },
+      {
+       "label": "Leave Report",
+       "window": "w_staff_leaverep",
+       "source_ref": "gminer8\\w_staff_leaverep.srw",
+       "alternates": [
+        "w_staff_leaverep"
+       ]
+      },
+      {
+       "label": "Wgt Trans Report",
+       "window": "w_staffwgt_report",
+       "source_ref": "gminer11\\w_staffwgt_report.srw",
+       "alternates": [
+        "w_staffwgt_report"
+       ]
+      },
+      {
+       "label": "Sales Man Report",
+       "window": "w_smreport",
+       "source_ref": "gminer4\\w_smreport.srw",
+       "alternates": [
+        "w_smreport"
+       ]
+      }
+     ]
+    },
+    {
+     "label": "Kuri Reports",
+     "children": [
+      {
+       "label": "Collection Report",
+       "window": "w_kuri_colln_report",
+       "source_ref": "gminer11\\w_kuri_colln_report.srw",
+       "alternates": [
+        "w_kuri_colln_report"
+       ]
+      },
+      {
+       "label": "Chart",
+       "window": "w_kuri_chart_rep",
+       "source_ref": "gminer11\\w_kuri_chart_rep.srw",
+       "alternates": [
+        "w_kuri_chart_rep"
+       ]
+      }
+     ]
+    },
+    {
+     "label": "Scheme Reports",
+     "children": [
+      {
+       "label": "Scheme Book",
+       "window": "w_schemebook_report",
+       "source_ref": "gminer11\\w_schemebook_report.srw",
+       "alternates": [
+        "w_schemebook_report"
+       ]
+      },
+      {
+       "label": "Scheme Collection",
+       "window": "w_schemecolln_report",
+       "source_ref": "gminer11\\w_schemecolln_report.srw",
+       "alternates": [
+        "w_schemecolln_report"
+       ]
+      },
+      {
+       "label": "Scheme Details",
+       "window": "w_schemebook_details",
+       "source_ref": "gminer11\\w_schemebook_details.srw",
+       "alternates": [
+        "w_schemebook_details"
+       ]
+      },
+      {
+       "label": "Scheme Maturity",
+       "window": "w_schemematurity_report",
+       "source_ref": "gminer11\\w_schemematurity_report.srw",
+       "alternates": [
+        "w_schemematurity_report"
+       ]
+      },
+      {
+       "label": "Colln Commision Report",
+       "window": "w_schemebook_comnrep",
+       "source_ref": "gminer11\\w_schemebook_comnrep.srw",
+       "alternates": [
+        "w_schemebook_comnrep"
+       ]
+      }
+     ]
+    },
+    {
+     "label": "Partners Deposit(Wgt) Reports",
+     "children": [
+      {
+       "label": "Deposit Book",
+       "window": "w_deposit_book_report",
+       "source_ref": "gminer11\\w_deposit_book_report.srw",
+       "alternates": [
+        "w_deposit_book_report"
+       ]
+      },
+      {
+       "label": "Wgt Balance Summary",
+       "window": "w_partywgtpend_report",
+       "source_ref": "gminer6\\w_partywgtpend_report.srw",
+       "alternates": [
+        "w_partywgtpend_report"
+       ]
+      }
+     ]
+    },
+    {
+     "label": "Finance Report",
+     "children": [
+      {
+       "label": "Finance Book",
+       "window": "w_finance_book_report",
+       "source_ref": "gminer11\\w_finance_book_report.srw",
+       "alternates": [
+        "w_finance_book_report"
+       ]
+      }
+     ]
+    },
+    {
+     "label": "Accounts",
+     "children": [
+      {
+       "label": "A/c Ledger",
+       "shortcut": "Alt+L",
+       "window": "w_acledger",
+       "source_ref": "gminer8\\w_acledger.srw",
+       "alternates": [
+        "w_acledger"
+       ]
+      },
+      {
+       "label": "Group Ledger",
+       "window": "w_acledger_group",
+       "source_ref": "gminer8\\w_acledger_group.srw",
+       "alternates": [
+        "w_acledger_group"
+       ]
+      },
+      {
+       "label": "Day Book",
+       "window": "w_daybookreport",
+       "source_ref": "gminer8\\w_daybookreport.srw",
+       "alternates": [
+        "w_daybookreport"
+       ]
+      },
+      {
+       "label": "Cash Book",
+       "shortcut": "Alt+H",
+       "window": "w_cashbookreport",
+       "source_ref": "gminer8\\w_cashbookreport.srw",
+       "alternates": [
+        "w_cashbookreport"
+       ]
+      },
+      {
+       "label": "Rcpt/Pmnt Report",
+       "shortcut": "Alt+P",
+       "window": "w_rcptpmnts",
+       "source_ref": "gminer8\\w_rcptpmnts.srw",
+       "alternates": [
+        "w_rcptpmnts"
+       ]
+      },
+      {
+       "label": "Suspense A/c Ledger",
+       "window": "w_suspledger",
+       "source_ref": "gminer8\\w_suspledger.srw",
+       "alternates": [
+        "w_suspledger"
+       ]
+      },
+      {
+       "label": "Cash Flow Statement",
+       "window": "w_cashflowreport",
+       "source_ref": "gminer8\\w_cashflowreport.srw",
+       "alternates": [
+        "w_cashflowreport"
+       ]
+      },
+      {
+       "label": "Yearly Cash Balance",
+       "window": "w_cashbookreport_year",
+       "source_ref": "gminer8\\w_cashbookreport_year.srw",
+       "alternates": [
+        "w_cashbookreport_year"
+       ]
+      },
+      {
+       "label": "Bank Book",
+       "window": "w_bankbookreport",
+       "source_ref": "gminer4\\w_bankbookreport.srw",
+       "alternates": [
+        "w_bankbookreport"
+       ]
+      },
+      {
+       "label": "PDC Report",
+       "window": "w_pdclist_report",
+       "source_ref": "gminer7\\w_pdclist_report.srw",
+       "alternates": [
+        "w_pdclist_report"
+       ]
+      },
+      {
+       "label": "Journal",
+       "window": "w_journrpt",
+       "source_ref": "gminer8\\w_journrpt.srw",
+       "alternates": [
+        "w_journrpt"
+       ]
+      },
+      {
+       "label": "Trial Balance",
+       "children": [
+        {
+         "label": "Upto a date",
+         "window": "w_trialbal",
+         "source_ref": "gminer7\\w_trialbal.srw",
+         "alternates": [
+          "w_trialbal"
+         ]
+        },
+        {
+         "label": "Between two dates",
+         "window": "w_trialbal_term",
+         "source_ref": "gminer7\\w_trialbal_term.srw",
+         "alternates": [
+          "w_trialbal_term"
+         ]
+        }
+       ]
+      },
+      {
+       "label": "Profit and Loss",
+       "children": [
+        {
+         "label": "Upto a Date",
+         "window": "w_pandlac_trading",
+         "source_ref": "w_pandlac_trading.srw",
+         "alternates": [
+          "w_pandlac_trading"
+         ]
+        },
+        {
+         "label": "For a Period",
+         "window": "w_pandlac_trading",
+         "source_ref": "w_pandlac_trading.srw",
+         "alternates": [
+          "w_pandlac_trading"
+         ]
+        }
+       ]
+      },
+      {
+       "label": "Balance Sheet",
+       "window": "w_balsheet",
+       "source_ref": "gminer7\\w_balsheet.srw",
+       "alternates": [
+        "w_balsheet"
+       ]
+      },
+      {
+       "label": "A/c Receivable/Payable Summary",
+       "shortcut": "Alt+F5",
+       "window": "w_acrcvblesummary",
+       "source_ref": "w_acrcvblesummary.srw",
+       "alternates": [
+        "w_acrcvblesummary"
+       ]
+      },
+      {
+       "label": "Group A/c Summary",
+       "shortcut": "Alt+F9",
+       "window": "w_group_accountsummary",
+       "source_ref": "gminer8\\w_group_accountsummary.srw",
+       "alternates": [
+        "w_group_accountsummary"
+       ]
+      },
+      {
+       "label": "Groupwise Expanded List",
+       "window": "w_account_grpwise_expand_rep",
+       "source_ref": "gminer7\\w_account_grpwise_expand_rep.srw",
+       "alternates": [
+        "w_account_grpwise_expand_rep"
+       ]
+      },
+      {
+       "label": "All Trans Report",
+       "window": "w_trans_rearrange_report",
+       "source_ref": "gminer9\\w_trans_rearrange_report.srw",
+       "alternates": [
+        "w_trans_rearrange_report"
+       ]
+      },
+      {
+       "label": "Chart of Accounts",
+       "window": "w_accountlist",
+       "source_ref": "gminer7\\w_accountlist.srw",
+       "alternates": [
+        "w_accountlist"
+       ]
+      },
+      {
+       "label": "Non Transactional Days Report",
+       "window": "w_nontransactionaldays_report",
+       "source_ref": "gminer7\\w_nontransactionaldays_report.srw",
+       "alternates": [
+        "w_nontransactionaldays_report"
+       ]
+      },
+      {
+       "label": "Integrity Checking",
+       "window": "w_account_checking",
+       "source_ref": "gminer8\\w_account_checking.srw",
+       "alternates": [
+        "w_account_checking"
+       ]
+      }
+     ]
+    },
+    {
+     "label": "Item Reports",
+     "children": [
+      {
+       "label": "Item Adjustment",
+       "window": "w_itemadjrepo",
+       "source_ref": "w_itemadjrepo.srw",
+       "alternates": [
+        "w_itemadjrepo"
+       ]
+      },
+      {
+       "label": "Item Add Less Report",
+       "window": "w_itemaddlessrep",
+       "source_ref": "gminer3\\w_itemaddlessrep.srw",
+       "alternates": [
+        "w_itemaddlessrep"
+       ]
+      },
+      {
+       "label": "Item Movement",
+       "window": "w_itemanalysis",
+       "source_ref": "gminer6\\w_itemanalysis.srw",
+       "alternates": [
+        "w_itemanalysis"
+       ]
+      },
+      {
+       "label": "Stock Register Summary",
+       "window": "w_stockregister_summary",
+       "source_ref": "gminer6\\w_stockregister_summary.srw",
+       "alternates": [
+        "w_stockregister_summary"
+       ]
+      },
+      {
+       "label": "Itemwise Profit",
+       "window": "w_itemwiseprofit",
+       "source_ref": "gminer6\\w_itemwiseprofit.srw",
+       "alternates": [
+        "w_itemwiseprofit"
+       ]
+      },
+      {
+       "label": "Item History",
+       "window": "w_itemhistory",
+       "source_ref": "gminer6\\w_itemhistory.srw",
+       "alternates": [
+        "w_itemhistory"
+       ]
+      },
+      {
+       "label": "ReOrderLevel",
+       "window": "w_rolreport",
+       "source_ref": "gminer9\\w_rolreport.srw",
+       "alternates": [
+        "w_rolreport"
+       ]
+      },
+      {
+       "label": "Item Rate Report",
+       "window": "w_itemrate_report",
+       "source_ref": "gminer6\\w_itemrate_report.srw",
+       "alternates": [
+        "w_itemrate_report"
+       ]
+      },
+      {
+       "label": "Cost List",
+       "window": "w_costlist",
+       "source_ref": "gminer5\\w_costlist.srw",
+       "alternates": [
+        "w_costlist"
+       ]
+      },
+      {
+       "label": "Rate History",
+       "window": "w_ratehistory",
+       "source_ref": "gminer6\\w_ratehistory.srw",
+       "alternates": [
+        "w_ratehistory"
+       ]
+      },
+      {
+       "label": "Model Transfer Report",
+       "window": "w_modeltransrep",
+       "source_ref": "gminer3\\w_modeltransrep.srw",
+       "alternates": [
+        "w_modeltransrep"
+       ]
+      },
+      {
+       "label": "Stone Trans Analysis",
+       "window": "w_stonetrans_analysis",
+       "source_ref": "gminer4\\w_stonetrans_analysis.srw",
+       "alternates": [
+        "w_stonetrans_analysis"
+       ]
+      },
+      {
+       "label": "Trans RA Report",
+       "window": "w_trans_rearrange_report",
+       "source_ref": "gminer9\\w_trans_rearrange_report.srw",
+       "alternates": [
+        "w_trans_rearrange_report"
+       ]
+      },
+      {
+       "label": "Item Stock,Party Wgt Report",
+       "window": "w_stockbal_smithjewlstock_rep",
+       "source_ref": "gminer6\\w_stockbal_smithjewlstock_rep.srw",
+       "alternates": [
+        "w_stockbal_smithjewlstock_rep"
+       ]
+      }
+     ]
+    },
+    {
+     "label": "Barcode Reports",
+     "children": [
+      {
+       "label": "Barcode List",
+       "window": "w_barcodelist",
+       "source_ref": "gminer5\\w_barcodelist.srw",
+       "alternates": [
+        "w_barcodelist"
+       ]
+      },
+      {
+       "label": "Stock Verification Report",
+       "window": "w_bcstkverifyrep",
+       "source_ref": "gminer5\\w_bcstkverifyrep.srw",
+       "alternates": [
+        "w_bcstkverifyrep"
+       ]
+      },
+      {
+       "label": "Barcode SAmt List",
+       "window": "w_barcodelist_salesamtlist",
+       "source_ref": "gminer5\\w_barcodelist_salesamtlist.srw",
+       "alternates": [
+        "w_barcodelist_salesamtlist"
+       ]
+      },
+      {
+       "label": "Barcode History",
+       "window": "w_barcode_history",
+       "source_ref": "gminer5\\w_barcode_history.srw",
+       "alternates": [
+        "w_barcode_history"
+       ]
+      },
+      {
+       "label": "Barcode Stock List",
+       "window": "w_barcode_stocklist",
+       "source_ref": "w_barcode_stocklist.srw",
+       "alternates": [
+        "w_barcode_stocklist"
+       ]
+      },
+      {
+       "label": "Barcode Entry Comparison",
+       "window": "w_barcode_comparison_report",
+       "source_ref": "gminer5\\w_barcode_comparison_report.srw",
+       "alternates": [
+        "w_barcode_comparison_report"
+       ]
+      },
+      {
+       "label": "Diamond/Pres.Stone Stock list",
+       "window": "w_stocklist_dmdplt",
+       "source_ref": "gminer6\\w_stocklist_dmdplt.srw",
+       "alternates": [
+        "w_stocklist_dmdplt"
+       ]
+      }
+     ]
+    },
+    {
+     "label": "Stock Ledger",
+     "children": [
+      {
+       "label": "Item Based",
+       "shortcut": "Ctrl+Alt+L",
+       "window": "w_stockledger_stktype",
+       "source_ref": "w_stockledger_stktype.srw",
+       "alternates": [
+        "w_stockledger_stktype",
+        "w_stockledger"
+       ]
+      },
+      {
+       "label": "Group Based",
+       "window": "w_stockledger",
+       "source_ref": "w_stockledger.srw",
+       "alternates": [
+        "w_stockledger"
+       ]
+      },
+      {
+       "label": "Subgroup Based",
+       "window": "w_stockledger",
+       "source_ref": "w_stockledger.srw",
+       "alternates": [
+        "w_stockledger"
+       ]
+      }
+     ]
+    },
+    {
+     "label": "Stock List",
+     "children": [
+      {
+       "label": "Items",
+       "shortcut": "Ctrl+Alt+I",
+       "window": "w_stocklist",
+       "source_ref": "w_stocklist.srw",
+       "alternates": [
+        "w_stocklist"
+       ]
+      },
+      {
+       "label": "Group",
+       "window": "w_stocklist",
+       "source_ref": "w_stocklist.srw",
+       "alternates": [
+        "w_stocklist"
+       ]
+      },
+      {
+       "label": "Stock Type Wise",
+       "shortcut": "Ctrl+Alt+T",
+       "window": "w_stocklist_stktype",
+       "source_ref": "gminer6\\w_stocklist_stktype.srw",
+       "alternates": [
+        "w_stocklist_stktype"
+       ]
+      },
+      {
+       "label": "Upto a date",
+       "window": "w_stocklist_uptoadate",
+       "source_ref": "gminer5\\w_stocklist_uptoadate.srw",
+       "alternates": [
+        "w_stocklist_uptoadate"
+       ]
+      },
+      {
+       "label": "Stock Check List",
+       "window": "w_stocklist_check",
+       "source_ref": "w_stocklist_check.srw",
+       "alternates": [
+        "w_stocklist_check"
+       ]
+      }
+     ]
+    },
+    {
+     "label": "Term Summary",
+     "shortcut": "Ctrl+T",
+     "window": "w_termsummary",
+     "source_ref": "gminer10\\w_termsummary.srw",
+     "alternates": [
+      "w_termsummary"
+     ]
+    },
+    {
+     "label": "Other Reports",
+     "children": [
+      {
+       "label": "All Report Print",
+       "window": "w_allinone_report",
+       "source_ref": "gminer9\\w_allinone_report.srw",
+       "alternates": [
+        "w_allinone_report"
+       ]
+      },
+      {
+       "label": "Month End Report",
+       "window": "w_monthendrep",
+       "source_ref": "gminedi\\w_monthendrep.srw",
+       "alternates": [
+        "w_monthendrep"
+       ]
+      },
+      {
+       "label": "Daysummary Malayalam",
+       "window": "w_daysummarydate_mala",
+       "source_ref": "gminedi\\w_daysummarydate_mala.srw",
+       "alternates": [
+        "w_daysummarydate_mala"
+       ]
+      },
+      {
+       "label": "Term Summary Malayalam",
+       "window": "w_termsummary_mala",
+       "source_ref": "gminedi\\w_termsummary_mala.srw",
+       "alternates": [
+        "w_termsummary_mala"
+       ]
+      },
+      {
+       "label": "Day History",
+       "window": "w_daysumm",
+       "source_ref": "gminer3\\w_daysumm.srw",
+       "alternates": [
+        "w_daysumm"
+       ]
+      },
+      {
+       "label": "Day Report",
+       "window": "w_dayreport_gk",
+       "source_ref": "gminer11\\w_dayreport_gk.srw",
+       "alternates": [
+        "w_dayreport_gk"
+       ]
+      },
+      {
+       "label": "Daily All Report",
+       "shortcut": "Ctrl+F12",
+       "window": "w_dailyallreport",
+       "source_ref": "gminer11\\w_dailyallreport.srw",
+       "alternates": [
+        "w_dailyallreport"
+       ]
+      },
+      {
+       "label": "Day Cash Book Report",
+       "window": "w_daycashbook",
+       "source_ref": "gminer11\\w_daycashbook.srw",
+       "alternates": [
+        "w_daycashbook"
+       ]
+      },
+      {
+       "label": "Purity Test Report",
+       "window": "w_purity_report",
+       "source_ref": "gminer9\\w_purity_report.srw",
+       "alternates": [
+        "w_purity_report"
+       ]
+      },
+      {
+       "label": "StockValue And Profit Report",
+       "window": "w_stkandprofitreport",
+       "source_ref": "gminer8\\w_stkandprofitreport.srw",
+       "alternates": [
+        "w_stkandprofitreport"
+       ]
+      },
+      {
+       "label": "Stock,Asset,Liablity,Expense Report",
+       "window": "w_stockandexpreport",
+       "source_ref": "gminer10\\w_stockandexpreport.srw",
+       "alternates": [
+        "w_stockandexpreport"
+       ]
+      }
+     ]
+    },
+    {
+     "label": "Cash Balance",
+     "shortcut": "Ctrl+H",
+     "window": "w_cashbal",
+     "source_ref": "gminer9\\w_cashbal.srw",
+     "alternates": [
+      "w_cashbal"
+     ]
+    }
+   ]
+  },
+  {
+   "label": "Utilities",
+   "children": [
+    {
+     "label": "Administration",
+     "window": "w_administration",
+     "source_ref": "gminegen\\w_administration.srw",
+     "alternates": [
+      "w_administration"
+     ]
+    },
+    {
+     "label": "Calculator"
+    },
+    {
+     "label": "Day Lock",
+     "shortcut": "Ctrl+L",
+     "window": "w_daylock",
+     "source_ref": "gminer9\\w_daylock.srw",
+     "alternates": [
+      "w_daylock"
+     ]
+    },
+    {
+     "label": "Calendar",
+     "window": "w_calander1",
+     "source_ref": "gmineu1\\w_calander1.srw",
+     "alternates": [
+      "w_calander1"
+     ]
+    },
+    {
+     "label": "Games",
+     "children": [
+      {
+       "label": "Gobman",
+       "shortcut": "Ctrl+Shift+Z"
+      },
+      {
+       "label": "Eraser",
+       "shortcut": "Ctrl+Shift+A"
+      }
+     ]
+    },
+    {
+     "label": "Backup",
+     "window": "w_backup",
+     "source_ref": "gminedi\\w_backup.srw",
+     "alternates": [
+      "w_backup"
+     ]
+    },
+    {
+     "label": "Year End Account Close",
+     "window": "w_closeaccnt",
+     "source_ref": "gminegen\\w_closeaccnt.srw",
+     "alternates": [
+      "w_closeaccnt"
+     ]
+    },
+    {
+     "label": "Phone Book",
+     "window": "w_phonebook",
+     "source_ref": "gmineu1\\w_phonebook.srw",
+     "alternates": [
+      "w_phonebook"
+     ]
+    },
+    {
+     "label": "Appointment",
+     "window": "w_appointments",
+     "source_ref": "gmineu1\\w_appointments.srw",
+     "alternates": [
+      "w_appointments"
+     ]
+    },
+    {
+     "label": "PSR Reader",
+     "window": "w_psr_viewer",
+     "source_ref": "gmineu1\\w_psr_viewer.srw",
+     "alternates": [
+      "w_psr_viewer"
+     ]
+    },
+    {
+     "label": "Data Sync",
+     "shortcut": "Ctrl+Alt+T",
+     "window": "w_datatransfer2",
+     "source_ref": "gminegen\\w_datatransfer2.srw",
+     "alternates": [
+      "w_datatransfer2"
+     ]
+    },
+    {
+     "label": "Reminder",
+     "shortcut": "Ctrl+R",
+     "window": "w_reminderrep",
+     "source_ref": "w_reminderrep.srw",
+     "alternates": [
+      "w_reminderrep"
+     ]
+    },
+    {
+     "label": "Clear Block(Hang)",
+     "shortcut": "Alt+F12"
+    },
+    {
+     "label": "Show WM Weight",
+     "shortcut": "Ctrl+Alt+W",
+     "window": "w_wgtshow",
+     "source_ref": "gminestr\\w_wgtshow.srw",
+     "alternates": [
+      "w_wgtshow"
+     ]
+    }
+   ]
+  },
+  {
+   "label": "Help",
+   "children": [
+    {
+     "label": "Contents"
+    },
+    {
+     "label": "About",
+     "window": "w_about",
+     "source_ref": "gminegen\\w_about.srw",
+     "alternates": [
+      "w_about"
+     ]
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,4 @@
+# Runtime requirements for Super Gold (installed automatically by run.bat).
+PySide6>=6.6
+reportlab>=4.0
+pyodbc>=5.0 ; platform_system == "Windows"

@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+jewellery_erp.db
+build/
+dist/
+*.spec.bak
