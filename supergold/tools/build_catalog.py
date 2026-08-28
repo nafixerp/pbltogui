@@ -18,6 +18,7 @@ from __future__ import annotations
 import argparse
 import json
 import os
+import re
 import sys
 from dataclasses import asdict
 
@@ -117,6 +118,30 @@ def _report_spec(win, source_dir: str) -> dict | None:
     }
 
 
+_FORM_WORDS = ("print", "slip", "voucher", "memo", "certificate", "invoice",
+               "passbook", "label", "receipt")
+_NOT_FORM = ("code", "help", "hlp", "list", "lookup", "search")
+
+
+def _prints(win, source_dir: str) -> list:
+    """Printed forms (DataWindows) this window's scripts name."""
+    path = pb_parser.find_source(os.path.basename(win.source_path), source_dir)
+    if not path:
+        return []
+    try:
+        text = decode_pb(path)
+    except Exception:
+        return []
+    found = []
+    for name in sorted(set(re.findall(r'"(d_\w+)"', text))):
+        lower = name.lower()
+        if any(word in lower for word in _NOT_FORM):
+            continue
+        if any(word in lower for word in _FORM_WORDS) and name not in found:
+            found.append(name)
+    return found
+
+
 def _opens(win, source_dir: str) -> list:
     """Other windows this screen's scripts open (the original's own flow)."""
     path = pb_parser.find_source(os.path.basename(win.source_path), source_dir)
@@ -133,6 +158,7 @@ def window_to_dict(win, source_dir: str = "") -> dict:
     grid = _grid_spec(win, source_dir) if source_dir else None
     report = _report_spec(win, source_dir) if source_dir else None
     opens = _opens(win, source_dir) if source_dir else []
+    prints = _prints(win, source_dir) if source_dir else []
     doc = {
         "name": win.name,
         "title": win.title,
@@ -152,6 +178,8 @@ def window_to_dict(win, source_dir: str = "") -> dict:
         doc["report"] = report
     if opens:
         doc["opens"] = opens
+    if prints:
+        doc["prints"] = prints
     return doc
 
 

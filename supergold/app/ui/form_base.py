@@ -40,7 +40,7 @@ class GeneratedForm(PBWindowForm):
             controls=[], tables=list(self.WINDOW.tables),
             source_path=self.WINDOW.source_path,
             grid=self.WINDOW.grid, report=self.WINDOW.report,
-            opens=list(self.WINDOW.opens))
+            opens=list(self.WINDOW.opens), prints=list(self.WINDOW.prints))
         self._canvas = None
         super().__init__(window, parent, seed=seed)
 

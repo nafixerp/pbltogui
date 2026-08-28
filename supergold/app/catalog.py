@@ -75,6 +75,7 @@ def load_window(base_dir: str, name: str) -> Window | None:
         grid=doc.get("grid"),
         report=doc.get("report"),
         opens=list(doc.get("opens", [])),
+        prints=list(doc.get("prints", [])),
     )
 
 

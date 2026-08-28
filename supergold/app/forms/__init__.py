@@ -100,7 +100,7 @@ FORMS = {
     "w_incharge_select": ("w_incharge_select", "ChangeForm"),
     "w_item": ("w_item", "ItemDetailsForm"),
     "w_item_others": ("w_item_others", "OtherItemsForm"),
-    "w_itemaddlesshelp": ("w_itemaddlesshelp", "StockAddLessEditForm"),
+    "w_itemaddlesshelp": ("w_itemaddlesshelp", "ItemAdjustmentHelpForm"),
     "w_itemaddlessrep": ("w_itemaddlessrep", "ItemAddLessReportForm"),
     "w_itemadj": ("w_itemadj", "StockTransferForm"),
     "w_itemadj_multi": ("w_itemadj_multi", "StockTransferMultiEntryForm"),

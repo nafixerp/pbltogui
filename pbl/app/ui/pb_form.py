@@ -29,6 +29,8 @@ from app.reports.generic import GenericDataView
 from app.services import crud_service
 from app.ui import navigation
 from app.ui.printing import print_table
+from app.reports import layouts as dw_layouts
+from app.reports.dw_print import print_document
 
 
 def _pretty_window(name: str) -> str:
@@ -287,6 +289,11 @@ class PBWindowForm(QWidget):
         print_btn = QPushButton("Print")
         print_btn.clicked.connect(self._print_records)
         tools.addWidget(print_btn)
+        if self._printed_forms():
+            form_btn = QPushButton("Print Form")
+            form_btn.setToolTip("Print on the original designed form")
+            form_btn.clicked.connect(self._print_form)
+            tools.addWidget(form_btn)
         for target in self._flow_targets()[:2]:
             btn = QPushButton(f"Open {_pretty_window(target)}")
             btn.clicked.connect(lambda _=False, w=target: self._open_next(w))
@@ -626,6 +633,30 @@ class PBWindowForm(QWidget):
             return
         columns = list(rows[0].keys())
         print_table(self, self.window_def.title, columns, rows)
+
+    def _printed_forms(self) -> list:
+        """The document forms this window can print on."""
+        return dw_layouts.for_window(self.window_def)
+
+    def _print_form(self):
+        """Print the selected record on the original designed form."""
+        forms = self._printed_forms()
+        if not forms:
+            return
+        name = forms[0]
+        if len(forms) > 1:
+            from PySide6.QtWidgets import QInputDialog
+            name, ok = QInputDialog.getItem(self, "Print Form", "Form",
+                                            forms, 0, False)
+            if not ok:
+                return
+        layout = dw_layouts.load(name)
+        if layout is None:
+            self._info(f"The form {name} is not in this build.")
+            return
+        record = self._selected_record()
+        rows = [record] if record else (self._rows or [])
+        print_document(self, layout, rows, record or None)
 
     def _confirm(self, question: str) -> bool:
         return QMessageBox.question(

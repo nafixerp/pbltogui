@@ -334,3 +334,21 @@ with 0 errors.
   DataWindow grid (115), a data view (89), a field-mapped editor (67) or a
   record list with the flow to the next screen (15). No menu item opens a dead
   form. All 313 distinct screens build; 183 tests pass.
+
+
+## Phase 11 — The designed print forms ✅
+- `pb_parser.parse_layout` reads a print DataWindow's `.srd` as a layout: band
+  heights, and every label, column, computed total, line and box with its
+  position, size, alignment and font, plus the paper size, orientation and
+  margins the form was designed for.
+- `tools/build_layouts.py` stores **301 forms** (bills, memos, vouchers,
+  certificates, labels) in `data/layouts.json`.
+- `app/reports/dw_print.py` draws them: header band per page, detail band per
+  row, summary and footer, DataWindow format masks (`#####0.000`,
+  `dd/mm/yyyy`, `[GENERAL]`), `sum()/count()/avg()/max()/min()` computes and
+  `today()`, fields shrunk to their box so nothing overprints. The output is a
+  PDF, so it prints the same from any machine.
+- 75 screens show a **Print Form** button beside Print, offering the forms that
+  belong to that document (the original ships several variants per form; the
+  screen lets the user choose). The Reprint screens print on the designed form
+  too.

@@ -60,6 +60,7 @@ class Window:
     grid: dict | None = None      # the DataWindow this screen edits, if any
     report: dict | None = None    # the DataWindow this screen displays, if any
     opens: list = field(default_factory=list)   # screens this one leads to
+    prints: list = field(default_factory=list)  # printed forms it can produce
 
 
 def decode_pb(path: str) -> str:
@@ -386,3 +387,112 @@ def find_datawindow(dataobject: str, base_dir: str) -> str | None:
     if not dataobject:
         return None
     return find_source(f"{dataobject}.srd", base_dir)
+
+
+# ---------------------------------------------------------------------------
+# DataWindow print layout
+# ---------------------------------------------------------------------------
+
+@dataclass
+class LayoutObject:
+    """One thing printed on the page: a label, a column, a total or a line."""
+    kind: str                      # text | column | compute | line | rectangle
+    band: str = "detail"
+    name: str = ""
+    text: str = ""
+    expression: str = ""
+    format: str = ""
+    x: int = 0
+    y: int = 0
+    width: int = 0
+    height: int = 0
+    x1: int = 0
+    y1: int = 0
+    x2: int = 0
+    y2: int = 0
+    alignment: int = 0             # 0 left, 1 right, 2 centre
+    bold: bool = False
+    size: int = 10
+
+
+@dataclass
+class DWLayout:
+    """A DataWindow's printed form: its bands and everything on them."""
+    name: str
+    bands: dict = field(default_factory=dict)
+    objects: list = field(default_factory=list)
+    orientation: int = 0           # 0 portrait, 1 landscape
+    paper: int = 1
+    margins: dict = field(default_factory=dict)
+
+    @property
+    def width(self) -> int:
+        widest = 0
+        for o in self.objects:
+            widest = max(widest, o.x + o.width, o.x1, o.x2)
+        return widest or 3400
+
+    def band(self, name: str) -> list:
+        return [o for o in self.objects if o.band == name]
+
+
+_LAYOUT_OBJ_RE = re.compile(
+    r'(?m)^(text|column|compute|line|rectangle)\(([\s\S]*?)\)\s*$')
+_BAND_RE = re.compile(r'(?m)^(header|detail|summary|footer)\(height=(\d+)')
+_PRINT_RE = re.compile(r'print\.(orientation|paper\.size|margin\.\w+)=(\d+)')
+
+
+def _attr(body: str, key: str, default=""):
+    m = re.search(rf'\b{re.escape(key)}="([^"]*)"', body)
+    if m:
+        return m.group(1)
+    m = re.search(rf'\b{re.escape(key)}=([\w.-]+)', body)
+    return m.group(1) if m else default
+
+
+def _int_attr(body: str, key: str, default=0) -> int:
+    try:
+        return int(float(_attr(body, key, default)))
+    except (TypeError, ValueError):
+        return default
+
+
+@lru_cache(maxsize=512)
+def parse_layout(path: str) -> DWLayout:
+    """Parse the printed layout of a ``.srd``: bands, labels, columns, totals."""
+    text = decode_pb(path)
+    name = os.path.splitext(os.path.basename(path))[0]
+
+    bands = {b: int(h) for b, h in _BAND_RE.findall(text)}
+    layout = DWLayout(name=name, bands=bands)
+
+    head = text[text.find("datawindow ("): text.find("datawindow (") + 600]
+    for key, value in _PRINT_RE.findall(head):
+        if key == "orientation":
+            layout.orientation = int(value)
+        elif key == "paper.size":
+            layout.paper = int(value)
+        else:
+            layout.margins[key.split(".")[-1]] = int(value)
+
+    for kind, body in _LAYOUT_OBJ_RE.findall(text):
+        if _attr(body, "visible", "1") == "0":
+            continue
+        obj = LayoutObject(
+            kind=kind,
+            band=_attr(body, "band", "detail") or "detail",
+            name=_attr(body, "name"),
+            text=_unescape(_attr(body, "text")),
+            expression=_attr(body, "expression"),
+            format=_attr(body, "format"),
+            x=_int_attr(body, "x"), y=_int_attr(body, "y"),
+            width=_int_attr(body, "width"), height=_int_attr(body, "height"),
+            x1=_int_attr(body, "x1"), y1=_int_attr(body, "y1"),
+            x2=_int_attr(body, "x2"), y2=_int_attr(body, "y2"),
+            alignment=_int_attr(body, "alignment"),
+            bold=_int_attr(body, "font.weight", 400) >= 700,
+            size=max(abs(_int_attr(body, "font.height", -10)), 5),
+        )
+        layout.objects.append(obj)
+    layout.objects.sort(key=lambda o: (o.y, o.x))
+    return layout

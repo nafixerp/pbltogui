@@ -1301,8 +1301,8 @@
       {
        "label": "Stock Add - Less Edit",
        "name": "m_tran_itemadj_stkaddless_edit",
-       "window": "w_itemaddlesshelp",
-       "source_ref": "gminehlp\\w_itemaddlesshelp.srw",
+       "window": "w_stockaddless",
+       "source_ref": "gminet5\\w_stockaddless.srw",
        "alternates": [
         "w_itemaddlesshelp",
         "w_stockaddless"

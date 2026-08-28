@@ -28,6 +28,8 @@ from PySide6.QtWidgets import (
 import db
 from app import modules
 from app.services import stock_service
+from app.reports import layouts as dw_layouts
+from app.reports.dw_print import print_document
 from app.ui.printing import print_table
 
 
@@ -361,13 +363,13 @@ class ReprintForm(QWidget):
     """Find a document and print it again (``w_acreprint``, ``w_gsmthreprint``)."""
 
     SOURCES = {
-        "w_acreprint": ("daybook", "sno", "Voucher"),
-        "w_gsmthreprint": ("smithm", "docno", "Goldsmith document"),
+        "w_acreprint": ("daybook", "sno", "Voucher", "rcptpmntprint"),
+        "w_gsmthreprint": ("smithm", "docno", "Goldsmith document", "gsmithprint"),
     }
 
     def __init__(self, window: str, parsed=None, parent=None, seed=None):
         super().__init__(parent)
-        self.table, self.key, label = self.SOURCES[window]
+        self.table, self.key, label, self.form_stem = self.SOURCES[window]
         lay = QVBoxLayout(self)
         lay.addWidget(_title(f"Reprint — {label}"))
         self.search = _edit(180)
@@ -375,7 +377,13 @@ class ReprintForm(QWidget):
         find.clicked.connect(self.refresh)
         printer = QPushButton("&Print")
         printer.clicked.connect(self.print_selected)
-        lay.addLayout(_row(self.key, self.search, find, printer))
+        self.form = QComboBox()
+        self.form.setMinimumWidth(220)
+        self.form.addItem("Plain list", "")
+        for name in dw_layouts.names():
+            if self.form_stem in name:
+                self.form.addItem(name, name)
+        lay.addLayout(_row(self.key, self.search, find, "Form", self.form, printer))
         self.grid = _grid()
         lay.addWidget(self.grid, 1)
         self.status = QLabel()
@@ -400,6 +408,12 @@ class ReprintForm(QWidget):
             QMessageBox.information(self, "Reprint", "Select a document first.")
             return
         row = self._rows[idx]
+        chosen = self.form.currentData()
+        if chosen:
+            layout = dw_layouts.load(chosen)
+            if layout is not None:
+                print_document(self, layout, [row], row)
+                return
         print_table(self, f"{self.table} {row.get(self.key)}", list(row.keys()), [row])
 
 

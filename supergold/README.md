@@ -45,6 +45,8 @@ data/windows.json        every converted window: controls, geometry, tables,
                          and the DataWindow it edits (table + key columns)
 data/schema.sql          the original database schema (132 tables) recovered
                          from the export, used by the local SQLite mode
+data/layouts.json        the 301 designed print forms (bills, memos,
+                         vouchers, certificates) from the original
 data/field_map.json      optional hand corrections (see "Records" below)
 app/catalog.py           loads data/ into menu + window objects
 app/forms/               one Python form module per screen (317 files)
@@ -60,6 +62,7 @@ tests/                   pytest suite (python -m pytest)
 tools/build_catalog.py   PowerBuilder export -> data/*.json converter
 tools/build_schema.py    PowerBuilder export -> data/schema.sql
 tools/crud_report.py     which screens can edit records on your database
+tools/build_layouts.py   PowerBuilder export -> data/layouts.json (print forms)
 tools/generate_forms.py  catalog -> app/forms/*.py (regenerate the screens)
 ```
 
@@ -163,9 +166,12 @@ Honestly, so you know before you rely on it:
 * **A few reports the original builds in code** — Balance Sheet, Profit & Loss,
   Day Report, Daily All Report, Party History, Yearly Cash Balance — have no
   stored query to run, so they open as a form.
-* **Printing uses a plain tabular layout**, not the original's designed bill
-  formats. The sales tax invoice is the one exception: it has a real converted
-  layout (`app/reports/invoice.py`).
+* **Bill formats.** 75 screens have a **Print Form** button beside Print: it
+  draws the document on the original designed form — the same bands, labels,
+  columns, totals and boxes, on the paper size and orientation the DataWindow
+  was designed for — and produces a PDF. Where the original ships several
+  variants of a form (one per shop), the screen lets you pick. Plain **Print**
+  is still there for a quick tabular list of whatever is on screen.
 * **Company Select** and **Show WM Weight** depend on things outside the
   software (a second database, a weighing-machine port).
 
@@ -197,6 +203,17 @@ precedence over a generated form. Regenerate with:
 python tools\generate_forms.py
 ```
 
+## Printing a bill on its own form
+
+Open the document's screen, select it in the list and press **Print Form**. The
+form is drawn from `data/layouts.json` — the original `.srd` print DataWindows —
+and saved as a PDF, which then opens in the system viewer. Regenerate the forms
+from an export with:
+
+```bat
+python tools\build_layouts.py --source "C:\path\to\export"
+```
+
 ## Re-converting from a PowerBuilder export
 
 `data/menu.json` and `data/windows.json` are generated. If the PowerBuilder
@@ -211,6 +228,7 @@ or directly:
 ```bat
 python tools\build_catalog.py --source "C:\path\to\export" --out data
 python tools\build_schema.py  --source "C:\path\to\export" --out data\schema.sql --scripts
+python tools\build_layouts.py --source "C:\path\to\export"
 ```
 
 The converter reads the application's own menu object (`m_mainmenu.srm`) for the

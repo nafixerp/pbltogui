@@ -22,6 +22,7 @@ WINDOW = Window(
     tables=['items'],
     source_path='w_puritycertificate.srw',
     opens=['w_itemhelp'],
+    prints=['d_puritycertificate'],
 )
 
 

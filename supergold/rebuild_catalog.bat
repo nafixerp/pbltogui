@@ -11,5 +11,6 @@ if "%~1"=="" (
 )
 python tools\build_catalog.py --source "%~1" --out data
 python tools\build_schema.py --source "%~1" --out data\schema.sql --scripts
+python tools\build_layouts.py --source "%~1"
 pause
 endlocal

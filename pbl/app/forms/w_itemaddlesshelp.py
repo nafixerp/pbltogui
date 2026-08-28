@@ -1,4 +1,4 @@
-"""Stock Add - Less Edit — w_itemaddlesshelp.
+"""Item Adjustment Help — w_itemaddlesshelp.
 
 Generated from the PowerBuilder window ``w_itemaddlesshelp.srw`` by
 ``tools/generate_forms.py``. It is ordinary PySide6 code: the controls below
@@ -15,7 +15,7 @@ from app.ui.form_base import GeneratedForm
 
 WINDOW = Window(
     name='w_itemaddlesshelp',
-    title='Stock Add - Less Edit',
+    title='Item Adjustment Help',
     width=859,
     height=1356,
     controls=[],
@@ -25,8 +25,8 @@ WINDOW = Window(
 )
 
 
-class StockAddLessEditForm(GeneratedForm):
-    """Stock Add - Less Edit"""
+class ItemAdjustmentHelpForm(GeneratedForm):
+    """Item Adjustment Help"""
 
     WINDOW = WINDOW
 

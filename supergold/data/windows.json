@@ -5241,6 +5241,9 @@
    "w_clientshelp",
    "w_cbachdhelp",
    "w_custopbills"
+  ],
+  "prints": [
+   "d_pcard_print"
   ]
  },
  "w_smith": {
@@ -12103,6 +12106,10 @@
    "w_dmdpopup",
    "w_vachange",
    "w_jewlcode"
+  ],
+  "prints": [
+   "d_diamond_sales_print_diamonde",
+   "d_saleprint_thermal"
   ]
  },
  "w_seditbillno": {
@@ -13107,6 +13114,9 @@
    "w_diamond_sales_print",
    "w_clientshelp",
    "w_sucu"
+  ],
+  "prints": [
+   "d_printconfirm"
   ]
  },
  "w_salesreturn": {
@@ -15999,6 +16009,9 @@
    "w_stktypeqtype",
    "w_rmno",
    "w_itemhelp"
+  ],
+  "prints": [
+   "d_purchprint_thermal"
   ]
  },
  "w_purcheditno": {
@@ -22646,6 +22659,9 @@
    "w_mcharge",
    "w_stktypeqtype",
    "w_mcharge_perc"
+  ],
+  "prints": [
+   "d_orderprint_thermal"
   ]
  },
  "w_ordereditbillno": {
@@ -24455,6 +24471,9 @@
    "w_mcharge",
    "w_rmno",
    "w_mcharge_perc"
+  ],
+  "prints": [
+   "d_saleprint_thermal"
   ]
  },
  "w_order_update": {
@@ -25061,6 +25080,9 @@
   "opens": [
    "w_orderhelp",
    "w_orderprint_view"
+  ],
+  "prints": [
+   "d_orderprint_thermal"
   ]
  },
  "w_reprenter": {
@@ -25514,6 +25536,9 @@
    "w_stktypeqtype",
    "w_itemhelp",
    "w_repcomplhelp"
+  ],
+  "prints": [
+   "d_repairprint_thermal"
   ]
  },
  "w_repreditno": {
@@ -25907,6 +25932,9 @@
   "opens": [
    "w_repairhelp",
    "w_repairprint_view"
+  ],
+  "prints": [
+   "d_repairprint_thermal"
   ]
  },
  "w_reprno": {
@@ -36615,7 +36643,10 @@
      "type": "decimal"
     }
    ]
-  }
+  },
+  "prints": [
+   "d_daysummaryprint"
+  ]
  },
  "w_stksummary_rate": {
   "name": "w_stksummary_rate",
@@ -37065,7 +37096,10 @@
      "type": "number"
     }
    ]
-  }
+  },
+  "prints": [
+   "d_daysummaryprint"
+  ]
  },
  "w_puritycertificate": {
   "name": "w_puritycertificate",
@@ -37129,6 +37163,9 @@
   ],
   "opens": [
    "w_itemhelp"
+  ],
+  "prints": [
+   "d_puritycertificate"
   ]
  },
  "w_sucu_kuri": {
@@ -40645,6 +40682,10 @@
   ],
   "opens": [
    "w_clientshelp"
+  ],
+  "prints": [
+   "d_passbook_print",
+   "d_passbook_print_addr"
   ]
  },
  "w_rcpt": {
@@ -41371,6 +41412,9 @@
   "opens": [
    "w_cbachdhelp",
    "w_rcptpmnt_view"
+  ],
+  "prints": [
+   "d_rcptpmntprint_thermal"
   ]
  },
  "w_pmnt": {
@@ -42061,6 +42105,9 @@
    "w_sucu",
    "w_achd",
    "w_rcptpmnt_view"
+  ],
+  "prints": [
+   "d_rcptpmntprint_thermal"
   ]
  },
  "w_dailystatement_entry": {
@@ -45015,6 +45062,9 @@
   ],
   "opens": [
    "w_salehelp"
+  ],
+  "prints": [
+   "d_tendercash_slip"
   ]
  },
  "w_pdc_colln": {
@@ -81328,6 +81378,9 @@
   "opens": [
    "w_sales_view",
    "w_diamond_sales_print"
+  ],
+  "prints": [
+   "d_transrep_receipt"
   ]
  },
  "w_accountlist": {
@@ -92681,7 +92734,10 @@
      "type": "decimal"
     }
    ]
-  }
+  },
+  "prints": [
+   "d_daysummaryprint"
+  ]
  },
  "w_allinone_report": {
   "name": "w_allinone_report",
@@ -93068,6 +93124,9 @@
   ],
   "opens": [
    "w_allreportsummary"
+  ],
+  "prints": [
+   "d_daysummaryprint"
   ]
  },
  "w_monthendrep": {
@@ -96146,6 +96205,9 @@
   "opens": [
    "w_phoneptype",
    "w_phonebooklist"
+  ],
+  "prints": [
+   "d_phonebook_print"
   ]
  },
  "w_appointments": {

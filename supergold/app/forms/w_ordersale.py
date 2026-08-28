@@ -22,6 +22,7 @@ WINDOW = Window(
     tables=['daybook', 'items', 'itemsstk', 'orderm', 'barcode', 'clients', 'advafter', 'pdclist', 'purchased', 'salesm', 'salesrm', 'salesd', 'stkandprofit', 'salesrd', 'purchasem', 'spdmddet', 'orderd', 'salestype', 'kuricolln', 'daybookratewgt', 'itemadj', 'oglist', 'orderdga', 'order', 'accountm', 'copartylimit', 'barcodedmd', 'sman', 'clients_kuridet', 'itemstmp', 'itemsubgrp', 'wstg', 'pcard', 'generali', 'generals', 'userm', 'userd', 'generald', 'daybookpart', 'delpart'],
     source_path='w_ordersale.srw',
     opens=['w_tran_view', 'w_clientshelp', 'w_cbachdhelp', 'w_sreturn', 'w_sucu', 'w_exchange', 'w_sales_status', 'w_passverify_modify', 'w_sales_view', 'w_diamond_sales_print', 'w_dmdpopup', 'w_stktypeqtype', 'w_itemhelp', 'w_itemtmphelp', 'w_itemadjpopup', 'w_wastage', 'w_vaperc', 'w_mcharge', 'w_rmno', 'w_mcharge_perc'],
+    prints=['d_saleprint_thermal'],
 )
 
 

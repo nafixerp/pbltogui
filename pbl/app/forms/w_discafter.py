@@ -22,6 +22,7 @@ WINDOW = Window(
     tables=['daybook', 'salesm', 'orderm', 'advafter'],
     source_path='w_discafter.srw',
     opens=['w_salehelp'],
+    prints=['d_tendercash_slip'],
 )
 
 

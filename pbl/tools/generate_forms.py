@@ -92,6 +92,8 @@ def module_source(window: str, doc: dict, title: str) -> str:
         extra += f"\n    report={doc['report']!r},"
     if doc.get("opens"):
         extra += f"\n    opens={doc['opens']!r},"
+    if doc.get("prints"):
+        extra += f"\n    prints={doc['prints']!r},"
     body = "\n".join(control_line(c) for c in doc.get("controls", []))
     if not body:
         body = "        pass"

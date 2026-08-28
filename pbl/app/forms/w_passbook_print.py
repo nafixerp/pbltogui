@@ -22,6 +22,7 @@ WINDOW = Window(
     tables=['kuricolln', 'clients', 'clients_kuridet', 'kuritype', 'date'],
     source_path='w_passbook_print.srw',
     opens=['w_clientshelp'],
+    prints=['d_passbook_print', 'd_passbook_print_addr'],
 )
 
 

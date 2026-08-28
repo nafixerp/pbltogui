@@ -23,6 +23,7 @@ WINDOW = Window(
     source_path='w_sucu.srw',
     report={'dataobject': 'd_pcard_print', 'sql': 'SELECT clients.code AS clients_code, clients.name AS clients_name, clients.addr1 AS clients_addr1 FROM clients WHERE clients.code = :rcode', 'args': ['rcode'], 'arg_types': {'rcode': 'string'}, 'tables': ['clients'], 'columns': [{'name': 'code', 'label': 'code', 'type': 'char'}, {'name': 'name', 'label': 'name', 'type': 'char'}, {'name': 'addr1', 'label': 'addr1', 'type': 'char'}]},
     opens=['w_camera', 'w_pcard', 'w_clientsarea', 'w_achdgrp', 'w_clientsroute', 'w_sucu_advanced', 'w_clientsgrp', 'w_clientshelp', 'w_cbachdhelp', 'w_custopbills'],
+    prints=['d_pcard_print'],
 )
 
 
