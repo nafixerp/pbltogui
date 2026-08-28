@@ -221,3 +221,28 @@ with 0 errors.
   `w_gsmith`), and the two `wtmp` report stubs open the Stock Register. With the
   bridges, **all 331 menu items resolve to a working screen — 0 placeholders.**
   Supplying the real sources later overrides the bridges automatically.
+
+
+## Phase 6 — Records: full CRUD on the generic screens ✅
+- `app/services/crud_service.py` is the insert/update/delete engine used by
+  every auto-rendered window. Column names come from the database itself
+  (`db.table_columns`), a field is written only when it matches a real column,
+  statements are parameterised, and a table without a primary key is matched on
+  all its values with the match count shown before anything is written.
+- `app/pb_parser.parse_datawindow` reads the `.srd` DataWindow objects: the
+  table each screen **updates**, its **key** columns and its column list — the
+  original application's own definition of what the screen may write.
+  `tools/build_catalog.py` stores the best writable DataWindow per window, so
+  97 screens edit their records in a grid, exactly like the original.
+- Screens without a writable DataWindow map their input fields onto their
+  table's columns (57 screens). `data/field_map.json` pins anything the
+  automatic matching cannot work out, without a code change.
+- `tools/build_schema.py` recovers the original schema (132 tables, 2221
+  columns) from the DataWindow definitions and the embedded SQL, so the local
+  SQLite mode starts with the real tables and columns.
+- `tools/crud_report.py` reports, against whatever database is configured,
+  which screens can edit records and which still need a correction.
+- Coverage on the delivered build: 24 hand-written modules, 97 DataWindow-grid
+  screens, 57 field-mapped screens; the rest are reports, print dialogs and
+  record pickers that only read, plus multi-table transaction screens that need
+  their own business logic.

@@ -71,6 +71,7 @@ def load_window(base_dir: str, name: str) -> Window | None:
         width=doc.get("width", 2400), height=doc.get("height", 1500),
         controls=controls, tables=doc.get("tables", []),
         source_path=doc.get("source_path", f"{name}.srw"),
+        grid=doc.get("grid"),
     )
 
 

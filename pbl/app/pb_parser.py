@@ -57,6 +57,7 @@ class Window:
     controls: list
     tables: list
     source_path: str
+    grid: dict | None = None      # the DataWindow this screen edits, if any
 
 
 def decode_pb(path: str) -> str:
@@ -107,11 +108,22 @@ _PB_CLASSES = {
 }
 
 
+# Housekeeping tables every script touches (settings, audit log, lookups).
+# They are real tables, but never what a screen is *about*, so they must not
+# win the "primary table" slot.
+_INFRA_TABLES = {
+    "generali", "generals", "generald", "generalc", "delpart", "userhist",
+    "userm", "userd", "codehelp", "company", "daybookpart", "reminder",
+}
+
+
 def _extract_tables(text: str) -> list:
     """Recover database tables from embedded SQL in event scripts.
 
     Write targets (INSERT/UPDATE) come first — they are unambiguously real
-    tables and make the best "primary table" for a data grid.
+    tables and make the best "primary table" for a data grid — with
+    housekeeping tables pushed to the back so a screen is identified by the
+    data it is about.
     """
     write, read = [], []
     for m in re.finditer(r'\bINSERT\s+INTO\s+(\w+)', text, re.I):
@@ -121,6 +133,10 @@ def _extract_tables(text: str) -> list:
     for m in re.finditer(r'\bFROM\s+(\w+)', text, re.I):
         read.append(m.group(1).lower())
 
+    mentions = {}
+    for name in write + read:
+        mentions[name] = mentions.get(name, 0) + 1
+
     ordered, seen = [], set()
     for name in write + read:
         if (name in seen or name in _PB_CLASSES or name.startswith("w_")
@@ -128,6 +144,8 @@ def _extract_tables(text: str) -> list:
             continue
         seen.add(name)
         ordered.append(name)
+    # Stable sort: real subject tables first, most-used first within each group.
+    ordered.sort(key=lambda n: (n in _INFRA_TABLES, -mentions.get(n, 0)))
     return ordered
 
 
@@ -190,3 +208,99 @@ def find_source(rel_path: str, base_dir: str) -> str | None:
         if target in files:
             return os.path.join(root, target)
     return None
+
+
+# ---------------------------------------------------------------------------
+# DataWindow objects (.srd)
+# ---------------------------------------------------------------------------
+
+@dataclass
+class DWColumn:
+    """One column of a DataWindow, as the original application defined it."""
+    name: str
+    dbname: str = ""
+    type: str = ""
+    label: str = ""
+    key: bool = False
+    update: bool = False
+
+    @property
+    def table(self) -> str:
+        return self.dbname.split(".")[0].lower() if "." in self.dbname else ""
+
+    @property
+    def column(self) -> str:
+        return (self.dbname.split(".")[-1] or self.name).lower()
+
+
+@dataclass
+class DataWindow:
+    """A parsed ``.srd``: the table the screen edits, its columns and its key."""
+    name: str
+    update_table: str = ""
+    columns: list = field(default_factory=list)
+    tables: list = field(default_factory=list)
+
+    def _own(self, c: DWColumn) -> bool:
+        return bool(c.dbname) and (not c.table or c.table == self.update_table)
+
+    @property
+    def keys(self) -> list:
+        return [c.column for c in self.columns if c.key and self._own(c)]
+
+    @property
+    def updatable(self) -> list:
+        return [c for c in self.columns if self._own(c)]
+
+    @property
+    def writable(self) -> bool:
+        return bool(self.update_table and self.updatable)
+
+
+_DW_UPDATE_RE = re.compile(r'\bupdate="(\w+)"')
+_DW_TABLE_RE = re.compile(r'TABLE\(NAME=~"(\w+)~"')
+_DW_HEADER_RE = re.compile(r'text\(name=(\w+)_t\b[\s\S]*?\btext="([^"]*)"')
+
+
+@lru_cache(maxsize=1024)
+def parse_datawindow(path: str) -> DataWindow:
+    text = decode_pb(path)
+    name = os.path.splitext(os.path.basename(path))[0]
+
+    start = text.find("table(")
+    block = text[start:] if start >= 0 else ""
+    end = block.find("\nte")           # the first object after the table block
+    block = block[:end] if end > 0 else block
+
+    labels = {k: _unescape(v) for k, v in _DW_HEADER_RE.findall(text)}
+    columns = []
+    for chunk in block.split("column=(")[1:]:
+        body = chunk.split("retrieve=")[0].split("column=(")[0]
+        m_name = re.search(r'\bname=(\w+)', body)
+        if not m_name:
+            continue
+        m_type = re.search(r'\btype=([a-z]+)', body)
+        m_db = re.search(r'dbname="([^"]*)"', body)
+        cname = m_name.group(1)
+        columns.append(DWColumn(
+            name=cname,
+            dbname=(m_db.group(1) if m_db else ""),
+            type=(m_type.group(1) if m_type else ""),
+            label=labels.get(cname, "") or cname,
+            key="key=yes" in body,
+            update="update=yes" in body))
+
+    m_upd = _DW_UPDATE_RE.search(block)
+    tables = list(dict.fromkeys(t.lower() for t in _DW_TABLE_RE.findall(text)))
+    if not tables:
+        tables = list(dict.fromkeys(c.table for c in columns if c.table))
+    return DataWindow(name=name,
+                      update_table=(m_upd.group(1).lower() if m_upd else ""),
+                      columns=columns, tables=tables)
+
+
+def find_datawindow(dataobject: str, base_dir: str) -> str | None:
+    """Locate the ``.srd`` file for a DataWindow object name."""
+    if not dataobject:
+        return None
+    return find_source(f"{dataobject}.srd", base_dir)

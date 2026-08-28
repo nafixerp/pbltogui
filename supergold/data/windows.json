@@ -159,12 +159,12 @@
   "width": 1330,
   "height": 1788,
   "tables": [
-   "generald",
    "ratehistory",
    "itemsqtype",
+   "internet",
+   "generald",
    "userd",
-   "generals",
-   "internet"
+   "generals"
   ],
   "source_path": "w_setuprate_international.srw",
   "controls": [
@@ -268,7 +268,32 @@
     "height": 100,
     "text": "E&xit"
    }
-  ]
+  ],
+  "grid": {
+   "control": "dw_1",
+   "dataobject": "d_ratesetup",
+   "table": "itemsqtype",
+   "keys": [
+    "code"
+   ],
+   "columns": [
+    {
+     "name": "code",
+     "label": "Purity",
+     "type": "char"
+    },
+    {
+     "name": "touch",
+     "label": "Touch",
+     "type": "decimal"
+    },
+    {
+     "name": "rate",
+     "label": "Rate",
+     "type": "decimal"
+    }
+   ]
+  }
  },
  "w_setuprate": {
   "name": "w_setuprate",
@@ -276,8 +301,8 @@
   "width": 1870,
   "height": 1468,
   "tables": [
-   "generald",
    "ratehistory",
+   "generald",
    "userd",
    "generals"
   ],
@@ -557,19 +582,19 @@
   "width": 3287,
   "height": 2444,
   "tables": [
-   "generali",
-   "generald",
-   "generals",
    "daybook",
+   "item",
    "salesm",
+   "purchasem",
    "wgt",
    "fr",
    "rcvd",
-   "item",
    "application",
    "party",
    "account",
-   "purchasem"
+   "generals",
+   "generald",
+   "generali"
   ],
   "source_path": "w_setup.srw",
   "controls": [
@@ -611,17 +636,17 @@
   "height": 2164,
   "tables": [
    "items",
-   "generals",
+   "itemadj",
    "clients",
    "salesd",
    "salesrd",
    "purchased",
    "purchaserd",
    "orderd",
-   "itemadj",
    "repaird",
    "smithd",
    "refineryd",
+   "generals",
    "userd"
   ],
   "source_path": "w_item.srw",
@@ -1619,7 +1644,22 @@
     "text": "E&xit",
     "taborder": 460
    }
-  ]
+  ],
+  "grid": {
+   "control": "dw_smith",
+   "dataobject": "d_smith",
+   "table": "codehelp",
+   "keys": [
+    "code"
+   ],
+   "columns": [
+    {
+     "name": "code",
+     "label": "code",
+     "type": "char"
+    }
+   ]
+  }
  },
  "w_itemtmp": {
   "name": "w_itemtmp",
@@ -1699,7 +1739,38 @@
     "text": "E&xit",
     "taborder": 60
    }
-  ]
+  ],
+  "grid": {
+   "control": "dw_sman",
+   "dataobject": "d_itemtmp",
+   "table": "itemstmp",
+   "keys": [
+    "code",
+    "name"
+   ],
+   "columns": [
+    {
+     "name": "code",
+     "label": "Code",
+     "type": "char"
+    },
+    {
+     "name": "name",
+     "label": "Name",
+     "type": "char"
+    },
+    {
+     "name": "mname",
+     "label": "Malayalam Name",
+     "type": "char"
+    },
+    {
+     "name": "iqtype",
+     "label": "iqtype",
+     "type": "char"
+    }
+   ]
+  }
  },
  "w_item_others": {
   "name": "w_item_others",
@@ -2301,7 +2372,27 @@
     "text": "E&xit",
     "taborder": 50
    }
-  ]
+  ],
+  "grid": {
+   "control": "dw_sman",
+   "dataobject": "d_itemsubgrpmaster",
+   "table": "itemsubgrp",
+   "keys": [
+    "code"
+   ],
+   "columns": [
+    {
+     "name": "code",
+     "label": "Code",
+     "type": "char"
+    },
+    {
+     "name": "name",
+     "label": "Name",
+     "type": "char"
+    }
+   ]
+  }
  },
  "w_itemqualitytype": {
   "name": "w_itemqualitytype",
@@ -2309,14 +2400,14 @@
   "width": 1083,
   "height": 1328,
   "tables": [
-   "barcode",
    "items",
    "mctable",
-   "orderd",
-   "orderdga",
    "purchased",
    "salesd",
    "salesrd",
+   "barcode",
+   "orderd",
+   "orderdga",
    "wstgtable"
   ],
   "source_path": "w_itemqualitytype.srw",
@@ -2370,7 +2461,32 @@
     "text": "E&xit",
     "taborder": 50
    }
-  ]
+  ],
+  "grid": {
+   "control": "dw_sman",
+   "dataobject": "d_itemqtype",
+   "table": "itemsqtype",
+   "keys": [
+    "code"
+   ],
+   "columns": [
+    {
+     "name": "code",
+     "label": "Purity",
+     "type": "char"
+    },
+    {
+     "name": "touch",
+     "label": "Touch",
+     "type": "decimal"
+    },
+    {
+     "name": "code2",
+     "label": "code2",
+     "type": "char"
+    }
+   ]
+  }
  },
  "w_counter": {
   "name": "w_counter",
@@ -2378,9 +2494,9 @@
   "width": 1760,
   "height": 1188,
   "tables": [
-   "generali",
    "salesm",
-   "barcode"
+   "barcode",
+   "generali"
   ],
   "source_path": "w_counter.srw",
   "controls": [
@@ -2433,7 +2549,32 @@
     "text": "E&xit",
     "taborder": 50
    }
-  ]
+  ],
+  "grid": {
+   "control": "dw_sman",
+   "dataobject": "d_counter",
+   "table": "counter",
+   "keys": [
+    "code"
+   ],
+   "columns": [
+    {
+     "name": "code",
+     "label": "Code",
+     "type": "char"
+    },
+    {
+     "name": "name",
+     "label": "Name",
+     "type": "char"
+    },
+    {
+     "name": "startbillno",
+     "label": "startbillno",
+     "type": "decimal"
+    }
+   ]
+  }
  },
  "w_wstgtable": {
   "name": "w_wstgtable",
@@ -2807,7 +2948,22 @@
     "text": "E&xit",
     "taborder": 80
    }
-  ]
+  ],
+  "grid": {
+   "control": "dw_party",
+   "dataobject": "d_smith",
+   "table": "codehelp",
+   "keys": [
+    "code"
+   ],
+   "columns": [
+    {
+     "name": "code",
+     "label": "code",
+     "type": "char"
+    }
+   ]
+  }
  },
  "w_stktype": {
   "name": "w_stktype",
@@ -3258,7 +3414,77 @@
     "height": 76,
     "text": "Same Stock"
    }
-  ]
+  ],
+  "grid": {
+   "control": "dw_itemlist",
+   "dataobject": "d_items_opstockentry",
+   "table": "items",
+   "keys": [
+    "code"
+   ],
+   "columns": [
+    {
+     "name": "code",
+     "label": "Code",
+     "type": "char"
+    },
+    {
+     "name": "name",
+     "label": "Name",
+     "type": "char"
+    },
+    {
+     "name": "itype",
+     "label": "itype",
+     "type": "char"
+    },
+    {
+     "name": "cqty",
+     "label": "cqty",
+     "type": "long"
+    },
+    {
+     "name": "cweight",
+     "label": "cweight",
+     "type": "decimal"
+    },
+    {
+     "name": "cstwgt",
+     "label": "cstwgt",
+     "type": "decimal"
+    },
+    {
+     "name": "stonemarg",
+     "label": "stonemarg",
+     "type": "decimal"
+    },
+    {
+     "name": "cstoneamt",
+     "label": "cstoneamt",
+     "type": "decimal"
+    },
+    {
+     "name": "code2",
+     "label": "code2",
+     "type": "char"
+    },
+    {
+     "name": "touch",
+     "label": "touch",
+     "type": "decimal"
+    },
+    {
+     "name": "grpcode",
+     "label": "grpcode",
+     "type": "char"
+    },
+    {
+     "name": "cdmdwgt",
+     "label": "cdmdwgt",
+     "type": "decimal"
+    }
+   ]
+  }
  },
  "w_reorder_master": {
   "name": "w_reorder_master",
@@ -3266,8 +3492,8 @@
   "width": 2245,
   "height": 1764,
   "tables": [
-   "rotable",
    "models",
+   "rotable",
    "items"
   ],
   "source_path": "w_reorder_master.srw",
@@ -3386,7 +3612,56 @@
     "text": "E&xit",
     "taborder": 80
    }
-  ]
+  ],
+  "grid": {
+   "control": "dw_wstgset",
+   "dataobject": "d_rotable",
+   "table": "rotable",
+   "keys": [
+    "code",
+    "model",
+    "size",
+    "weight1",
+    "weight2"
+   ],
+   "columns": [
+    {
+     "name": "code",
+     "label": "code",
+     "type": "char"
+    },
+    {
+     "name": "model",
+     "label": "Model",
+     "type": "char"
+    },
+    {
+     "name": "size",
+     "label": "Size",
+     "type": "char"
+    },
+    {
+     "name": "weight1",
+     "label": "Min Wgt",
+     "type": "decimal"
+    },
+    {
+     "name": "weight2",
+     "label": "Max Wgt",
+     "type": "decimal"
+    },
+    {
+     "name": "minqty",
+     "label": "Min Qty",
+     "type": "long"
+    },
+    {
+     "name": "maxqty",
+     "label": "Max Qty",
+     "type": "long"
+    }
+   ]
+  }
  },
  "w_sucu": {
   "name": "w_sucu",
@@ -3396,13 +3671,13 @@
   "tables": [
    "clients",
    "accountm",
-   "clientspict",
    "clients_advanced",
+   "clientspict",
    "phonebook",
+   "daybook",
    "generali",
-   "generals",
    "userd",
-   "daybook"
+   "generals"
   ],
   "source_path": "w_sucu.srw",
   "controls": [
@@ -4444,14 +4719,14 @@
   "width": 3689,
   "height": 1956,
   "tables": [
-   "clients",
-   "clientsgs",
    "accountm",
+   "clientsgs",
+   "clients",
    "clientspict",
-   "userd",
    "daybook",
    "smithm",
-   "refinerym"
+   "refinerym",
+   "userd"
   ],
   "source_path": "w_smith.srw",
   "controls": [
@@ -5250,9 +5525,9 @@
   "height": 1788,
   "tables": [
    "accountm",
+   "daybook",
    "userd",
-   "generals",
-   "daybook"
+   "generals"
   ],
   "source_path": "w_achd.srw",
   "controls": [
@@ -5867,7 +6142,52 @@
     "text": "E&xit",
     "taborder": 40
    }
-  ]
+  ],
+  "grid": {
+   "control": "dw_updaterep",
+   "dataobject": "d_accounts_position",
+   "table": "accountm",
+   "keys": [
+    "accode"
+   ],
+   "columns": [
+    {
+     "name": "accode",
+     "label": "A/c Code",
+     "type": "char"
+    },
+    {
+     "name": "name",
+     "label": "A/c Name",
+     "type": "char"
+    },
+    {
+     "name": "grcode",
+     "label": "grcode",
+     "type": "char"
+    },
+    {
+     "name": "tplpos",
+     "label": "tplpos",
+     "type": "long"
+    },
+    {
+     "name": "bshead",
+     "label": "bshead",
+     "type": "char"
+    },
+    {
+     "name": "shepos",
+     "label": "shepos",
+     "type": "long"
+    },
+    {
+     "name": "shedgrp",
+     "label": "shedgrp",
+     "type": "char"
+    }
+   ]
+  }
  },
  "w_bookstock": {
   "name": "w_bookstock",
@@ -5933,8 +6253,8 @@
   "width": 1614,
   "height": 944,
   "tables": [
-   "stkandprofit",
-   "accountm"
+   "accountm",
+   "stkandprofit"
   ],
   "source_path": "w_stockvalueset.srw",
   "controls": [
@@ -6061,7 +6381,32 @@
     "text": "E&xit",
     "taborder": 60
    }
-  ]
+  ],
+  "grid": {
+   "control": "dw_places",
+   "dataobject": "d_copartylimit",
+   "table": "copartylimit",
+   "keys": [
+    "code"
+   ],
+   "columns": [
+    {
+     "name": "code",
+     "label": "C/o Party",
+     "type": "char"
+    },
+    {
+     "name": "maxamt",
+     "label": "Max Crd Amt",
+     "type": "decimal"
+    },
+    {
+     "name": "maxwgt",
+     "label": "maxwgt",
+     "type": "decimal"
+    }
+   ]
+  }
  },
  "w_sman": {
   "name": "w_sman",
@@ -6141,7 +6486,37 @@
     "text": "E&xit",
     "taborder": 60
    }
-  ]
+  ],
+  "grid": {
+   "control": "dw_sman",
+   "dataobject": "d_sman",
+   "table": "sman",
+   "keys": [
+    "code"
+   ],
+   "columns": [
+    {
+     "name": "code",
+     "label": "Code",
+     "type": "char"
+    },
+    {
+     "name": "name",
+     "label": "Name",
+     "type": "char"
+    },
+    {
+     "name": "accode",
+     "label": "accode",
+     "type": "char"
+    },
+    {
+     "name": "active",
+     "label": "active",
+     "type": "char"
+    }
+   ]
+  }
  },
  "w_salestype": {
   "name": "w_salestype",
@@ -6150,8 +6525,8 @@
   "height": 1312,
   "tables": [
    "salestype",
-   "generali",
-   "salesm"
+   "salesm",
+   "generali"
   ],
   "source_path": "w_salestype.srw",
   "controls": [
@@ -6222,7 +6597,77 @@
     "text": "E&xit",
     "taborder": 60
    }
-  ]
+  ],
+  "grid": {
+   "control": "dw_1",
+   "dataobject": "d_salestype",
+   "table": "salestype",
+   "keys": [
+    "code"
+   ],
+   "columns": [
+    {
+     "name": "code",
+     "label": "Code",
+     "type": "char"
+    },
+    {
+     "name": "name",
+     "label": "Name",
+     "type": "char"
+    },
+    {
+     "name": "taxperc",
+     "label": "Tax%",
+     "type": "decimal"
+    },
+    {
+     "name": "formno",
+     "label": "Form No",
+     "type": "char"
+    },
+    {
+     "name": "prefix",
+     "label": "SPrefix",
+     "type": "char"
+    },
+    {
+     "name": "startno",
+     "label": "SStartNo",
+     "type": "long"
+    },
+    {
+     "name": "srprefix",
+     "label": "SR Prefix",
+     "type": "char"
+    },
+    {
+     "name": "srstartno",
+     "label": "SR Start No",
+     "type": "long"
+    },
+    {
+     "name": "pprefix",
+     "label": "PPrefix",
+     "type": "char"
+    },
+    {
+     "name": "pstartno",
+     "label": "PStartNo",
+     "type": "long"
+    },
+    {
+     "name": "prprefix",
+     "label": "PR Prefix",
+     "type": "char"
+    },
+    {
+     "name": "prstartno",
+     "label": "PR Start No",
+     "type": "long"
+    }
+   ]
+  }
  },
  "w_states": {
   "name": "w_states",
@@ -6301,7 +6746,27 @@
     "text": "E&xit",
     "taborder": 60
    }
-  ]
+  ],
+  "grid": {
+   "control": "dw_group",
+   "dataobject": "d_state_master",
+   "table": "state",
+   "keys": [
+    "code"
+   ],
+   "columns": [
+    {
+     "name": "code",
+     "label": "Code",
+     "type": "char"
+    },
+    {
+     "name": "name",
+     "label": "Name",
+     "type": "char"
+    }
+   ]
+  }
  },
  "w_repaircompl": {
   "name": "w_repaircompl",
@@ -6380,7 +6845,22 @@
     "text": "E&xit",
     "taborder": 60
    }
-  ]
+  ],
+  "grid": {
+   "control": "dw_sman",
+   "dataobject": "d_repcomplmast",
+   "table": "repcompl",
+   "keys": [
+    "part"
+   ],
+   "columns": [
+    {
+     "name": "part",
+     "label": "Complaint",
+     "type": "char"
+    }
+   ]
+  }
  },
  "w_gifttable": {
   "name": "w_gifttable",
@@ -6457,7 +6937,27 @@
     "text": "E&xit",
     "taborder": 60
    }
-  ]
+  ],
+  "grid": {
+   "control": "dw_1",
+   "dataobject": "d_gifttable",
+   "table": "gifttable",
+   "keys": [
+    "points"
+   ],
+   "columns": [
+    {
+     "name": "points",
+     "label": "Points",
+     "type": "long"
+    },
+    {
+     "name": "particulars",
+     "label": "Particulars",
+     "type": "char"
+    }
+   ]
+  }
  },
  "w_pcardtable": {
   "name": "w_pcardtable",
@@ -6534,7 +7034,53 @@
     "text": "E&xit",
     "taborder": 60
    }
-  ]
+  ],
+  "grid": {
+   "control": "dw_1",
+   "dataobject": "d_pcardtable",
+   "table": "pcardtable",
+   "keys": [
+    "pcard",
+    "isubgrp"
+   ],
+   "columns": [
+    {
+     "name": "pcard",
+     "label": "Prev.Card",
+     "type": "char"
+    },
+    {
+     "name": "isubgrp",
+     "label": "Item Sub Grp",
+     "type": "char"
+    },
+    {
+     "name": "pointbasedon",
+     "label": "Point Based On",
+     "type": "char"
+    },
+    {
+     "name": "valuefor1point",
+     "label": "Value for 1 Point",
+     "type": "decimal"
+    },
+    {
+     "name": "valueperpoint",
+     "label": "RS Value / Point",
+     "type": "decimal"
+    },
+    {
+     "name": "minsalesamt",
+     "label": "Min Sales Amt",
+     "type": "decimal"
+    },
+    {
+     "name": "rounddown",
+     "label": "Round Down",
+     "type": "decimal"
+    }
+   ]
+  }
  },
  "w_denom_master": {
   "name": "w_denom_master",
@@ -6605,7 +7151,32 @@
     "text": "E&xit",
     "taborder": 60
    }
-  ]
+  ],
+  "grid": {
+   "control": "dw_1",
+   "dataobject": "d_denom_master",
+   "table": "denom_master",
+   "keys": [
+    "code"
+   ],
+   "columns": [
+    {
+     "name": "code",
+     "label": "Code",
+     "type": "char"
+    },
+    {
+     "name": "name",
+     "label": "Name",
+     "type": "char"
+    },
+    {
+     "name": "cvalue",
+     "label": "Value",
+     "type": "decimal"
+    }
+   ]
+  }
  },
  "w_custopbills": {
   "name": "w_custopbills",
@@ -6614,9 +7185,9 @@
   "height": 1664,
   "tables": [
    "salesm",
-   "generali",
    "clients",
-   "accountm"
+   "accountm",
+   "generali"
   ],
   "source_path": "w_custopbills.srw",
   "controls": [
@@ -6703,7 +7274,102 @@
     "text": "E&xit",
     "taborder": 50
    }
-  ]
+  ],
+  "grid": {
+   "control": "dw_aloc",
+   "dataobject": "d_custopbills",
+   "table": "salesm",
+   "keys": [
+    "slno"
+   ],
+   "columns": [
+    {
+     "name": "billno",
+     "label": "Bill No.",
+     "type": "char"
+    },
+    {
+     "name": "tdate",
+     "label": "Date",
+     "type": "date"
+    },
+    {
+     "name": "grate",
+     "label": "grate",
+     "type": "decimal"
+    },
+    {
+     "name": "billamt",
+     "label": "billamt",
+     "type": "decimal"
+    },
+    {
+     "name": "ramt",
+     "label": "ramt",
+     "type": "decimal"
+    },
+    {
+     "name": "ramtafter",
+     "label": "ramtafter",
+     "type": "decimal"
+    },
+    {
+     "name": "dstatus",
+     "label": "dstatus",
+     "type": "char"
+    },
+    {
+     "name": "secwgt",
+     "label": "secwgt",
+     "type": "decimal"
+    },
+    {
+     "name": "secnote",
+     "label": "secnote",
+     "type": "char"
+    },
+    {
+     "name": "custname",
+     "label": "custname",
+     "type": "char"
+    },
+    {
+     "name": "eamt",
+     "label": "eamt",
+     "type": "decimal"
+    },
+    {
+     "name": "staxamt",
+     "label": "staxamt",
+     "type": "decimal"
+    },
+    {
+     "name": "discount",
+     "label": "discount",
+     "type": "decimal"
+    },
+    {
+     "name": "duedate",
+     "label": "duedate",
+     "type": "date"
+    },
+    {
+     "name": "sretamt",
+     "label": "sretamt",
+     "type": "decimal"
+    },
+    {
+     "name": "slno",
+     "label": "slno",
+     "type": "decimal"
+    },
+    {
+     "name": "alocamt",
+     "label": "alocamt",
+     "type": "decimal"
+    }
+   ]
+  }
  },
  "w_passverify2": {
   "name": "w_passverify2",
@@ -6761,8 +7427,8 @@
   "width": 4215,
   "height": 2184,
   "tables": [
-   "userm",
-   "userd"
+   "userd",
+   "userm"
   ],
   "source_path": "w_useraccess.srw",
   "controls": [
@@ -7623,7 +8289,27 @@
     "text": "E&xit",
     "taborder": 60
    }
-  ]
+  ],
+  "grid": {
+   "control": "dw_places",
+   "dataobject": "d_incharge_master",
+   "table": "incharge",
+   "keys": [
+    "code"
+   ],
+   "columns": [
+    {
+     "name": "code",
+     "label": "Code",
+     "type": "char"
+    },
+    {
+     "name": "name",
+     "label": "Name",
+     "type": "char"
+    }
+   ]
+  }
  },
  "w_incharge_select": {
   "name": "w_incharge_select",
@@ -7670,32 +8356,32 @@
   "width": 3739,
   "height": 2328,
   "tables": [
-   "generali",
-   "salesm",
-   "purchasem",
-   "daybookpart",
-   "daybook",
-   "salesd",
-   "spdmddet",
-   "itemadj",
-   "stkandprofit",
-   "purchased",
-   "salesrd",
-   "salesrm",
-   "delpart",
    "items",
    "itemsstk",
+   "daybook",
+   "salesm",
    "barcode",
    "clients",
-   "orderm",
-   "generals",
-   "barcodedmd",
-   "generald",
-   "userd",
-   "itemstmp",
+   "salesd",
+   "purchased",
+   "spdmddet",
+   "stkandprofit",
+   "salesrd",
    "mctable",
+   "salesrm",
+   "orderm",
+   "purchasem",
+   "itemadj",
+   "itemstmp",
    "wstg",
+   "barcodedmd",
    "accountm",
+   "generals",
+   "generali",
+   "userd",
+   "generald",
+   "daybookpart",
+   "delpart",
    "userm"
   ],
   "source_path": "w_sales_full.srw",
@@ -8551,45 +9237,45 @@
   "width": 4983,
   "height": 2340,
   "tables": [
-   "generali",
-   "salesm",
-   "purchasem",
-   "daybookpart",
-   "daybookratewgt",
    "daybook",
+   "items",
+   "salesm",
+   "barcode",
+   "itemsstk",
+   "clients",
    "pdclist",
-   "kuricolln",
+   "salestype",
+   "purchased",
+   "salesrm",
+   "purchasem",
    "salesd",
    "spdmddet",
-   "itemadj",
    "stkandprofit",
-   "oglist",
-   "purchased",
    "salesrd",
-   "salesrm",
-   "delpart",
-   "items",
-   "itemsstk",
-   "barcode",
-   "clients",
-   "salestype",
-   "generals",
-   "itemsqtype",
-   "barcodedmd",
-   "userm",
-   "generald",
    "clients_kuridet",
-   "userd",
-   "barcode_dmddet",
+   "kuricolln",
+   "itemsqtype",
+   "daybookratewgt",
+   "itemadj",
+   "oglist",
+   "barcodedmd",
    "accountm",
-   "sman",
    "wgtrcptpmnt",
+   "mctable",
+   "barcode_dmddet",
+   "sman",
    "copartylimit",
    "itemstmp",
    "itemsubgrp",
-   "mctable",
    "wstg",
-   "pcard"
+   "pcard",
+   "generali",
+   "generals",
+   "userd",
+   "generald",
+   "userm",
+   "daybookpart",
+   "delpart"
   ],
   "source_path": "w_sales.srw",
   "controls": [
@@ -10440,22 +11126,22 @@
   "width": 1573,
   "height": 652,
   "tables": [
-   "delpart",
    "items",
-   "itemsstk",
-   "barcode",
-   "orderm",
    "salesm",
+   "itemsstk",
+   "orderm",
    "salesd",
    "salesrd",
    "purchased",
-   "userd",
    "daybook",
+   "barcode",
    "salesrm",
    "purchasem",
-   "daybookpart",
    "stkandprofit",
-   "oglist"
+   "oglist",
+   "delpart",
+   "userd",
+   "daybookpart"
   ],
   "source_path": "w_scancel.srw",
   "controls": [
@@ -10639,24 +11325,24 @@
   "width": 1550,
   "height": 1556,
   "tables": [
-   "generali",
-   "daybook",
    "salesm",
-   "purchasem",
-   "daybookpart",
+   "daybook",
    "orderm",
-   "salesrm",
    "items",
    "itemsstk",
-   "counter",
-   "generals",
    "advafter",
+   "purchasem",
+   "counter",
    "salesd",
+   "salesrm",
    "salesrd",
    "purchased",
-   "userm",
    "salestype",
-   "spdmddet"
+   "spdmddet",
+   "generali",
+   "generals",
+   "daybookpart",
+   "userm"
   ],
   "source_path": "w_est_to_bill.srw",
   "controls": [
@@ -10948,30 +11634,30 @@
   "width": 4608,
   "height": 1784,
   "tables": [
-   "delpart",
-   "generali",
    "daybook",
+   "salesm",
    "items",
    "itemsstk",
-   "barcode",
-   "orderm",
-   "salesm",
    "salesrm",
    "purchasem",
-   "daybookpart",
-   "pdclist",
    "salesd",
+   "orderm",
    "purchased",
    "salesrd",
-   "userm",
-   "userd",
+   "clients",
+   "salestype",
+   "barcode",
+   "pdclist",
    "stkandprofit",
    "oglist",
-   "salestype",
-   "generals",
-   "generald",
    "spdmddet",
-   "clients"
+   "generali",
+   "generals",
+   "daybookpart",
+   "userd",
+   "generald",
+   "delpart",
+   "userm"
   ],
   "source_path": "w_printconfirm.srw",
   "controls": [
@@ -11071,7 +11757,132 @@
     "height": 80,
     "text": "Est To Bill"
    }
-  ]
+  ],
+  "grid": {
+   "control": "dw_1",
+   "dataobject": "d_printconfirm",
+   "table": "salesm",
+   "keys": [
+    "slno"
+   ],
+   "columns": [
+    {
+     "name": "tdate",
+     "label": "Date",
+     "type": "date"
+    },
+    {
+     "name": "billno",
+     "label": "Doc No",
+     "type": "char"
+    },
+    {
+     "name": "ramt",
+     "label": "Rcvd Amt",
+     "type": "decimal"
+    },
+    {
+     "name": "discount",
+     "label": "Discount",
+     "type": "decimal"
+    },
+    {
+     "name": "slno",
+     "label": "slno",
+     "type": "decimal"
+    },
+    {
+     "name": "custcode",
+     "label": "custcode",
+     "type": "char"
+    },
+    {
+     "name": "custname",
+     "label": "custname",
+     "type": "char"
+    },
+    {
+     "name": "smcode",
+     "label": "smcode",
+     "type": "char"
+    },
+    {
+     "name": "cocode",
+     "label": "cocode",
+     "type": "char"
+    },
+    {
+     "name": "staxamt",
+     "label": "staxamt",
+     "type": "decimal"
+    },
+    {
+     "name": "duedate",
+     "label": "duedate",
+     "type": "date"
+    },
+    {
+     "name": "control",
+     "label": "control",
+     "type": "long"
+    },
+    {
+     "name": "orderno",
+     "label": "orderno",
+     "type": "char"
+    },
+    {
+     "name": "netamt",
+     "label": "Net Amt",
+     "type": "decimal"
+    },
+    {
+     "name": "disc2",
+     "label": "disc2",
+     "type": "decimal"
+    },
+    {
+     "name": "staxamt2",
+     "label": "staxamt2",
+     "type": "decimal"
+    },
+    {
+     "name": "sr",
+     "label": "sr",
+     "type": "char"
+    },
+    {
+     "name": "balance",
+     "label": "balance",
+     "type": "decimal"
+    },
+    {
+     "name": "netamt",
+     "label": "Net Amt",
+     "type": "decimal"
+    },
+    {
+     "name": "ccamt",
+     "label": "ccamt",
+     "type": "decimal"
+    },
+    {
+     "name": "chqamt",
+     "label": "chqamt",
+     "type": "decimal"
+    },
+    {
+     "name": "cbcode",
+     "label": "cbcode",
+     "type": "char"
+    },
+    {
+     "name": "nodisc",
+     "label": "nodisc",
+     "type": "long"
+    }
+   ]
+  }
  },
  "w_salesreturn": {
   "name": "w_salesreturn",
@@ -11079,32 +11890,32 @@
   "width": 4983,
   "height": 1944,
   "tables": [
-   "generali",
-   "salesrm",
-   "daybookpart",
    "daybook",
-   "salesrd",
-   "spdmddet",
-   "stkandprofit",
-   "delpart",
    "items",
-   "itemsstk",
    "barcode",
-   "barcodedmd",
-   "generald",
-   "userd",
+   "salesrm",
+   "salesrd",
+   "itemsstk",
+   "clients",
+   "spdmddet",
    "salesm",
-   "salesd",
    "salestype",
+   "stkandprofit",
+   "itemsqtype",
+   "barcodedmd",
+   "salesd",
    "sman",
    "accountm",
-   "clients",
-   "generals",
    "itemstmp",
-   "itemsqtype",
    "wstg",
    "mctable",
-   "pcard"
+   "pcard",
+   "generali",
+   "generald",
+   "userd",
+   "daybookpart",
+   "delpart",
+   "generals"
   ],
   "source_path": "w_salesreturn.srw",
   "controls": [
@@ -12018,15 +12829,15 @@
   "width": 1573,
   "height": 652,
   "tables": [
-   "delpart",
+   "salesrm",
    "items",
    "itemsstk",
-   "salesrm",
    "salesrd",
    "daybook",
    "salesm",
-   "daybookpart",
-   "stkandprofit"
+   "stkandprofit",
+   "delpart",
+   "daybookpart"
   ],
   "source_path": "w_sretcancel.srw",
   "controls": [
@@ -12201,24 +13012,24 @@
   "width": 3662,
   "height": 1912,
   "tables": [
-   "generali",
-   "delpart",
-   "purchasem",
-   "advafter",
-   "purchaserm",
-   "daybookpart",
+   "items",
    "daybook",
-   "purchased",
+   "itemsstk",
    "barcode",
    "purchaserd",
-   "items",
-   "itemsstk",
-   "generald",
+   "purchasem",
+   "purchased",
+   "advafter",
+   "purchaserm",
+   "clients",
    "orderm",
    "accountm",
-   "clients",
-   "userd",
-   "generals"
+   "generali",
+   "generald",
+   "daybookpart",
+   "generals",
+   "delpart",
+   "userd"
   ],
   "source_path": "w_purchase_withbc.srw",
   "controls": [
@@ -12849,30 +13660,30 @@
   "width": 4283,
   "height": 2248,
   "tables": [
-   "generali",
-   "delpart",
-   "purchasem",
-   "advafter",
-   "purchaserm",
-   "daybookpart",
    "daybook",
-   "pdclist",
-   "oglist",
-   "purchased",
-   "purchaserd",
-   "stkandprofit",
    "items",
    "itemsstk",
+   "purchaserd",
+   "purchasem",
+   "purchased",
+   "advafter",
+   "pdclist",
    "salestype",
-   "generals",
-   "generald",
-   "userd",
+   "purchaserm",
+   "oglist",
+   "stkandprofit",
+   "clients",
    "bamt",
    "orderm",
    "sman",
    "accountm",
-   "clients",
-   "itemsqtype"
+   "itemsqtype",
+   "generali",
+   "generals",
+   "generald",
+   "userd",
+   "daybookpart",
+   "delpart"
   ],
   "source_path": "w_purchase.srw",
   "controls": [
@@ -13860,23 +14671,23 @@
   "width": 1586,
   "height": 640,
   "tables": [
-   "delpart",
+   "purchasem",
+   "purchaserm",
    "items",
    "itemsstk",
    "barcode",
-   "purchasem",
-   "purchaserm",
    "purchased",
    "purchaserd",
    "daybook",
    "purchased_dmddet",
    "smithm",
    "smithd",
-   "daybookpart",
    "advafter",
    "stkandprofit",
    "oglist",
-   "barcode_dmddet"
+   "barcode_dmddet",
+   "delpart",
+   "daybookpart"
   ],
   "source_path": "w_pcancel.srw",
   "controls": [
@@ -14050,20 +14861,20 @@
   "width": 3369,
   "height": 1540,
   "tables": [
-   "delpart",
-   "items",
-   "itemsstk",
    "purchasem",
+   "items",
+   "daybook",
+   "itemsstk",
    "purchaserm",
+   "stkandprofit",
+   "purchased",
    "advafter",
    "pdclist",
-   "stkandprofit",
-   "daybook",
-   "userd",
-   "purchased",
    "purchaserd",
-   "daybookpart",
-   "oglist"
+   "oglist",
+   "userd",
+   "delpart",
+   "daybookpart"
   ],
   "source_path": "w_purchase_confirm.srw",
   "controls": [
@@ -14123,7 +14934,62 @@
     "text": "&Delete",
     "taborder": 50
    }
-  ]
+  ],
+  "grid": {
+   "control": "dw_1",
+   "dataobject": "d_purchase_confirm",
+   "table": "purchasem",
+   "keys": [
+    "slno"
+   ],
+   "columns": [
+    {
+     "name": "docno",
+     "label": "Doc. No.",
+     "type": "char"
+    },
+    {
+     "name": "tdate",
+     "label": "Date",
+     "type": "date"
+    },
+    {
+     "name": "billno",
+     "label": "billno",
+     "type": "char"
+    },
+    {
+     "name": "name",
+     "label": "Party Name",
+     "type": "char"
+    },
+    {
+     "name": "billamt",
+     "label": "Bill Amt.",
+     "type": "decimal"
+    },
+    {
+     "name": "netamt",
+     "label": "netamt",
+     "type": "decimal"
+    },
+    {
+     "name": "pamt",
+     "label": "pamt",
+     "type": "decimal"
+    },
+    {
+     "name": "slno",
+     "label": "slno",
+     "type": "decimal"
+    },
+    {
+     "name": "dmd",
+     "label": "dmd",
+     "type": "char"
+    }
+   ]
+  }
  },
  "w_purchase_ret": {
   "name": "w_purchase_ret",
@@ -14131,24 +14997,24 @@
   "width": 4064,
   "height": 1824,
   "tables": [
-   "generali",
-   "delpart",
-   "purchaserm",
-   "stkandprofit",
-   "daybookpart",
    "daybook",
-   "purchaserd",
    "items",
+   "purchaserd",
+   "purchaserm",
    "itemsstk",
    "barcode",
-   "generals",
-   "barcodedmd",
-   "userd",
+   "stkandprofit",
    "salestype",
+   "clients",
+   "barcodedmd",
    "sman",
    "accountm",
-   "clients",
-   "itemsqtype"
+   "itemsqtype",
+   "generali",
+   "generals",
+   "userd",
+   "daybookpart",
+   "delpart"
   ],
   "source_path": "w_purchase_ret.srw",
   "controls": [
@@ -14623,29 +15489,29 @@
   "width": 4946,
   "height": 2076,
   "tables": [
-   "generali",
-   "delpart",
+   "items",
+   "daybook",
+   "itemsstk",
+   "smithd",
+   "barcode",
+   "purchaserd",
    "purchasem",
+   "purchased",
+   "barcode_dmddet",
+   "clients",
    "smithm",
    "advafter",
-   "purchaserm",
-   "daybookpart",
-   "daybook",
-   "barcode_dmddet",
    "purchased_dmddet",
-   "smithd",
-   "purchased",
-   "barcode",
+   "purchaserm",
    "barcodedmd",
-   "purchaserd",
-   "items",
-   "itemsstk",
+   "orderm",
+   "clientsgs",
+   "generali",
    "generals",
    "generald",
-   "orderm",
-   "clients",
-   "userd",
-   "clientsgs"
+   "daybookpart",
+   "delpart",
+   "userd"
   ],
   "source_path": "w_diamond_purchase.srw",
   "controls": [
@@ -15513,25 +16379,25 @@
   "width": 4928,
   "height": 3004,
   "tables": [
-   "generali",
-   "delpart",
-   "purchaserm",
-   "smithm",
-   "daybookpart",
    "daybook",
-   "purchased_dmddet",
+   "items",
    "smithd",
    "purchaserd",
-   "items",
    "itemsstk",
+   "purchaserm",
    "barcode",
-   "generals",
    "barcode_dmddet",
-   "purchased",
-   "barcodedmd",
-   "generald",
-   "advafter",
    "clients",
+   "smithm",
+   "purchased_dmddet",
+   "purchased",
+   "advafter",
+   "barcodedmd",
+   "generali",
+   "generals",
+   "generald",
+   "daybookpart",
+   "delpart",
    "userd"
   ],
   "source_path": "w_diamond_preturn.srw",
@@ -16235,31 +17101,31 @@
   "width": 4928,
   "height": 2280,
   "tables": [
-   "generals",
-   "generali",
-   "clientsgs",
-   "daybookpart",
    "daybook",
+   "items",
    "smithm",
    "barcode",
    "smithd",
+   "itemsstk",
+   "clients",
+   "repairm",
+   "accountm",
+   "clientsgs",
    "smithnewwrk",
    "itemadj",
-   "delpart",
-   "items",
-   "itemsstk",
-   "repairm",
-   "orderd",
-   "accountm",
    "goldsmith",
-   "generald",
-   "userd",
+   "orderm",
+   "orderd",
    "stktype",
    "sman",
    "repaird",
-   "clients",
-   "orderm",
-   "pmctable"
+   "pmctable",
+   "generals",
+   "generali",
+   "userd",
+   "daybookpart",
+   "delpart",
+   "generald"
   ],
   "source_path": "w_gsmith.srw",
   "controls": [
@@ -17214,7 +18080,22 @@
     "height": 80,
     "text": "Interstate"
    }
-  ]
+  ],
+  "grid": {
+   "control": "dw_1",
+   "dataobject": "d_smith",
+   "table": "codehelp",
+   "keys": [
+    "code"
+   ],
+   "columns": [
+    {
+     "name": "code",
+     "label": "code",
+     "type": "char"
+    }
+   ]
+  }
  },
  "w_gsmtheditno": {
   "name": "w_gsmtheditno",
@@ -17290,17 +18171,17 @@
   "width": 1582,
   "height": 596,
   "tables": [
-   "delpart",
    "items",
    "itemsstk",
+   "smithm",
    "barcode",
    "smithd",
    "itemadj",
-   "smithm",
    "daybook",
-   "daybookpart",
    "stkandprofit",
-   "oglist"
+   "oglist",
+   "delpart",
+   "daybookpart"
   ],
   "source_path": "w_gsmthcancel.srw",
   "controls": [
@@ -17563,7 +18444,62 @@
     "height": 76,
     "text": "Smith :"
    }
-  ]
+  ],
+  "grid": {
+   "control": "dw_ruffwork",
+   "dataobject": "d_gsmithnewwrk",
+   "table": "smithnewwrk",
+   "keys": [
+    "sno"
+   ],
+   "columns": [
+    {
+     "name": "smithcode",
+     "label": "Smith",
+     "type": "char"
+    },
+    {
+     "name": "tdate",
+     "label": "Date",
+     "type": "date"
+    },
+    {
+     "name": "ordno",
+     "label": "Order No",
+     "type": "char"
+    },
+    {
+     "name": "icode",
+     "label": "icode",
+     "type": "char"
+    },
+    {
+     "name": "qty",
+     "label": "qty",
+     "type": "long"
+    },
+    {
+     "name": "weight",
+     "label": "weight",
+     "type": "decimal"
+    },
+    {
+     "name": "part",
+     "label": "Particulars",
+     "type": "char"
+    },
+    {
+     "name": "status",
+     "label": "Status",
+     "type": "long"
+    },
+    {
+     "name": "sno",
+     "label": "sno",
+     "type": "long"
+    }
+   ]
+  }
  },
  "w_refnenter": {
   "name": "w_refnenter",
@@ -17571,13 +18507,13 @@
   "width": 3657,
   "height": 1644,
   "tables": [
-   "generali",
-   "refinerym",
-   "refineryd",
    "items",
    "itemsstk",
+   "refinerym",
+   "refineryd",
    "clients",
-   "sman"
+   "sman",
+   "generali"
   ],
   "source_path": "w_refnenter.srw",
   "controls": [
@@ -17935,17 +18871,17 @@
   "width": 3653,
   "height": 1824,
   "tables": [
-   "generali",
-   "delpart",
-   "refinerym",
-   "daybookpart",
-   "daybook",
-   "refineryd",
    "items",
    "itemsstk",
+   "refinerym",
+   "daybook",
+   "refineryd",
    "clients",
+   "accountm",
    "sman",
-   "accountm"
+   "generali",
+   "daybookpart",
+   "delpart"
   ],
   "source_path": "w_refinary.srw",
   "controls": [
@@ -18298,8 +19234,8 @@
   "width": 1403,
   "height": 668,
   "tables": [
-   "refineryd",
-   "refinerym"
+   "refinerym",
+   "refineryd"
   ],
   "source_path": "w_refneditno.srw",
   "controls": [
@@ -18377,15 +19313,15 @@
   "width": 1559,
   "height": 628,
   "tables": [
-   "delpart",
    "items",
    "itemsstk",
    "refinerym",
    "refineryd",
    "daybook",
-   "daybookpart",
    "stkandprofit",
-   "oglist"
+   "oglist",
+   "delpart",
+   "daybookpart"
   ],
   "source_path": "w_refncancel.srw",
   "controls": [
@@ -18454,18 +19390,18 @@
   "width": 3698,
   "height": 2380,
   "tables": [
-   "generals",
-   "smithm",
-   "daybookpart",
-   "daybook",
    "items",
-   "smithd",
+   "itemsstk",
+   "daybook",
    "barcode",
    "barcode_dmddet",
+   "smithm",
+   "smithd",
    "barcodedmd",
+   "other",
+   "generals",
    "generali",
-   "itemsstk",
-   "other"
+   "daybookpart"
   ],
   "source_path": "w_jewl_update.srw",
   "controls": [
@@ -18570,13 +19506,13 @@
   "width": 2528,
   "height": 1776,
   "tables": [
-   "generali",
+   "daybook",
    "smithm",
    "smithd",
-   "daybookpart",
-   "daybook",
    "sman",
-   "clients"
+   "clients",
+   "generali",
+   "daybookpart"
   ],
   "source_path": "w_depositors_intpost.srw",
   "controls": [
@@ -18715,7 +19651,42 @@
     "height": 80,
     "text": "Fr"
    }
-  ]
+  ],
+  "grid": {
+   "control": "dw_dim",
+   "dataobject": "d_depositors_intpost",
+   "table": "clients",
+   "keys": [
+    "code"
+   ],
+   "columns": [
+    {
+     "name": "code",
+     "label": "Party",
+     "type": "char"
+    },
+    {
+     "name": "name",
+     "label": "name",
+     "type": "char"
+    },
+    {
+     "name": "intamt",
+     "label": "intamt",
+     "type": "decimal"
+    },
+    {
+     "name": "intwgt",
+     "label": "intwgt",
+     "type": "decimal"
+    },
+    {
+     "name": "sel",
+     "label": "sel",
+     "type": "long"
+    }
+   ]
+  }
  },
  "w_order": {
   "name": "w_order",
@@ -18723,31 +19694,31 @@
   "width": 4507,
   "height": 2264,
   "tables": [
-   "generali",
-   "daybookpart",
-   "daybook",
-   "pdclist",
+   "items",
    "orderm",
-   "purchasem",
-   "stkandprofit",
-   "orderd",
-   "smithnewwrk",
-   "oglist",
+   "daybook",
+   "itemsstk",
    "purchased",
    "orderdga",
    "salesrd",
    "salesrm",
+   "clients",
+   "pdclist",
+   "purchasem",
+   "stkandprofit",
+   "orderd",
    "orderdmodel",
-   "delpart",
-   "items",
-   "itemsstk",
+   "smithnewwrk",
+   "oglist",
+   "accountm",
+   "sman",
+   "wstg",
+   "generali",
    "generals",
    "userd",
-   "accountm",
-   "clients",
-   "sman",
+   "daybookpart",
    "generald",
-   "wstg"
+   "delpart"
   ],
   "source_path": "w_order.srw",
   "controls": [
@@ -19803,13 +20774,13 @@
   "width": 2985,
   "height": 1400,
   "tables": [
+   "items",
    "orderdga",
    "advafter",
-   "daybookpart",
    "daybook",
-   "items",
+   "orderm",
    "generali",
-   "orderm"
+   "daybookpart"
   ],
   "source_path": "w_ordadvanceafter.srw",
   "controls": [
@@ -20234,46 +21205,46 @@
   "width": 4389,
   "height": 2236,
   "tables": [
-   "generali",
-   "orderm",
-   "salesm",
-   "purchasem",
-   "daybookpart",
    "daybook",
-   "pdclist",
-   "kuricolln",
-   "daybookratewgt",
-   "salesd",
-   "spdmddet",
-   "itemadj",
-   "stkandprofit",
-   "oglist",
-   "purchased",
-   "salesrd",
-   "salesrm",
-   "delpart",
    "items",
    "itemsstk",
+   "orderm",
    "barcode",
    "clients",
-   "barcodedmd",
-   "orderd",
-   "userd",
-   "generald",
-   "userm",
    "advafter",
-   "orderdga",
+   "pdclist",
+   "purchased",
+   "salesm",
+   "salesrm",
+   "salesd",
+   "stkandprofit",
+   "salesrd",
+   "purchasem",
+   "spdmddet",
+   "orderd",
    "salestype",
-   "generals",
+   "kuricolln",
+   "daybookratewgt",
+   "itemadj",
+   "oglist",
+   "orderdga",
    "order",
    "accountm",
-   "sman",
    "copartylimit",
+   "barcodedmd",
+   "sman",
    "clients_kuridet",
    "itemstmp",
    "itemsubgrp",
    "wstg",
-   "pcard"
+   "pcard",
+   "generali",
+   "generals",
+   "userm",
+   "userd",
+   "generald",
+   "daybookpart",
+   "delpart"
   ],
   "source_path": "w_ordersale.srw",
   "controls": [
@@ -21710,22 +22681,22 @@
   "width": 1559,
   "height": 648,
   "tables": [
-   "delpart",
    "items",
    "itemsstk",
+   "orderm",
    "purchased",
    "orderdga",
    "salesrd",
-   "orderm",
    "salesm",
    "orderd",
    "purchasem",
    "salesrm",
    "orderdmodel",
    "daybook",
-   "daybookpart",
    "stkandprofit",
-   "oglist"
+   "oglist",
+   "delpart",
+   "daybookpart"
   ],
   "source_path": "w_ocancel.srw",
   "controls": [
@@ -21873,14 +22844,14 @@
   "width": 3643,
   "height": 1644,
   "tables": [
-   "generali",
-   "repairm",
    "repaird",
    "items",
+   "repairm",
    "itemsstk",
    "stktype",
    "sman",
-   "clients"
+   "clients",
+   "generali"
   ],
   "source_path": "w_reprenter.srw",
   "controls": [
@@ -22231,12 +23202,12 @@
   "width": 1559,
   "height": 628,
   "tables": [
-   "delpart",
+   "repairm",
    "items",
    "itemsstk",
-   "repairm",
    "repaird",
    "daybook",
+   "delpart",
    "daybookpart"
   ],
   "source_path": "w_rprcancel.srw",
@@ -22478,13 +23449,13 @@
   "width": 2606,
   "height": 1896,
   "tables": [
-   "generali",
-   "delpart",
-   "itemadj",
    "items",
    "itemsstk",
    "barcode",
-   "sman"
+   "itemadj",
+   "sman",
+   "generali",
+   "delpart"
   ],
   "source_path": "w_itemadj.srw",
   "controls": [
@@ -23014,14 +23985,14 @@
   "width": 2514,
   "height": 2200,
   "tables": [
-   "generali",
-   "itemadj",
-   "barcode",
    "items",
+   "barcode",
    "itemsstk",
+   "itemadj",
    "bc",
    "stk",
-   "item"
+   "item",
+   "generali"
   ],
   "source_path": "w_itemadj_multi.srw",
   "controls": [
@@ -23302,11 +24273,11 @@
   "width": 4206,
   "height": 2208,
   "tables": [
-   "generali",
-   "itemadj",
    "items",
    "itemsstk",
-   "barcode"
+   "itemadj",
+   "barcode",
+   "generali"
   ],
   "source_path": "w_stockaddless.srw",
   "controls": [
@@ -23598,10 +24569,10 @@
   "width": 3657,
   "height": 2236,
   "tables": [
-   "generali",
-   "itemadj",
    "items",
-   "itemsstk"
+   "itemsstk",
+   "itemadj",
+   "generali"
   ],
   "source_path": "w_stockadj.srw",
   "controls": [
@@ -23767,7 +24738,122 @@
      "Not Ornaments"
     ]
    }
-  ]
+  ],
+  "grid": {
+   "control": "dw_1",
+   "dataobject": "d_stockadj",
+   "table": "items",
+   "keys": [
+    "code"
+   ],
+   "columns": [
+    {
+     "name": "name",
+     "label": "Item Name",
+     "type": "char"
+    },
+    {
+     "name": "code",
+     "label": "Code",
+     "type": "char"
+    },
+    {
+     "name": "curqty",
+     "label": "curqty",
+     "type": "long"
+    },
+    {
+     "name": "curwgt",
+     "label": "curwgt",
+     "type": "decimal"
+    },
+    {
+     "name": "qty",
+     "label": "qty",
+     "type": "long"
+    },
+    {
+     "name": "weight",
+     "label": "weight",
+     "type": "decimal"
+    },
+    {
+     "name": "stonewgt",
+     "label": "stonewgt",
+     "type": "decimal"
+    },
+    {
+     "name": "qtyb",
+     "label": "qtyb",
+     "type": "long"
+    },
+    {
+     "name": "weightb",
+     "label": "weightb",
+     "type": "decimal"
+    },
+    {
+     "name": "stonewgtb",
+     "label": "stonewgtb",
+     "type": "decimal"
+    },
+    {
+     "name": "cost",
+     "label": "cost",
+     "type": "decimal"
+    },
+    {
+     "name": "grpcode",
+     "label": "grpcode",
+     "type": "char"
+    },
+    {
+     "name": "itype",
+     "label": "itype",
+     "type": "char"
+    },
+    {
+     "name": "ornament",
+     "label": "ornament",
+     "type": "char"
+    },
+    {
+     "name": "curstwgt",
+     "label": "curstwgt",
+     "type": "decimal"
+    },
+    {
+     "name": "compqtya",
+     "label": "compqtya",
+     "type": "long"
+    },
+    {
+     "name": "compqtyb",
+     "label": "compqtyb",
+     "type": "long"
+    },
+    {
+     "name": "compwgta",
+     "label": "compwgta",
+     "type": "decimal"
+    },
+    {
+     "name": "compwgtb",
+     "label": "compwgtb",
+     "type": "decimal"
+    },
+    {
+     "name": "compstwgta",
+     "label": "compstwgta",
+     "type": "decimal"
+    },
+    {
+     "name": "compstwgtb",
+     "label": "compstwgtb",
+     "type": "decimal"
+    }
+   ]
+  }
  },
  "w_itemadjhelp": {
   "name": "w_itemadjhelp",
@@ -23829,12 +24915,12 @@
   "width": 2208,
   "height": 1812,
   "tables": [
-   "generali",
+   "items",
    "itemadj",
    "wgtrcptpmnt",
-   "items",
    "itemsstk",
-   "accountm"
+   "accountm",
+   "generali"
   ],
   "source_path": "w_itemadj_wgtrcptpmnt.srw",
   "controls": [
@@ -24287,7 +25373,62 @@
     "text": "Cancel",
     "taborder": 30
    }
-  ]
+  ],
+  "grid": {
+   "control": "dw_1",
+   "dataobject": "d_wgtrcptpmnt_help",
+   "table": "wgtrcptpmnt",
+   "keys": [
+    "slno"
+   ],
+   "columns": [
+    {
+     "name": "tdate",
+     "label": "tdate",
+     "type": "date"
+    },
+    {
+     "name": "docno",
+     "label": "docno",
+     "type": "char"
+    },
+    {
+     "name": "pname",
+     "label": "pname",
+     "type": "char"
+    },
+    {
+     "name": "ttype",
+     "label": "ttype",
+     "type": "char"
+    },
+    {
+     "name": "weight",
+     "label": "weight",
+     "type": "decimal"
+    },
+    {
+     "name": "note",
+     "label": "note",
+     "type": "char"
+    },
+    {
+     "name": "slno",
+     "label": "slno",
+     "type": "decimal"
+    },
+    {
+     "name": "pcode",
+     "label": "pcode",
+     "type": "char"
+    },
+    {
+     "name": "icode",
+     "label": "icode",
+     "type": "char"
+    }
+   ]
+  }
  },
  "w_wgtrcptpmnt_intpost": {
   "name": "w_wgtrcptpmnt_intpost",
@@ -24295,9 +25436,9 @@
   "width": 2414,
   "height": 1776,
   "tables": [
-   "generali",
    "wgtrcptpmnt",
-   "clients"
+   "clients",
+   "generali"
   ],
   "source_path": "w_wgtrcptpmnt_intpost.srw",
   "controls": [
@@ -24435,7 +25576,37 @@
     "height": 80,
     "text": "Fr"
    }
-  ]
+  ],
+  "grid": {
+   "control": "dw_dim",
+   "dataobject": "d_wgtrcptpmnt_intpost",
+   "table": "clients",
+   "keys": [
+    "code"
+   ],
+   "columns": [
+    {
+     "name": "code",
+     "label": "Party",
+     "type": "char"
+    },
+    {
+     "name": "name",
+     "label": "name",
+     "type": "char"
+    },
+    {
+     "name": "tcolln",
+     "label": "tcolln",
+     "type": "decimal"
+    },
+    {
+     "name": "intamt",
+     "label": "intamt",
+     "type": "decimal"
+    }
+   ]
+  }
  },
  "w_partywgtbal_opbal": {
   "name": "w_partywgtbal_opbal",
@@ -24565,16 +25736,16 @@
   "width": 4379,
   "height": 2280,
   "tables": [
-   "generali",
+   "daybook",
    "loan",
    "loan_dates",
    "loan_items",
-   "daybookpart",
-   "daybook",
+   "itemsqtype",
    "clients",
    "pdclist",
    "items",
-   "itemsqtype"
+   "generali",
+   "daybookpart"
   ],
   "source_path": "w_loanentry_amt.srw",
   "controls": [
@@ -25143,13 +26314,13 @@
   "width": 1362,
   "height": 628,
   "tables": [
-   "delpart",
    "loan",
    "loan_dates",
    "loan_items",
    "daybook",
-   "daybookpart",
-   "pdclist"
+   "pdclist",
+   "delpart",
+   "daybookpart"
   ],
   "source_path": "w_loancancel.srw",
   "controls": [
@@ -25209,13 +26380,13 @@
   "width": 2126,
   "height": 1908,
   "tables": [
-   "loancolln",
-   "daybookpart",
    "daybook",
-   "generali",
+   "loancolln",
    "loan",
    "clients",
-   "accountm"
+   "accountm",
+   "generali",
+   "daybookpart"
   ],
   "source_path": "w_loancolln.srw",
   "controls": [
@@ -25740,15 +26911,15 @@
   "width": 2153,
   "height": 2148,
   "tables": [
-   "loancolln",
-   "daybookpart",
    "daybook",
-   "itemadj",
-   "generali",
-   "items",
+   "loancolln",
    "loan",
+   "items",
    "clients",
-   "loan_items"
+   "itemadj",
+   "loan_items",
+   "generali",
+   "daybookpart"
   ],
   "source_path": "w_loan_termination.srw",
   "controls": [
@@ -26267,14 +27438,14 @@
   "width": 2318,
   "height": 1900,
   "tables": [
-   "generali",
-   "itemadj",
-   "wgtrcptpmnt",
-   "daybookpart",
-   "daybook",
    "items",
+   "wgtrcptpmnt",
+   "daybook",
    "itemsstk",
-   "accountm"
+   "itemadj",
+   "accountm",
+   "generali",
+   "daybookpart"
   ],
   "source_path": "w_finance_entry.srw",
   "controls": [
@@ -26750,7 +27921,72 @@
     "text": "Cancel",
     "taborder": 30
    }
-  ]
+  ],
+  "grid": {
+   "control": "dw_1",
+   "dataobject": "d_finance_help",
+   "table": "wgtrcptpmnt",
+   "keys": [
+    "slno"
+   ],
+   "columns": [
+    {
+     "name": "tdate",
+     "label": "tdate",
+     "type": "date"
+    },
+    {
+     "name": "docno",
+     "label": "docno",
+     "type": "char"
+    },
+    {
+     "name": "pname",
+     "label": "pname",
+     "type": "char"
+    },
+    {
+     "name": "ttype",
+     "label": "ttype",
+     "type": "char"
+    },
+    {
+     "name": "weight",
+     "label": "weight",
+     "type": "decimal"
+    },
+    {
+     "name": "note",
+     "label": "note",
+     "type": "char"
+    },
+    {
+     "name": "slno",
+     "label": "slno",
+     "type": "decimal"
+    },
+    {
+     "name": "pcode",
+     "label": "pcode",
+     "type": "char"
+    },
+    {
+     "name": "icode",
+     "label": "icode",
+     "type": "char"
+    },
+    {
+     "name": "finamt",
+     "label": "finamt",
+     "type": "decimal"
+    },
+    {
+     "name": "pend",
+     "label": "pend",
+     "type": "char"
+    }
+   ]
+  }
  },
  "w_stafftrans": {
   "name": "w_stafftrans",
@@ -26758,11 +27994,11 @@
   "width": 3218,
   "height": 1860,
   "tables": [
-   "daybookpart",
    "daybook",
-   "generali",
    "staff_log",
-   "staffleave"
+   "staffleave",
+   "generali",
+   "daybookpart"
   ],
   "source_path": "w_stafftrans.srw",
   "controls": [
@@ -26987,7 +28223,52 @@
     "text": "E&xit",
     "taborder": 70
    }
-  ]
+  ],
+  "grid": {
+   "control": "dw_trans",
+   "dataobject": "d_stafftrans",
+   "table": "clients",
+   "keys": [
+    "code"
+   ],
+   "columns": [
+    {
+     "name": "code",
+     "label": "code",
+     "type": "char"
+    },
+    {
+     "name": "name",
+     "label": "Name",
+     "type": "char"
+    },
+    {
+     "name": "salary",
+     "label": "salary",
+     "type": "decimal"
+    },
+    {
+     "name": "amount",
+     "label": "Amount",
+     "type": "decimal"
+    },
+    {
+     "name": "opbalance",
+     "label": "opbalance",
+     "type": "decimal"
+    },
+    {
+     "name": "opbalanceb",
+     "label": "opbalanceb",
+     "type": "decimal"
+    },
+    {
+     "name": "ttran",
+     "label": "ttran",
+     "type": "decimal"
+    }
+   ]
+  }
  },
  "w_staff_attand_update": {
   "name": "w_staff_attand_update",
@@ -26995,8 +28276,8 @@
   "width": 3657,
   "height": 1704,
   "tables": [
-   "staff_log",
    "datepicker",
+   "staff_log",
    "olecustomcontrol",
    "clients",
    "machine"
@@ -27217,7 +28498,52 @@
     "text": "E&xit",
     "taborder": 40
    }
-  ]
+  ],
+  "grid": {
+   "control": "dw_trans",
+   "dataobject": "d_staffleave",
+   "table": "clients",
+   "keys": [
+    "code"
+   ],
+   "columns": [
+    {
+     "name": "code",
+     "label": "code",
+     "type": "char"
+    },
+    {
+     "name": "name",
+     "label": "Name",
+     "type": "char"
+    },
+    {
+     "name": "salary",
+     "label": "salary",
+     "type": "decimal"
+    },
+    {
+     "name": "ldays",
+     "label": "ldays",
+     "type": "decimal"
+    },
+    {
+     "name": "reason",
+     "label": "reason",
+     "type": "char"
+    },
+    {
+     "name": "note",
+     "label": "note",
+     "type": "char"
+    },
+    {
+     "name": "plusdays",
+     "label": "plusdays",
+     "type": "decimal"
+    }
+   ]
+  }
  },
  "w_staffwgttran": {
   "name": "w_staffwgttran",
@@ -27225,11 +28551,11 @@
   "width": 3136,
   "height": 2208,
   "tables": [
-   "generali",
    "staffwgtm",
    "staffwgtd",
    "sman",
-   "items"
+   "items",
+   "generali"
   ],
   "source_path": "w_staffwgttran.srw",
   "controls": [
@@ -27477,15 +28803,15 @@
   "width": 2985,
   "height": 1528,
   "tables": [
-   "generali",
-   "daybookpart",
+   "itemsothers",
    "daybook",
    "oitemtranm",
    "oitemtrand",
-   "delpart",
-   "itemsothers",
    "clients",
-   "accountm"
+   "accountm",
+   "generali",
+   "daybookpart",
+   "delpart"
   ],
   "source_path": "w_otheritemtran.srw",
   "controls": [
@@ -27874,13 +29200,13 @@
   "width": 1586,
   "height": 640,
   "tables": [
-   "delpart",
    "itemsothers",
-   "oitemtrand",
    "oitemtranm",
+   "oitemtrand",
    "daybook",
-   "daybookpart",
-   "stkandprofit"
+   "stkandprofit",
+   "delpart",
+   "daybookpart"
   ],
   "source_path": "w_oitcancel.srw",
   "controls": [
@@ -27950,19 +29276,19 @@
   "height": 2500,
   "tables": [
    "barcode",
-   "generali",
-   "delpart",
-   "barcodedoc",
-   "models",
    "barcodedmd",
    "barcode_dmddet",
    "items",
+   "barcodedoc",
+   "models",
    "itemsqtype",
-   "userd",
-   "generald",
    "file",
-   "generals",
-   "salesd"
+   "salesd",
+   "generali",
+   "userd",
+   "delpart",
+   "generald",
+   "generals"
   ],
   "source_path": "w_barcode_entry.srw",
   "controls": [
@@ -29254,13 +30580,13 @@
   "width": 5143,
   "height": 1952,
   "tables": [
-   "generali",
    "barcode",
-   "itemadj",
    "items",
    "itemsstk",
+   "itemadj",
    "stk",
-   "item"
+   "item",
+   "generali"
   ],
   "source_path": "w_barcode_entryall.srw",
   "controls": [
@@ -29817,7 +31143,107 @@
     "text": "Print",
     "taborder": 80
    }
-  ]
+  ],
+  "grid": {
+   "control": "dw_summary",
+   "dataobject": "d_barcodestkverify_summary",
+   "table": "barcode",
+   "keys": [
+    "bcode"
+   ],
+   "columns": [
+    {
+     "name": "bcode",
+     "label": "bcode",
+     "type": "decimal"
+    },
+    {
+     "name": "itemname",
+     "label": "itemname",
+     "type": "char"
+    },
+    {
+     "name": "weight",
+     "label": "weight",
+     "type": "decimal"
+    },
+    {
+     "name": "dmdwgt",
+     "label": "dmdwgt",
+     "type": "decimal"
+    },
+    {
+     "name": "tdate",
+     "label": "tdate",
+     "type": "date"
+    },
+    {
+     "name": "stk",
+     "label": "stk",
+     "type": "char"
+    },
+    {
+     "name": "icode",
+     "label": "icode",
+     "type": "char"
+    },
+    {
+     "name": "qty",
+     "label": "qty",
+     "type": "long"
+    },
+    {
+     "name": "stweight",
+     "label": "stweight",
+     "type": "decimal"
+    },
+    {
+     "name": "stprice",
+     "label": "stprice",
+     "type": "decimal"
+    },
+    {
+     "name": "wastage",
+     "label": "wastage",
+     "type": "decimal"
+    },
+    {
+     "name": "mc",
+     "label": "mc",
+     "type": "decimal"
+    },
+    {
+     "name": "dmdunit",
+     "label": "dmdunit",
+     "type": "char"
+    },
+    {
+     "name": "dmdamt",
+     "label": "dmdamt",
+     "type": "decimal"
+    },
+    {
+     "name": "smcode",
+     "label": "smcode",
+     "type": "char"
+    },
+    {
+     "name": "mcrate",
+     "label": "mcrate",
+     "type": "decimal"
+    },
+    {
+     "name": "rate",
+     "label": "rate",
+     "type": "decimal"
+    },
+    {
+     "name": "tamt",
+     "label": "tamt",
+     "type": "decimal"
+    }
+   ]
+  }
  },
  "w_barcodestkverify": {
   "name": "w_barcodestkverify",
@@ -29826,9 +31252,9 @@
   "height": 2236,
   "tables": [
    "barcode",
-   "file",
-   "barcodedmd",
    "items",
+   "barcodedmd",
+   "file",
    "device"
   ],
   "source_path": "w_barcodestkverify.srw",
@@ -30083,7 +31509,107 @@
     "text": "Update this list as Correct",
     "taborder": 90
    }
-  ]
+  ],
+  "grid": {
+   "control": "dw_summary",
+   "dataobject": "d_barcodestkverify_summary",
+   "table": "barcode",
+   "keys": [
+    "bcode"
+   ],
+   "columns": [
+    {
+     "name": "bcode",
+     "label": "bcode",
+     "type": "decimal"
+    },
+    {
+     "name": "itemname",
+     "label": "itemname",
+     "type": "char"
+    },
+    {
+     "name": "weight",
+     "label": "weight",
+     "type": "decimal"
+    },
+    {
+     "name": "dmdwgt",
+     "label": "dmdwgt",
+     "type": "decimal"
+    },
+    {
+     "name": "tdate",
+     "label": "tdate",
+     "type": "date"
+    },
+    {
+     "name": "stk",
+     "label": "stk",
+     "type": "char"
+    },
+    {
+     "name": "icode",
+     "label": "icode",
+     "type": "char"
+    },
+    {
+     "name": "qty",
+     "label": "qty",
+     "type": "long"
+    },
+    {
+     "name": "stweight",
+     "label": "stweight",
+     "type": "decimal"
+    },
+    {
+     "name": "stprice",
+     "label": "stprice",
+     "type": "decimal"
+    },
+    {
+     "name": "wastage",
+     "label": "wastage",
+     "type": "decimal"
+    },
+    {
+     "name": "mc",
+     "label": "mc",
+     "type": "decimal"
+    },
+    {
+     "name": "dmdunit",
+     "label": "dmdunit",
+     "type": "char"
+    },
+    {
+     "name": "dmdamt",
+     "label": "dmdamt",
+     "type": "decimal"
+    },
+    {
+     "name": "smcode",
+     "label": "smcode",
+     "type": "char"
+    },
+    {
+     "name": "mcrate",
+     "label": "mcrate",
+     "type": "decimal"
+    },
+    {
+     "name": "rate",
+     "label": "rate",
+     "type": "decimal"
+    },
+    {
+     "name": "tamt",
+     "label": "tamt",
+     "type": "decimal"
+    }
+   ]
+  }
  },
  "w_modeltrans": {
   "name": "w_modeltrans",
@@ -30091,12 +31617,12 @@
   "width": 1801,
   "height": 1644,
   "tables": [
-   "generali",
-   "modelm",
-   "itemadj",
    "items",
+   "modelm",
    "barcode",
-   "clients"
+   "itemadj",
+   "clients",
+   "generali"
   ],
   "source_path": "w_modeltrans.srw",
   "controls": [
@@ -30446,8 +31972,8 @@
   "width": 2034,
   "height": 1408,
   "tables": [
-   "generali",
-   "testdet"
+   "testdet",
+   "generali"
   ],
   "source_path": "w_purity_entry.srw",
   "controls": [
@@ -30758,7 +32284,87 @@
      "Pending Only"
     ]
    }
-  ]
+  ],
+  "grid": {
+   "control": "dw_ruffwork",
+   "dataobject": "d_ruffwork",
+   "table": "ruffwrk",
+   "keys": [
+    "slno"
+   ],
+   "columns": [
+    {
+     "name": "slno",
+     "label": "slno",
+     "type": "decimal"
+    },
+    {
+     "name": "party",
+     "label": "Party",
+     "type": "char"
+    },
+    {
+     "name": "tdate",
+     "label": "Date",
+     "type": "date"
+    },
+    {
+     "name": "item",
+     "label": "Item",
+     "type": "char"
+    },
+    {
+     "name": "qty",
+     "label": "qty",
+     "type": "char"
+    },
+    {
+     "name": "weight",
+     "label": "weight",
+     "type": "char"
+    },
+    {
+     "name": "amount",
+     "label": "Amount",
+     "type": "char"
+    },
+    {
+     "name": "part",
+     "label": "Particulars",
+     "type": "char"
+    },
+    {
+     "name": "inexp",
+     "label": "inexp",
+     "type": "char"
+    },
+    {
+     "name": "sman",
+     "label": "sman",
+     "type": "char"
+    },
+    {
+     "name": "person",
+     "label": "person",
+     "type": "char"
+    },
+    {
+     "name": "pend",
+     "label": "In/Exp",
+     "type": "long"
+    },
+    {
+     "name": "number",
+     "label": "number",
+     "type": "long"
+    },
+    {
+     "name": "control",
+     "label": "control",
+     "type": "long"
+    }
+   ]
+  }
  },
  "w_gsmithsuspense": {
   "name": "w_gsmithsuspense",
@@ -30766,9 +32372,9 @@
   "width": 3657,
   "height": 1768,
   "tables": [
-   "smithsusp",
    "items",
-   "clients"
+   "clients",
+   "smithsusp"
   ],
   "source_path": "w_gsmithsuspense.srw",
   "controls": [
@@ -30849,7 +32455,67 @@
     "text": "E&xit",
     "taborder": 50
    }
-  ]
+  ],
+  "grid": {
+   "control": "dw_ruffwork",
+   "dataobject": "d_gsmithsuspense",
+   "table": "smithsusp",
+   "keys": [
+    "sno"
+   ],
+   "columns": [
+    {
+     "name": "tdate",
+     "label": "Date",
+     "type": "date"
+    },
+    {
+     "name": "smithcode",
+     "label": "Smith",
+     "type": "char"
+    },
+    {
+     "name": "smithname",
+     "label": "Name",
+     "type": "char"
+    },
+    {
+     "name": "icode",
+     "label": "Item",
+     "type": "char"
+    },
+    {
+     "name": "iname",
+     "label": "Item Name",
+     "type": "char"
+    },
+    {
+     "name": "qty",
+     "label": "Qty",
+     "type": "long"
+    },
+    {
+     "name": "weight",
+     "label": "Weight",
+     "type": "decimal"
+    },
+    {
+     "name": "ttype",
+     "label": "ttype",
+     "type": "char"
+    },
+    {
+     "name": "part",
+     "label": "Particulars",
+     "type": "char"
+    },
+    {
+     "name": "sno",
+     "label": "sno",
+     "type": "long"
+    }
+   ]
+  }
  },
  "w_stksummary": {
   "name": "w_stksummary",
@@ -30857,19 +32523,19 @@
   "width": 3598,
   "height": 2292,
   "tables": [
-   "salesd",
-   "salesrd",
-   "purchased",
-   "smithd",
-   "refineryd",
-   "repaird",
-   "salesm",
    "items",
-   "salesrm",
+   "smithd",
+   "purchased",
+   "repaird",
    "purchasem",
    "smithm",
-   "refinerym",
    "repairm",
+   "salesd",
+   "salesrd",
+   "refineryd",
+   "salesm",
+   "salesrm",
+   "refinerym",
    "clientsgs"
   ],
   "source_path": "w_stksummary.srw",
@@ -30977,14 +32643,14 @@
   "width": 3566,
   "height": 2264,
   "tables": [
+   "items",
    "smithd",
    "refineryd",
    "smithm",
-   "items",
    "refinerym",
    "clientsgs",
-   "clients",
    "daybook",
+   "clients",
    "purchased",
    "salesd"
   ],
@@ -31154,14 +32820,14 @@
   "width": 3273,
   "height": 2388,
   "tables": [
+   "accountm",
    "clients",
    "clients_kuridet",
-   "accountm",
    "clientspict",
    "kuritype",
-   "userd",
    "daybook",
-   "clients_advanced"
+   "clients_advanced",
+   "userd"
   ],
   "source_path": "w_sucu_kuri.srw",
   "controls": [
@@ -32162,17 +33828,17 @@
   "width": 4466,
   "height": 1992,
   "tables": [
-   "generali",
    "kuricolln",
    "daybook",
-   "daybookpart",
-   "userd",
-   "pos",
    "clients_kuridet",
    "clients",
    "accountm",
+   "pos",
    "ratehistory",
-   "kuritype"
+   "kuritype",
+   "generali",
+   "daybookpart",
+   "userd"
   ],
   "source_path": "w_kuricolln.srw",
   "controls": [
@@ -32400,13 +34066,13 @@
   "width": 2414,
   "height": 1776,
   "tables": [
-   "daybookpart",
-   "kuriint",
    "daybook",
-   "generali",
+   "kuriint",
    "kuricolln",
    "clients_kuridet",
-   "clients"
+   "clients",
+   "generali",
+   "daybookpart"
   ],
   "source_path": "w_kuri_intpost.srw",
   "controls": [
@@ -32536,7 +34202,37 @@
     "height": 80,
     "text": "Fr"
    }
-  ]
+  ],
+  "grid": {
+   "control": "dw_dim",
+   "dataobject": "d_kuri_intpost",
+   "table": "clients",
+   "keys": [
+    "code"
+   ],
+   "columns": [
+    {
+     "name": "code",
+     "label": "Party",
+     "type": "char"
+    },
+    {
+     "name": "name",
+     "label": "name",
+     "type": "char"
+    },
+    {
+     "name": "tcolln",
+     "label": "tcolln",
+     "type": "decimal"
+    },
+    {
+     "name": "intamt",
+     "label": "intamt",
+     "type": "decimal"
+    }
+   ]
+  }
  },
  "w_kuri_draw": {
   "name": "w_kuri_draw",
@@ -32545,12 +34241,12 @@
   "height": 1172,
   "tables": [
    "kurifinishdet",
-   "daybookpart",
    "daybook",
-   "generali",
    "clients_kuridet",
    "clients",
-   "kuricolln"
+   "kuricolln",
+   "generali",
+   "daybookpart"
   ],
   "source_path": "w_kuri_draw.srw",
   "controls": [
@@ -32736,12 +34432,12 @@
   "width": 3141,
   "height": 1988,
   "tables": [
-   "kurifinishdet",
-   "daybookpart",
    "daybook",
-   "generali",
+   "kurifinishdet",
    "clients_kuridet",
-   "clients"
+   "clients",
+   "generali",
+   "daybookpart"
   ],
   "source_path": "w_kuri_finish.srw",
   "controls": [
@@ -32915,12 +34611,12 @@
   "height": 1524,
   "tables": [
    "kuricolln",
-   "daybookpart",
-   "daybook",
-   "generali",
    "clients_kuridet",
+   "daybook",
    "clients",
-   "kuriint"
+   "kuriint",
+   "generali",
+   "daybookpart"
   ],
   "source_path": "w_schm_partpayment.srw",
   "controls": [
@@ -33246,13 +34942,13 @@
   "height": 1476,
   "tables": [
    "kurifinishdet",
-   "daybookpart",
    "daybook",
-   "generali",
    "clients_kuridet",
-   "clients",
    "kuricolln",
-   "kuriint"
+   "clients",
+   "kuriint",
+   "generali",
+   "daybookpart"
   ],
   "source_path": "w_schm_finish.srw",
   "controls": [
@@ -33522,13 +35218,13 @@
   "width": 2482,
   "height": 1496,
   "tables": [
+   "clients",
+   "clients_kuridet",
    "master",
+   "daybook",
    "login",
    "transact",
    "olecustomcontrol",
-   "clients",
-   "clients_kuridet",
-   "daybook",
    "kuricolln",
    "pos"
   ],
@@ -33764,7 +35460,22 @@
     "width": 1664,
     "height": 92
    }
-  ]
+  ],
+  "grid": {
+   "control": "dw_possys",
+   "dataobject": "d_possyssel",
+   "table": "codehelp",
+   "keys": [
+    "code"
+   ],
+   "columns": [
+    {
+     "name": "code",
+     "label": "code",
+     "type": "char"
+    }
+   ]
+  }
  },
  "w_pos_update": {
   "name": "w_pos_update",
@@ -33772,20 +35483,20 @@
   "width": 3141,
   "height": 2120,
   "tables": [
-   "kuricolln",
-   "daybookpart",
-   "daybook",
-   "generali",
-   "olecustomcontrol",
-   "pos",
-   "server",
-   "transact",
    "clients",
+   "daybook",
+   "kuricolln",
    "clients_kuridet",
-   "txt",
+   "transact",
+   "olecustomcontrol",
    "kuritype",
    "kcomntable",
-   "paycollect"
+   "pos",
+   "server",
+   "txt",
+   "paycollect",
+   "generali",
+   "daybookpart"
   ],
   "source_path": "w_pos_update.srw",
   "controls": [
@@ -34071,10 +35782,10 @@
   "width": 1696,
   "height": 1148,
   "tables": [
+   "kuricolln",
    "clients",
    "clients_kuridet",
    "kuritype",
-   "kuricolln",
    "date"
   ],
   "source_path": "w_passbook_print.srw",
@@ -34387,21 +36098,21 @@
   "width": 3479,
   "height": 2000,
   "tables": [
-   "generali",
-   "pdclist",
-   "daybookpart",
-   "daybookratewgt",
-   "kuricolln",
    "daybook",
-   "stkandprofit",
-   "delpart",
-   "clients",
-   "advafter",
    "accountm",
-   "userd",
+   "daybookratewgt",
+   "pdclist",
+   "kuricolln",
+   "clients",
+   "stkandprofit",
+   "advafter",
    "sman",
    "stkandprof",
-   "generals"
+   "generali",
+   "daybookpart",
+   "userd",
+   "generals",
+   "delpart"
   ],
   "source_path": "w_rcpt.srw",
   "controls": [
@@ -34987,17 +36698,17 @@
   "width": 2935,
   "height": 1892,
   "tables": [
-   "generali",
-   "pdclist",
-   "daybookpart",
    "daybook",
-   "stkandprofit",
-   "delpart",
-   "clients",
    "accountm",
-   "userd",
+   "pdclist",
+   "stkandprofit",
+   "clients",
    "sman",
-   "generals"
+   "generali",
+   "daybookpart",
+   "userd",
+   "generals",
+   "delpart"
   ],
   "source_path": "w_pmnt.srw",
   "controls": [
@@ -35548,10 +37259,10 @@
   "width": 3346,
   "height": 1928,
   "tables": [
-   "generali",
    "daybook",
-   "daybookpart",
-   "accountm"
+   "accountm",
+   "generali",
+   "daybookpart"
   ],
   "source_path": "w_dailystatement_entry.srw",
   "controls": [
@@ -35749,17 +37460,17 @@
   "width": 3497,
   "height": 1944,
   "tables": [
-   "generali",
-   "daybookpart",
-   "daybook",
    "suspentry",
-   "delpart",
    "accountm",
-   "userd",
+   "daybook",
    "kuricolln",
    "daybookratewgt",
    "stkandprof",
-   "clients"
+   "clients",
+   "generali",
+   "daybookpart",
+   "delpart",
+   "userd"
   ],
   "source_path": "w_susprcptpmnt.srw",
   "controls": [
@@ -36104,10 +37815,10 @@
   "width": 1362,
   "height": 628,
   "tables": [
-   "daybookpart",
    "pdclist",
    "advafter",
-   "suspentry"
+   "suspentry",
+   "daybookpart"
   ],
   "source_path": "w_acceditno.srw",
   "controls": [
@@ -36175,14 +37886,14 @@
   "width": 3666,
   "height": 2008,
   "tables": [
-   "collection",
-   "generali",
-   "daybookpart",
-   "daybookratewgt",
-   "daybook",
    "salesm",
+   "daybook",
+   "collection",
+   "accountm",
+   "daybookratewgt",
    "clients",
-   "accountm"
+   "generali",
+   "daybookpart"
   ],
   "source_path": "w_custbillwisealoc.srw",
   "controls": [
@@ -36442,7 +38153,132 @@
     "height": 84,
     "text": "Show Wgt in Ledger"
    }
-  ]
+  ],
+  "grid": {
+   "control": "dw_aloc",
+   "dataobject": "d_salealoc",
+   "table": "salesm",
+   "keys": [
+    "slno"
+   ],
+   "columns": [
+    {
+     "name": "tdate",
+     "label": "Date",
+     "type": "date"
+    },
+    {
+     "name": "billno",
+     "label": "Bill No.",
+     "type": "char"
+    },
+    {
+     "name": "billamt",
+     "label": "billamt",
+     "type": "decimal"
+    },
+    {
+     "name": "eamt",
+     "label": "eamt",
+     "type": "decimal"
+    },
+    {
+     "name": "staxamt",
+     "label": "staxamt",
+     "type": "decimal"
+    },
+    {
+     "name": "discount",
+     "label": "discount",
+     "type": "decimal"
+    },
+    {
+     "name": "ramt",
+     "label": "ramt",
+     "type": "decimal"
+    },
+    {
+     "name": "ramtafter",
+     "label": "ramtafter",
+     "type": "decimal"
+    },
+    {
+     "name": "duedate",
+     "label": "Due Date",
+     "type": "date"
+    },
+    {
+     "name": "sretamt",
+     "label": "sretamt",
+     "type": "decimal"
+    },
+    {
+     "name": "slno",
+     "label": "slno",
+     "type": "decimal"
+    },
+    {
+     "name": "alocamt",
+     "label": "alocamt",
+     "type": "decimal"
+    },
+    {
+     "name": "custname",
+     "label": "custname",
+     "type": "char"
+    },
+    {
+     "name": "discamt",
+     "label": "discamt",
+     "type": "decimal"
+    },
+    {
+     "name": "round",
+     "label": "round",
+     "type": "decimal"
+    },
+    {
+     "name": "aloc",
+     "label": "aloc",
+     "type": "long"
+    },
+    {
+     "name": "advance",
+     "label": "advance",
+     "type": "decimal"
+    },
+    {
+     "name": "astamt",
+     "label": "astamt",
+     "type": "decimal"
+    },
+    {
+     "name": "collectedamt",
+     "label": "collectedamt",
+     "type": "decimal"
+    },
+    {
+     "name": "tdiscamt",
+     "label": "tdiscamt",
+     "type": "decimal"
+    },
+    {
+     "name": "netamt",
+     "label": "netamt",
+     "type": "decimal"
+    },
+    {
+     "name": "grate",
+     "label": "grate",
+     "type": "decimal"
+    },
+    {
+     "name": "balwgt",
+     "label": "balwgt",
+     "type": "decimal"
+    }
+   ]
+  }
  },
  "w_suppbillwisealoc": {
   "name": "w_suppbillwisealoc",
@@ -36450,13 +38286,13 @@
   "width": 3657,
   "height": 1928,
   "tables": [
-   "collection",
-   "generali",
-   "daybookpart",
    "daybook",
-   "purchasem",
    "accountm",
-   "clients"
+   "collection",
+   "purchasem",
+   "clients",
+   "generali",
+   "daybookpart"
   ],
   "source_path": "w_suppbillwisealoc.srw",
   "controls": [
@@ -36709,7 +38545,97 @@
     "height": 76,
     "text": "Print"
    }
-  ]
+  ],
+  "grid": {
+   "control": "dw_aloc",
+   "dataobject": "d_purhaloc",
+   "table": "purchasem",
+   "keys": [
+    "slno"
+   ],
+   "columns": [
+    {
+     "name": "tdate",
+     "label": "Date",
+     "type": "date"
+    },
+    {
+     "name": "duedate",
+     "label": "Due Date",
+     "type": "date"
+    },
+    {
+     "name": "docno",
+     "label": "docno",
+     "type": "char"
+    },
+    {
+     "name": "billamt",
+     "label": "billamt",
+     "type": "decimal"
+    },
+    {
+     "name": "pamt",
+     "label": "pamt",
+     "type": "decimal"
+    },
+    {
+     "name": "addamt",
+     "label": "addamt",
+     "type": "decimal"
+    },
+    {
+     "name": "eamt",
+     "label": "eamt",
+     "type": "decimal"
+    },
+    {
+     "name": "pamtafter",
+     "label": "pamtafter",
+     "type": "decimal"
+    },
+    {
+     "name": "aloc",
+     "label": "aloc",
+     "type": "long"
+    },
+    {
+     "name": "slno",
+     "label": "slno",
+     "type": "decimal"
+    },
+    {
+     "name": "collectedamt",
+     "label": "collectedamt",
+     "type": "decimal"
+    },
+    {
+     "name": "alocamt",
+     "label": "alocamt",
+     "type": "decimal"
+    },
+    {
+     "name": "tdiscamt",
+     "label": "tdiscamt",
+     "type": "decimal"
+    },
+    {
+     "name": "discamt",
+     "label": "discamt",
+     "type": "decimal"
+    },
+    {
+     "name": "netamt",
+     "label": "netamt",
+     "type": "decimal"
+    },
+    {
+     "name": "name",
+     "label": "name",
+     "type": "char"
+    }
+   ]
+  }
  },
  "w_journal": {
   "name": "w_journal",
@@ -36717,16 +38643,16 @@
   "width": 2629,
   "height": 1392,
   "tables": [
-   "delpart",
-   "generali",
    "daybook",
-   "daybookpart",
-   "clients_kuridet",
    "kurifinishdet",
+   "clients_kuridet",
    "collection",
    "kuricolln",
    "daybookratewgt",
-   "accountm"
+   "accountm",
+   "generali",
+   "daybookpart",
+   "delpart"
   ],
   "source_path": "w_journal.srw",
   "controls": [
@@ -36917,13 +38843,13 @@
   "width": 3150,
   "height": 1564,
   "tables": [
+   "daybook",
+   "accountm",
+   "clients",
    "generali",
    "daybookpart",
-   "daybook",
    "delpart",
-   "accountm",
-   "userd",
-   "clients"
+   "userd"
   ],
   "source_path": "w_dbcrnote_entry.srw",
   "controls": [
@@ -37244,13 +39170,13 @@
   "width": 2363,
   "height": 1760,
   "tables": [
-   "generali",
-   "purchasem",
-   "daybookpart",
    "daybook",
-   "generals",
+   "purchasem",
    "salestype",
-   "clients"
+   "clients",
+   "generali",
+   "daybookpart",
+   "generals"
   ],
   "source_path": "w_purchase_amtentry.srw",
   "controls": [
@@ -37580,7 +39506,22 @@
     "height": 108,
     "text": "E&xit"
    }
-  ]
+  ],
+  "grid": {
+   "control": "dw_accode",
+   "dataobject": "d_supp",
+   "table": "codehelp",
+   "keys": [
+    "code"
+   ],
+   "columns": [
+    {
+     "name": "code",
+     "label": "code",
+     "type": "char"
+    }
+   ]
+  }
  },
  "w_accancel": {
   "name": "w_accancel",
@@ -37588,8 +39529,6 @@
   "width": 1362,
   "height": 628,
   "tables": [
-   "delpart",
-   "daybookpart",
    "daybook",
    "collection",
    "advafter",
@@ -37597,7 +39536,9 @@
    "daybookratewgt",
    "stkandprofit",
    "suspentry",
-   "orderdga"
+   "orderdga",
+   "daybookpart",
+   "delpart"
   ],
   "source_path": "w_accancel.srw",
   "controls": [
@@ -37983,13 +39924,13 @@
   "width": 2149,
   "height": 1584,
   "tables": [
-   "daybookpart",
    "daybook",
    "pdclist",
-   "generali",
    "clients",
    "accountm",
-   "collection"
+   "collection",
+   "generali",
+   "daybookpart"
   ],
   "source_path": "w_pdc_colln.srw",
   "controls": [
@@ -38250,14 +40191,14 @@
   "width": 2002,
   "height": 1636,
   "tables": [
-   "daybookpart",
+   "salesm",
    "daybook",
    "collection",
-   "generali",
    "clients",
    "daybookratewgt",
-   "salesm",
-   "salesd"
+   "salesd",
+   "generali",
+   "daybookpart"
   ],
   "source_path": "w_ratediffadjust.srw",
   "controls": [
@@ -38646,10 +40587,10 @@
   "width": 3191,
   "height": 1860,
   "tables": [
-   "daybookpart",
    "daybook",
    "accountm",
-   "generali"
+   "generali",
+   "daybookpart"
   ],
   "source_path": "w_acgrpamtallocn.srw",
   "controls": [
@@ -38839,7 +40780,57 @@
     "text": "E&xit",
     "taborder": 90
    }
-  ]
+  ],
+  "grid": {
+   "control": "dw_trans",
+   "dataobject": "d_acgrptrans",
+   "table": "accountm",
+   "keys": [
+    "accode"
+   ],
+   "columns": [
+    {
+     "name": "ttran",
+     "label": "ttran",
+     "type": "decimal"
+    },
+    {
+     "name": "name",
+     "label": "Name",
+     "type": "char"
+    },
+    {
+     "name": "accode",
+     "label": "accode",
+     "type": "char"
+    },
+    {
+     "name": "opbal",
+     "label": "opbal",
+     "type": "decimal"
+    },
+    {
+     "name": "opbalb",
+     "label": "opbalb",
+     "type": "decimal"
+    },
+    {
+     "name": "amount",
+     "label": "Amount",
+     "type": "decimal"
+    },
+    {
+     "name": "aclink",
+     "label": "aclink",
+     "type": "char"
+    },
+    {
+     "name": "acperc",
+     "label": "acperc",
+     "type": "decimal"
+    }
+   ]
+  }
  },
  "w_acstartdate_change": {
   "name": "w_acstartdate_change",
@@ -38940,11 +40931,11 @@
   "width": 2021,
   "height": 1440,
   "tables": [
-   "daybookpart",
-   "daybookratewgt",
    "daybook",
+   "daybookratewgt",
+   "clients",
    "generali",
-   "clients"
+   "daybookpart"
   ],
   "source_path": "w_amttowgt_entry.srw",
   "controls": [
@@ -39182,10 +41173,10 @@
   "width": 3369,
   "height": 1540,
   "tables": [
-   "delpart",
-   "pdclist",
    "daybook",
-   "userd"
+   "pdclist",
+   "userd",
+   "delpart"
   ],
   "source_path": "w_payment_confirm.srw",
   "controls": [
@@ -39363,7 +41354,42 @@
     "text": "E&xit",
     "taborder": 60
    }
-  ]
+  ],
+  "grid": {
+   "control": "dw_1",
+   "dataobject": "d_denom_trans",
+   "table": "denom_master",
+   "keys": [
+    "code"
+   ],
+   "columns": [
+    {
+     "name": "code",
+     "label": "code",
+     "type": "char"
+    },
+    {
+     "name": "name",
+     "label": "Denomination\t'Denomination - '+string(rdate,'dd/mm/yyyy')",
+     "type": "char"
+    },
+    {
+     "name": "cvalue",
+     "label": "cvalue",
+     "type": "decimal"
+    },
+    {
+     "name": "nos",
+     "label": "Nos",
+     "type": "long"
+    },
+    {
+     "name": "cash",
+     "label": "cash",
+     "type": "decimal"
+    }
+   ]
+  }
  },
  "w_salesbook": {
   "name": "w_salesbook",
@@ -39371,23 +41397,23 @@
   "width": 3680,
   "height": 2256,
   "tables": [
+   "salesm",
+   "salesrm",
+   "items",
+   "purchasem",
+   "itemsstk",
    "salesd",
    "purchased",
-   "sreturnd",
-   "generali",
-   "salesm",
-   "purchasem",
-   "salesrm",
-   "daybookpart",
-   "items",
-   "itemsstk",
-   "barcode",
    "daybook",
+   "salesrd",
+   "sreturnd",
+   "barcode",
    "spdmddet",
    "salestype",
+   "counter",
+   "generali",
    "generals",
-   "salesrd",
-   "counter"
+   "daybookpart"
   ],
   "source_path": "w_salesbook.srw",
   "controls": [
@@ -39671,7 +41697,147 @@
     "text": "Create EInvoice Json",
     "taborder": 80
    }
-  ]
+  ],
+  "grid": {
+   "control": "dw_saleregister",
+   "dataobject": "d_salesbook",
+   "table": "salesm",
+   "keys": [
+    "slno"
+   ],
+   "columns": [
+    {
+     "name": "tdate",
+     "label": "salesm_tdate",
+     "type": "date"
+    },
+    {
+     "name": "billno",
+     "label": "salesm_billno",
+     "type": "char"
+    },
+    {
+     "name": "custname",
+     "label": "salesm_custname",
+     "type": "char"
+    },
+    {
+     "name": "billamt",
+     "label": "salesm_billamt",
+     "type": "decimal"
+    },
+    {
+     "name": "status",
+     "label": "salesm_status",
+     "type": "long"
+    },
+    {
+     "name": "discount",
+     "label": "salesm_discount",
+     "type": "decimal"
+    },
+    {
+     "name": "discperc",
+     "label": "discperc",
+     "type": "decimal"
+    },
+    {
+     "name": "ramt",
+     "label": "salesm_ramt",
+     "type": "decimal"
+    },
+    {
+     "name": "eamt",
+     "label": "salesm_eamt",
+     "type": "decimal"
+    },
+    {
+     "name": "staxamt",
+     "label": "salesm_staxamt",
+     "type": "decimal"
+    },
+    {
+     "name": "duedate",
+     "label": "salesm_duedate",
+     "type": "date"
+    },
+    {
+     "name": "sretamt",
+     "label": "salesm_sretamt",
+     "type": "decimal"
+    },
+    {
+     "name": "ramtafter",
+     "label": "salesm_ramtafter",
+     "type": "decimal"
+    },
+    {
+     "name": "round",
+     "label": "round",
+     "type": "decimal"
+    },
+    {
+     "name": "netamt",
+     "label": "netamt",
+     "type": "decimal"
+    },
+    {
+     "name": "astamt",
+     "label": "astamt",
+     "type": "decimal"
+    },
+    {
+     "name": "counter",
+     "label": "counter",
+     "type": "char"
+    },
+    {
+     "name": "ic",
+     "label": "salesm_ic",
+     "type": "char"
+    },
+    {
+     "name": "slno",
+     "label": "slno",
+     "type": "decimal"
+    },
+    {
+     "name": "hmc",
+     "label": "hmc",
+     "type": "decimal"
+    },
+    {
+     "name": "totva",
+     "label": "totva",
+     "type": "decimal"
+    },
+    {
+     "name": "smcode",
+     "label": "smcode",
+     "type": "char"
+    },
+    {
+     "name": "advance",
+     "label": "advance",
+     "type": "decimal"
+    },
+    {
+     "name": "billtype",
+     "label": "billtype",
+     "type": "char"
+    },
+    {
+     "name": "totwgt",
+     "label": "totwgt",
+     "type": "decimal"
+    },
+    {
+     "name": "totstwgt",
+     "label": "totstwgt",
+     "type": "decimal"
+    }
+   ]
+  }
  },
  "w_mnthsalereport": {
   "name": "w_mnthsalereport",
@@ -39798,7 +41964,92 @@
     "text": "&Graph",
     "taborder": 30
    }
-  ]
+  ],
+  "grid": {
+   "control": "dw_mnthreport",
+   "dataobject": "d_mnthsalereport",
+   "table": "salesm",
+   "keys": [
+    "slno"
+   ],
+   "columns": [
+    {
+     "name": "slno",
+     "label": "slno",
+     "type": "decimal"
+    },
+    {
+     "name": "billno",
+     "label": "Bill No.",
+     "type": "char"
+    },
+    {
+     "name": "tdate",
+     "label": "tdate",
+     "type": "date"
+    },
+    {
+     "name": "custcode",
+     "label": "custcode",
+     "type": "char"
+    },
+    {
+     "name": "custname",
+     "label": "Customer Code and Name",
+     "type": "char"
+    },
+    {
+     "name": "billamt",
+     "label": "Bill Amt",
+     "type": "decimal"
+    },
+    {
+     "name": "eamt",
+     "label": "eamt",
+     "type": "decimal"
+    },
+    {
+     "name": "staxamt",
+     "label": "staxamt",
+     "type": "decimal"
+    },
+    {
+     "name": "discount",
+     "label": "Discount",
+     "type": "decimal"
+    },
+    {
+     "name": "ramt",
+     "label": "Received",
+     "type": "decimal"
+    },
+    {
+     "name": "sretamt",
+     "label": "sretamt",
+     "type": "decimal"
+    },
+    {
+     "name": "ramtafter",
+     "label": "ramtafter",
+     "type": "decimal"
+    },
+    {
+     "name": "round",
+     "label": "round",
+     "type": "decimal"
+    },
+    {
+     "name": "advance",
+     "label": "advance",
+     "type": "decimal"
+    },
+    {
+     "name": "smcode",
+     "label": "smcode",
+     "type": "char"
+    }
+   ]
+  }
  },
  "w_salechklist": {
   "name": "w_salechklist",
@@ -39945,7 +42196,127 @@
     "taborder": 50,
     "dataobject": "d_schecklist"
    }
-  ]
+  ],
+  "grid": {
+   "control": "dw_salechklist",
+   "dataobject": "d_schecklist",
+   "table": "salesm",
+   "keys": [
+    "slno"
+   ],
+   "columns": [
+    {
+     "name": "slno",
+     "label": "salesm_slno",
+     "type": "decimal"
+    },
+    {
+     "name": "billno",
+     "label": "salesm_billno",
+     "type": "char"
+    },
+    {
+     "name": "custcode",
+     "label": "salesm_custcode",
+     "type": "char"
+    },
+    {
+     "name": "custname",
+     "label": "salesm_custname",
+     "type": "char"
+    },
+    {
+     "name": "billamt",
+     "label": "salesm_billamt",
+     "type": "decimal"
+    },
+    {
+     "name": "eamt",
+     "label": "salesm_eamt",
+     "type": "decimal"
+    },
+    {
+     "name": "staxamt",
+     "label": "salesm_staxamt",
+     "type": "decimal"
+    },
+    {
+     "name": "discount",
+     "label": "salesm_discount",
+     "type": "decimal"
+    },
+    {
+     "name": "ramt",
+     "label": "salesm_ramt",
+     "type": "decimal"
+    },
+    {
+     "name": "sretamt",
+     "label": "salesm_sretamt",
+     "type": "decimal"
+    },
+    {
+     "name": "duedate",
+     "label": "salesm_duedate",
+     "type": "date"
+    },
+    {
+     "name": "grate",
+     "label": "salesm_grate",
+     "type": "decimal"
+    },
+    {
+     "name": "c_smname",
+     "label": "c_smname",
+     "type": "char"
+    },
+    {
+     "name": "tdate",
+     "label": "salesm_tdate",
+     "type": "date"
+    },
+    {
+     "name": "ttime",
+     "label": "ttime",
+     "type": "time"
+    },
+    {
+     "name": "smcode",
+     "label": "smcode",
+     "type": "char"
+    },
+    {
+     "name": "round",
+     "label": "round",
+     "type": "decimal"
+    },
+    {
+     "name": "advance",
+     "label": "advance",
+     "type": "decimal"
+    },
+    {
+     "name": "astamt",
+     "label": "astamt",
+     "type": "decimal"
+    },
+    {
+     "name": "addr",
+     "label": "addr",
+     "type": "char"
+    },
+    {
+     "name": "note",
+     "label": "note",
+     "type": "char"
+    },
+    {
+     "name": "pan",
+     "label": "pan",
+     "type": "char"
+    }
+   ]
+  }
  },
  "w_saleregister": {
   "name": "w_saleregister",
@@ -40666,12 +43037,12 @@
    "salesm",
    "purchasem",
    "salesrm",
-   "daybookpart",
    "daybook",
-   "generali",
    "accountm",
    "counter",
-   "generals"
+   "generals",
+   "daybookpart",
+   "generali"
   ],
   "source_path": "w_netsalesrep.srw",
   "controls": [
@@ -40939,7 +43310,147 @@
     "taborder": 80,
     "dataobject": "d_netsalesrep"
    }
-  ]
+  ],
+  "grid": {
+   "control": "dw_saleregister",
+   "dataobject": "d_netsalesrep",
+   "table": "salesm",
+   "keys": [
+    "slno"
+   ],
+   "columns": [
+    {
+     "name": "slno",
+     "label": "salesm_slno",
+     "type": "decimal"
+    },
+    {
+     "name": "tdate",
+     "label": "salesm_tdate",
+     "type": "date"
+    },
+    {
+     "name": "billno",
+     "label": "salesm_billno",
+     "type": "char"
+    },
+    {
+     "name": "custname",
+     "label": "salesm_custname",
+     "type": "char"
+    },
+    {
+     "name": "billamt",
+     "label": "salesm_billamt",
+     "type": "decimal"
+    },
+    {
+     "name": "status",
+     "label": "salesm_status",
+     "type": "long"
+    },
+    {
+     "name": "discount",
+     "label": "salesm_discount",
+     "type": "decimal"
+    },
+    {
+     "name": "ramt",
+     "label": "salesm_ramt",
+     "type": "decimal"
+    },
+    {
+     "name": "eamt",
+     "label": "salesm_eamt",
+     "type": "decimal"
+    },
+    {
+     "name": "staxamt",
+     "label": "salesm_staxamt",
+     "type": "decimal"
+    },
+    {
+     "name": "duedate",
+     "label": "salesm_duedate",
+     "type": "date"
+    },
+    {
+     "name": "sretamt",
+     "label": "salesm_sretamt",
+     "type": "decimal"
+    },
+    {
+     "name": "ramtafter",
+     "label": "salesm_ramtafter",
+     "type": "decimal"
+    },
+    {
+     "name": "round",
+     "label": "round",
+     "type": "decimal"
+    },
+    {
+     "name": "netamt",
+     "label": "netamt",
+     "type": "decimal"
+    },
+    {
+     "name": "astamt",
+     "label": "astamt",
+     "type": "decimal"
+    },
+    {
+     "name": "counter",
+     "label": "counter",
+     "type": "char"
+    },
+    {
+     "name": "ic",
+     "label": "salesm_ic",
+     "type": "char"
+    },
+    {
+     "name": "tsaleswgt",
+     "label": "tsaleswgt",
+     "type": "decimal"
+    },
+    {
+     "name": "tsretwgt",
+     "label": "tsretwgt",
+     "type": "decimal"
+    },
+    {
+     "name": "smcode",
+     "label": "smcode",
+     "type": "char"
+    },
+    {
+     "name": "cocode",
+     "label": "cocode",
+     "type": "char"
+    },
+    {
+     "name": "tsalesstwgt",
+     "label": "tsalesstwgt",
+     "type": "decimal"
+    },
+    {
+     "name": "tva",
+     "label": "tva",
+     "type": "decimal"
+    },
+    {
+     "name": "tstamt",
+     "label": "tstamt",
+     "type": "decimal"
+    },
+    {
+     "name": "agcode",
+     "label": "agcode",
+     "type": "char"
+    }
+   ]
+  }
  },
  "w_salesbarcoderep": {
   "name": "w_salesbarcoderep",
@@ -41909,7 +44420,117 @@
     "taborder": 50,
     "dataobject": "d_salesvarep"
    }
-  ]
+  ],
+  "grid": {
+   "control": "dw_saleregister",
+   "dataobject": "d_salesvarep",
+   "table": "salesm",
+   "keys": [
+    "slno"
+   ],
+   "columns": [
+    {
+     "name": "slno",
+     "label": "salesm_slno",
+     "type": "decimal"
+    },
+    {
+     "name": "tdate",
+     "label": "salesm_tdate",
+     "type": "date"
+    },
+    {
+     "name": "billno",
+     "label": "salesm_billno",
+     "type": "char"
+    },
+    {
+     "name": "custname",
+     "label": "salesm_custname",
+     "type": "char"
+    },
+    {
+     "name": "billamt",
+     "label": "salesm_billamt",
+     "type": "decimal"
+    },
+    {
+     "name": "status",
+     "label": "salesm_status",
+     "type": "long"
+    },
+    {
+     "name": "discount",
+     "label": "salesm_discount",
+     "type": "decimal"
+    },
+    {
+     "name": "discperc",
+     "label": "discperc",
+     "type": "decimal"
+    },
+    {
+     "name": "ramt",
+     "label": "salesm_ramt",
+     "type": "decimal"
+    },
+    {
+     "name": "eamt",
+     "label": "salesm_eamt",
+     "type": "decimal"
+    },
+    {
+     "name": "staxamt",
+     "label": "salesm_staxamt",
+     "type": "decimal"
+    },
+    {
+     "name": "duedate",
+     "label": "salesm_duedate",
+     "type": "date"
+    },
+    {
+     "name": "sretamt",
+     "label": "salesm_sretamt",
+     "type": "decimal"
+    },
+    {
+     "name": "ramtafter",
+     "label": "salesm_ramtafter",
+     "type": "decimal"
+    },
+    {
+     "name": "round",
+     "label": "round",
+     "type": "decimal"
+    },
+    {
+     "name": "advance",
+     "label": "advance",
+     "type": "decimal"
+    },
+    {
+     "name": "billtype",
+     "label": "billtype",
+     "type": "char"
+    },
+    {
+     "name": "totalva",
+     "label": "totalva",
+     "type": "decimal"
+    },
+    {
+     "name": "totalstamt",
+     "label": "totalstamt",
+     "type": "decimal"
+    },
+    {
+     "name": "totalwgt",
+     "label": "totalwgt",
+     "type": "decimal"
+    }
+   ]
+  }
  },
  "w_sales_dstatus_rep": {
   "name": "w_sales_dstatus_rep",
@@ -41917,8 +44538,8 @@
   "width": 3968,
   "height": 2292,
   "tables": [
-   "salesm",
-   "accountm"
+   "accountm",
+   "salesm"
   ],
   "source_path": "w_sales_dstatus_rep.srw",
   "controls": [
@@ -42145,7 +44766,172 @@
     "taborder": 80,
     "dataobject": "d_sales_dstatus_rep"
    }
-  ]
+  ],
+  "grid": {
+   "control": "dw_saleregister",
+   "dataobject": "d_sales_dstatus_rep",
+   "table": "salesm",
+   "keys": [
+    "slno"
+   ],
+   "columns": [
+    {
+     "name": "slno",
+     "label": "salesm_slno",
+     "type": "decimal"
+    },
+    {
+     "name": "tdate",
+     "label": "salesm_tdate",
+     "type": "date"
+    },
+    {
+     "name": "billno",
+     "label": "salesm_billno",
+     "type": "char"
+    },
+    {
+     "name": "custname",
+     "label": "salesm_custname",
+     "type": "char"
+    },
+    {
+     "name": "billamt",
+     "label": "salesm_billamt",
+     "type": "decimal"
+    },
+    {
+     "name": "status",
+     "label": "salesm_status",
+     "type": "long"
+    },
+    {
+     "name": "discount",
+     "label": "salesm_discount",
+     "type": "decimal"
+    },
+    {
+     "name": "ramt",
+     "label": "salesm_ramt",
+     "type": "decimal"
+    },
+    {
+     "name": "eamt",
+     "label": "salesm_eamt",
+     "type": "decimal"
+    },
+    {
+     "name": "staxamt",
+     "label": "salesm_staxamt",
+     "type": "decimal"
+    },
+    {
+     "name": "duedate",
+     "label": "salesm_duedate",
+     "type": "date"
+    },
+    {
+     "name": "sretamt",
+     "label": "salesm_sretamt",
+     "type": "decimal"
+    },
+    {
+     "name": "ramtafter",
+     "label": "salesm_ramtafter",
+     "type": "decimal"
+    },
+    {
+     "name": "round",
+     "label": "round",
+     "type": "decimal"
+    },
+    {
+     "name": "netamt",
+     "label": "netamt",
+     "type": "decimal"
+    },
+    {
+     "name": "astamt",
+     "label": "astamt",
+     "type": "decimal"
+    },
+    {
+     "name": "counter",
+     "label": "counter",
+     "type": "char"
+    },
+    {
+     "name": "ic",
+     "label": "salesm_ic",
+     "type": "char"
+    },
+    {
+     "name": "tsaleswgt",
+     "label": "tsaleswgt",
+     "type": "decimal"
+    },
+    {
+     "name": "tsretwgt",
+     "label": "tsretwgt",
+     "type": "decimal"
+    },
+    {
+     "name": "smcode",
+     "label": "smcode",
+     "type": "char"
+    },
+    {
+     "name": "cocode",
+     "label": "cocode",
+     "type": "char"
+    },
+    {
+     "name": "tsalesstwgt",
+     "label": "tsalesstwgt",
+     "type": "decimal"
+    },
+    {
+     "name": "tva",
+     "label": "tva",
+     "type": "decimal"
+    },
+    {
+     "name": "tstamt",
+     "label": "tstamt",
+     "type": "decimal"
+    },
+    {
+     "name": "agcode",
+     "label": "agcode",
+     "type": "char"
+    },
+    {
+     "name": "addr",
+     "label": "addr",
+     "type": "char"
+    },
+    {
+     "name": "dstatus",
+     "label": "dstatus",
+     "type": "char"
+    },
+    {
+     "name": "secwgt",
+     "label": "secwgt",
+     "type": "decimal"
+    },
+    {
+     "name": "secnote",
+     "label": "secnote",
+     "type": "char"
+    },
+    {
+     "name": "custcode",
+     "label": "custcode",
+     "type": "char"
+    }
+   ]
+  }
  },
  "w_purhbook": {
   "name": "w_purhbook",
@@ -42153,20 +44939,20 @@
   "width": 3721,
   "height": 2256,
   "tables": [
-   "generali",
-   "purchased",
    "items",
-   "itemsstk",
-   "barcode",
    "purchasem",
-   "daybookpart",
+   "itemsstk",
+   "purchased",
    "salesd",
    "salesrd",
    "salesm",
+   "barcode",
    "salesrm",
    "daybook",
-   "generals",
-   "salestype"
+   "salestype",
+   "generali",
+   "daybookpart",
+   "generals"
   ],
   "source_path": "w_purhbook.srw",
   "controls": [
@@ -42413,7 +45199,97 @@
     "taborder": 90,
     "dataobject": "d_purhbook"
    }
-  ]
+  ],
+  "grid": {
+   "control": "dw_saleregister",
+   "dataobject": "d_purhbook",
+   "table": "purchasem",
+   "keys": [
+    "slno"
+   ],
+   "columns": [
+    {
+     "name": "tdate",
+     "label": "tdate",
+     "type": "date"
+    },
+    {
+     "name": "docno",
+     "label": "docno",
+     "type": "char"
+    },
+    {
+     "name": "name",
+     "label": "name",
+     "type": "char"
+    },
+    {
+     "name": "billamt",
+     "label": "billamt",
+     "type": "decimal"
+    },
+    {
+     "name": "addamt",
+     "label": "addamt",
+     "type": "decimal"
+    },
+    {
+     "name": "pamt",
+     "label": "pamt",
+     "type": "decimal"
+    },
+    {
+     "name": "eamt",
+     "label": "eamt",
+     "type": "decimal"
+    },
+    {
+     "name": "status",
+     "label": "status",
+     "type": "long"
+    },
+    {
+     "name": "duedate",
+     "label": "duedate",
+     "type": "date"
+    },
+    {
+     "name": "slno",
+     "label": "slno",
+     "type": "decimal"
+    },
+    {
+     "name": "smcode",
+     "label": "smcode",
+     "type": "char"
+    },
+    {
+     "name": "pr",
+     "label": "pr",
+     "type": "char"
+    },
+    {
+     "name": "ic",
+     "label": "ic",
+     "type": "char"
+    },
+    {
+     "name": "counter",
+     "label": "counter",
+     "type": "char"
+    },
+    {
+     "name": "netamt",
+     "label": "netamt",
+     "type": "decimal"
+    },
+    {
+     "name": "billtype",
+     "label": "billtype",
+     "type": "char"
+    }
+   ]
+  }
  },
  "w_purhchklist": {
   "name": "w_purhchklist",
@@ -42511,7 +45387,92 @@
     "taborder": 50,
     "dataobject": "d_pchecklist"
    }
-  ]
+  ],
+  "grid": {
+   "control": "dw_purhchklist",
+   "dataobject": "d_pchecklist",
+   "table": "purchasem",
+   "keys": [
+    "slno"
+   ],
+   "columns": [
+    {
+     "name": "slno",
+     "label": "slno",
+     "type": "decimal"
+    },
+    {
+     "name": "tdate",
+     "label": "tdate",
+     "type": "date"
+    },
+    {
+     "name": "ttime",
+     "label": "ttime",
+     "type": "time"
+    },
+    {
+     "name": "billno",
+     "label": "billno",
+     "type": "char"
+    },
+    {
+     "name": "docno",
+     "label": "docno",
+     "type": "char"
+    },
+    {
+     "name": "suppcode",
+     "label": "suppcode",
+     "type": "char"
+    },
+    {
+     "name": "name",
+     "label": "name",
+     "type": "char"
+    },
+    {
+     "name": "billamt",
+     "label": "billamt",
+     "type": "decimal"
+    },
+    {
+     "name": "pamt",
+     "label": "pamt",
+     "type": "decimal"
+    },
+    {
+     "name": "addamt",
+     "label": "addamt",
+     "type": "decimal"
+    },
+    {
+     "name": "eamt",
+     "label": "eamt",
+     "type": "decimal"
+    },
+    {
+     "name": "duedate",
+     "label": "duedate",
+     "type": "date"
+    },
+    {
+     "name": "smname",
+     "label": "smname",
+     "type": "char"
+    },
+    {
+     "name": "pan",
+     "label": "pan",
+     "type": "char"
+    },
+    {
+     "name": "addr",
+     "label": "addr",
+     "type": "char"
+    }
+   ]
+  }
  },
  "w_purhregister": {
   "name": "w_purhregister",
@@ -42875,7 +45836,22 @@
     "taborder": 100,
     "dataobject": "d_purhregister"
    }
-  ]
+  ],
+  "grid": {
+   "control": "dw_1",
+   "dataobject": "d_supp",
+   "table": "codehelp",
+   "keys": [
+    "code"
+   ],
+   "columns": [
+    {
+     "name": "code",
+     "label": "code",
+     "type": "char"
+    }
+   ]
+  }
  },
  "w_purhretregister": {
   "name": "w_purhretregister",
@@ -43081,19 +46057,19 @@
   "width": 3666,
   "height": 2364,
   "tables": [
+   "itemadj",
+   "refineryd",
+   "items",
+   "smithm",
+   "smithd",
+   "repaird",
    "purchasem",
    "purchaserm",
-   "smithm",
-   "itemadj",
    "salesm",
    "salesrm",
    "itemgrp",
-   "items",
-   "smithd",
    "purchased",
    "purchaserd",
-   "repaird",
-   "refineryd",
    "salesrd",
    "orderdga",
    "salesd",
@@ -43288,12 +46264,12 @@
   "width": 4050,
   "height": 2256,
   "tables": [
+   "smithm",
+   "smithd",
    "salesm",
    "salesrm",
    "purchasem",
    "purchaserm",
-   "smithm",
-   "smithd",
    "jewellery"
   ],
   "source_path": "w_taxreport.srw",
@@ -43492,7 +46468,142 @@
     "taborder": 60,
     "dataobject": "d_taxrep_sales"
    }
-  ]
+  ],
+  "grid": {
+   "control": "dw_1",
+   "dataobject": "d_taxrep_sales",
+   "table": "salesm",
+   "keys": [
+    "slno"
+   ],
+   "columns": [
+    {
+     "name": "billno",
+     "label": "Bill No",
+     "type": "char"
+    },
+    {
+     "name": "tdate",
+     "label": "Date",
+     "type": "date"
+    },
+    {
+     "name": "custname",
+     "label": "Customer",
+     "type": "char"
+    },
+    {
+     "name": "addr",
+     "label": "Address",
+     "type": "char"
+    },
+    {
+     "name": "pan",
+     "label": "PAN/Adhar",
+     "type": "char"
+    },
+    {
+     "name": "statecode",
+     "label": "StateCode",
+     "type": "char"
+    },
+    {
+     "name": "maxrate",
+     "label": "Rate",
+     "type": "decimal"
+    },
+    {
+     "name": "hsncode",
+     "label": "HSN Code",
+     "type": "char"
+    },
+    {
+     "name": "grosswgt",
+     "label": "Gross Wgt",
+     "type": "decimal"
+    },
+    {
+     "name": "stonewgt",
+     "label": "Stone Wgt",
+     "type": "decimal"
+    },
+    {
+     "name": "totwgt",
+     "label": "Net Wgt",
+     "type": "decimal"
+    },
+    {
+     "name": "va",
+     "label": "VA",
+     "type": "decimal"
+    },
+    {
+     "name": "stoneprice",
+     "label": "Stone Amt",
+     "type": "decimal"
+    },
+    {
+     "name": "billamt",
+     "label": "Amount",
+     "type": "decimal"
+    },
+    {
+     "name": "sgst",
+     "label": "SGST",
+     "type": "decimal"
+    },
+    {
+     "name": "cgst",
+     "label": "CGST",
+     "type": "decimal"
+    },
+    {
+     "name": "igst",
+     "label": "IGST",
+     "type": "decimal"
+    },
+    {
+     "name": "staxamt",
+     "label": "GST Amt",
+     "type": "decimal"
+    },
+    {
+     "name": "discount",
+     "label": "Discount",
+     "type": "decimal"
+    },
+    {
+     "name": "totamt",
+     "label": "Total Amt",
+     "type": "decimal"
+    },
+    {
+     "name": "billtype",
+     "label": "billtype",
+     "type": "char"
+    },
+    {
+     "name": "sel",
+     "label": "Sel",
+     "type": "long"
+    },
+    {
+     "name": "slno",
+     "label": "slno",
+     "type": "decimal"
+    },
+    {
+     "name": "ctin",
+     "label": "GSTIN",
+     "type": "char"
+    },
+    {
+     "name": "itemname",
+     "label": "Item Name",
+     "type": "char"
+    }
+   ]
+  }
  },
  "w_smithentry": {
   "name": "w_smithentry",
@@ -43796,7 +46907,22 @@
     "taborder": 110,
     "dataobject": "d_smithentry"
    }
-  ]
+  ],
+  "grid": {
+   "control": "dw_accode",
+   "dataobject": "d_smith",
+   "table": "codehelp",
+   "keys": [
+    "code"
+   ],
+   "columns": [
+    {
+     "name": "code",
+     "label": "code",
+     "type": "char"
+    }
+   ]
+  }
  },
  "w_smithledger": {
   "name": "w_smithledger",
@@ -43804,10 +46930,10 @@
   "width": 3854,
   "height": 2320,
   "tables": [
-   "smithsusp",
-   "clients",
    "daybook",
    "smithd",
+   "clients",
+   "smithsusp",
    "smithm",
    "accountm"
   ],
@@ -44042,7 +47168,22 @@
     "taborder": 70,
     "dataobject": "d_smithledger"
    }
-  ]
+  ],
+  "grid": {
+   "control": "dw_accode",
+   "dataobject": "d_smith",
+   "table": "codehelp",
+   "keys": [
+    "code"
+   ],
+   "columns": [
+    {
+     "name": "code",
+     "label": "code",
+     "type": "char"
+    }
+   ]
+  }
  },
  "w_smithwasummary": {
   "name": "w_smithwasummary",
@@ -44467,9 +47608,9 @@
   "height": 2468,
   "tables": [
    "smithd",
-   "clients",
    "smithm",
-   "clientsgs"
+   "clientsgs",
+   "clients"
   ],
   "source_path": "w_smithageingreport.srw",
   "controls": [
@@ -44821,7 +47962,22 @@
     "taborder": 50,
     "dataobject": "d_smith_lot_rep"
    }
-  ]
+  ],
+  "grid": {
+   "control": "dw_accode",
+   "dataobject": "d_smith",
+   "table": "codehelp",
+   "keys": [
+    "code"
+   ],
+   "columns": [
+    {
+     "name": "code",
+     "label": "code",
+     "type": "char"
+    }
+   ]
+  }
  },
  "w_smithjewl_fixunfix_rep": {
   "name": "w_smithjewl_fixunfix_rep",
@@ -44952,7 +48108,22 @@
     "taborder": 50,
     "dataobject": "d_smith_fixunfix_rep"
    }
-  ]
+  ],
+  "grid": {
+   "control": "dw_accode",
+   "dataobject": "d_smith",
+   "table": "codehelp",
+   "keys": [
+    "code"
+   ],
+   "columns": [
+    {
+     "name": "code",
+     "label": "code",
+     "type": "char"
+    }
+   ]
+  }
  },
  "w_suculist": {
   "name": "w_suculist",
@@ -45088,7 +48259,107 @@
     "height": 76,
     "text": "&Form 2"
    }
-  ]
+  ],
+  "grid": {
+   "control": "dw_suculist",
+   "dataobject": "d_suculist",
+   "table": "clients",
+   "keys": [
+    "code"
+   ],
+   "columns": [
+    {
+     "name": "code",
+     "label": "Code",
+     "type": "char"
+    },
+    {
+     "name": "name",
+     "label": "Name",
+     "type": "char"
+    },
+    {
+     "name": "addr1",
+     "label": "addr1",
+     "type": "char"
+    },
+    {
+     "name": "addr2",
+     "label": "addr2",
+     "type": "char"
+    },
+    {
+     "name": "addr3",
+     "label": "addr3",
+     "type": "char"
+    },
+    {
+     "name": "city",
+     "label": "city",
+     "type": "char"
+    },
+    {
+     "name": "telephone",
+     "label": "Phone",
+     "type": "char"
+    },
+    {
+     "name": "mobile",
+     "label": "Mobile",
+     "type": "char"
+    },
+    {
+     "name": "ctype",
+     "label": "ctype",
+     "type": "char"
+    },
+    {
+     "name": "prn",
+     "label": "Prn",
+     "type": "long"
+    },
+    {
+     "name": "adate",
+     "label": "adate",
+     "type": "date"
+    },
+    {
+     "name": "cocode",
+     "label": "cocode",
+     "type": "char"
+    },
+    {
+     "name": "grp",
+     "label": "grp",
+     "type": "char"
+    },
+    {
+     "name": "route",
+     "label": "route",
+     "type": "char"
+    },
+    {
+     "name": "religion",
+     "label": "religion",
+     "type": "char"
+    },
+    {
+     "name": "addr",
+     "label": "Addr",
+     "type": "char"
+    },
+    {
+     "name": "email",
+     "label": "Email",
+     "type": "char"
+    },
+    {
+     "name": "carea",
+     "label": "carea",
+     "type": "char"
+    }
+   ]
+  }
  },
  "w_refnentryrep": {
   "name": "w_refnentryrep",
@@ -45203,9 +48474,9 @@
   "width": 3675,
   "height": 2200,
   "tables": [
+   "refineryd",
    "clients",
    "daybook",
-   "refineryd",
    "accountm"
   ],
   "source_path": "w_refnsummary.srw",
@@ -45882,7 +49153,47 @@
     "taborder": 50,
     "dataobject": "d_jewlprof_rep"
    }
-  ]
+  ],
+  "grid": {
+   "control": "dw_1",
+   "dataobject": "d_jewlprof_rep",
+   "table": "clients",
+   "keys": [
+    "code"
+   ],
+   "columns": [
+    {
+     "name": "name",
+     "label": "name",
+     "type": "char"
+    },
+    {
+     "name": "code",
+     "label": "code",
+     "type": "char"
+    },
+    {
+     "name": "totissuewgt",
+     "label": "totissuewgt",
+     "type": "decimal"
+    },
+    {
+     "name": "totissuestwgt",
+     "label": "totissuestwgt",
+     "type": "decimal"
+    },
+    {
+     "name": "totjsmithmc",
+     "label": "totjsmithmc",
+     "type": "decimal"
+    },
+    {
+     "name": "totjewlmc",
+     "label": "totjewlmc",
+     "type": "decimal"
+    }
+   ]
+  }
  },
  "w_tdsreport": {
   "name": "w_tdsreport",
@@ -46453,7 +49764,107 @@
     "taborder": 50,
     "dataobject": "d_orderentry"
    }
-  ]
+  ],
+  "grid": {
+   "control": "dw_1",
+   "dataobject": "d_orderentry",
+   "table": "orderm",
+   "keys": [
+    "slno"
+   ],
+   "columns": [
+    {
+     "name": "ordno",
+     "label": "orderm_ordno",
+     "type": "char"
+    },
+    {
+     "name": "tdate",
+     "label": "orderm_tdate",
+     "type": "date"
+    },
+    {
+     "name": "duedate",
+     "label": "orderm_duedate",
+     "type": "date"
+    },
+    {
+     "name": "rate",
+     "label": "orderm_rate",
+     "type": "decimal"
+    },
+    {
+     "name": "custname",
+     "label": "orderm_custname",
+     "type": "char"
+    },
+    {
+     "name": "billamt",
+     "label": "orderm_billamt",
+     "type": "decimal"
+    },
+    {
+     "name": "eamt",
+     "label": "orderm_eamt",
+     "type": "decimal"
+    },
+    {
+     "name": "advance",
+     "label": "orderm_advance",
+     "type": "decimal"
+    },
+    {
+     "name": "status",
+     "label": "status",
+     "type": "long"
+    },
+    {
+     "name": "slno",
+     "label": "orderm_slno",
+     "type": "decimal"
+    },
+    {
+     "name": "custcode",
+     "label": "custcode",
+     "type": "char"
+    },
+    {
+     "name": "smname",
+     "label": "smname",
+     "type": "char"
+    },
+    {
+     "name": "gadvance",
+     "label": "gadvance",
+     "type": "decimal"
+    },
+    {
+     "name": "sretamt",
+     "label": "sretamt",
+     "type": "decimal"
+    },
+    {
+     "name": "smcode",
+     "label": "smcode",
+     "type": "char"
+    },
+    {
+     "name": "addr",
+     "label": "addr",
+     "type": "char"
+    },
+    {
+     "name": "refund",
+     "label": "refund",
+     "type": "decimal"
+    },
+    {
+     "name": "duedate_org",
+     "label": "duedate_org",
+     "type": "date"
+    }
+   ]
+  }
  },
  "w_orderpendreg": {
   "name": "w_orderpendreg",
@@ -46826,7 +50237,122 @@
     "taborder": 30,
     "dataobject": "d_orderenquiry"
    }
-  ]
+  ],
+  "grid": {
+   "control": "dw_1",
+   "dataobject": "d_orderenquiry",
+   "table": "orderm",
+   "keys": [
+    "slno"
+   ],
+   "columns": [
+    {
+     "name": "ordno",
+     "label": "orderm_ordno",
+     "type": "char"
+    },
+    {
+     "name": "tdate",
+     "label": "orderm_tdate",
+     "type": "date"
+    },
+    {
+     "name": "duedate",
+     "label": "orderm_duedate",
+     "type": "date"
+    },
+    {
+     "name": "rate",
+     "label": "orderm_rate",
+     "type": "decimal"
+    },
+    {
+     "name": "custname",
+     "label": "orderm_custname",
+     "type": "char"
+    },
+    {
+     "name": "billamt",
+     "label": "orderm_billamt",
+     "type": "decimal"
+    },
+    {
+     "name": "eamt",
+     "label": "orderm_eamt",
+     "type": "decimal"
+    },
+    {
+     "name": "advance",
+     "label": "orderm_advance",
+     "type": "decimal"
+    },
+    {
+     "name": "status",
+     "label": "status",
+     "type": "long"
+    },
+    {
+     "name": "slno",
+     "label": "orderm_slno",
+     "type": "decimal"
+    },
+    {
+     "name": "custcode",
+     "label": "custcode",
+     "type": "char"
+    },
+    {
+     "name": "smname",
+     "label": "smname",
+     "type": "char"
+    },
+    {
+     "name": "gadvance",
+     "label": "gadvance",
+     "type": "decimal"
+    },
+    {
+     "name": "sretamt",
+     "label": "sretamt",
+     "type": "decimal"
+    },
+    {
+     "name": "smcode",
+     "label": "smcode",
+     "type": "char"
+    },
+    {
+     "name": "addr",
+     "label": "addr",
+     "type": "char"
+    },
+    {
+     "name": "refund",
+     "label": "refund",
+     "type": "decimal"
+    },
+    {
+     "name": "duedate_org",
+     "label": "duedate_org",
+     "type": "date"
+    },
+    {
+     "name": "phone",
+     "label": "phone",
+     "type": "char"
+    },
+    {
+     "name": "advafter",
+     "label": "advafter",
+     "type": "decimal"
+    },
+    {
+     "name": "advafterwgt",
+     "label": "advafterwgt",
+     "type": "decimal"
+    }
+   ]
+  }
  },
  "w_orderpend": {
   "name": "w_orderpend",
@@ -47005,7 +50531,102 @@
     "taborder": 60,
     "dataobject": "d_orderpend"
    }
-  ]
+  ],
+  "grid": {
+   "control": "dw_1",
+   "dataobject": "d_orderpend",
+   "table": "orderm",
+   "keys": [
+    "slno"
+   ],
+   "columns": [
+    {
+     "name": "ordno",
+     "label": "orderm_ordno",
+     "type": "char"
+    },
+    {
+     "name": "tdate",
+     "label": "orderm_tdate",
+     "type": "date"
+    },
+    {
+     "name": "duedate",
+     "label": "orderm_duedate",
+     "type": "date"
+    },
+    {
+     "name": "rate",
+     "label": "orderm_rate",
+     "type": "decimal"
+    },
+    {
+     "name": "slno",
+     "label": "orderm_slno",
+     "type": "decimal"
+    },
+    {
+     "name": "custname",
+     "label": "orderm_custname",
+     "type": "char"
+    },
+    {
+     "name": "billamt",
+     "label": "orderm_billamt",
+     "type": "decimal"
+    },
+    {
+     "name": "eamt",
+     "label": "orderm_eamt",
+     "type": "decimal"
+    },
+    {
+     "name": "advance",
+     "label": "orderm_advance",
+     "type": "decimal"
+    },
+    {
+     "name": "smname",
+     "label": "smname",
+     "type": "char"
+    },
+    {
+     "name": "gadvance",
+     "label": "gadvance",
+     "type": "decimal"
+    },
+    {
+     "name": "smcode",
+     "label": "smcode",
+     "type": "char"
+    },
+    {
+     "name": "sretamt",
+     "label": "sretamt",
+     "type": "decimal"
+    },
+    {
+     "name": "refund",
+     "label": "refund",
+     "type": "decimal"
+    },
+    {
+     "name": "advaft",
+     "label": "advaft",
+     "type": "decimal"
+    },
+    {
+     "name": "addr",
+     "label": "addr",
+     "type": "char"
+    },
+    {
+     "name": "orderm_counter",
+     "label": "orderm_counter",
+     "type": "char"
+    }
+   ]
+  }
  },
  "w_ordersales": {
   "name": "w_ordersales",
@@ -47266,7 +50887,117 @@
     "taborder": 50,
     "dataobject": "d_orderadvrep"
    }
-  ]
+  ],
+  "grid": {
+   "control": "dw_1",
+   "dataobject": "d_orderadvrep",
+   "table": "orderm",
+   "keys": [
+    "slno"
+   ],
+   "columns": [
+    {
+     "name": "ordno",
+     "label": "orderm_ordno",
+     "type": "char"
+    },
+    {
+     "name": "tdate",
+     "label": "orderm_tdate",
+     "type": "date"
+    },
+    {
+     "name": "duedate",
+     "label": "orderm_duedate",
+     "type": "date"
+    },
+    {
+     "name": "rate",
+     "label": "orderm_rate",
+     "type": "decimal"
+    },
+    {
+     "name": "custname",
+     "label": "orderm_custname",
+     "type": "char"
+    },
+    {
+     "name": "billamt",
+     "label": "orderm_billamt",
+     "type": "decimal"
+    },
+    {
+     "name": "eamt",
+     "label": "orderm_eamt",
+     "type": "decimal"
+    },
+    {
+     "name": "advance",
+     "label": "orderm_advance",
+     "type": "decimal"
+    },
+    {
+     "name": "status",
+     "label": "status",
+     "type": "long"
+    },
+    {
+     "name": "slno",
+     "label": "orderm_slno",
+     "type": "decimal"
+    },
+    {
+     "name": "custcode",
+     "label": "custcode",
+     "type": "char"
+    },
+    {
+     "name": "smname",
+     "label": "smname",
+     "type": "char"
+    },
+    {
+     "name": "gadvance",
+     "label": "gadvance",
+     "type": "decimal"
+    },
+    {
+     "name": "sretamt",
+     "label": "sretamt",
+     "type": "decimal"
+    },
+    {
+     "name": "smcode",
+     "label": "smcode",
+     "type": "char"
+    },
+    {
+     "name": "addr",
+     "label": "addr",
+     "type": "char"
+    },
+    {
+     "name": "advafter",
+     "label": "advafter",
+     "type": "decimal"
+    },
+    {
+     "name": "advafterwgt",
+     "label": "advafterwgt",
+     "type": "decimal"
+    },
+    {
+     "name": "salesamt",
+     "label": "salesamt",
+     "type": "decimal"
+    },
+    {
+     "name": "counter",
+     "label": "counter",
+     "type": "char"
+    }
+   ]
+  }
  },
  "w_order_prof_rep": {
   "name": "w_order_prof_rep",
@@ -47355,7 +51086,87 @@
     "taborder": 50,
     "dataobject": "d_order_prof_rep"
    }
-  ]
+  ],
+  "grid": {
+   "control": "dw_1",
+   "dataobject": "d_order_prof_rep",
+   "table": "salesm",
+   "keys": [
+    "slno"
+   ],
+   "columns": [
+    {
+     "name": "tdate",
+     "label": "Date",
+     "type": "date"
+    },
+    {
+     "name": "billno",
+     "label": "Bill No",
+     "type": "char"
+    },
+    {
+     "name": "orderno",
+     "label": "Order No",
+     "type": "char"
+    },
+    {
+     "name": "custname",
+     "label": "Custname",
+     "type": "char"
+    },
+    {
+     "name": "advamt1",
+     "label": "advamt1",
+     "type": "decimal"
+    },
+    {
+     "name": "advamt2",
+     "label": "advamt2",
+     "type": "decimal"
+    },
+    {
+     "name": "advwgt1",
+     "label": "advwgt1",
+     "type": "decimal"
+    },
+    {
+     "name": "advwgt2",
+     "label": "advwgt2",
+     "type": "decimal"
+    },
+    {
+     "name": "soldwgt",
+     "label": "soldwgt",
+     "type": "decimal"
+    },
+    {
+     "name": "billamt",
+     "label": "billamt",
+     "type": "decimal"
+    },
+    {
+     "name": "totva",
+     "label": "totva",
+     "type": "decimal"
+    },
+    {
+     "name": "soldstwgt",
+     "label": "soldstwgt",
+     "type": "decimal"
+    },
+    {
+     "name": "grate",
+     "label": "grate",
+     "type": "decimal"
+    },
+    {
+     "name": "slno",
+     "label": "slno",
+     "type": "decimal"
+    }
+   ]
+  }
  },
  "w_samplestkregister": {
   "name": "w_samplestkregister",
@@ -47646,7 +51457,92 @@
     "taborder": 60,
     "dataobject": "d_order_ordnolist"
    }
-  ]
+  ],
+  "grid": {
+   "control": "dw_1",
+   "dataobject": "d_order_ordnolist",
+   "table": "orderm",
+   "keys": [
+    "slno"
+   ],
+   "columns": [
+    {
+     "name": "ordno",
+     "label": "orderm_ordno",
+     "type": "char"
+    },
+    {
+     "name": "tdate",
+     "label": "orderm_tdate",
+     "type": "date"
+    },
+    {
+     "name": "duedate",
+     "label": "orderm_duedate",
+     "type": "date"
+    },
+    {
+     "name": "rate",
+     "label": "orderm_rate",
+     "type": "decimal"
+    },
+    {
+     "name": "slno",
+     "label": "orderm_slno",
+     "type": "decimal"
+    },
+    {
+     "name": "custname",
+     "label": "orderm_custname",
+     "type": "char"
+    },
+    {
+     "name": "billamt",
+     "label": "orderm_billamt",
+     "type": "decimal"
+    },
+    {
+     "name": "eamt",
+     "label": "orderm_eamt",
+     "type": "decimal"
+    },
+    {
+     "name": "advance",
+     "label": "orderm_advance",
+     "type": "decimal"
+    },
+    {
+     "name": "smcode",
+     "label": "orderm_smcode",
+     "type": "char"
+    },
+    {
+     "name": "gadvance",
+     "label": "orderm_gadvance",
+     "type": "decimal"
+    },
+    {
+     "name": "sretamt",
+     "label": "orderm_sretamt",
+     "type": "decimal"
+    },
+    {
+     "name": "jewlcode",
+     "label": "orderm_jewlcode",
+     "type": "char"
+    },
+    {
+     "name": "addr",
+     "label": "orderm_addr",
+     "type": "char"
+    },
+    {
+     "name": "duedate_org",
+     "label": "orderm_duedate_org",
+     "type": "date"
+    }
+   ]
+  }
  },
  "w_order_process": {
   "name": "w_order_process",
@@ -47654,9 +51550,9 @@
   "width": 3794,
   "height": 2284,
   "tables": [
-   "orderd",
    "orderm",
    "clients",
+   "orderd",
    "daybook",
    "daybookpart"
   ],
@@ -48027,7 +51923,22 @@
     "taborder": 120,
     "dataobject": "d_order_process"
    }
-  ]
+  ],
+  "grid": {
+   "control": "dw_smith",
+   "dataobject": "d_smith",
+   "table": "codehelp",
+   "keys": [
+    "code"
+   ],
+   "columns": [
+    {
+     "name": "code",
+     "label": "code",
+     "type": "char"
+    }
+   ]
+  }
  },
  "w_orderrep_email": {
   "name": "w_orderrep_email",
@@ -48228,7 +52139,22 @@
     "taborder": 80,
     "dataobject": "d_orderrep_email"
    }
-  ]
+  ],
+  "grid": {
+   "control": "dw_smith",
+   "dataobject": "d_smith",
+   "table": "codehelp",
+   "keys": [
+    "code"
+   ],
+   "columns": [
+    {
+     "name": "code",
+     "label": "code",
+     "type": "char"
+    }
+   ]
+  }
  },
  "w_remakereport": {
   "name": "w_remakereport",
@@ -48653,7 +52579,132 @@
     "text": "Updt Disc for Not Closed",
     "taborder": 50
    }
-  ]
+  ],
+  "grid": {
+   "control": "dw_1",
+   "dataobject": "d_loanentry_rep",
+   "table": "loan",
+   "keys": [
+    "slno"
+   ],
+   "columns": [
+    {
+     "name": "tdate",
+     "label": "tdate",
+     "type": "date"
+    },
+    {
+     "name": "docno",
+     "label": "docno",
+     "type": "char"
+    },
+    {
+     "name": "billno",
+     "label": "billno",
+     "type": "char"
+    },
+    {
+     "name": "ccode",
+     "label": "ccode",
+     "type": "char"
+    },
+    {
+     "name": "grate",
+     "label": "grate",
+     "type": "decimal"
+    },
+    {
+     "name": "loanamt",
+     "label": "loanamt",
+     "type": "decimal"
+    },
+    {
+     "name": "advance",
+     "label": "advance",
+     "type": "decimal"
+    },
+    {
+     "name": "instnos",
+     "label": "instnos",
+     "type": "long"
+    },
+    {
+     "name": "instamt",
+     "label": "instamt",
+     "type": "decimal"
+    },
+    {
+     "name": "collntype",
+     "label": "collntype",
+     "type": "char"
+    },
+    {
+     "name": "collnstart",
+     "label": "collnstart",
+     "type": "date"
+    },
+    {
+     "name": "closed",
+     "label": "closed",
+     "type": "char"
+    },
+    {
+     "name": "slno",
+     "label": "slno",
+     "type": "decimal"
+    },
+    {
+     "name": "cname",
+     "label": "cname",
+     "type": "char"
+    },
+    {
+     "name": "tcolln",
+     "label": "tcolln",
+     "type": "decimal"
+    },
+    {
+     "name": "tadvadj",
+     "label": "tadvadj",
+     "type": "decimal"
+    },
+    {
+     "name": "disc",
+     "label": "disc",
+     "type": "decimal"
+    },
+    {
+     "name": "tintamt2",
+     "label": "tintamt2",
+     "type": "decimal"
+    },
+    {
+     "name": "loantype",
+     "label": "loantype",
+     "type": "char"
+    },
+    {
+     "name": "interestamt",
+     "label": "interestamt",
+     "type": "decimal"
+    },
+    {
+     "name": "totalamt",
+     "label": "totalamt",
+     "type": "decimal"
+    },
+    {
+     "name": "paidnow",
+     "label": "paidnow",
+     "type": "decimal"
+    },
+    {
+     "name": "tintamt",
+     "label": "tintamt",
+     "type": "decimal"
+    }
+   ]
+  }
  },
  "w_loanbalance_rep": {
   "name": "w_loanbalance_rep",
@@ -48764,7 +52815,107 @@
     "taborder": 50,
     "dataobject": "d_loanbalance_rep"
    }
-  ]
+  ],
+  "grid": {
+   "control": "dw_1",
+   "dataobject": "d_loanbalance_rep",
+   "table": "loan",
+   "keys": [
+    "slno"
+   ],
+   "columns": [
+    {
+     "name": "tdate",
+     "label": "tdate",
+     "type": "date"
+    },
+    {
+     "name": "docno",
+     "label": "docno",
+     "type": "char"
+    },
+    {
+     "name": "billno",
+     "label": "billno",
+     "type": "char"
+    },
+    {
+     "name": "ccode",
+     "label": "ccode",
+     "type": "char"
+    },
+    {
+     "name": "grate",
+     "label": "grate",
+     "type": "decimal"
+    },
+    {
+     "name": "loanamt",
+     "label": "loanamt",
+     "type": "decimal"
+    },
+    {
+     "name": "advance",
+     "label": "advance",
+     "type": "decimal"
+    },
+    {
+     "name": "instnos",
+     "label": "instnos",
+     "type": "long"
+    },
+    {
+     "name": "instamt",
+     "label": "instamt",
+     "type": "decimal"
+    },
+    {
+     "name": "collntype",
+     "label": "collntype",
+     "type": "char"
+    },
+    {
+     "name": "collnstart",
+     "label": "collnstart",
+     "type": "date"
+    },
+    {
+     "name": "closed",
+     "label": "closed",
+     "type": "char"
+    },
+    {
+     "name": "slno",
+     "label": "slno",
+     "type": "decimal"
+    },
+    {
+     "name": "cname",
+     "label": "cname",
+     "type": "char"
+    },
+    {
+     "name": "tcolln",
+     "label": "tcolln",
+     "type": "decimal"
+    },
+    {
+     "name": "tadvadj",
+     "label": "tadvadj",
+     "type": "decimal"
+    },
+    {
+     "name": "tintadj2",
+     "label": "tintadj2",
+     "type": "decimal"
+    },
+    {
+     "name": "tintadj",
+     "label": "tintadj",
+     "type": "decimal"
+    }
+   ]
+  }
  },
  "w_loanledger_rep": {
   "name": "w_loanledger_rep",
@@ -49124,7 +53275,62 @@
     "taborder": 50,
     "dataobject": "d_oitsbook"
    }
-  ]
+  ],
+  "grid": {
+   "control": "dw_saleregister",
+   "dataobject": "d_oitsbook",
+   "table": "oitemtranm",
+   "keys": [
+    "docno"
+   ],
+   "columns": [
+    {
+     "name": "tdate",
+     "label": "tdate",
+     "type": "date"
+    },
+    {
+     "name": "docno",
+     "label": "docno",
+     "type": "char"
+    },
+    {
+     "name": "pname",
+     "label": "pname",
+     "type": "char"
+    },
+    {
+     "name": "billamt",
+     "label": "billamt",
+     "type": "decimal"
+    },
+    {
+     "name": "addamt",
+     "label": "addamt",
+     "type": "decimal"
+    },
+    {
+     "name": "lessamt",
+     "label": "lessamt",
+     "type": "decimal"
+    },
+    {
+     "name": "ramt",
+     "label": "ramt",
+     "type": "decimal"
+    },
+    {
+     "name": "sp",
+     "label": "sp",
+     "type": "char"
+    },
+    {
+     "name": "slno",
+     "label": "slno",
+     "type": "decimal"
+    }
+   ]
+  }
  },
  "w_oitregister": {
   "name": "w_oitregister",
@@ -49422,7 +53628,67 @@
     "taborder": 10,
     "dataobject": "d_oistockledger"
    }
-  ]
+  ],
+  "grid": {
+   "control": "dw_1",
+   "dataobject": "d_oistockledger",
+   "table": "itemsothers",
+   "keys": [
+    "code"
+   ],
+   "columns": [
+    {
+     "name": "code",
+     "label": "Code",
+     "type": "char"
+    },
+    {
+     "name": "name",
+     "label": "Item Name",
+     "type": "char"
+    },
+    {
+     "name": "grp",
+     "label": "grp",
+     "type": "char"
+    },
+    {
+     "name": "keepstk",
+     "label": "keepstk",
+     "type": "long"
+    },
+    {
+     "name": "cost",
+     "label": "cost",
+     "type": "decimal"
+    },
+    {
+     "name": "oppqty",
+     "label": "oppqty",
+     "type": "decimal"
+    },
+    {
+     "name": "opsqty",
+     "label": "opsqty",
+     "type": "decimal"
+    },
+    {
+     "name": "tpqty",
+     "label": "tpqty",
+     "type": "decimal"
+    },
+    {
+     "name": "tsqty",
+     "label": "tsqty",
+     "type": "decimal"
+    },
+    {
+     "name": "opstock",
+     "label": "opstock",
+     "type": "long"
+    }
+   ]
+  }
  },
  "w_oistocklist": {
   "name": "w_oistocklist",
@@ -49521,7 +53787,47 @@
     "height": 76,
     "text": "Speed Print"
    }
-  ]
+  ],
+  "grid": {
+   "control": "dw_1",
+   "dataobject": "d_oistocklist",
+   "table": "itemsothers",
+   "keys": [
+    "code"
+   ],
+   "columns": [
+    {
+     "name": "code",
+     "label": "Code",
+     "type": "char"
+    },
+    {
+     "name": "name",
+     "label": "Item Name",
+     "type": "char"
+    },
+    {
+     "name": "stock",
+     "label": "stock",
+     "type": "long"
+    },
+    {
+     "name": "grp",
+     "label": "grp",
+     "type": "char"
+    },
+    {
+     "name": "keepstk",
+     "label": "keepstk",
+     "type": "long"
+    },
+    {
+     "name": "cost",
+     "label": "cost",
+     "type": "decimal"
+    }
+   ]
+  }
  },
  "w_acrcvblesummary": {
   "name": "w_acrcvblesummary",
@@ -49529,9 +53835,9 @@
   "width": 3680,
   "height": 2324,
   "tables": [
+   "accountm",
    "clients",
    "date",
-   "accountm",
    "salesm"
   ],
   "source_path": "w_acrcvblesummary.srw",
@@ -50169,7 +54475,152 @@
     "taborder": 60,
     "dataobject": "d_salesbook_creditonly"
    }
-  ]
+  ],
+  "grid": {
+   "control": "dw_saleregister",
+   "dataobject": "d_salesbook_creditonly",
+   "table": "salesm",
+   "keys": [
+    "slno"
+   ],
+   "columns": [
+    {
+     "name": "slno",
+     "label": "salesm_slno",
+     "type": "decimal"
+    },
+    {
+     "name": "tdate",
+     "label": "salesm_tdate",
+     "type": "date"
+    },
+    {
+     "name": "billno",
+     "label": "salesm_billno",
+     "type": "char"
+    },
+    {
+     "name": "custname",
+     "label": "salesm_custname",
+     "type": "char"
+    },
+    {
+     "name": "billamt",
+     "label": "salesm_billamt",
+     "type": "decimal"
+    },
+    {
+     "name": "status",
+     "label": "salesm_status",
+     "type": "long"
+    },
+    {
+     "name": "control",
+     "label": "salesm_control",
+     "type": "long"
+    },
+    {
+     "name": "discount",
+     "label": "salesm_discount",
+     "type": "decimal"
+    },
+    {
+     "name": "ramt",
+     "label": "salesm_ramt",
+     "type": "decimal"
+    },
+    {
+     "name": "eamt",
+     "label": "salesm_eamt",
+     "type": "decimal"
+    },
+    {
+     "name": "staxamt",
+     "label": "salesm_staxamt",
+     "type": "decimal"
+    },
+    {
+     "name": "duedate",
+     "label": "salesm_duedate",
+     "type": "date"
+    },
+    {
+     "name": "sretamt",
+     "label": "salesm_sretamt",
+     "type": "decimal"
+    },
+    {
+     "name": "ramtafter",
+     "label": "salesm_ramtafter",
+     "type": "decimal"
+    },
+    {
+     "name": "custadd1",
+     "label": "custadd1",
+     "type": "char"
+    },
+    {
+     "name": "custadd2",
+     "label": "custadd2",
+     "type": "char"
+    },
+    {
+     "name": "smcode",
+     "label": "smcode",
+     "type": "char"
+    },
+    {
+     "name": "custadd3",
+     "label": "custadd3",
+     "type": "char"
+    },
+    {
+     "name": "custcode",
+     "label": "custcode",
+     "type": "char"
+    },
+    {
+     "name": "rcvdafter",
+     "label": "rcvdafter",
+     "type": "decimal"
+    },
+    {
+     "name": "cocode",
+     "label": "cocode",
+     "type": "char"
+    },
+    {
+     "name": "round",
+     "label": "round",
+     "type": "decimal"
+    },
+    {
+     "name": "netamt",
+     "label": "netamt",
+     "type": "decimal"
+    },
+    {
+     "name": "advance",
+     "label": "advance",
+     "type": "decimal"
+    },
+    {
+     "name": "custphone",
+     "label": "custphone",
+     "type": "char"
+    },
+    {
+     "name": "astamt",
+     "label": "astamt",
+     "type": "decimal"
+    },
+    {
+     "name": "ctype",
+     "label": "ctype",
+     "type": "char"
+    }
+   ]
+  }
  },
  "w_custaccoutsummary": {
   "name": "w_custaccoutsummary",
@@ -50329,7 +54780,92 @@
     "height": 76,
     "text": "Customers Only"
    }
-  ]
+  ],
+  "grid": {
+   "control": "dw_1",
+   "dataobject": "d_custaccountsummary",
+   "table": "clients",
+   "keys": [
+    "code"
+   ],
+   "columns": [
+    {
+     "name": "code",
+     "label": "code",
+     "type": "char"
+    },
+    {
+     "name": "name",
+     "label": "clients_name",
+     "type": "char"
+    },
+    {
+     "name": "addr1",
+     "label": "clients_addr1",
+     "type": "char"
+    },
+    {
+     "name": "addr2",
+     "label": "clients_addr2",
+     "type": "char"
+    },
+    {
+     "name": "tdebitamt",
+     "label": "ctdebitamt",
+     "type": "decimal"
+    },
+    {
+     "name": "tcreditamt",
+     "label": "ctcreditamt",
+     "type": "decimal"
+    },
+    {
+     "name": "tsalesrcvdamt",
+     "label": "tsalesrcvdamt",
+     "type": "decimal"
+    },
+    {
+     "name": "tcashadv",
+     "label": "tcashadv",
+     "type": "decimal"
+    },
+    {
+     "name": "texchadv",
+     "label": "texchadv",
+     "type": "decimal"
+    },
+    {
+     "name": "ctype",
+     "label": "ctype",
+     "type": "char"
+    },
+    {
+     "name": "telephone",
+     "label": "telephone",
+     "type": "char"
+    },
+    {
+     "name": "cocode",
+     "label": "cocode",
+     "type": "char"
+    },
+    {
+     "name": "tsalesamt",
+     "label": "tsalesamt",
+     "type": "decimal"
+    },
+    {
+     "name": "tsalesrcvdafter2",
+     "label": "tsalesrcvdafter2",
+     "type": "decimal"
+    },
+    {
+     "name": "tsalesrcvdafter",
+     "label": "tsalesrcvdafter",
+     "type": "decimal"
+    }
+   ]
+  }
  },
  "w_custbillwisercvble": {
   "name": "w_custbillwisercvble",
@@ -50338,8 +54874,8 @@
   "height": 2428,
   "tables": [
    "salesm",
-   "accountm",
-   "collection"
+   "collection",
+   "accountm"
   ],
   "source_path": "w_custbillwisercvble.srw",
   "controls": [
@@ -50563,7 +55099,87 @@
     "height": 76,
     "text": "Search :"
    }
-  ]
+  ],
+  "grid": {
+   "control": "dw_1",
+   "dataobject": "d_custbillwisercble",
+   "table": "clients",
+   "keys": [
+    "code"
+   ],
+   "columns": [
+    {
+     "name": "code",
+     "label": "code",
+     "type": "char"
+    },
+    {
+     "name": "name",
+     "label": "clients_name",
+     "type": "char"
+    },
+    {
+     "name": "addr1",
+     "label": "clients_addr1",
+     "type": "char"
+    },
+    {
+     "name": "addr2",
+     "label": "clients_addr2",
+     "type": "char"
+    },
+    {
+     "name": "ctype",
+     "label": "ctype",
+     "type": "char"
+    },
+    {
+     "name": "telephone",
+     "label": "telephone",
+     "type": "char"
+    },
+    {
+     "name": "minduedate",
+     "label": "minduedate",
+     "type": "date"
+    },
+    {
+     "name": "maxduedate",
+     "label": "maxduedate",
+     "type": "date"
+    },
+    {
+     "name": "cocode",
+     "label": "cocode",
+     "type": "char"
+    },
+    {
+     "name": "duedate",
+     "label": "duedate",
+     "type": "date"
+    },
+    {
+     "name": "optsalesamt",
+     "label": "optsalesamt",
+     "type": "decimal"
+    },
+    {
+     "name": "optrcvdamt",
+     "label": "optrcvdamt",
+     "type": "decimal"
+    },
+    {
+     "name": "optsalesrcvdafter",
+     "label": "optsalesrcvdafter",
+     "type": "decimal"
+    },
+    {
+     "name": "wgtbal",
+     "label": "wgtbal",
+     "type": "decimal"
+    }
+   ]
+  }
  },
  "w_rcptdetail": {
   "name": "w_rcptdetail",
@@ -51015,7 +55631,62 @@
     "taborder": 80,
     "dataobject": "d_partysummaryrep"
    }
-  ]
+  ],
+  "grid": {
+   "control": "dw_saleregister",
+   "dataobject": "d_partysummaryrep",
+   "table": "clients",
+   "keys": [
+    "code"
+   ],
+   "columns": [
+    {
+     "name": "tsalesamt",
+     "label": "tsalesamt",
+     "type": "decimal"
+    },
+    {
+     "name": "tsalesdisc",
+     "label": "tsalesdisc",
+     "type": "decimal"
+    },
+    {
+     "name": "tsretamt",
+     "label": "tsretamt",
+     "type": "decimal"
+    },
+    {
+     "name": "tsaleswgt",
+     "label": "tsaleswgt",
+     "type": "decimal"
+    },
+    {
+     "name": "tsretwgt",
+     "label": "tsretwgt",
+     "type": "decimal"
+    },
+    {
+     "name": "name",
+     "label": "name",
+     "type": "char"
+    },
+    {
+     "name": "grp",
+     "label": "grp",
+     "type": "char"
+    },
+    {
+     "name": "code",
+     "label": "code",
+     "type": "char"
+    },
+    {
+     "name": "pcard",
+     "label": "pcard",
+     "type": "char"
+    }
+   ]
+  }
  },
  "w_custbillwise": {
   "name": "w_custbillwise",
@@ -51164,7 +55835,102 @@
     "height": 76,
     "text": "With Balance Only"
    }
-  ]
+  ],
+  "grid": {
+   "control": "dw_acsummary",
+   "dataobject": "d_custbillwise",
+   "table": "salesm",
+   "keys": [
+    "slno"
+   ],
+   "columns": [
+    {
+     "name": "tdate",
+     "label": "tdate",
+     "type": "date"
+    },
+    {
+     "name": "billamt",
+     "label": "billamt",
+     "type": "decimal"
+    },
+    {
+     "name": "staxamt",
+     "label": "staxamt",
+     "type": "decimal"
+    },
+    {
+     "name": "discount",
+     "label": "discount",
+     "type": "decimal"
+    },
+    {
+     "name": "eamt",
+     "label": "eamt",
+     "type": "decimal"
+    },
+    {
+     "name": "sretamt",
+     "label": "sretamt",
+     "type": "decimal"
+    },
+    {
+     "name": "ramt",
+     "label": "ramt",
+     "type": "decimal"
+    },
+    {
+     "name": "ramtafter",
+     "label": "ramtafter",
+     "type": "decimal"
+    },
+    {
+     "name": "duedate",
+     "label": "duedate",
+     "type": "date"
+    },
+    {
+     "name": "billno",
+     "label": "billno",
+     "type": "char"
+    },
+    {
+     "name": "slno",
+     "label": "slno",
+     "type": "decimal"
+    },
+    {
+     "name": "custname",
+     "label": "custname",
+     "type": "char"
+    },
+    {
+     "name": "round",
+     "label": "round",
+     "type": "decimal"
+    },
+    {
+     "name": "netamt",
+     "label": "netamt",
+     "type": "decimal"
+    },
+    {
+     "name": "rcvdaftamt",
+     "label": "rcvdaftamt",
+     "type": "decimal"
+    },
+    {
+     "name": "discaftamt",
+     "label": "discaftamt",
+     "type": "decimal"
+    },
+    {
+     "name": "balwgt",
+     "label": "balwgt",
+     "type": "decimal"
+    }
+   ]
+  }
  },
  "w_custcollectionrep": {
   "name": "w_custcollectionrep",
@@ -51172,10 +55938,10 @@
   "width": 3639,
   "height": 2272,
   "tables": [
-   "daybook",
    "collection",
-   "clients",
-   "salesm"
+   "salesm",
+   "daybook",
+   "clients"
   ],
   "source_path": "w_custcollectionrep.srw",
   "controls": [
@@ -51515,19 +56281,20 @@
   "width": 3657,
   "height": 2292,
   "tables": [
-   "purchaserm",
-   "purchased",
-   "items",
    "daybook",
+   "items",
+   "accountm",
+   "purchased",
+   "salesrd",
+   "date",
+   "purchaserm",
    "purchasem",
    "purchaserd",
    "salesm",
    "salesd",
-   "salesrd",
    "salesrm",
    "smithm",
    "smithd",
-   "accountm",
    "refinerym",
    "refineryd",
    "orderm",
@@ -51535,8 +56302,7 @@
    "repairm",
    "repaird",
    "oitemtranm",
-   "oitemtrand",
-   "date"
+   "oitemtrand"
   ],
   "source_path": "w_partyhistory.srw",
   "controls": [
@@ -51937,7 +56703,67 @@
     "taborder": 60,
     "dataobject": "d_customer_visitreport"
    }
-  ]
+  ],
+  "grid": {
+   "control": "dw_suculist",
+   "dataobject": "d_customer_visitreport",
+   "table": "clients",
+   "keys": [
+    "code"
+   ],
+   "columns": [
+    {
+     "name": "code",
+     "label": "Code",
+     "type": "char"
+    },
+    {
+     "name": "name",
+     "label": "Name",
+     "type": "char"
+    },
+    {
+     "name": "addr1",
+     "label": "addr1",
+     "type": "char"
+    },
+    {
+     "name": "addr2",
+     "label": "addr2",
+     "type": "char"
+    },
+    {
+     "name": "addr3",
+     "label": "addr3",
+     "type": "char"
+    },
+    {
+     "name": "city",
+     "label": "Mobile",
+     "type": "char"
+    },
+    {
+     "name": "telephone",
+     "label": "Telephone",
+     "type": "char"
+    },
+    {
+     "name": "mobile",
+     "label": "mobile",
+     "type": "char"
+    },
+    {
+     "name": "tvisit",
+     "label": "tvisit",
+     "type": "long"
+    },
+    {
+     "name": "carea",
+     "label": "carea",
+     "type": "char"
+    }
+   ]
+  }
  },
  "w_sales_pcardpoint_rep": {
   "name": "w_sales_pcardpoint_rep",
@@ -51945,8 +56771,8 @@
   "width": 3739,
   "height": 2256,
   "tables": [
-   "clients",
-   "salesm"
+   "salesm",
+   "clients"
   ],
   "source_path": "w_sales_pcardpoint_rep.srw",
   "controls": [
@@ -52383,7 +57209,132 @@
     "taborder": 60,
     "dataobject": "d_customer_list"
    }
-  ]
+  ],
+  "grid": {
+   "control": "dw_suculist",
+   "dataobject": "d_customer_list",
+   "table": "clients",
+   "keys": [
+    "code"
+   ],
+   "columns": [
+    {
+     "name": "code",
+     "label": "Code",
+     "type": "char"
+    },
+    {
+     "name": "name",
+     "label": "Name",
+     "type": "char"
+    },
+    {
+     "name": "addr1",
+     "label": "addr1",
+     "type": "char"
+    },
+    {
+     "name": "addr2",
+     "label": "addr2",
+     "type": "char"
+    },
+    {
+     "name": "addr3",
+     "label": "addr3",
+     "type": "char"
+    },
+    {
+     "name": "city",
+     "label": "city",
+     "type": "char"
+    },
+    {
+     "name": "telephone",
+     "label": "Phone",
+     "type": "char"
+    },
+    {
+     "name": "mobile",
+     "label": "Mobile",
+     "type": "char"
+    },
+    {
+     "name": "ctype",
+     "label": "ctype",
+     "type": "char"
+    },
+    {
+     "name": "prn",
+     "label": "Prn",
+     "type": "long"
+    },
+    {
+     "name": "adate",
+     "label": "adate",
+     "type": "date"
+    },
+    {
+     "name": "cocode",
+     "label": "cocode",
+     "type": "char"
+    },
+    {
+     "name": "grp",
+     "label": "grp",
+     "type": "char"
+    },
+    {
+     "name": "route",
+     "label": "route",
+     "type": "char"
+    },
+    {
+     "name": "religion",
+     "label": "religion",
+     "type": "char"
+    },
+    {
+     "name": "addr",
+     "label": "Addr",
+     "type": "char"
+    },
+    {
+     "name": "email",
+     "label": "Email",
+     "type": "char"
+    },
+    {
+     "name": "carea",
+     "label": "carea",
+     "type": "char"
+    },
+    {
+     "name": "religion",
+     "label": "religion",
+     "type": "char"
+    },
+    {
+     "name": "relationway",
+     "label": "relationway",
+     "type": "char"
+    },
+    {
+     "name": "relationbases",
+     "label": "relationbases",
+     "type": "char"
+    },
+    {
+     "name": "working",
+     "label": "working",
+     "type": "char"
+    },
+    {
+     "name": "purchtype",
+     "label": "purchtype",
+     "type": "char"
+    }
+   ]
+  }
  },
  "w_suppbillwisepayable": {
   "name": "w_suppbillwisepayable",
@@ -52608,7 +57559,82 @@
     "height": 76,
     "text": "Search :"
    }
-  ]
+  ],
+  "grid": {
+   "control": "dw_1",
+   "dataobject": "d_suppbillwisepayble",
+   "table": "clients",
+   "keys": [
+    "code"
+   ],
+   "columns": [
+    {
+     "name": "code",
+     "label": "code",
+     "type": "char"
+    },
+    {
+     "name": "name",
+     "label": "clients_name",
+     "type": "char"
+    },
+    {
+     "name": "addr1",
+     "label": "clients_addr1",
+     "type": "char"
+    },
+    {
+     "name": "addr2",
+     "label": "clients_addr2",
+     "type": "char"
+    },
+    {
+     "name": "ctype",
+     "label": "ctype",
+     "type": "char"
+    },
+    {
+     "name": "telephone",
+     "label": "telephone",
+     "type": "char"
+    },
+    {
+     "name": "minduedate",
+     "label": "minduedate",
+     "type": "date"
+    },
+    {
+     "name": "maxduedate",
+     "label": "maxduedate",
+     "type": "date"
+    },
+    {
+     "name": "cocode",
+     "label": "cocode",
+     "type": "char"
+    },
+    {
+     "name": "duedate",
+     "label": "duedate",
+     "type": "date"
+    },
+    {
+     "name": "optsalesamt",
+     "label": "optsalesamt",
+     "type": "decimal"
+    },
+    {
+     "name": "optrcvdamt",
+     "label": "optrcvdamt",
+     "type": "decimal"
+    },
+    {
+     "name": "optsalesrcvdafter",
+     "label": "optsalesrcvdafter",
+     "type": "decimal"
+    }
+   ]
+  }
  },
  "w_staffsummary": {
   "name": "w_staffsummary",
@@ -52767,9 +57793,9 @@
   "width": 3666,
   "height": 2480,
   "tables": [
-   "userd",
    "staff_log",
-   "clients"
+   "clients",
+   "userd"
   ],
   "source_path": "w_staff_log_report.srw",
   "controls": [
@@ -52931,7 +57957,49 @@
     "taborder": 50,
     "dataobject": "d_staff_log_report"
    }
-  ]
+  ],
+  "grid": {
+   "control": "dw_1",
+   "dataobject": "d_staff_log_report",
+   "table": "staff_log",
+   "keys": [
+    "idno",
+    "tdate",
+    "ttime"
+   ],
+   "columns": [
+    {
+     "name": "scode",
+     "label": "scode",
+     "type": "char"
+    },
+    {
+     "name": "idno",
+     "label": "idno",
+     "type": "char"
+    },
+    {
+     "name": "tdate",
+     "label": "tdate",
+     "type": "date"
+    },
+    {
+     "name": "ttime",
+     "label": "ttime",
+     "type": "time"
+    },
+    {
+     "name": "status",
+     "label": "status",
+     "type": "char"
+    },
+    {
+     "name": "name",
+     "label": "name",
+     "type": "char"
+    }
+   ]
+  }
  },
  "w_staff_attendance_rep": {
   "name": "w_staff_attendance_rep",
@@ -53309,7 +58377,112 @@
     "taborder": 50,
     "dataobject": "d_staffwgtrep_stklist"
    }
-  ]
+  ],
+  "grid": {
+   "control": "dw_acsummary",
+   "dataobject": "d_staffwgtrep_stklist",
+   "table": "items",
+   "keys": [
+    "code"
+   ],
+   "columns": [
+    {
+     "name": "code",
+     "label": "code",
+     "type": "char"
+    },
+    {
+     "name": "name",
+     "label": "Item",
+     "type": "char"
+    },
+    {
+     "name": "opqtyi",
+     "label": "opqtyi",
+     "type": "long"
+    },
+    {
+     "name": "opwgti",
+     "label": "opwgti",
+     "type": "decimal"
+    },
+    {
+     "name": "opqtyr",
+     "label": "opqtyr",
+     "type": "long"
+    },
+    {
+     "name": "opwgtr",
+     "label": "opwgtr",
+     "type": "decimal"
+    },
+    {
+     "name": "opqtys",
+     "label": "opqtys",
+     "type": "long"
+    },
+    {
+     "name": "opwgts",
+     "label": "opwgts",
+     "type": "decimal"
+    },
+    {
+     "name": "totqtyi",
+     "label": "totqtyi",
+     "type": "long"
+    },
+    {
+     "name": "totwgti",
+     "label": "totwgti",
+     "type": "decimal"
+    },
+    {
+     "name": "totqtyr",
+     "label": "totqtyr",
+     "type": "long"
+    },
+    {
+     "name": "totwgtr",
+     "label": "totwgtr",
+     "type": "decimal"
+    },
+    {
+     "name": "totqtys",
+     "label": "totqtys",
+     "type": "long"
+    },
+    {
+     "name": "totwgts",
+     "label": "totwgts",
+     "type": "decimal"
+    },
+    {
+     "name": "opqtys2",
+     "label": "opqtys2",
+     "type": "long"
+    },
+    {
+     "name": "totwgts2",
+     "label": "totwgts2",
+     "type": "decimal"
+    },
+    {
+     "name": "totqtys2",
+     "label": "totqtys2",
+     "type": "long"
+    },
+    {
+     "name": "opwgts2",
+     "label": "opwgts2",
+     "type": "decimal"
+    },
+    {
+     "name": "rate",
+     "label": "rate",
+     "type": "decimal"
+    }
+   ]
+  }
  },
  "w_smreport": {
   "name": "w_smreport",
@@ -53409,7 +58582,107 @@
     "height": 80,
     "text": "Speed Print"
    }
-  ]
+  ],
+  "grid": {
+   "control": "dw_acsummary",
+   "dataobject": "d_smreport",
+   "table": "sman",
+   "keys": [
+    "code"
+   ],
+   "columns": [
+    {
+     "name": "name",
+     "label": "SM Name",
+     "type": "char"
+    },
+    {
+     "name": "code",
+     "label": "code",
+     "type": "char"
+    },
+    {
+     "name": "ctsalesamt",
+     "label": "ctsalesamt",
+     "type": "decimal"
+    },
+    {
+     "name": "ctssaleswgt",
+     "label": "Total Sales\nAmount",
+     "type": "decimal"
+    },
+    {
+     "name": "ctgsaleswgt",
+     "label": "Total OG\nPurch",
+     "type": "decimal"
+    },
+    {
+     "name": "ctgsretwgt",
+     "label": "ctgsretwgt",
+     "type": "decimal"
+    },
+    {
+     "name": "ctogwgt",
+     "label": "Total Gold\nSold Wgt.",
+     "type": "decimal"
+    },
+    {
+     "name": "ctoswgt1",
+     "label": "ctoswgt1",
+     "type": "decimal"
+    },
+    {
+     "name": "ctgsretamt",
+     "label": "ctgsretamt",
+     "type": "decimal"
+    },
+    {
+     "name": "salesamt",
+     "label": "salesamt",
+     "type": "decimal"
+    },
+    {
+     "name": "rcvdamt",
+     "label": "rcvdamt",
+     "type": "decimal"
+    },
+    {
+     "name": "psaleswgt",
+     "label": "psaleswgt",
+     "type": "decimal"
+    },
+    {
+     "name": "dmdsaleswgt",
+     "label": "dmdsaleswgt",
+     "type": "decimal"
+    },
+    {
+     "name": "watchsalesqty",
+     "label": "watchsalesqty",
+     "type": "long"
+    },
+    {
+     "name": "psalesamt",
+     "label": "psalesamt",
+     "type": "decimal"
+    },
+    {
+     "name": "dmdsalesamt",
+     "label": "dmdsalesamt",
+     "type": "decimal"
+    },
+    {
+     "name": "watchsalesamt",
+     "label": "watchsalesamt",
+     "type": "decimal"
+    },
+    {
+     "name": "salesnos",
+     "label": "salesnos",
+     "type": "long"
+    }
+   ]
+  }
  },
  "w_kuri_colln_report": {
   "name": "w_kuri_colln_report",
@@ -53417,11 +58690,11 @@
   "width": 3657,
   "height": 2292,
   "tables": [
+   "kuricolln",
+   "accountm",
    "clients_kuridet",
    "daybook",
-   "kuricolln",
-   "here",
-   "accountm"
+   "here"
   ],
   "source_path": "w_kuri_colln_report.srw",
   "controls": [
@@ -54988,7 +60261,92 @@
     "height": 80,
     "text": "Scheme Typewise All"
    }
-  ]
+  ],
+  "grid": {
+   "control": "dw_1",
+   "dataobject": "d_schemebook_comnrep",
+   "table": "clients",
+   "keys": [
+    "code"
+   ],
+   "columns": [
+    {
+     "name": "city",
+     "label": "city",
+     "type": "char"
+    },
+    {
+     "name": "name",
+     "label": "Name",
+     "type": "char"
+    },
+    {
+     "name": "code",
+     "label": "clients_code",
+     "type": "char"
+    },
+    {
+     "name": "totcolln",
+     "label": "ctotcolln",
+     "type": "decimal"
+    },
+    {
+     "name": "totwgt",
+     "label": "ctotwgt",
+     "type": "decimal"
+    },
+    {
+     "name": "cocode",
+     "label": "clients_cocode",
+     "type": "char"
+    },
+    {
+     "name": "addr1",
+     "label": "clients_addr1",
+     "type": "char"
+    },
+    {
+     "name": "addr2",
+     "label": "clients_addr2",
+     "type": "char"
+    },
+    {
+     "name": "addr3",
+     "label": "clients_addr3",
+     "type": "char"
+    },
+    {
+     "name": "telephone",
+     "label": "clients_telephone",
+     "type": "char"
+    },
+    {
+     "name": "colncomn",
+     "label": "colncomn",
+     "type": "decimal"
+    },
+    {
+     "name": "tjoint",
+     "label": "tjoint",
+     "type": "long"
+    },
+    {
+     "name": "tjointcolln",
+     "label": "tjointcolln",
+     "type": "decimal"
+    },
+    {
+     "name": "comnrate",
+     "label": "comnrate",
+     "type": "decimal"
+    },
+    {
+     "name": "kuritype",
+     "label": "kuritype",
+     "type": "char"
+    }
+   ]
+  }
  },
  "w_deposit_book_report": {
   "name": "w_deposit_book_report",
@@ -54997,8 +60355,8 @@
   "height": 2184,
   "tables": [
    "accountm",
-   "clients",
-   "wgtrcptpmnt"
+   "wgtrcptpmnt",
+   "clients"
   ],
   "source_path": "w_deposit_book_report.srw",
   "controls": [
@@ -55173,7 +60531,112 @@
     "taborder": 120,
     "dataobject": "d_deposit_book_report"
    }
-  ]
+  ],
+  "grid": {
+   "control": "dw_1",
+   "dataobject": "d_deposit_book_report",
+   "table": "wgtrcptpmnt",
+   "keys": [
+    "slno"
+   ],
+   "columns": [
+    {
+     "name": "tdate",
+     "label": "wgtrcptpmnt_tdate",
+     "type": "date"
+    },
+    {
+     "name": "docno",
+     "label": "wgtrcptpmnt_docno",
+     "type": "char"
+    },
+    {
+     "name": "ttype",
+     "label": "wgtrcptpmnt_ttype",
+     "type": "char"
+    },
+    {
+     "name": "weight",
+     "label": "wgtrcptpmnt_weight",
+     "type": "decimal"
+    },
+    {
+     "name": "grate",
+     "label": "wgtrcptpmnt_grate",
+     "type": "decimal"
+    },
+    {
+     "name": "note",
+     "label": "wgtrcptpmnt_note",
+     "type": "char"
+    },
+    {
+     "name": "smcode",
+     "label": "wgtrcptpmnt_smcode",
+     "type": "char"
+    },
+    {
+     "name": "icode",
+     "label": "wgtrcptpmnt_icode",
+     "type": "char"
+    },
+    {
+     "name": "qty",
+     "label": "wgtrcptpmnt_qty",
+     "type": "long"
+    },
+    {
+     "name": "stwgt",
+     "label": "wgtrcptpmnt_stwgt",
+     "type": "decimal"
+    },
+    {
+     "name": "netwgt",
+     "label": "wgtrcptpmnt_netwgt",
+     "type": "decimal"
+    },
+    {
+     "name": "slno",
+     "label": "wgtrcptpmnt_slno",
+     "type": "decimal"
+    },
+    {
+     "name": "clients_addr1",
+     "label": "clients_addr1",
+     "type": "char"
+    },
+    {
+     "name": "clients_name",
+     "label": "Name",
+     "type": "char"
+    },
+    {
+     "name": "clients_addr2",
+     "label": "clients_addr2",
+     "type": "char"
+    },
+    {
+     "name": "clients_addr3",
+     "label": "clients_addr3",
+     "type": "char"
+    },
+    {
+     "name": "pcode",
+     "label": "pcode",
+     "type": "char"
+    },
+    {
+     "name": "clients_cocode",
+     "label": "clients_cocode",
+     "type": "char"
+    },
+    {
+     "name": "clients_code",
+     "label": "clients_code",
+     "type": "char"
+    }
+   ]
+  }
  },
  "w_partywgtpend_report": {
   "name": "w_partywgtpend_report",
@@ -55310,7 +60773,77 @@
     "height": 64,
     "text": "General Accounts"
    }
-  ]
+  ],
+  "grid": {
+   "control": "dw_acsummary",
+   "dataobject": "d_partywgtpend_report",
+   "table": "clients",
+   "keys": [
+    "code"
+   ],
+   "columns": [
+    {
+     "name": "code",
+     "label": "code",
+     "type": "char"
+    },
+    {
+     "name": "name",
+     "label": "clients_name",
+     "type": "char"
+    },
+    {
+     "name": "addr1",
+     "label": "clients_addr1",
+     "type": "char"
+    },
+    {
+     "name": "addr2",
+     "label": "clients_addr2",
+     "type": "char"
+    },
+    {
+     "name": "ctype",
+     "label": "ctype",
+     "type": "char"
+    },
+    {
+     "name": "telephone",
+     "label": "telephone",
+     "type": "char"
+    },
+    {
+     "name": "cocode",
+     "label": "cocode",
+     "type": "char"
+    },
+    {
+     "name": "duedate",
+     "label": "duedate",
+     "type": "date"
+    },
+    {
+     "name": "opweight",
+     "label": "opweight",
+     "type": "decimal"
+    },
+    {
+     "name": "twgtr",
+     "label": "twgtr",
+     "type": "decimal"
+    },
+    {
+     "name": "twgtg",
+     "label": "twgtg",
+     "type": "decimal"
+    },
+    {
+     "name": "opdepwgtbal",
+     "label": "opdepwgtbal",
+     "type": "decimal"
+    }
+   ]
+  }
  },
  "w_finance_book_report": {
   "name": "w_finance_book_report",
@@ -55319,8 +60852,8 @@
   "height": 2184,
   "tables": [
    "accountm",
-   "clients",
-   "wgtrcptpmnt"
+   "wgtrcptpmnt",
+   "clients"
   ],
   "source_path": "w_finance_book_report.srw",
   "controls": [
@@ -55503,21 +61036,21 @@
   "width": 3648,
   "height": 2336,
   "tables": [
-   "daybookpart",
+   "daybook",
+   "accountm",
    "clients_kuridet",
+   "clients",
+   "date",
    "salesm",
    "purchasem",
    "salesrm",
    "purchaserm",
    "smithm",
    "refinerym",
-   "daybook",
-   "accountm",
-   "userd",
-   "clients",
    "advafter",
    "orderdga",
-   "date"
+   "daybookpart",
+   "userd"
   ],
   "source_path": "w_acledger.srw",
   "controls": [
@@ -55760,10 +61293,10 @@
   "width": 3648,
   "height": 2260,
   "tables": [
-   "accountg",
    "accountm",
-   "daybook",
-   "date"
+   "accountg",
+   "date",
+   "daybook"
   ],
   "source_path": "w_acledger_group.srw",
   "controls": [
@@ -55948,10 +61481,10 @@
   "height": 2376,
   "tables": [
    "daybook",
-   "daybookpart",
    "accountm",
    "salesm",
-   "purchasem"
+   "purchasem",
+   "daybookpart"
   ],
   "source_path": "w_daybookreport.srw",
   "controls": [
@@ -56117,10 +61650,10 @@
   "width": 3648,
   "height": 2192,
   "tables": [
-   "salesm",
-   "spdmddet",
    "accountm",
-   "daybook"
+   "daybook",
+   "salesm",
+   "spdmddet"
   ],
   "source_path": "w_cashbookreport.srw",
   "controls": [
@@ -56307,11 +61840,9 @@
   "width": 3662,
   "height": 2312,
   "tables": [
-   "daybookpart",
-   "generali",
-   "collection",
    "daybook",
    "accountm",
+   "collection",
    "salesm",
    "salesrm",
    "purchasem",
@@ -56319,7 +61850,9 @@
    "orderm",
    "refinerym",
    "repairm",
-   "smithm"
+   "smithm",
+   "daybookpart",
+   "generali"
   ],
   "source_path": "w_rcptpmnts.srw",
   "controls": [
@@ -56547,12 +62080,12 @@
   "width": 3666,
   "height": 2352,
   "tables": [
+   "daybook",
+   "accountm",
+   "date",
    "suspentry",
    "suspac",
-   "accountm",
-   "clients",
-   "daybook",
-   "date"
+   "clients"
   ],
   "source_path": "w_suspledger.srw",
   "controls": [
@@ -57327,7 +62860,82 @@
     "text": "Clearance",
     "taborder": 121
    }
-  ]
+  ],
+  "grid": {
+   "control": "dw_1",
+   "dataobject": "d_pdclist_report",
+   "table": "pdclist",
+   "keys": [
+    "chqno"
+   ],
+   "columns": [
+    {
+     "name": "tdate",
+     "label": "tdate",
+     "type": "date"
+    },
+    {
+     "name": "docno",
+     "label": "docno",
+     "type": "char"
+    },
+    {
+     "name": "chqdate",
+     "label": "chqdate",
+     "type": "date"
+    },
+    {
+     "name": "bank",
+     "label": "bank",
+     "type": "char"
+    },
+    {
+     "name": "code",
+     "label": "code",
+     "type": "char"
+    },
+    {
+     "name": "chqno",
+     "label": "chqno",
+     "type": "char"
+    },
+    {
+     "name": "amount",
+     "label": "amount",
+     "type": "decimal"
+    },
+    {
+     "name": "particulars",
+     "label": "particulars",
+     "type": "char"
+    },
+    {
+     "name": "rp",
+     "label": "rp",
+     "type": "char"
+    },
+    {
+     "name": "pend",
+     "label": "pend",
+     "type": "char"
+    },
+    {
+     "name": "slno",
+     "label": "slno",
+     "type": "decimal"
+    },
+    {
+     "name": "bankname",
+     "label": "bankname",
+     "type": "char"
+    },
+    {
+     "name": "partyname",
+     "label": "partyname",
+     "type": "char"
+    }
+   ]
+  }
  },
  "w_journrpt": {
   "name": "w_journrpt",
@@ -57606,7 +63214,47 @@
     "taborder": 60,
     "dataobject": "d_search"
    }
-  ]
+  ],
+  "grid": {
+   "control": "dw_1",
+   "dataobject": "d_trialbal_grp",
+   "table": "accountg",
+   "keys": [
+    "grcode"
+   ],
+   "columns": [
+    {
+     "name": "name",
+     "label": "name",
+     "type": "char"
+    },
+    {
+     "name": "grcode",
+     "label": "grcode",
+     "type": "char"
+    },
+    {
+     "name": "c_opbalb",
+     "label": "c_opbalb",
+     "type": "decimal"
+    },
+    {
+     "name": "c_opbala",
+     "label": "c_opbala",
+     "type": "decimal"
+    },
+    {
+     "name": "c_total",
+     "label": "c_total",
+     "type": "decimal"
+    },
+    {
+     "name": "pos",
+     "label": "pos",
+     "type": "long"
+    }
+   ]
+  }
  },
  "w_trialbal_term": {
   "name": "w_trialbal_term",
@@ -57790,7 +63438,52 @@
     "text": "Transaction Errors",
     "taborder": 80
    }
-  ]
+  ],
+  "grid": {
+   "control": "dw_1",
+   "dataobject": "d_trialbal_grp_term",
+   "table": "accountg",
+   "keys": [
+    "grcode"
+   ],
+   "columns": [
+    {
+     "name": "name",
+     "label": "name",
+     "type": "char"
+    },
+    {
+     "name": "grcode",
+     "label": "grcode",
+     "type": "char"
+    },
+    {
+     "name": "c_opbalb",
+     "label": "c_opbalb",
+     "type": "decimal"
+    },
+    {
+     "name": "c_opbala",
+     "label": "c_opbala",
+     "type": "decimal"
+    },
+    {
+     "name": "c_total",
+     "label": "c_total",
+     "type": "decimal"
+    },
+    {
+     "name": "pos",
+     "label": "pos",
+     "type": "long"
+    },
+    {
+     "name": "actype1",
+     "label": "actype1",
+     "type": "char"
+    }
+   ]
+  }
  },
  "w_pandlac_trading": {
   "name": "w_pandlac_trading",
@@ -57799,8 +63492,8 @@
   "height": 2200,
   "tables": [
    "accountm",
-   "date",
-   "daybook"
+   "daybook",
+   "date"
   ],
   "source_path": "w_pandlac_trading.srw",
   "controls": [
@@ -58002,8 +63695,8 @@
   "height": 2324,
   "tables": [
    "accountm",
-   "accountg",
-   "daybook"
+   "daybook",
+   "accountg"
   ],
   "source_path": "w_group_accountsummary.srw",
   "controls": [
@@ -58180,10 +63873,10 @@
   "width": 3657,
   "height": 2284,
   "tables": [
-   "accountm",
    "daybook",
-   "date",
+   "accountm",
    "accountg",
+   "date",
    "clients"
   ],
   "source_path": "w_account_grpwise_expand_rep.srw",
@@ -58403,18 +64096,15 @@
   "height": 2368,
   "tables": [
    "salesm",
-   "purchasem",
    "salesrm",
-   "daybookpart",
-   "generali",
    "items",
+   "purchasem",
    "itemsstk",
-   "barcode",
    "daybook",
-   "generals",
    "salesd",
    "salesrd",
    "purchased",
+   "barcode",
    "purchaserm",
    "purchaserd",
    "orderm",
@@ -58424,7 +64114,10 @@
    "refinerym",
    "refineryd",
    "itemadj",
-   "counter"
+   "counter",
+   "generals",
+   "generali",
+   "daybookpart"
   ],
   "source_path": "w_trans_rearrange_report.srw",
   "controls": [
@@ -58652,7 +64345,142 @@
     "taborder": 90,
     "dataobject": "d_transrep_sales"
    }
-  ]
+  ],
+  "grid": {
+   "control": "dw_saleregister",
+   "dataobject": "d_transrep_sales",
+   "table": "salesm",
+   "keys": [
+    "slno"
+   ],
+   "columns": [
+    {
+     "name": "tdate",
+     "label": "salesm_tdate",
+     "type": "date"
+    },
+    {
+     "name": "billno",
+     "label": "salesm_billno",
+     "type": "char"
+    },
+    {
+     "name": "custname",
+     "label": "salesm_custname",
+     "type": "char"
+    },
+    {
+     "name": "billamt",
+     "label": "salesm_billamt",
+     "type": "decimal"
+    },
+    {
+     "name": "status",
+     "label": "salesm_status",
+     "type": "long"
+    },
+    {
+     "name": "discount",
+     "label": "salesm_discount",
+     "type": "decimal"
+    },
+    {
+     "name": "ramt",
+     "label": "salesm_ramt",
+     "type": "decimal"
+    },
+    {
+     "name": "eamt",
+     "label": "salesm_eamt",
+     "type": "decimal"
+    },
+    {
+     "name": "staxamt",
+     "label": "salesm_staxamt",
+     "type": "decimal"
+    },
+    {
+     "name": "astamt",
+     "label": "astamt",
+     "type": "decimal"
+    },
+    {
+     "name": "duedate",
+     "label": "salesm_duedate",
+     "type": "date"
+    },
+    {
+     "name": "sretamt",
+     "label": "salesm_sretamt",
+     "type": "decimal"
+    },
+    {
+     "name": "ramtafter",
+     "label": "salesm_ramtafter",
+     "type": "decimal"
+    },
+    {
+     "name": "round",
+     "label": "round",
+     "type": "decimal"
+    },
+    {
+     "name": "control",
+     "label": "control",
+     "type": "long"
+    },
+    {
+     "name": "slno",
+     "label": "slno",
+     "type": "decimal"
+    },
+    {
+     "name": "billtype",
+     "label": "billtype",
+     "type": "char"
+    },
+    {
+     "name": "totwgt",
+     "label": "totwgt",
+     "type": "decimal"
+    },
+    {
+     "name": "grosswgt",
+     "label": "grosswgt",
+     "type": "decimal"
+    },
+    {
+     "name": "va",
+     "label": "va",
+     "type": "decimal"
+    },
+    {
+     "name": "maxrate",
+     "label": "maxrate",
+     "type": "decimal"
+    },
+    {
+     "name": "caddr",
+     "label": "caddr",
+     "type": "char"
+    },
+    {
+     "name": "cplace",
+     "label": "cplace",
+     "type": "char"
+    },
+    {
+     "name": "tdate",
+     "label": "tdate",
+     "type": "date"
+    },
+    {
+     "name": "sel",
+     "label": "sel",
+     "type": "long"
+    }
+   ]
+  }
  },
  "w_accountlist": {
   "name": "w_accountlist",
@@ -58883,8 +64711,8 @@
   "height": 2004,
   "tables": [
    "daybook",
-   "smithm",
    "accountm",
+   "smithm",
    "clients"
   ],
   "source_path": "w_nontransactionaldays_report.srw",
@@ -59008,24 +64836,24 @@
   "width": 3442,
   "height": 2216,
   "tables": [
-   "items",
    "accountm",
    "daybook",
+   "itemadj",
+   "salesm",
+   "purchasem",
+   "items",
    "salesd",
    "salesrd",
    "purchased",
    "purchaserd",
    "smithd",
    "refineryd",
-   "itemadj",
    "without",
    "repaird",
    "orderdga",
    "accountg",
    "accountgbs",
-   "daybookpart",
-   "salesm",
-   "purchasem"
+   "daybookpart"
   ],
   "source_path": "w_account_checking.srw",
   "controls": [
@@ -59707,21 +65535,21 @@
   "width": 3675,
   "height": 2444,
   "tables": [
-   "purchasem",
-   "salesrm",
+   "refineryd",
+   "itemadj",
    "smithm",
-   "salesm",
-   "purchaserm",
    "items",
    "smithd",
+   "repaird",
+   "purchasem",
+   "salesrm",
+   "salesm",
+   "purchaserm",
    "purchased",
    "purchaserd",
-   "repaird",
-   "refineryd",
    "salesrd",
    "orderdga",
    "salesd",
-   "itemadj",
    "date",
    "clients"
   ],
@@ -59966,7 +65794,57 @@
     "width": 421,
     "height": 84
    }
-  ]
+  ],
+  "grid": {
+   "control": "dw_1",
+   "dataobject": "d_itemwiseprofit",
+   "table": "items",
+   "keys": [
+    "code"
+   ],
+   "columns": [
+    {
+     "name": "code",
+     "label": "Code",
+     "type": "char"
+    },
+    {
+     "name": "name",
+     "label": "Name",
+     "type": "char"
+    },
+    {
+     "name": "saleamt",
+     "label": "Sales Amt",
+     "type": "decimal"
+    },
+    {
+     "name": "stkinnos",
+     "label": "stkinnos",
+     "type": "char"
+    },
+    {
+     "name": "qtycostamt",
+     "label": "qtycostamt",
+     "type": "decimal"
+    },
+    {
+     "name": "wgtcostamt",
+     "label": "wgtcostamt",
+     "type": "decimal"
+    },
+    {
+     "name": "tqty",
+     "label": "tqty",
+     "type": "long"
+    },
+    {
+     "name": "twgt",
+     "label": "twgt",
+     "type": "decimal"
+    }
+   ]
+  }
  },
  "w_itemhistory": {
   "name": "w_itemhistory",
@@ -59974,27 +65852,27 @@
   "width": 3657,
   "height": 2284,
   "tables": [
-   "refinerym",
    "refineryd",
-   "purchasem",
-   "purchaserm",
-   "smithm",
-   "salesm",
-   "salesrm",
+   "smithd",
    "itemadj",
-   "repairm",
-   "orderm",
+   "repaird",
+   "purchased",
+   "refinerym",
    "clients",
    "items",
-   "userd",
-   "smithd",
-   "purchased",
    "purchaserd",
-   "repaird",
    "salesrd",
    "orderdga",
    "salesd",
-   "date"
+   "smithm",
+   "repairm",
+   "purchasem",
+   "purchaserm",
+   "salesm",
+   "salesrm",
+   "orderm",
+   "date",
+   "userd"
   ],
   "source_path": "w_itemhistory.srw",
   "controls": [
@@ -60239,7 +66117,57 @@
     "text": "To Excel",
     "taborder": 40
    }
-  ]
+  ],
+  "grid": {
+   "control": "dw_history",
+   "dataobject": "d_itemhistory",
+   "table": "items",
+   "keys": [
+    "code"
+   ],
+   "columns": [
+    {
+     "name": "code",
+     "label": "items_code",
+     "type": "char"
+    },
+    {
+     "name": "name",
+     "label": "items_name",
+     "type": "char"
+    },
+    {
+     "name": "opqty",
+     "label": "items_opqty",
+     "type": "long"
+    },
+    {
+     "name": "opweight",
+     "label": "items_opweight",
+     "type": "real"
+    },
+    {
+     "name": "opqtyb",
+     "label": "items_opqtyb",
+     "type": "long"
+    },
+    {
+     "name": "opweightb",
+     "label": "items_opweightb",
+     "type": "real"
+    },
+    {
+     "name": "opcost",
+     "label": "items_opcost",
+     "type": "real"
+    },
+    {
+     "name": "cost",
+     "label": "items_cost",
+     "type": "real"
+    }
+   ]
+  }
  },
  "w_rolreport": {
   "name": "w_rolreport",
@@ -60336,7 +66264,57 @@
     "taborder": 10,
     "dataobject": "d_rolreport"
    }
-  ]
+  ],
+  "grid": {
+   "control": "dw_itemlist",
+   "dataobject": "d_rolreport",
+   "table": "items",
+   "keys": [
+    "code"
+   ],
+   "columns": [
+    {
+     "name": "code",
+     "label": "Code",
+     "type": "char"
+    },
+    {
+     "name": "name",
+     "label": "name",
+     "type": "char"
+    },
+    {
+     "name": "qty",
+     "label": "Qty",
+     "type": "long"
+    },
+    {
+     "name": "weight",
+     "label": "Weight",
+     "type": "decimal"
+    },
+    {
+     "name": "qtyb",
+     "label": "qtyb",
+     "type": "long"
+    },
+    {
+     "name": "weightb",
+     "label": "weightb",
+     "type": "decimal"
+    },
+    {
+     "name": "rollower",
+     "label": "rollower",
+     "type": "decimal"
+    },
+    {
+     "name": "rolupper",
+     "label": "rolupper",
+     "type": "decimal"
+    }
+   ]
+  }
  },
  "w_itemrate_report": {
   "name": "w_itemrate_report",
@@ -60457,7 +66435,97 @@
     "taborder": 10,
     "dataobject": "d_itemrate_report"
    }
-  ]
+  ],
+  "grid": {
+   "control": "dw_1",
+   "dataobject": "d_itemrate_report",
+   "table": "items",
+   "keys": [
+    "code"
+   ],
+   "columns": [
+    {
+     "name": "name",
+     "label": "Item Name",
+     "type": "char"
+    },
+    {
+     "name": "code",
+     "label": "Code",
+     "type": "char"
+    },
+    {
+     "name": "regionalname",
+     "label": "regionalname",
+     "type": "char"
+    },
+    {
+     "name": "itype",
+     "label": "itype",
+     "type": "char"
+    },
+    {
+     "name": "ornament",
+     "label": "ornament",
+     "type": "char"
+    },
+    {
+     "name": "grpcode",
+     "label": "grpcode",
+     "type": "char"
+    },
+    {
+     "name": "crate",
+     "label": "crate",
+     "type": "decimal"
+    },
+    {
+     "name": "rate",
+     "label": "rate",
+     "type": "decimal"
+    },
+    {
+     "name": "wsrate",
+     "label": "wsrate",
+     "type": "decimal"
+    },
+    {
+     "name": "qty",
+     "label": "qty",
+     "type": "long"
+    },
+    {
+     "name": "weight",
+     "label": "weight",
+     "type": "decimal"
+    },
+    {
+     "name": "stonewgt",
+     "label": "stonewgt",
+     "type": "decimal"
+    },
+    {
+     "name": "qtyb",
+     "label": "qtyb",
+     "type": "long"
+    },
+    {
+     "name": "weightb",
+     "label": "weightb",
+     "type": "decimal"
+    },
+    {
+     "name": "stonewgtb",
+     "label": "stonewgtb",
+     "type": "decimal"
+    },
+    {
+     "name": "stkinnos",
+     "label": "stkinnos",
+     "type": "char"
+    }
+   ]
+  }
  },
  "w_costlist": {
   "name": "w_costlist",
@@ -60466,8 +66534,8 @@
   "height": 2208,
   "tables": [
    "items",
-   "purchased",
-   "refineryd"
+   "refineryd",
+   "purchased"
   ],
   "source_path": "w_costlist.srw",
   "controls": [
@@ -60644,7 +66712,267 @@
     "height": 76,
     "text": "Op.Cost"
    }
-  ]
+  ],
+  "grid": {
+   "control": "dw_1",
+   "dataobject": "d_costlist",
+   "table": "items",
+   "keys": [
+    "code"
+   ],
+   "columns": [
+    {
+     "name": "code",
+     "label": "Code",
+     "type": "char"
+    },
+    {
+     "name": "name",
+     "label": "name",
+     "type": "char"
+    },
+    {
+     "name": "itype",
+     "label": "itype",
+     "type": "char"
+    },
+    {
+     "name": "grpcode",
+     "label": "grpcode",
+     "type": "char"
+    },
+    {
+     "name": "ornament",
+     "label": "ornament",
+     "type": "char"
+    },
+    {
+     "name": "opweight",
+     "label": "opweight",
+     "type": "decimal"
+    },
+    {
+     "name": "opqty",
+     "label": "opqty",
+     "type": "long"
+    },
+    {
+     "name": "opqtyb",
+     "label": "opqtyb",
+     "type": "long"
+    },
+    {
+     "name": "opweightb",
+     "label": "opweightb",
+     "type": "decimal"
+    },
+    {
+     "name": "opstonewgt",
+     "label": "opstonewgt",
+     "type": "decimal"
+    },
+    {
+     "name": "opstonewgtb",
+     "label": "opstonewgtb",
+     "type": "decimal"
+    },
+    {
+     "name": "cost",
+     "label": "cost",
+     "type": "decimal"
+    },
+    {
+     "name": "opcost",
+     "label": "opcost",
+     "type": "decimal"
+    },
+    {
+     "name": "stkinnos",
+     "label": "stkinnos",
+     "type": "char"
+    },
+    {
+     "name": "stktouch",
+     "label": "stktouch",
+     "type": "decimal"
+    },
+    {
+     "name": "icost",
+     "label": "icost",
+     "type": "decimal"
+    },
+    {
+     "name": "tissuqty",
+     "label": "tissuqty",
+     "type": "long"
+    },
+    {
+     "name": "tissuwgt",
+     "label": "tissuwgt",
+     "type": "decimal"
+    },
+    {
+     "name": "tsretqty",
+     "label": "tsretqty",
+     "type": "long"
+    },
+    {
+     "name": "tsretwgt",
+     "label": "tsretwgt",
+     "type": "decimal"
+    },
+    {
+     "name": "trcptqty",
+     "label": "trcptqty",
+     "type": "long"
+    },
+    {
+     "name": "trcptwgt",
+     "label": "trcptwgt",
+     "type": "decimal"
+    },
+    {
+     "name": "trcptqtye",
+     "label": "trcptqtye",
+     "type": "long"
+    },
+    {
+     "name": "trcptwgte",
+     "label": "trcptwgte",
+     "type": "decimal"
+    },
+    {
+     "name": "tgissuwgt",
+     "label": "tgissuwgt",
+     "type": "decimal"
+    },
+    {
+     "name": "tgissuqty",
+     "label": "tgissuqty",
+     "type": "long"
+    },
+    {
+     "name": "tgrcptwgt",
+     "label": "tgrcptwgt",
+     "type": "decimal"
+    },
+    {
+     "name": "tgrcptqty",
+     "label": "tgrcptqty",
+     "type": "long"
+    },
+    {
+     "name": "trprcptqty",
+     "label": "trprcptqty",
+     "type": "long"
+    },
+    {
+     "name": "trprcptwgt",
+     "label": "trprcptwgt",
+     "type": "decimal"
+    },
+    {
+     "name": "trpissueqty",
+     "label": "trpissueqty",
+     "type": "long"
+    },
+    {
+     "name": "trpissuewgt",
+     "label": "trpissuewgt",
+     "type": "decimal"
+    },
+    {
+     "name": "trfnissueqty",
+     "label": "trfnissueqty",
+     "type": "long"
+    },
+    {
+     "name": "trfnissuewgt",
+     "label": "trfnissuewgt",
+     "type": "decimal"
+    },
+    {
+     "name": "trfnrcvdqty",
+     "label": "trfnrcvdqty",
+     "type": "long"
+    },
+    {
+     "name": "trfnrcvdwgt",
+     "label": "trfnrcvdwgt",
+     "type": "decimal"
+    },
+    {
+     "name": "tadjfromqty",
+     "label": "tadjfromqty",
+     "type": "long"
+    },
+    {
+     "name": "tadjfromwgt",
+     "label": "tadjfromwgt",
+     "type": "decimal"
+    },
+    {
+     "name": "tadjtoqty",
+     "label": "tadjtoqty",
+     "type": "long"
+    },
+    {
+     "name": "tadjtowgt",
+     "label": "tadjtowgt",
+     "type": "decimal"
+    },
+    {
+     "name": "tissuqtye",
+     "label": "tissuqtye",
+     "type": "long"
+    },
+    {
+     "name": "tissuwgte",
+     "label": "tissuwgte",
+     "type": "decimal"
+    },
+    {
+     "name": "tordgaqty",
+     "label": "tordgaqty",
+     "type": "long"
+    },
+    {
+     "name": "tordgawgt",
+     "label": "tordgawgt",
+     "type": "decimal"
+    },
+    {
+     "name": "tst_issuwgt",
+     "label": "tst_issuwgt",
+     "type": "decimal"
+    },
+    {
+     "name": "tst_sretwgt",
+     "label": "tst_sretwgt",
+     "type": "decimal"
+    },
+    {
+     "name": "tst_rcptwgt",
+     "label": "tst_rcptwgt",
+     "type": "decimal"
+    },
+    {
+     "name": "tst_issuwgte",
+     "label": "tst_issuwgte",
+     "type": "decimal"
+    },
+    {
+     "name": "tst_gissuwgt",
+     "label": "tst_gissuwgt",
+     "type": "decimal"
+    },
+    {
+     "name": "tst_grcptwgt",
+     "label": "tst_grcptwgt",
+     "type": "decimal"
+    }
+   ]
+  }
  },
  "w_ratehistory": {
   "name": "w_ratehistory",
@@ -61027,11 +67355,11 @@
   "width": 3630,
   "height": 2228,
   "tables": [
-   "items",
    "clients",
-   "itemgrp",
+   "items",
    "clientsgrp",
    "oglist",
+   "itemgrp",
    "clientsgs",
    "smithd",
    "refineryd",
@@ -61241,9 +67569,9 @@
    "barcode_dmddet",
    "purchasem",
    "smithm",
-   "userd",
    "barcode",
-   "items"
+   "items",
+   "userd"
   ],
   "source_path": "w_barcodelist.srw",
   "controls": [
@@ -61754,7 +68082,77 @@
     "taborder": 40,
     "dataobject": "d_bcstkverifyrep"
    }
-  ]
+  ],
+  "grid": {
+   "control": "dw_1",
+   "dataobject": "d_bcstkverifyrep",
+   "table": "items",
+   "keys": [
+    "code"
+   ],
+   "columns": [
+    {
+     "name": "code",
+     "label": "code",
+     "type": "char"
+    },
+    {
+     "name": "itype",
+     "label": "itype",
+     "type": "char"
+    },
+    {
+     "name": "ornament",
+     "label": "ornament",
+     "type": "char"
+    },
+    {
+     "name": "grpcode",
+     "label": "grpcode",
+     "type": "char"
+    },
+    {
+     "name": "counteriqty",
+     "label": "counteriqty",
+     "type": "long"
+    },
+    {
+     "name": "counteriwgt",
+     "label": "counteriwgt",
+     "type": "decimal"
+    },
+    {
+     "name": "name",
+     "label": "name",
+     "type": "char"
+    },
+    {
+     "name": "counterswgt",
+     "label": "counterswgt",
+     "type": "decimal"
+    },
+    {
+     "name": "countersqty",
+     "label": "countersqty",
+     "type": "long"
+    },
+    {
+     "name": "verifyqty",
+     "label": "verifyqty",
+     "type": "long"
+    },
+    {
+     "name": "verifywgt",
+     "label": "verifywgt",
+     "type": "decimal"
+    },
+    {
+     "name": "dmdplt",
+     "label": "dmdplt",
+     "type": "char"
+    }
+   ]
+  }
  },
  "w_barcodelist_salesamtlist": {
   "name": "w_barcodelist_salesamtlist",
@@ -62092,7 +68490,22 @@
     "height": 68,
     "text": "Group :"
    }
-  ]
+  ],
+  "grid": {
+   "control": "dw_scode",
+   "dataobject": "d_supp",
+   "table": "codehelp",
+   "keys": [
+    "code"
+   ],
+   "columns": [
+    {
+     "name": "code",
+     "label": "code",
+     "type": "char"
+    }
+   ]
+  }
  },
  "w_barcode_history": {
   "name": "w_barcode_history",
@@ -62100,10 +68513,10 @@
   "width": 2903,
   "height": 1824,
   "tables": [
+   "itemadj",
    "salesm",
    "salesrm",
    "smithm",
-   "itemadj",
    "barcode",
    "items",
    "date"
@@ -62908,7 +69321,117 @@
     "taborder": 10,
     "dataobject": "d_stocklist_dmdplt"
    }
-  ]
+  ],
+  "grid": {
+   "control": "dw_1",
+   "dataobject": "d_stocklist_dmdplt",
+   "table": "items",
+   "keys": [
+    "code"
+   ],
+   "columns": [
+    {
+     "name": "name",
+     "label": "Item Name",
+     "type": "char"
+    },
+    {
+     "name": "code",
+     "label": "Code",
+     "type": "char"
+    },
+    {
+     "name": "regionalname",
+     "label": "regionalname",
+     "type": "char"
+    },
+    {
+     "name": "itype",
+     "label": "itype",
+     "type": "char"
+    },
+    {
+     "name": "ornament",
+     "label": "ornament",
+     "type": "char"
+    },
+    {
+     "name": "qty",
+     "label": "qty",
+     "type": "long"
+    },
+    {
+     "name": "weight",
+     "label": "weight",
+     "type": "decimal"
+    },
+    {
+     "name": "stonewgt",
+     "label": "stonewgt",
+     "type": "decimal"
+    },
+    {
+     "name": "qtyb",
+     "label": "qtyb",
+     "type": "long"
+    },
+    {
+     "name": "weightb",
+     "label": "weightb",
+     "type": "decimal"
+    },
+    {
+     "name": "stonewgtb",
+     "label": "stonewgtb",
+     "type": "decimal"
+    },
+    {
+     "name": "cost",
+     "label": "cost",
+     "type": "decimal"
+    },
+    {
+     "name": "grpcode",
+     "label": "grpcode",
+     "type": "char"
+    },
+    {
+     "name": "dmdwgt",
+     "label": "dmdwgt",
+     "type": "decimal"
+    },
+    {
+     "name": "dmdplt",
+     "label": "dmdplt",
+     "type": "char"
+    },
+    {
+     "name": "gwgt",
+     "label": "gwgt",
+     "type": "long"
+    },
+    {
+     "name": "nos",
+     "label": "nos",
+     "type": "long"
+    },
+    {
+     "name": "stwgt",
+     "label": "stwgt",
+     "type": "decimal"
+    },
+    {
+     "name": "tmrp",
+     "label": "tmrp",
+     "type": "decimal"
+    },
+    {
+     "name": "dmdcostamt",
+     "label": "dmdcostamt",
+     "type": "decimal"
+    }
+   ]
+  }
  },
  "w_stockledger_stktype": {
   "name": "w_stockledger_stktype",
@@ -62916,17 +69439,17 @@
   "width": 3653,
   "height": 2300,
   "tables": [
-   "refineryd",
-   "itemsstk",
-   "purchased",
    "smithd",
    "itemadj",
+   "refineryd",
+   "repaird",
+   "purchased",
+   "itemsstk",
    "salesd",
    "salesrd",
    "purchaserd",
-   "repaird",
-   "itemgrp",
-   "date"
+   "date",
+   "itemgrp"
   ],
   "source_path": "w_stockledger_stktype.srw",
   "controls": [
@@ -63175,7 +69698,347 @@
     "height": 80,
     "text": "With Stock Touch Calc"
    }
-  ]
+  ],
+  "grid": {
+   "control": "dw_1",
+   "dataobject": "d_stockledger_simple_stktype_withstone",
+   "table": "items",
+   "keys": [
+    "code"
+   ],
+   "columns": [
+    {
+     "name": "code",
+     "label": "Code",
+     "type": "char"
+    },
+    {
+     "name": "name",
+     "label": "name",
+     "type": "char"
+    },
+    {
+     "name": "itype",
+     "label": "itype",
+     "type": "char"
+    },
+    {
+     "name": "grpcode",
+     "label": "grpcode",
+     "type": "char"
+    },
+    {
+     "name": "subgrpcode",
+     "label": "subgrpcode",
+     "type": "char"
+    },
+    {
+     "name": "ornament",
+     "label": "ornament",
+     "type": "char"
+    },
+    {
+     "name": "opweight",
+     "label": "opweight",
+     "type": "decimal"
+    },
+    {
+     "name": "opweightb",
+     "label": "opweightb",
+     "type": "decimal"
+    },
+    {
+     "name": "opstonewgt",
+     "label": "opstonewgt",
+     "type": "decimal"
+    },
+    {
+     "name": "opstonewgtb",
+     "label": "opstonewgtb",
+     "type": "decimal"
+    },
+    {
+     "name": "opqty",
+     "label": "opqty",
+     "type": "long"
+    },
+    {
+     "name": "opqtyb",
+     "label": "opqtyb",
+     "type": "long"
+    },
+    {
+     "name": "opissuqty",
+     "label": "opissuqty",
+     "type": "long"
+    },
+    {
+     "name": "opissuwgt",
+     "label": "opissuwgt",
+     "type": "decimal"
+    },
+    {
+     "name": "opsretqty",
+     "label": "opsretqty",
+     "type": "long"
+    },
+    {
+     "name": "opsretwgt",
+     "label": "opsretwgt",
+     "type": "decimal"
+    },
+    {
+     "name": "oprcptqty",
+     "label": "oprcptqty",
+     "type": "long"
+    },
+    {
+     "name": "oprcptwgt",
+     "label": "oprcptwgt",
+     "type": "decimal"
+    },
+    {
+     "name": "opgissuwgt",
+     "label": "opgissuwgt",
+     "type": "decimal"
+    },
+    {
+     "name": "opgissuqty",
+     "label": "opgissuqty",
+     "type": "long"
+    },
+    {
+     "name": "opgrcptwgt",
+     "label": "opgrcptwgt",
+     "type": "decimal"
+    },
+    {
+     "name": "opgrcptqty",
+     "label": "opgrcptqty",
+     "type": "long"
+    },
+    {
+     "name": "oprprcptqty",
+     "label": "oprprcptqty",
+     "type": "long"
+    },
+    {
+     "name": "oprprcptwgt",
+     "label": "oprprcptwgt",
+     "type": "decimal"
+    },
+    {
+     "name": "oprpissueqty",
+     "label": "oprpissueqty",
+     "type": "long"
+    },
+    {
+     "name": "oprpissuewgt",
+     "label": "oprpissuewgt",
+     "type": "decimal"
+    },
+    {
+     "name": "oprfnissueqty",
+     "label": "oprfnissueqty",
+     "type": "long"
+    },
+    {
+     "name": "oprfnissuewgt",
+     "label": "oprfnissuewgt",
+     "type": "decimal"
+    },
+    {
+     "name": "oprfnrcvdqty",
+     "label": "oprfnrcvdqty",
+     "type": "long"
+    },
+    {
+     "name": "oprfnrcvdwgt",
+     "label": "oprfnrcvdwgt",
+     "type": "decimal"
+    },
+    {
+     "name": "opadjfromqty",
+     "label": "opadjfromqty",
+     "type": "long"
+    },
+    {
+     "name": "opadjfromwgt",
+     "label": "opadjfromwgt",
+     "type": "decimal"
+    },
+    {
+     "name": "opadjtoqty",
+     "label": "opadjtoqty",
+     "type": "long"
+    },
+    {
+     "name": "opadjtowgt",
+     "label": "opadjtowgt",
+     "type": "decimal"
+    },
+    {
+     "name": "opordgaqty",
+     "label": "opordgaqty",
+     "type": "long"
+    },
+    {
+     "name": "opordgawgt",
+     "label": "opordgawgt",
+     "type": "decimal"
+    },
+    {
+     "name": "oppretqty",
+     "label": "oppretqty",
+     "type": "long"
+    },
+    {
+     "name": "oppretwgt",
+     "label": "oppretwgt",
+     "type": "decimal"
+    },
+    {
+     "name": "tissuqty",
+     "label": "tissuqty",
+     "type": "long"
+    },
+    {
+     "name": "tissuwgt",
+     "label": "tissuwgt",
+     "type": "decimal"
+    },
+    {
+     "name": "tsretqty",
+     "label": "tsretqty",
+     "type": "long"
+    },
+    {
+     "name": "tsretwgt",
+     "label": "tsretwgt",
+     "type": "decimal"
+    },
+    {
+     "name": "trcptqty",
+     "label": "trcptqty",
+     "type": "long"
+    },
+    {
+     "name": "trcptwgt",
+     "label": "trcptwgt",
+     "type": "decimal"
+    },
+    {
+     "name": "tgissuwgt",
+     "label": "tgissuwgt",
+     "type": "decimal"
+    },
+    {
+     "name": "tgissuqty",
+     "label": "tgissuqty",
+     "type": "long"
+    },
+    {
+     "name": "tgrcptwgt",
+     "label": "tgrcptwgt",
+     "type": "decimal"
+    },
+    {
+     "name": "tgrcptqty",
+     "label": "tgrcptqty",
+     "type": "long"
+    },
+    {
+     "name": "trprcptqty",
+     "label": "trprcptqty",
+     "type": "long"
+    },
+    {
+     "name": "trprcptwgt",
+     "label": "trprcptwgt",
+     "type": "decimal"
+    },
+    {
+     "name": "trpissueqty",
+     "label": "trpissueqty",
+     "type": "long"
+    },
+    {
+     "name": "trpissuewgt",
+     "label": "trpissuewgt",
+     "type": "decimal"
+    },
+    {
+     "name": "trfnissueqty",
+     "label": "trfnissueqty",
+     "type": "long"
+    },
+    {
+     "name": "trfnissuewgt",
+     "label": "trfnissuewgt",
+     "type": "decimal"
+    },
+    {
+     "name": "trfnrcvdqty",
+     "label": "trfnrcvdqty",
+     "type": "long"
+    },
+    {
+     "name": "trfnrcvdwgt",
+     "label": "trfnrcvdwgt",
+     "type": "decimal"
+    },
+    {
+     "name": "tadjfromqty",
+     "label": "tadjfromqty",
+     "type": "long"
+    },
+    {
+     "name": "tadjfromwgt",
+     "label": "tadjfromwgt",
+     "type": "decimal"
+    },
+    {
+     "name": "tadjtoqty",
+     "label": "tadjtoqty",
+     "type": "long"
+    },
+    {
+     "name": "tadjtowgt",
+     "label": "tadjtowgt",
+     "type": "decimal"
+    },
+    {
+     "name": "tissuqtye",
+     "label": "tissuqtye",
+     "type": "long"
+    },
+    {
+     "name": "tissuwgte",
+     "label": "tissuwgte",
+     "type": "decimal"
+    },
+    {
+     "name": "opstwgt",
+     "label": "opstwgt",
+     "type": "decimal"
+    },
+    {
+     "name": "tissustwgt",
+     "label": "tissustwgt",
+     "type": "decimal"
+    },
+    {
+     "name": "trcptstwgt",
+     "label": "trcptstwgt",
+     "type": "decimal"
+    },
+    {
+     "name": "clstwgt",
+     "label": "clstwgt",
+     "type": "decimal"
+    }
+   ]
+  }
  },
  "w_stockledger": {
   "name": "w_stockledger",
@@ -63183,22 +70046,22 @@
   "width": 3653,
   "height": 2296,
   "tables": [
-   "daybook",
-   "itemgrp",
-   "date",
-   "accountm",
-   "salesm",
-   "purchasem",
-   "userd",
    "refineryd",
+   "smithd",
    "salesd",
    "salesrd",
-   "purchased_dmddet",
-   "purchased",
-   "purchaserd",
-   "smithd",
    "repaird",
-   "itemadj"
+   "itemadj",
+   "daybook",
+   "date",
+   "purchased",
+   "itemgrp",
+   "accountm",
+   "purchased_dmddet",
+   "purchaserd",
+   "salesm",
+   "purchasem",
+   "userd"
   ],
   "source_path": "w_stockledger.srw",
   "controls": [
@@ -63588,7 +70451,362 @@
     "text": "To Excel",
     "taborder": 50
    }
-  ]
+  ],
+  "grid": {
+   "control": "dw_1",
+   "dataobject": "d_stockledger_simple",
+   "table": "items",
+   "keys": [
+    "code"
+   ],
+   "columns": [
+    {
+     "name": "code",
+     "label": "Code",
+     "type": "char"
+    },
+    {
+     "name": "name",
+     "label": "name",
+     "type": "char"
+    },
+    {
+     "name": "itype",
+     "label": "itype",
+     "type": "char"
+    },
+    {
+     "name": "grpcode",
+     "label": "grpcode",
+     "type": "char"
+    },
+    {
+     "name": "subgrpcode",
+     "label": "subgrpcode",
+     "type": "char"
+    },
+    {
+     "name": "ornament",
+     "label": "ornament",
+     "type": "char"
+    },
+    {
+     "name": "opweight",
+     "label": "opweight",
+     "type": "decimal"
+    },
+    {
+     "name": "opweightb",
+     "label": "opweightb",
+     "type": "decimal"
+    },
+    {
+     "name": "opqty",
+     "label": "opqty",
+     "type": "long"
+    },
+    {
+     "name": "opqtyb",
+     "label": "opqtyb",
+     "type": "long"
+    },
+    {
+     "name": "opstonewgtb",
+     "label": "opstonewgtb",
+     "type": "decimal"
+    },
+    {
+     "name": "opstonewgt",
+     "label": "opstonewgt",
+     "type": "decimal"
+    },
+    {
+     "name": "opstoneamtb",
+     "label": "opstoneamtb",
+     "type": "decimal"
+    },
+    {
+     "name": "stktouch",
+     "label": "stktouch",
+     "type": "decimal"
+    },
+    {
+     "name": "dmdplt",
+     "label": "dmdplt",
+     "type": "char"
+    },
+    {
+     "name": "opissuqty",
+     "label": "opissuqty",
+     "type": "long"
+    },
+    {
+     "name": "opissuwgt",
+     "label": "opissuwgt",
+     "type": "decimal"
+    },
+    {
+     "name": "opsretqty",
+     "label": "opsretqty",
+     "type": "long"
+    },
+    {
+     "name": "opsretwgt",
+     "label": "opsretwgt",
+     "type": "decimal"
+    },
+    {
+     "name": "oprcptqty",
+     "label": "oprcptqty",
+     "type": "long"
+    },
+    {
+     "name": "oprcptwgt",
+     "label": "oprcptwgt",
+     "type": "decimal"
+    },
+    {
+     "name": "opgissuwgt",
+     "label": "opgissuwgt",
+     "type": "decimal"
+    },
+    {
+     "name": "opgissuqty",
+     "label": "opgissuqty",
+     "type": "long"
+    },
+    {
+     "name": "opgrcptwgt",
+     "label": "opgrcptwgt",
+     "type": "decimal"
+    },
+    {
+     "name": "opgrcptqty",
+     "label": "opgrcptqty",
+     "type": "long"
+    },
+    {
+     "name": "oprprcptqty",
+     "label": "oprprcptqty",
+     "type": "long"
+    },
+    {
+     "name": "oprprcptwgt",
+     "label": "oprprcptwgt",
+     "type": "decimal"
+    },
+    {
+     "name": "oprpissueqty",
+     "label": "oprpissueqty",
+     "type": "long"
+    },
+    {
+     "name": "oprpissuewgt",
+     "label": "oprpissuewgt",
+     "type": "decimal"
+    },
+    {
+     "name": "oprfnissueqty",
+     "label": "oprfnissueqty",
+     "type": "long"
+    },
+    {
+     "name": "oprfnissuewgt",
+     "label": "oprfnissuewgt",
+     "type": "decimal"
+    },
+    {
+     "name": "oprfnrcvdqty",
+     "label": "oprfnrcvdqty",
+     "type": "long"
+    },
+    {
+     "name": "oprfnrcvdwgt",
+     "label": "oprfnrcvdwgt",
+     "type": "decimal"
+    },
+    {
+     "name": "opadjfromqty",
+     "label": "opadjfromqty",
+     "type": "long"
+    },
+    {
+     "name": "opadjfromwgt",
+     "label": "opadjfromwgt",
+     "type": "decimal"
+    },
+    {
+     "name": "opadjtoqty",
+     "label": "opadjtoqty",
+     "type": "long"
+    },
+    {
+     "name": "opadjtowgt",
+     "label": "opadjtowgt",
+     "type": "decimal"
+    },
+    {
+     "name": "opordgaqty",
+     "label": "opordgaqty",
+     "type": "long"
+    },
+    {
+     "name": "opordgawgt",
+     "label": "opordgawgt",
+     "type": "decimal"
+    },
+    {
+     "name": "tissuqty",
+     "label": "tissuqty",
+     "type": "long"
+    },
+    {
+     "name": "tissuwgt",
+     "label": "tissuwgt",
+     "type": "decimal"
+    },
+    {
+     "name": "tsretqty",
+     "label": "tsretqty",
+     "type": "long"
+    },
+    {
+     "name": "tsretwgt",
+     "label": "tsretwgt",
+     "type": "decimal"
+    },
+    {
+     "name": "trcptqty",
+     "label": "trcptqty",
+     "type": "long"
+    },
+    {
+     "name": "trcptwgt",
+     "label": "trcptwgt",
+     "type": "decimal"
+    },
+    {
+     "name": "trcptqtye",
+     "label": "trcptqtye",
+     "type": "long"
+    },
+    {
+     "name": "trcptwgte",
+     "label": "trcptwgte",
+     "type": "decimal"
+    },
+    {
+     "name": "tgissuwgt",
+     "label": "tgissuwgt",
+     "type": "decimal"
+    },
+    {
+     "name": "tgissuqty",
+     "label": "tgissuqty",
+     "type": "long"
+    },
+    {
+     "name": "tgrcptwgt",
+     "label": "tgrcptwgt",
+     "type": "decimal"
+    },
+    {
+     "name": "tgrcptqty",
+     "label": "tgrcptqty",
+     "type": "long"
+    },
+    {
+     "name": "trprcptqty",
+     "label": "trprcptqty",
+     "type": "long"
+    },
+    {
+     "name": "trprcptwgt",
+     "label": "trprcptwgt",
+     "type": "decimal"
+    },
+    {
+     "name": "trpissueqty",
+     "label": "trpissueqty",
+     "type": "long"
+    },
+    {
+     "name": "trpissuewgt",
+     "label": "trpissuewgt",
+     "type": "decimal"
+    },
+    {
+     "name": "trfnissueqty",
+     "label": "trfnissueqty",
+     "type": "long"
+    },
+    {
+     "name": "trfnissuewgt",
+     "label": "trfnissuewgt",
+     "type": "decimal"
+    },
+    {
+     "name": "trfnrcvdqty",
+     "label": "trfnrcvdqty",
+     "type": "long"
+    },
+    {
+     "name": "trfnrcvdwgt",
+     "label": "trfnrcvdwgt",
+     "type": "decimal"
+    },
+    {
+     "name": "tadjfromqty",
+     "label": "tadjfromqty",
+     "type": "long"
+    },
+    {
+     "name": "tadjfromwgt",
+     "label": "tadjfromwgt",
+     "type": "decimal"
+    },
+    {
+     "name": "tadjtoqty",
+     "label": "tadjtoqty",
+     "type": "long"
+    },
+    {
+     "name": "tadjtowgt",
+     "label": "tadjtowgt",
+     "type": "decimal"
+    },
+    {
+     "name": "oppretqty",
+     "label": "oppretqty",
+     "type": "long"
+    },
+    {
+     "name": "oppretwgt",
+     "label": "oppretwgt",
+     "type": "decimal"
+    },
+    {
+     "name": "tissuqtye",
+     "label": "tissuqtye",
+     "type": "long"
+    },
+    {
+     "name": "tissuwgte",
+     "label": "tissuwgte",
+     "type": "decimal"
+    },
+    {
+     "name": "tordgaqty",
+     "label": "tordgaqty",
+     "type": "long"
+    },
+    {
+     "name": "tordgawgt",
+     "label": "tordgawgt",
+     "type": "decimal"
+    }
+   ]
+  }
  },
  "w_stocklist": {
   "name": "w_stocklist",
@@ -63784,7 +71002,87 @@
     "height": 72,
     "text": "Sort On Code"
    }
-  ]
+  ],
+  "grid": {
+   "control": "dw_1",
+   "dataobject": "d_stocklistreport1",
+   "table": "items",
+   "keys": [
+    "code"
+   ],
+   "columns": [
+    {
+     "name": "name",
+     "label": "Item Name",
+     "type": "char"
+    },
+    {
+     "name": "code",
+     "label": "Code",
+     "type": "char"
+    },
+    {
+     "name": "regionalname",
+     "label": "regionalname",
+     "type": "char"
+    },
+    {
+     "name": "itype",
+     "label": "itype",
+     "type": "char"
+    },
+    {
+     "name": "ornament",
+     "label": "ornament",
+     "type": "char"
+    },
+    {
+     "name": "qty",
+     "label": "qty",
+     "type": "long"
+    },
+    {
+     "name": "weight",
+     "label": "weight",
+     "type": "decimal"
+    },
+    {
+     "name": "stonewgt",
+     "label": "St.Wgt.",
+     "type": "decimal"
+    },
+    {
+     "name": "qtyb",
+     "label": "qtyb",
+     "type": "long"
+    },
+    {
+     "name": "weightb",
+     "label": "weightb",
+     "type": "decimal"
+    },
+    {
+     "name": "stonewgtb",
+     "label": "stonewgtb",
+     "type": "decimal"
+    },
+    {
+     "name": "cost",
+     "label": "Rate",
+     "type": "decimal"
+    },
+    {
+     "name": "grpcode",
+     "label": "grpcode",
+     "type": "char"
+    },
+    {
+     "name": "crate",
+     "label": "crate",
+     "type": "decimal"
+    }
+   ]
+  }
  },
  "w_stocklist_stktype": {
   "name": "w_stocklist_stktype",
@@ -63962,7 +71260,82 @@
     "taborder": 20,
     "dataobject": "d_stocklistreport_stktype"
    }
-  ]
+  ],
+  "grid": {
+   "control": "dw_1",
+   "dataobject": "d_stocklistreport_stktype",
+   "table": "items",
+   "keys": [
+    "code"
+   ],
+   "columns": [
+    {
+     "name": "name",
+     "label": "Item Name",
+     "type": "char"
+    },
+    {
+     "name": "code",
+     "label": "Code",
+     "type": "char"
+    },
+    {
+     "name": "regionalname",
+     "label": "regionalname",
+     "type": "char"
+    },
+    {
+     "name": "itype",
+     "label": "itype",
+     "type": "char"
+    },
+    {
+     "name": "ornament",
+     "label": "ornament",
+     "type": "char"
+    },
+    {
+     "name": "cost",
+     "label": "cost",
+     "type": "decimal"
+    },
+    {
+     "name": "grpcode",
+     "label": "grpcode",
+     "type": "char"
+    },
+    {
+     "name": "qty",
+     "label": "qty",
+     "type": "long"
+    },
+    {
+     "name": "weight",
+     "label": "weight",
+     "type": "decimal"
+    },
+    {
+     "name": "stonewgt",
+     "label": "St.Wgt.",
+     "type": "decimal"
+    },
+    {
+     "name": "qtyb",
+     "label": "qtyb",
+     "type": "long"
+    },
+    {
+     "name": "weightb",
+     "label": "weightb",
+     "type": "decimal"
+    },
+    {
+     "name": "stonewgtb",
+     "label": "stonewgtb",
+     "type": "decimal"
+    }
+   ]
+  }
  },
  "w_stocklist_uptoadate": {
   "name": "w_stocklist_uptoadate",
@@ -63970,8 +71343,8 @@
   "width": 3634,
   "height": 2308,
   "tables": [
-   "items",
    "refineryd",
+   "items",
    "itemgrp"
   ],
   "source_path": "w_stocklist_uptoadate.srw",
@@ -64354,7 +71727,112 @@
     "taborder": 10,
     "dataobject": "d_stocklistreport_checklist"
    }
-  ]
+  ],
+  "grid": {
+   "control": "dw_1",
+   "dataobject": "d_stocklistreport_checklist",
+   "table": "items",
+   "keys": [
+    "code"
+   ],
+   "columns": [
+    {
+     "name": "name",
+     "label": "Item Name",
+     "type": "char"
+    },
+    {
+     "name": "code",
+     "label": "Code",
+     "type": "char"
+    },
+    {
+     "name": "regionalname",
+     "label": "regionalname",
+     "type": "char"
+    },
+    {
+     "name": "itype",
+     "label": "itype",
+     "type": "char"
+    },
+    {
+     "name": "ornament",
+     "label": "ornament",
+     "type": "char"
+    },
+    {
+     "name": "qty",
+     "label": "qty",
+     "type": "long"
+    },
+    {
+     "name": "weight",
+     "label": "weight",
+     "type": "decimal"
+    },
+    {
+     "name": "stonewgt",
+     "label": "stonewgt",
+     "type": "decimal"
+    },
+    {
+     "name": "qtyb",
+     "label": "qtyb",
+     "type": "long"
+    },
+    {
+     "name": "weightb",
+     "label": "weightb",
+     "type": "decimal"
+    },
+    {
+     "name": "stonewgtb",
+     "label": "stonewgtb",
+     "type": "decimal"
+    },
+    {
+     "name": "cost",
+     "label": "cost",
+     "type": "decimal"
+    },
+    {
+     "name": "grpcode",
+     "label": "grpcode",
+     "type": "char"
+    },
+    {
+     "name": "cardwgt",
+     "label": "cardwgt",
+     "type": "decimal"
+    },
+    {
+     "name": "modelwgt",
+     "label": "modelwgt",
+     "type": "decimal"
+    },
+    {
+     "name": "cardqty",
+     "label": "cardqty",
+     "type": "long"
+    },
+    {
+     "name": "modelqty",
+     "label": "modelqty",
+     "type": "long"
+    },
+    {
+     "name": "otherqty",
+     "label": "otherqty",
+     "type": "long"
+    },
+    {
+     "name": "otherwgt",
+     "label": "otherwgt",
+     "type": "decimal"
+    }
+   ]
+  }
  },
  "w_termsummary": {
   "name": "w_termsummary",
@@ -64363,18 +71841,18 @@
   "height": 2364,
   "tables": [
    "accountm",
-   "clientsgs",
    "smithd",
    "daybook",
-   "purchaserd",
    "orderm",
-   "advafter",
    "refineryd",
    "salesm",
    "orderdga",
    "purchased",
    "repairm",
+   "advafter",
    "oitemtranm",
+   "clientsgs",
+   "purchaserd",
    "kuricolln"
   ],
   "source_path": "w_termsummary.srw",
@@ -64496,14 +71974,14 @@
   "width": 2382,
   "height": 1872,
   "tables": [
-   "salesm",
-   "salesd",
    "salesrm",
+   "salesd",
    "salesrd",
-   "purchasem",
    "purchased",
-   "purchaserm",
    "purchaserd",
+   "salesm",
+   "purchasem",
+   "purchaserm",
    "smithm",
    "smithd"
   ],
@@ -64880,16 +72358,16 @@
   "width": 3506,
   "height": 2100,
   "tables": [
-   "clientsgs",
    "smithd",
    "items",
-   "purchased",
    "repaird",
    "refineryd",
+   "itemadj",
+   "purchased",
    "salesrd",
    "orderdga",
    "salesd",
-   "itemadj"
+   "clientsgs"
   ],
   "source_path": "w_monthendrep.srw",
   "controls": [
@@ -65368,11 +72846,11 @@
   "height": 2296,
   "tables": [
    "salesd",
-   "salesrd",
-   "purchased",
    "salesm",
+   "purchased",
    "orderm",
    "sman",
+   "salesrd",
    "items",
    "incharge"
   ],
@@ -65480,11 +72958,11 @@
   "width": 3657,
   "height": 2364,
   "tables": [
+   "daybook",
+   "accountm",
    "salesm",
    "salesrm",
-   "purchasem",
-   "daybook",
-   "accountm"
+   "purchasem"
   ],
   "source_path": "w_daycashbook.srw",
   "controls": [
@@ -65658,7 +73136,67 @@
     "taborder": 30,
     "dataobject": "d_purity_report"
    }
-  ]
+  ],
+  "grid": {
+   "control": "dw_1",
+   "dataobject": "d_purity_report",
+   "table": "testdet",
+   "keys": [
+    "slno"
+   ],
+   "columns": [
+    {
+     "name": "tdate",
+     "label": "Date",
+     "type": "date"
+    },
+    {
+     "name": "docno",
+     "label": "Doc No",
+     "type": "char"
+    },
+    {
+     "name": "customer",
+     "label": "Customer",
+     "type": "char"
+    },
+    {
+     "name": "purityinperc",
+     "label": "Purity%",
+     "type": "decimal"
+    },
+    {
+     "name": "purityinct",
+     "label": "Purity CT",
+     "type": "decimal"
+    },
+    {
+     "name": "otherinfo",
+     "label": "Other Info",
+     "type": "char"
+    },
+    {
+     "name": "rcvdon",
+     "label": "Rcvd On",
+     "type": "date"
+    },
+    {
+     "name": "testedon",
+     "label": "Tested On",
+     "type": "date"
+    },
+    {
+     "name": "rcvdwgt",
+     "label": "Rcvd Wgt",
+     "type": "decimal"
+    },
+    {
+     "name": "slno",
+     "label": "slno",
+     "type": "decimal"
+    }
+   ]
+  }
  },
  "w_stkandprofitreport": {
   "name": "w_stkandprofitreport",
@@ -65774,9 +73312,9 @@
   "height": 2684,
   "tables": [
    "items",
+   "smithd",
    "clientsgs",
-   "barcode",
-   "smithd"
+   "barcode"
   ],
   "source_path": "w_stockandexpreport.srw",
   "controls": [
@@ -65911,11 +73449,11 @@
   "tables": [
    "purchasem",
    "daybook",
-   "daybookpart",
    "purchased",
    "purchased_dmddet",
    "purchaserd",
-   "purchaserm"
+   "purchaserm",
+   "daybookpart"
   ],
   "source_path": "w_administration.srw",
   "controls": [
@@ -66730,45 +74268,45 @@
   "width": 2066,
   "height": 2020,
   "tables": [
-   "kuricolln",
-   "generali",
-   "accountm",
-   "clients",
-   "clients_kuridet",
-   "itemsothers",
-   "clientsgs",
    "salesm",
-   "items",
-   "itemsstk",
    "orderm",
-   "salesd",
-   "salesrd",
-   "salesrm",
-   "purchased",
    "purchasem",
-   "collection",
-   "purchaserd",
+   "daybook",
+   "salesrm",
+   "accountm",
+   "purchased",
+   "clients",
+   "salesrd",
+   "repairm",
+   "refinerym",
    "purchaserm",
-   "oitemtrand",
-   "oitemtranm",
-   "orderd",
    "orderdga",
    "advafter",
-   "repaird",
-   "repairm",
-   "smithd",
-   "smithm",
    "refineryd",
-   "refinerym",
-   "itemadj",
    "wgtrcptpmnt",
-   "generals",
-   "daybook",
+   "clientsgs",
+   "kuricolln",
+   "purchaserd",
+   "smithd",
+   "salesd",
+   "collection",
+   "smithm",
+   "orderd",
+   "repaird",
+   "oitemtrand",
    "daybookratewgt",
-   "daybookpart",
-   "barcodedmd",
+   "clients_kuridet",
+   "itemsothers",
+   "oitemtranm",
+   "itemadj",
    "barcode",
-   "modelm"
+   "modelm",
+   "items",
+   "itemsstk",
+   "barcodedmd",
+   "generali",
+   "daybookpart",
+   "generals"
   ],
   "source_path": "w_closeaccnt.srw",
   "controls": [
@@ -67765,62 +75303,62 @@
   "width": 2277,
   "height": 1824,
   "tables": [
-   "oitemtranm",
-   "oitemtrand",
    "repairm",
+   "refinerym",
+   "orderm",
+   "clients",
+   "salesm",
+   "smithm",
+   "oitemtranm",
+   "daybook",
+   "accountm",
+   "spdmddet",
+   "salesrm",
+   "purchasem",
+   "purchaserm",
+   "daybookratewgt",
+   "collection",
+   "advafter",
+   "barcode",
+   "wgtrcptpmnt",
+   "refineryd",
+   "oitemtrand",
    "repaird",
    "itemadj",
    "kuricolln",
    "kurifinishdet",
    "kuriint",
-   "daybook",
-   "daybookpart",
-   "daybookratewgt",
-   "collection",
-   "advafter",
+   "itemsothers",
+   "salesd",
+   "salesrd",
+   "purchased",
+   "purchased_dmddet",
+   "purchaserd",
+   "suspentry",
+   "orderd",
+   "orderdga",
+   "orderdmodel",
+   "smithd",
    "barcodedoc",
-   "barcode",
-   "clients",
    "clients_kuridet",
    "clientsgs",
-   "accountm",
    "items",
    "itemsstk",
    "accountgbs",
    "accountg",
-   "wgtrcptpmnt",
    "barcode_dmddet",
    "barcodedmd",
    "counter",
    "sman",
    "itemgrp",
-   "itemsothers",
-   "itemsqtype",
    "stktype",
    "staffleave",
    "pcard",
    "pcardtable",
-   "salesm",
-   "salesd",
-   "spdmddet",
-   "salesrm",
-   "salesrd",
-   "purchasem",
-   "purchased",
-   "purchased_dmddet",
-   "purchaserm",
-   "purchaserd",
-   "suspentry",
-   "orderm",
-   "orderd",
-   "orderdga",
-   "orderdmodel",
-   "smithm",
-   "smithd",
-   "refinerym",
-   "refineryd",
-   "delpart",
-   "file"
+   "file",
+   "itemsqtype",
+   "daybookpart",
+   "delpart"
   ],
   "source_path": "w_datatransfer2.srw",
   "controls": [
@@ -68226,8 +75764,9 @@
   "width": 3657,
   "height": 2172,
   "tables": [
-   "salesm",
+   "clients",
    "appoint",
+   "salesm",
    "orderm",
    "ruffwrk",
    "smithsusp",
@@ -68238,7 +75777,6 @@
    "daybook",
    "pdclist",
    "collection",
-   "clients",
    "accountm"
   ],
   "source_path": "w_reminderrep.srw",

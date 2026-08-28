@@ -197,6 +197,70 @@ def execute(sql, params=()):
         conn.close()
 
 
+# ---------------------------------------------------------------------------
+# Schema introspection (used by the generic CRUD screens)
+# ---------------------------------------------------------------------------
+
+def table_columns(table):
+    """Return ``[{name, type, nullable, pk, autoinc}]`` for ``table``.
+
+    Empty list if the table does not exist or cannot be inspected. Column
+    metadata is what lets the generic screens write to a table safely: only
+    columns the database really has are ever put into a statement.
+    """
+    conn = get_connection()
+    try:
+        cur = conn.cursor()
+        if ENGINE == "sqlite":
+            cur.execute(f'PRAGMA table_info("{table}")')
+            rows = cur.fetchall()
+            if not rows:
+                return []
+            # A single INTEGER PRIMARY KEY column is SQLite's rowid alias.
+            pks = [r for r in rows if r[5]]
+            autoinc = (len(pks) == 1 and str(pks[0][2]).upper().startswith("INT"))
+            return [{"name": r[1], "type": (r[2] or "").upper(),
+                     "nullable": not r[3], "pk": bool(r[5]),
+                     "autoinc": bool(r[5]) and autoinc}
+                    for r in rows]
+
+        # ODBC engines (SQL Anywhere / SQL Server).
+        pk_names = set()
+        try:
+            pk_names = {r.column_name.lower() for r in cur.primaryKeys(table=table)}
+        except Exception:
+            pass
+        cols = []
+        try:
+            for r in cur.columns(table=table):
+                cols.append({"name": r.column_name,
+                             "type": str(r.type_name).upper(),
+                             "nullable": bool(getattr(r, "nullable", 1)),
+                             "pk": r.column_name.lower() in pk_names,
+                             "autoinc": False})
+        except Exception:
+            cols = []
+        if not cols:
+            # Last resort: describe an empty result set.
+            cur.execute(f"SELECT * FROM {table} WHERE 1 = 0")
+            cols = [{"name": d[0], "type": "", "nullable": True,
+                     "pk": d[0].lower() in pk_names, "autoinc": False}
+                    for d in (cur.description or [])]
+        return cols
+    except Exception:
+        return []
+    finally:
+        try:
+            conn.close()
+        except Exception:
+            pass
+
+
+def primary_key(table):
+    """Primary-key column names of ``table`` (empty when it has none)."""
+    return [c["name"] for c in table_columns(table) if c["pk"]]
+
+
 def validate_login(password: str):
     """
     Port of w_passverify (gmine). The user enters a PASSWORD only; it is
@@ -485,6 +549,13 @@ def init_db():
         conn = get_connection()
         try:
             conn.executescript(SQLITE_SCHEMA)
+            # data/schema.sql is the original GMINE schema recovered from the
+            # PowerBuilder export (tools/build_schema.py). Creating it locally
+            # gives the screens their real tables and columns to work on.
+            extra = os.path.join(BASE_DIR, "data", "schema.sql")
+            if os.path.exists(extra):
+                with open(extra, encoding="utf-8") as fh:
+                    conn.executescript(fh.read())
             conn.commit()
         finally:
             conn.close()

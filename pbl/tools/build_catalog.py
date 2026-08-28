@@ -42,8 +42,46 @@ def node_to_dict(node) -> dict:
     return out
 
 
-def window_to_dict(win) -> dict:
+def _grid_spec(win, source_dir: str) -> dict | None:
+    """The DataWindow this window edits: table, key columns and columns.
+
+    A window can host several DataWindows (lookup helpers, totals, ...). Pick
+    the one that actually updates a table, preferring one whose table the
+    window's own SQL also uses, then the largest control on screen.
+    """
+    best, best_score = None, None
+    for ctrl in win.controls:
+        if ctrl.kind != "datawindow" or not ctrl.dataobject:
+            continue
+        path = pb_parser.find_datawindow(ctrl.dataobject, source_dir)
+        if not path:
+            continue
+        try:
+            dw = pb_parser.parse_datawindow(path)
+        except Exception:
+            continue
+        if not dw.writable:
+            continue
+        score = (dw.update_table in win.tables, ctrl.width * ctrl.height,
+                 len(dw.updatable))
+        if best_score is None or score > best_score:
+            best, best_score = (ctrl, dw), score
+    if best is None:
+        return None
+    ctrl, dw = best
     return {
+        "control": ctrl.name,
+        "dataobject": dw.name,
+        "table": dw.update_table,
+        "keys": dw.keys,
+        "columns": [{"name": c.column, "label": c.label, "type": c.type}
+                    for c in dw.updatable],
+    }
+
+
+def window_to_dict(win, source_dir: str = "") -> dict:
+    grid = _grid_spec(win, source_dir) if source_dir else None
+    doc = {
         "name": win.name,
         "title": win.title,
         "width": win.width,
@@ -56,6 +94,9 @@ def window_to_dict(win) -> dict:
             for c in win.controls
         ],
     }
+    if grid:
+        doc["grid"] = grid
+    return doc
 
 
 def build(source_dir: str, out_dir: str) -> tuple:
@@ -80,15 +121,16 @@ def build(source_dir: str, out_dir: str) -> tuple:
             if path is None:
                 missing.append(name)
                 continue
-            windows[name] = window_to_dict(pb_parser.parse_window(path))
+            windows[name] = window_to_dict(pb_parser.parse_window(path), source_dir)
 
+    grids = sum(1 for w in windows.values() if w.get("grid"))
     os.makedirs(out_dir, exist_ok=True)
     menu_doc = {"sections": [node_to_dict(s) for s in sections]}
     with open(os.path.join(out_dir, "menu.json"), "w", encoding="utf-8") as fh:
         json.dump(menu_doc, fh, indent=1, ensure_ascii=False)
     with open(os.path.join(out_dir, "windows.json"), "w", encoding="utf-8") as fh:
         json.dump(windows, fh, indent=1, ensure_ascii=False)
-    return sections, windows, missing
+    return sections, windows, missing, grids
 
 
 def main() -> int:
@@ -99,10 +141,11 @@ def main() -> int:
                     help="output folder for menu.json / windows.json")
     args = ap.parse_args()
 
-    sections, windows, missing = build(os.path.abspath(args.source),
-                                       os.path.abspath(args.out))
+    sections, windows, missing, grids = build(os.path.abspath(args.source),
+                                              os.path.abspath(args.out))
     leaves = sum(1 for _ in menu_loader.iter_leaves(sections))
-    print(f"sections: {len(sections)}  menu items: {leaves}  windows: {len(windows)}")
+    print(f"sections: {len(sections)}  menu items: {leaves}  "
+          f"windows: {len(windows)}  editable grids: {grids}")
     if missing:
         print(f"windows with no .srw in the export ({len(missing)}): "
               + ", ".join(sorted(set(missing))))
