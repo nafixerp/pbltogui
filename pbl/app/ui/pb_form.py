@@ -25,6 +25,7 @@ from PySide6.QtWidgets import (
 )
 
 from app import pb_parser
+from app.reports.generic import GenericDataView
 from app.services import crud_service
 from app.pb_parser import PBU
 
@@ -50,6 +51,7 @@ class PBWindowForm(QWidget):
         self._search: QLineEdit | None = None
         self._status: QLabel | None = None
         self.grid_mode = False
+        self._view = None
         self._build()
 
     # -- construction ------------------------------------------------------
@@ -70,9 +72,9 @@ class PBWindowForm(QWidget):
         scroll.setWidget(canvas)
         outer.addWidget(scroll, 1)
 
-        grid = self._data_grid()
-        if grid is not None:
-            outer.addWidget(grid)
+        panel = self._records_panel()
+        if panel is not None:
+            outer.addWidget(panel)
 
     def _header(self) -> QWidget:
         bar = QFrame()
@@ -230,6 +232,25 @@ class PBWindowForm(QWidget):
         return {name: self._widget_value(w) for name, w in self._inputs.items()}
 
     # -- data area ---------------------------------------------------------
+    def _records_panel(self) -> QWidget | None:
+        """The screen's data area, in order of what the window actually is.
+
+        An editable DataWindow grid, then a record list for a screen whose
+        fields map onto a table, then the window's own DataWindow query as a
+        data view (this is what report and list windows are), and nothing at
+        all for a window with no data behind it.
+        """
+        if self.grid_mode or (self.mapping is not None and self.mapping.writable):
+            return self._data_grid()
+        if self.window_def.report:
+            view = GenericDataView(self.window_def.report, self.window_def.title)
+            box = QGroupBox(f"Data — {self.window_def.report.get('dataobject', '')}")
+            lay = QVBoxLayout(box)
+            lay.addWidget(view)
+            self._view = view
+            return box
+        return self._data_grid()
+
     def _data_grid(self) -> QWidget | None:
         table = (self.mapping.table if self.mapping else None) or self._primary_table()
         if not table:

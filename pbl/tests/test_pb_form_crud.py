@@ -223,3 +223,15 @@ def test_unsaved_row_is_just_dropped(grid_form):
     grid_form._delete_grid_row()
     assert grid_form._grid.rowCount() == 0
     assert db.fetch_all("SELECT * FROM itemsubgrp") == []
+
+
+# --- access control --------------------------------------------------------
+
+def test_denied_menu_items_are_blocked(qapp, tmp_path, monkeypatch):
+    """Master > Users > Provide Access blocks items for a user (userd)."""
+    monkeypatch.setattr(db, "ENGINE", "sqlite")
+    monkeypatch.setattr(db, "SQLITE_PATH", str(tmp_path / "acl.db"))
+    db.execute("CREATE TABLE userd (code TEXT, menuitem TEXT)")
+    db.execute("INSERT INTO userd VALUES ('U1','m_trans_sales')")
+    assert db.get_denied_menuitems("U1") == {"m_trans_sales"}
+    assert db.get_denied_menuitems("U2") == set()

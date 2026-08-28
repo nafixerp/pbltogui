@@ -23,6 +23,7 @@ class MenuNode:
     source_ref: str | None = None      # e.g. gminem1\\w_item.srw  (None if not found)
     shortcut: str = ""                 # accelerator, e.g. "Ctrl+G" (menu object only)
     alternates: list = field(default_factory=list)  # windows the item may open
+    name: str = ""                     # PB menu item name, e.g. m_trans_sales
 
     @property
     def is_leaf(self) -> bool:

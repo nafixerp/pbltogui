@@ -246,3 +246,25 @@ with 0 errors.
   screens, 57 field-mapped screens; the rest are reports, print dialogs and
   record pickers that only read, plus multi-table transaction screens that need
   their own business logic.
+
+
+## Phase 7 — Every menu item does something real ✅
+- `pb_parser.pbselect_to_sql` converts a DataWindow's `PBSELECT(...)`
+  definition (or its verbatim SQL) into a runnable statement, with its
+  retrieval arguments preserved. `tools/build_catalog.py` stores it for
+  **197 windows**.
+- `app/reports/generic.py` turns that into a working data view: a parameter bar
+  built from the original arguments (dates, party, level), the query run
+  against the configured database, original column headings, totals on numeric
+  columns and CSV/PDF export.
+- `db.get_connection` registers the SQL Anywhere functions the original queries
+  use (`ifnull` with three arguments, `left`, `right`, `list`, `string`) for
+  the SQLite mode; `tools/build_schema.py` also mines qualified `table.column`
+  references. 189 of the 197 stored queries now run unchanged on the local
+  database.
+- Menu access control: `MenuNode` carries the PowerBuilder menu item name, and
+  items listed in `userd` for the logged-in user are disabled and refuse to
+  open — the behaviour of `chkmenuaccess`.
+- Coverage across the 393 menu items: 37 hand-written, 115 editable grids,
+  72 field-mapped, 89 data views, 80 form + read-only list (bill-number pickers
+  and screens whose query is built in code).

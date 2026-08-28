@@ -175,7 +175,7 @@ def build_tree(items: dict, root: str | None = None,
         item = items[name]
         if not item.visible or item.is_separator:
             return None
-        node = MenuNode(label=item.label, shortcut=item.shortcut)
+        node = MenuNode(label=item.label, shortcut=item.shortcut, name=name)
         for child in children_of(name):
             if (sub := node_for(child)) is not None:
                 node.children.append(sub)

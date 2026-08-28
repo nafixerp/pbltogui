@@ -157,6 +157,7 @@ CREATE TABLE IF NOT EXISTS barcode (
     tamt REAL,
     tdate DATE,
     transtouch REAL,
+    txt TEXT,
     vap REAL,
     wastage REAL,
     weight REAL,
@@ -558,8 +559,10 @@ CREATE TABLE IF NOT EXISTS incharge (
     name TEXT
 );
 CREATE TABLE IF NOT EXISTS issu (
+    gr TEXT,
     slno REAL,
-    weight REAL
+    weight REAL,
+    wgt TEXT
 );
 CREATE TABLE IF NOT EXISTS itemadj (
     al TEXT,
@@ -972,6 +975,7 @@ CREATE TABLE IF NOT EXISTS master (
     ag_name TEXT,
     amount TEXT,
     insamt TEXT,
+    mst TEXT,
     name TEXT,
     open_wight TEXT,
     snoid TEXT
@@ -1387,7 +1391,10 @@ CREATE TABLE IF NOT EXISTS possys (
     name TEXT
 );
 CREATE TABLE IF NOT EXISTS preturnm (
-    scode TEXT
+    control TEXT,
+    scode TEXT,
+    slno TEXT,
+    tdate TEXT
 );
 CREATE TABLE IF NOT EXISTS ptmp (
     amount REAL,
@@ -1673,6 +1680,7 @@ CREATE TABLE IF NOT EXISTS refinerym (
     rcvditemname TEXT,
     rcvdwgt REAL,
     refcode TEXT,
+    refinercode TEXT,
     slno REAL,
     smcode TEXT,
     status INTEGER,
@@ -1999,6 +2007,7 @@ CREATE TABLE IF NOT EXISTS salesrd (
     iqtype TEXT,
     itype TEXT,
     jcode TEXT,
+    kdm TEXT,
     lessperc REAL,
     lesswgt REAL,
     mark TEXT,
@@ -2222,11 +2231,17 @@ CREATE TABLE IF NOT EXISTS spdmddet (
     sslno TEXT
 );
 CREATE TABLE IF NOT EXISTS sreturnd (
+    code TEXT,
+    cost TEXT,
     fr TEXT,
-    slno TEXT
+    slno TEXT,
+    weight TEXT
 );
 CREATE TABLE IF NOT EXISTS sreturnm (
-    ccode TEXT
+    ccode TEXT,
+    control TEXT,
+    slno TEXT,
+    tdate TEXT
 );
 CREATE TABLE IF NOT EXISTS staff_log (
     ahrs REAL,
@@ -2275,7 +2290,8 @@ CREATE TABLE IF NOT EXISTS staffwgtm (
 );
 CREATE TABLE IF NOT EXISTS state (
     code TEXT,
-    name TEXT
+    name TEXT,
+    visible TEXT
 );
 CREATE TABLE IF NOT EXISTS stkandprofit (
     control TEXT,

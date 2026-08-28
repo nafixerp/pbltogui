@@ -58,6 +58,7 @@ class Window:
     tables: list
     source_path: str
     grid: dict | None = None      # the DataWindow this screen edits, if any
+    report: dict | None = None    # the DataWindow this screen displays, if any
 
 
 def decode_pb(path: str) -> str:
@@ -235,11 +236,14 @@ class DWColumn:
 
 @dataclass
 class DataWindow:
-    """A parsed ``.srd``: the table the screen edits, its columns and its key."""
+    """A parsed ``.srd``: what the screen shows, what it edits and its key."""
     name: str
     update_table: str = ""
     columns: list = field(default_factory=list)
     tables: list = field(default_factory=list)
+    sql: str = ""                 # the retrieval statement, as plain SQL
+    args: list = field(default_factory=list)   # retrieval arguments (:rdate1…)
+    arg_types: dict = field(default_factory=dict)
 
     def _own(self, c: DWColumn) -> bool:
         return bool(c.dbname) and (not c.table or c.table == self.update_table)
@@ -258,6 +262,71 @@ class DataWindow:
 
 
 _DW_UPDATE_RE = re.compile(r'\bupdate="(\w+)"')
+# The retrieval statement, honouring PowerBuilder's ~" escape for a quote.
+_DW_RETRIEVE_RE = re.compile(r'retrieve="((?:~.|[^"~])*)"')
+_PB_TABLE_RE = re.compile(r'TABLE\(NAME="(\w+)"')
+_PB_COLUMN_RE = re.compile(r'COLUMN\(NAME="([^"]+)"\)')
+_PB_COMPUTE_RE = re.compile(r'COMPUTE\(NAME="([^"]+)"\)')
+_PB_JOIN_RE = re.compile(r'JOIN\s*\(LEFT="([^"]+)"\s*OP\s*="([^"]*)"\s*RIGHT="([^"]+)"')
+_PB_WHERE_RE = re.compile(
+    r'WHERE\(\s*EXP1\s*="([^"]*)"\s*OP\s*="([^"]*)"\s*EXP2\s*="([^"]*)"'
+    r'(?:\s*LOGIC\s*="([^"]*)")?')
+_PB_ORDER_RE = re.compile(r'ORDER\(NAME="([^"]+)"\s*ASC=(\w+)')
+_PB_ARG_RE = re.compile(r'ARG\(NAME\s*=\s*"(\w+)"\s*TYPE\s*=\s*(\w+)')
+_ARG_REF_RE = re.compile(r':(\w+)')
+
+
+def _sql_alias(qualified: str) -> str:
+    """``salesd.slno`` -> ``salesd_slno`` (the DataWindow's own column name)."""
+    return qualified.replace(".", "_")
+
+
+def pbselect_to_sql(retrieve: str) -> tuple:
+    """Convert a DataWindow ``PBSELECT(...)`` definition into plain SQL.
+
+    Returns ``(sql, args)`` where ``args`` are the retrieval arguments the
+    original screen asked for (``:rdate1``, ``:rlevel``, ...), kept in the SQL
+    as ``:name`` so the caller can bind them.
+    """
+    text = retrieve.replace('~"', '"').replace("~r~n", " ").replace("~n", " ")
+    if "PBSELECT" not in text[:60]:
+        # Already plain SQL (some DataWindows store the statement verbatim).
+        sql = text.strip().rstrip('"').strip()
+        args = list(dict.fromkeys(_ARG_REF_RE.findall(sql)))
+        return sql, args
+
+    tables = list(dict.fromkeys(_PB_TABLE_RE.findall(text)))
+    columns = [c for c in _PB_COLUMN_RE.findall(text)]
+    computes = _PB_COMPUTE_RE.findall(text)
+    if not tables or not (columns or computes):
+        return "", []
+
+    select = [f"{c} AS {_sql_alias(c)}" if "." in c else c for c in columns]
+    select += [c for c in computes]
+
+    conditions = []
+    for left, op, right in _PB_JOIN_RE.findall(text):
+        conditions.append((f"{left} {op or '='} {right}", "and"))
+    for exp1, op, exp2, logic in _PB_WHERE_RE.findall(text):
+        conditions.append((f"{exp1} {op} {exp2}".strip(), (logic or "and").lower()))
+
+    where = ""
+    if conditions:
+        parts = [conditions[0][0]]
+        for idx in range(1, len(conditions)):
+            joiner = conditions[idx - 1][1] or "and"
+            parts.append(f"{joiner.upper()} {conditions[idx][0]}")
+        where = " WHERE " + " ".join(parts)
+
+    order = [f"{name} {'ASC' if asc.lower() in ('yes', 'true') else 'DESC'}"
+             for name, asc in _PB_ORDER_RE.findall(text)]
+
+    sql = (f"SELECT {', '.join(select)} FROM {', '.join(tables)}{where}"
+           + (f" ORDER BY {', '.join(order)}" if order else ""))
+    args = [name for name, _type in _PB_ARG_RE.findall(text)]
+    if not args:
+        args = list(dict.fromkeys(_ARG_REF_RE.findall(sql)))
+    return sql, list(dict.fromkeys(args))
 _DW_TABLE_RE = re.compile(r'TABLE\(NAME=~"(\w+)~"')
 _DW_HEADER_RE = re.compile(r'text\(name=(\w+)_t\b[\s\S]*?\btext="([^"]*)"')
 
@@ -294,9 +363,21 @@ def parse_datawindow(path: str) -> DataWindow:
     tables = list(dict.fromkeys(t.lower() for t in _DW_TABLE_RE.findall(text)))
     if not tables:
         tables = list(dict.fromkeys(c.table for c in columns if c.table))
+
+    sql, args = "", []
+    m_ret = _DW_RETRIEVE_RE.search(text)
+    if m_ret:
+        try:
+            sql, args = pbselect_to_sql(m_ret.group(1))
+        except Exception:
+            sql, args = "", []
+    arg_types = {n: t.lower() for n, t in _PB_ARG_RE.findall(
+        m_ret.group(1).replace('~"', '"') if m_ret else "")}
+
     return DataWindow(name=name,
                       update_table=(m_upd.group(1).lower() if m_upd else ""),
-                      columns=columns, tables=tables)
+                      columns=columns, tables=tables,
+                      sql=sql, args=args, arg_types=arg_types)
 
 
 def find_datawindow(dataobject: str, base_dir: str) -> str | None:

@@ -29,6 +29,8 @@ from app import menu_loader, pb_menu, pb_parser  # noqa: E402
 
 def node_to_dict(node) -> dict:
     out = {"label": node.label}
+    if node.name:
+        out["name"] = node.name
     if node.shortcut:
         out["shortcut"] = node.shortcut
     if node.window:
@@ -79,8 +81,44 @@ def _grid_spec(win, source_dir: str) -> dict | None:
     }
 
 
+def _report_spec(win, source_dir: str) -> dict | None:
+    """The DataWindow this window displays: its SQL, arguments and columns.
+
+    This is what turns every list/report window into a working screen: the
+    original DataWindow's own retrieval statement, converted to SQL.
+    """
+    best, best_score = None, None
+    for ctrl in win.controls:
+        if ctrl.kind != "datawindow" or not ctrl.dataobject:
+            continue
+        path = pb_parser.find_datawindow(ctrl.dataobject, source_dir)
+        if not path:
+            continue
+        try:
+            dw = pb_parser.parse_datawindow(path)
+        except Exception:
+            continue
+        if not dw.sql or not dw.columns:
+            continue
+        score = (ctrl.width * ctrl.height, len(dw.columns))
+        if best_score is None or score > best_score:
+            best, best_score = dw, score
+    if best is None:
+        return None
+    return {
+        "dataobject": best.name,
+        "sql": best.sql,
+        "args": best.args,
+        "arg_types": best.arg_types,
+        "tables": best.tables,
+        "columns": [{"name": c.name, "label": c.label, "type": c.type}
+                    for c in best.columns],
+    }
+
+
 def window_to_dict(win, source_dir: str = "") -> dict:
     grid = _grid_spec(win, source_dir) if source_dir else None
+    report = _report_spec(win, source_dir) if source_dir else None
     doc = {
         "name": win.name,
         "title": win.title,
@@ -96,6 +134,8 @@ def window_to_dict(win, source_dir: str = "") -> dict:
     }
     if grid:
         doc["grid"] = grid
+    if report:
+        doc["report"] = report
     return doc
 
 
@@ -124,13 +164,14 @@ def build(source_dir: str, out_dir: str) -> tuple:
             windows[name] = window_to_dict(pb_parser.parse_window(path), source_dir)
 
     grids = sum(1 for w in windows.values() if w.get("grid"))
+    reports = sum(1 for w in windows.values() if w.get("report"))
     os.makedirs(out_dir, exist_ok=True)
     menu_doc = {"sections": [node_to_dict(s) for s in sections]}
     with open(os.path.join(out_dir, "menu.json"), "w", encoding="utf-8") as fh:
         json.dump(menu_doc, fh, indent=1, ensure_ascii=False)
     with open(os.path.join(out_dir, "windows.json"), "w", encoding="utf-8") as fh:
         json.dump(windows, fh, indent=1, ensure_ascii=False)
-    return sections, windows, missing, grids
+    return sections, windows, missing, grids, reports
 
 
 def main() -> int:
@@ -141,11 +182,12 @@ def main() -> int:
                     help="output folder for menu.json / windows.json")
     args = ap.parse_args()
 
-    sections, windows, missing, grids = build(os.path.abspath(args.source),
-                                              os.path.abspath(args.out))
+    sections, windows, missing, grids, reports = build(os.path.abspath(args.source),
+                                                       os.path.abspath(args.out))
     leaves = sum(1 for _ in menu_loader.iter_leaves(sections))
     print(f"sections: {len(sections)}  menu items: {leaves}  "
-          f"windows: {len(windows)}  editable grids: {grids}")
+          f"windows: {len(windows)}  editable grids: {grids}  "
+          f"data views: {reports}")
     if missing:
         print(f"windows with no .srw in the export ({len(missing)}): "
               + ", ".join(sorted(set(missing))))

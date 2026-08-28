@@ -86,8 +86,19 @@ Levels of conversion:
   Register), including the tax-invoice PDF print.
 * Every other window opens through the generic screen engine, rebuilt from
   `data/windows.json`: the original layout, captions and field lengths, plus a
-  live record list. **154 of those windows can add, edit and delete records**
-  (see *Records* below); the remainder are reports and dialogs that only read.
+  working data area. Across the whole menu (393 items):
+
+  | What the screen gives you | Menu items |
+  |---|---|
+  | Hand-written module (full business logic) | 37 |
+  | Editable DataWindow grid (add / edit / delete) | 115 |
+  | Mapped fields (add / edit / delete) | 72 |
+  | Data view: the window's own query, parameters, totals, CSV/PDF | 89 |
+  | Form + read-only record list | 80 |
+
+  The last group is mostly the bill-number pickers (Edit / Cancel / Reprint) and
+  a few screens that build their query in code — they open and show their data,
+  but the action behind them still needs its own logic.
 
 ## Records — adding, editing and deleting
 
@@ -104,9 +115,10 @@ three levels, and each screen picks the highest one available to it:
 3. **Mapped fields (57 windows)** — the screen's input fields are matched onto
    the real columns of its table. Select a row in the list to load it, edit,
    **Save**; **New** starts a blank record; **Delete** removes the selected one.
-
-The rest are read-only by nature (reports, print/reprint and record-picker
-dialogs) or are multi-table transaction screens that need their own logic.
+4. **Data view (74 windows)** — list and report windows run their own
+   DataWindow query: the original selection arguments (date range, party,
+   level) appear as a parameter bar, numeric columns are totalled, and the
+   result exports to CSV or PDF.
 
 Safety: column names always come from the database itself, a field is written
 only when it matches a real column, every statement is parameterised, and a row
@@ -130,6 +142,12 @@ in `data/field_map.json` — no code change needed:
   }
 }
 ```
+
+## Users and access
+
+Login is the original password-only check against `userm`. Menu items blocked
+for a user in **Master > Users > Provide Access** (the `userd` table) are shown
+disabled and refuse to open, exactly as `chkmenuaccess` did in the original.
 
 ## Re-converting from a PowerBuilder export
 

@@ -39,6 +39,7 @@ def _node(doc: dict) -> MenuNode:
         window=doc.get("window"),
         source_ref=doc.get("source_ref"),
         shortcut=doc.get("shortcut", ""),
+        name=doc.get("name", ""),
         alternates=list(doc.get("alternates", [])),
     )
     node.children = [_node(c) for c in doc.get("children", [])]
@@ -72,6 +73,7 @@ def load_window(base_dir: str, name: str) -> Window | None:
         controls=controls, tables=doc.get("tables", []),
         source_path=doc.get("source_path", f"{name}.srw"),
         grid=doc.get("grid"),
+        report=doc.get("report"),
     )
 
 

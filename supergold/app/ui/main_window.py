@@ -11,6 +11,8 @@ from PySide6.QtWidgets import (
     QTreeWidget, QTreeWidgetItem, QVBoxLayout, QWidget,
 )
 
+import db
+
 from app import catalog, menu_loader, modules, pb_menu, pb_parser
 from app.menu_loader import MenuNode
 from app.ui.pb_form import PBWindowForm
@@ -26,6 +28,9 @@ class MainWindow(QMainWindow):
         self.resize(1280, 820)
 
         self.sections = self._load_sections()
+        # The original blocks menu items per user (userd / chkmenuaccess).
+        self.denied = db.get_denied_menuitems(self.user.get("code", "")) \
+            if self.user.get("code") else set()
 
         self.tabs = QTabWidget()
         self.tabs.setTabsClosable(True)
@@ -82,6 +87,13 @@ class MainWindow(QMainWindow):
             if node.children:
                 submenu = menu.addMenu(node.label)
                 self._populate_menu(submenu, node.children)
+                if node.name and node.name in self.denied:
+                    submenu.setEnabled(False)
+            elif node.name and node.name in self.denied:
+                # Blocked for this user by Master > Users > Provide Access.
+                act = menu.addAction(node.label)
+                act.setEnabled(False)
+                act.setToolTip("Not permitted for your user")
             elif node.window:
                 act = menu.addAction(node.label)
                 # The original assigns a few accelerators twice; first wins,
@@ -124,6 +136,10 @@ class MainWindow(QMainWindow):
 
     # -- opening modules ---------------------------------------------------
     def open_module(self, node: MenuNode):
+        if node.name and node.name in self.denied:
+            QMessageBox.information(self, node.label,
+                                    "You are not permitted to use this option.")
+            return
         # Reuse an already-open tab for the same window.
         for i in range(self.tabs.count()):
             if self.tabs.widget(i).property("window_name") == node.window:

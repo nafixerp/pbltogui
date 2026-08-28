@@ -2,12 +2,15 @@
  "sections": [
   {
    "label": "File",
+   "name": "m_file",
    "children": [
     {
-     "label": "Printer Setup"
+     "label": "Printer Setup",
+     "name": "m_file_printersetup"
     },
     {
      "label": "Company Select",
+     "name": "m_mast_company",
      "shortcut": "Alt+Z",
      "window": "w_companyselect",
      "source_ref": "gminedi\\w_companyselect.srw",
@@ -17,6 +20,7 @@
     },
     {
      "label": "Exit",
+     "name": "m_file_exitfromgoldmine",
      "window": "w_about",
      "source_ref": "gminegen\\w_about.srw",
      "alternates": [
@@ -27,12 +31,15 @@
   },
   {
    "label": "Master",
+   "name": "m_master",
    "children": [
     {
      "label": "Update Settings",
+     "name": "m_mastr_updatesettings",
      "children": [
       {
        "label": "Rate",
+       "name": "m_mast_update_rate",
        "window": "w_setuprate_international",
        "source_ref": "gminem1\\w_setuprate_international.srw",
        "alternates": [
@@ -42,6 +49,7 @@
       },
       {
        "label": "Application",
+       "name": "m_mast_update_application",
        "window": "w_setup",
        "source_ref": "gminem1\\w_setup.srw",
        "alternates": [
@@ -52,9 +60,11 @@
     },
     {
      "label": "Items",
+     "name": "m_mastr_items",
      "children": [
       {
        "label": "Item Details",
+       "name": "m_mast_item_itemdetails",
        "window": "w_item",
        "source_ref": "gminem1\\w_item.srw",
        "alternates": [
@@ -63,6 +73,7 @@
       },
       {
        "label": "Item Temp",
+       "name": "m_mast_item_itemtemp",
        "window": "w_itemtmp",
        "source_ref": "gminem1\\w_itemtmp.srw",
        "alternates": [
@@ -71,6 +82,7 @@
       },
       {
        "label": "Other Items",
+       "name": "m_mast_item_otheritems",
        "window": "w_item_others",
        "source_ref": "gminem1\\w_item_others.srw",
        "alternates": [
@@ -79,6 +91,7 @@
       },
       {
        "label": "Groups",
+       "name": "m_mast_item_groups",
        "window": "w_itemgrp",
        "source_ref": "gminem1\\w_itemgrp.srw",
        "alternates": [
@@ -87,6 +100,7 @@
       },
       {
        "label": "Sub Groups",
+       "name": "m_mast_item_subgroup",
        "window": "w_itemsubgrp",
        "source_ref": "gminem1\\w_itemsubgrp.srw",
        "alternates": [
@@ -95,6 +109,7 @@
       },
       {
        "label": "Quality Type",
+       "name": "m_mast_item_qualitytype",
        "window": "w_itemqualitytype",
        "source_ref": "gminem1\\w_itemqualitytype.srw",
        "alternates": [
@@ -103,6 +118,7 @@
       },
       {
        "label": "Counters",
+       "name": "m_mast_item_counters",
        "window": "w_counter",
        "source_ref": "gminem1\\w_counter.srw",
        "alternates": [
@@ -111,6 +127,7 @@
       },
       {
        "label": "Wastage Table",
+       "name": "m_mast_item_wastagetable",
        "window": "w_wstgtable",
        "source_ref": "gminem1\\w_wstgtable.srw",
        "alternates": [
@@ -119,6 +136,7 @@
       },
       {
        "label": "MC Table",
+       "name": "m_mast_item_mctable",
        "window": "w_mctable",
        "source_ref": "gminem1\\w_mctable.srw",
        "alternates": [
@@ -127,6 +145,7 @@
       },
       {
        "label": "Party MC Table",
+       "name": "m_mast_item_partymctable",
        "window": "w_partymctable",
        "source_ref": "gminem2\\w_partymctable.srw",
        "alternates": [
@@ -135,6 +154,7 @@
       },
       {
        "label": "Stock Type",
+       "name": "m_mast_item_stocktype",
        "window": "w_stktype",
        "source_ref": "gminem1\\w_stktype.srw",
        "alternates": [
@@ -143,6 +163,7 @@
       },
       {
        "label": "Models",
+       "name": "m_mast_item_models",
        "window": "w_models",
        "source_ref": "w_models.srw",
        "alternates": [
@@ -151,6 +172,7 @@
       },
       {
        "label": "Op.Stock Entry",
+       "name": "m_mast_item_opstockentry",
        "window": "w_items_opstock",
        "source_ref": "gminem1\\w_items_opstock.srw",
        "alternates": [
@@ -159,6 +181,7 @@
       },
       {
        "label": "ReOrder Level Table",
+       "name": "m_mast_item_rotable",
        "window": "w_reorder_master",
        "source_ref": "gminem1\\w_reorder_master.srw",
        "alternates": [
@@ -169,6 +192,7 @@
     },
     {
      "label": "Customer",
+     "name": "m_mastr_customer",
      "window": "w_sucu",
      "source_ref": "gminem2\\w_sucu.srw",
      "alternates": [
@@ -177,6 +201,7 @@
     },
     {
      "label": "Supplier",
+     "name": "m_mastr_supplierdetails",
      "window": "w_sucu",
      "source_ref": "gminem2\\w_sucu.srw",
      "alternates": [
@@ -185,6 +210,7 @@
     },
     {
      "label": "Goldsmith",
+     "name": "m_mastr_goldsmith",
      "window": "w_smith",
      "source_ref": "gminem2\\w_smith.srw",
      "alternates": [
@@ -193,6 +219,7 @@
     },
     {
      "label": "Refiner",
+     "name": "m_mastr_refinerdetails",
      "window": "w_smith",
      "source_ref": "gminem2\\w_smith.srw",
      "alternates": [
@@ -201,6 +228,7 @@
     },
     {
      "label": "Jewellery",
+     "name": "m_mastr_jewellerydetails",
      "window": "w_smith",
      "source_ref": "gminem2\\w_smith.srw",
      "alternates": [
@@ -209,6 +237,7 @@
     },
     {
      "label": "Depositers (Wgt)",
+     "name": "m_mastr_depositerswgt",
      "window": "w_smith",
      "source_ref": "gminem2\\w_smith.srw",
      "alternates": [
@@ -217,9 +246,11 @@
     },
     {
      "label": "Accounts",
+     "name": "m_mastr_accounts",
      "children": [
       {
        "label": "Account",
+       "name": "m_mast_acct_account",
        "window": "w_achd",
        "source_ref": "gminem3\\w_achd.srw",
        "alternates": [
@@ -228,6 +259,7 @@
       },
       {
        "label": "Position Settings",
+       "name": "m_mast_acct_positionsettings",
        "window": "w_accounts_position",
        "source_ref": "gminem3\\w_accounts_position.srw",
        "alternates": [
@@ -236,6 +268,7 @@
       },
       {
        "label": "Book Stock",
+       "name": "m_mast_acct_bookstock",
        "window": "w_bookstock",
        "source_ref": "gminegen\\w_bookstock.srw",
        "alternates": [
@@ -244,6 +277,7 @@
       },
       {
        "label": "Op.Stock Value Set",
+       "name": "m_mast_acct_opstkvalueset",
        "window": "w_stockvalueset",
        "source_ref": "gminegen\\w_stockvalueset.srw",
        "alternates": [
@@ -252,6 +286,7 @@
       },
       {
        "label": "C/o Party Limit",
+       "name": "m_mast_acct_copartylimit",
        "window": "w_copartylimit",
        "source_ref": "gminem3\\w_copartylimit.srw",
        "alternates": [
@@ -262,6 +297,7 @@
     },
     {
      "label": "Staff",
+     "name": "m_mastr_staff",
      "window": "w_sucu",
      "source_ref": "gminem2\\w_sucu.srw",
      "alternates": [
@@ -270,6 +306,7 @@
     },
     {
      "label": "Sales Man",
+     "name": "m_mastr_salesman",
      "window": "w_sman",
      "source_ref": "gminem2\\w_sman.srw",
      "alternates": [
@@ -278,6 +315,7 @@
     },
     {
      "label": "Bill Type",
+     "name": "m_mastr_salestype",
      "window": "w_salestype",
      "source_ref": "gminem2\\w_salestype.srw",
      "alternates": [
@@ -286,6 +324,7 @@
     },
     {
      "label": "States/Emirates",
+     "name": "m_mastr_states",
      "window": "w_states",
      "source_ref": "gminem2\\w_states.srw",
      "alternates": [
@@ -294,6 +333,7 @@
     },
     {
      "label": "Repair Complaints",
+     "name": "m_mastr_remakecomplaints",
      "window": "w_repaircompl",
      "source_ref": "gminem2\\w_repaircompl.srw",
      "alternates": [
@@ -302,6 +342,7 @@
     },
     {
      "label": "Gift Table",
+     "name": "m_mastr_gifttable",
      "window": "w_gifttable",
      "source_ref": "gminem2\\w_gifttable.srw",
      "alternates": [
@@ -310,6 +351,7 @@
     },
     {
      "label": "Prev. Card Table",
+     "name": "m_mastr_prevcardtable",
      "window": "w_pcardtable",
      "source_ref": "gminem2\\w_pcardtable.srw",
      "alternates": [
@@ -318,6 +360,7 @@
     },
     {
      "label": "Denomination Master",
+     "name": "m_mastr_denom_master",
      "window": "w_denom_master",
      "source_ref": "gminem3\\w_denom_master.srw",
      "alternates": [
@@ -326,9 +369,11 @@
     },
     {
      "label": "Op.Bill Creation",
+     "name": "m_mastr_opbillcreation",
      "children": [
       {
        "label": "Customers",
+       "name": "m_mast_opbill_customers",
        "window": "w_custopbills",
        "source_ref": "gminet7\\w_custopbills.srw",
        "alternates": [
@@ -339,9 +384,11 @@
     },
     {
      "label": "Users",
+     "name": "m_mastr_users",
      "children": [
       {
        "label": "Change Password",
+       "name": "m_mast_users_changepassword",
        "window": "w_passverify2",
        "source_ref": "gminegen\\w_passverify2.srw",
        "alternates": [
@@ -350,6 +397,7 @@
       },
       {
        "label": "Provide Access",
+       "name": "m_mast_users_provideaccess",
        "window": "w_useraccess",
        "source_ref": "gminegen\\w_useraccess.srw",
        "alternates": [
@@ -358,6 +406,7 @@
       },
       {
        "label": "Users History",
+       "name": "m_usershistory",
        "window": "w_userhistory",
        "source_ref": "gminer3\\w_userhistory.srw",
        "alternates": [
@@ -368,9 +417,11 @@
     },
     {
      "label": "Incharge",
+     "name": "m_mastr_incharge",
      "children": [
       {
        "label": "Master",
+       "name": "m_mstr_ic_master",
        "window": "w_incharge_master",
        "source_ref": "gminegen\\w_incharge_master.srw",
        "alternates": [
@@ -379,6 +430,7 @@
       },
       {
        "label": "Change",
+       "name": "m_mstr_ic_change",
        "window": "w_incharge_select",
        "source_ref": "gminegen\\w_incharge_select.srw",
        "alternates": [
@@ -391,12 +443,15 @@
   },
   {
    "label": "Transactions",
+   "name": "m_transactions",
    "children": [
     {
      "label": "Sales",
+     "name": "m_trans_sales",
      "children": [
       {
        "label": "Estimate",
+       "name": "m_tran_sale_estimate",
        "shortcut": "Shift+F2",
        "window": "w_sales_full",
        "source_ref": "gminet1\\w_sales_full.srw",
@@ -407,6 +462,7 @@
       },
       {
        "label": "Bill",
+       "name": "m_tran_sale_bill",
        "shortcut": "F2",
        "window": "w_sales",
        "source_ref": "gminet1\\w_sales.srw",
@@ -416,6 +472,7 @@
       },
       {
        "label": "Edit",
+       "name": "m_tran_sale_edit",
        "window": "w_seditbillno",
        "source_ref": "gminet1\\w_seditbillno.srw",
        "alternates": [
@@ -424,6 +481,7 @@
       },
       {
        "label": "Cancel",
+       "name": "m_tran_sale_cancel",
        "window": "w_scancel",
        "source_ref": "gminet6\\w_scancel.srw",
        "alternates": [
@@ -432,6 +490,7 @@
       },
       {
        "label": "Reprint",
+       "name": "m_tran_sale_reprint",
        "window": "w_sreprintmpc",
        "source_ref": "gminet6\\w_sreprintmpc.srw",
        "alternates": [
@@ -440,6 +499,7 @@
       },
       {
        "label": "Bill Confirmation",
+       "name": "m_tran_sale_confirm",
        "shortcut": "Alt+F8",
        "window": "w_est_to_bill",
        "source_ref": "gminet1\\w_est_to_bill.srw",
@@ -452,9 +512,11 @@
     },
     {
      "label": "Sales Return",
+     "name": "m_trans_salesreturn",
      "children": [
       {
        "label": "Estimate",
+       "name": "m_tran_sret_estimate",
        "window": "w_salesreturn",
        "source_ref": "gminet1\\w_salesreturn.srw",
        "alternates": [
@@ -463,6 +525,7 @@
       },
       {
        "label": "Bill",
+       "name": "m_tran_sret_bill",
        "shortcut": "Ctrl+F2",
        "window": "w_salesreturn",
        "source_ref": "gminet1\\w_salesreturn.srw",
@@ -472,6 +535,7 @@
       },
       {
        "label": "Edit",
+       "name": "m_tran_sret_edit",
        "window": "w_sreteditbillno",
        "source_ref": "gminet1\\w_sreteditbillno.srw",
        "alternates": [
@@ -480,6 +544,7 @@
       },
       {
        "label": "Cancel",
+       "name": "m_tran_sret_cancel",
        "window": "w_sretcancel",
        "source_ref": "gminet6\\w_sretcancel.srw",
        "alternates": [
@@ -488,6 +553,7 @@
       },
       {
        "label": "Reprint",
+       "name": "m_tran_sret_reprint",
        "window": "w_sretreprint",
        "source_ref": "gminet6\\w_sretreprint.srw",
        "alternates": [
@@ -498,9 +564,11 @@
     },
     {
      "label": "Purchase",
+     "name": "m_trans_purchase",
      "children": [
       {
        "label": "Estimate",
+       "name": "m_tran_purch_estimate",
        "shortcut": "Shift+F3",
        "window": "w_purchase_withbc",
        "source_ref": "gminet2\\w_purchase_withbc.srw",
@@ -511,6 +579,7 @@
       },
       {
        "label": "Bill",
+       "name": "m_tran_purch_bill",
        "shortcut": "F3",
        "window": "w_purchase_withbc",
        "source_ref": "gminet2\\w_purchase_withbc.srw",
@@ -521,6 +590,7 @@
       },
       {
        "label": "Edit",
+       "name": "m_tran_purch_edit",
        "window": "w_purcheditno",
        "source_ref": "w_purcheditno.srw",
        "alternates": [
@@ -529,6 +599,7 @@
       },
       {
        "label": "Cancel",
+       "name": "m_tran_purch_cancel",
        "window": "w_pcancel",
        "source_ref": "w_pcancel.srw",
        "alternates": [
@@ -537,6 +608,7 @@
       },
       {
        "label": "Reprint",
+       "name": "m_tran_purch_reprint",
        "window": "w_preprint",
        "source_ref": "w_preprint.srw",
        "alternates": [
@@ -545,6 +617,7 @@
       },
       {
        "label": "Confirmation",
+       "name": "m_tran_purch_confirmation",
        "shortcut": "Ctrl+F8",
        "window": "w_purchase_confirm",
        "source_ref": "gminet2\\w_purchase_confirm.srw",
@@ -556,9 +629,11 @@
     },
     {
      "label": "Purchase Return",
+     "name": "m_trans_purchasereturn",
      "children": [
       {
        "label": "Estimate",
+       "name": "m_tran_pret_estimate",
        "window": "w_purchase_ret",
        "source_ref": "gminet2\\w_purchase_ret.srw",
        "alternates": [
@@ -567,6 +642,7 @@
       },
       {
        "label": "Bill",
+       "name": "m_tran_pret_bill",
        "shortcut": "Ctrl+F3",
        "window": "w_purchase_ret",
        "source_ref": "gminet2\\w_purchase_ret.srw",
@@ -576,6 +652,7 @@
       },
       {
        "label": "Edit",
+       "name": "m_tran_pret_edit",
        "window": "w_purcheditno",
        "source_ref": "w_purcheditno.srw",
        "alternates": [
@@ -584,6 +661,7 @@
       },
       {
        "label": "Cancel",
+       "name": "m_tran_pret_cancel",
        "window": "w_pcancel",
        "source_ref": "w_pcancel.srw",
        "alternates": [
@@ -592,6 +670,7 @@
       },
       {
        "label": "Reprint",
+       "name": "m_tran_pret_reprint",
        "window": "w_preprint",
        "source_ref": "w_preprint.srw",
        "alternates": [
@@ -602,12 +681,15 @@
     },
     {
      "label": "Diamonds/Pres.Stone",
+     "name": "m_trans_dmd",
      "children": [
       {
        "label": "Purchase",
+       "name": "m_trans_dmdpurh",
        "children": [
         {
          "label": "New",
+         "name": "m_trans_dmdpurnew",
          "window": "w_diamond_purchase",
          "source_ref": "gminet2\\w_diamond_purchase.srw",
          "alternates": [
@@ -616,6 +698,7 @@
         },
         {
          "label": "Edit",
+         "name": "m_trans_dmdpuredit",
          "window": "w_purcheditno",
          "source_ref": "w_purcheditno.srw",
          "alternates": [
@@ -624,6 +707,7 @@
         },
         {
          "label": "Cancel",
+         "name": "m_trans_dmdpurcan",
          "window": "w_pcancel",
          "source_ref": "w_pcancel.srw",
          "alternates": [
@@ -632,6 +716,7 @@
         },
         {
          "label": "Reprint",
+         "name": "m_trans_dmdpurreprint",
          "window": "w_preprint",
          "source_ref": "w_preprint.srw",
          "alternates": [
@@ -642,9 +727,11 @@
       },
       {
        "label": "Purchase Return",
+       "name": "m_trans_dmdpreturn",
        "children": [
         {
          "label": "New",
+         "name": "m_trans_dmdpret_new",
          "window": "w_diamond_preturn",
          "source_ref": "gminet2\\w_diamond_preturn.srw",
          "alternates": [
@@ -653,6 +740,7 @@
         },
         {
          "label": "Edit",
+         "name": "m_trans_dmdpret_edit",
          "window": "w_purcheditno",
          "source_ref": "w_purcheditno.srw",
          "alternates": [
@@ -661,6 +749,7 @@
         },
         {
          "label": "Cancel",
+         "name": "m_trans_dmdpret_cancel",
          "window": "w_pcancel",
          "source_ref": "w_pcancel.srw",
          "alternates": [
@@ -669,6 +758,7 @@
         },
         {
          "label": "Reprint",
+         "name": "m_trans_dmdpret_reprint",
          "window": "w_preprint",
          "source_ref": "w_preprint.srw",
          "alternates": [
@@ -681,9 +771,11 @@
     },
     {
      "label": "Goldsmith",
+     "name": "m_trans_goldsmith",
      "children": [
       {
        "label": "Transaction",
+       "name": "m_tran_smith_entry",
        "shortcut": "Ctrl+G",
        "window": "w_gsmith",
        "source_ref": "gminet4\\w_gsmith.srw",
@@ -693,6 +785,7 @@
       },
       {
        "label": "Edit",
+       "name": "m_tran_smith_edit",
        "window": "w_gsmtheditno",
        "source_ref": "gminet4\\w_gsmtheditno.srw",
        "alternates": [
@@ -701,6 +794,7 @@
       },
       {
        "label": "Cancel",
+       "name": "m_tran_smith_cancel",
        "window": "w_gsmthcancel",
        "source_ref": "gminet4\\w_gsmthcancel.srw",
        "alternates": [
@@ -709,6 +803,7 @@
       },
       {
        "label": "Reprint",
+       "name": "m_tran_smith_reprint",
        "window": "w_gsmthreprint",
        "source_ref": "gminet4\\w_gsmthreprint.srw",
        "alternates": [
@@ -717,6 +812,7 @@
       },
       {
        "label": "New Work Note",
+       "name": "m_tran_smith_newworknote",
        "shortcut": "Ctrl+N",
        "window": "w_gsmithnewwrk",
        "source_ref": "gminet4\\w_gsmithnewwrk.srw",
@@ -728,9 +824,11 @@
     },
     {
      "label": "Refinery",
+     "name": "m_trans_refinery",
      "children": [
       {
        "label": "New Entry",
+       "name": "m_tran_refinry_new",
        "shortcut": "Ctrl+Y",
        "window": "w_refnenter",
        "source_ref": "gminet4\\w_refnenter.srw",
@@ -740,6 +838,7 @@
       },
       {
        "label": "Returns",
+       "name": "m_tran_refinry_returns",
        "shortcut": "Ctrl+Shift+Y",
        "window": "w_refnretdocno",
        "source_ref": "gminet4\\w_refnretdocno.srw",
@@ -749,6 +848,7 @@
       },
       {
        "label": "All in one Entry",
+       "name": "m_tran_refinry_allinoneentry",
        "window": "w_refinary",
        "source_ref": "gminet4\\w_refinary.srw",
        "alternates": [
@@ -757,6 +857,7 @@
       },
       {
        "label": "Edit",
+       "name": "m_tran_refinry_edit",
        "window": "w_refneditno",
        "source_ref": "gminet4\\w_refneditno.srw",
        "alternates": [
@@ -765,6 +866,7 @@
       },
       {
        "label": "Cancel",
+       "name": "m_tran_refinry_cancel",
        "window": "w_refncancel",
        "source_ref": "gminet4\\w_refncancel.srw",
        "alternates": [
@@ -775,9 +877,11 @@
     },
     {
      "label": "Jewellery",
+     "name": "m_trans_jewellery",
      "children": [
       {
        "label": "Transaction",
+       "name": "m_trn_jewl_transaction",
        "shortcut": "Ctrl+J",
        "window": "w_gsmith",
        "source_ref": "gminet4\\w_gsmith.srw",
@@ -787,6 +891,7 @@
       },
       {
        "label": "Edit",
+       "name": "m_trn_jewl_edit",
        "window": "w_gsmtheditno",
        "source_ref": "gminet4\\w_gsmtheditno.srw",
        "alternates": [
@@ -795,6 +900,7 @@
       },
       {
        "label": "Cancel",
+       "name": "m_trn_jewl_cancel",
        "window": "w_gsmthcancel",
        "source_ref": "gminet4\\w_gsmthcancel.srw",
        "alternates": [
@@ -803,6 +909,7 @@
       },
       {
        "label": "Reprint",
+       "name": "m_trn_jewl_reprint",
        "window": "w_gsmthreprint",
        "source_ref": "gminet4\\w_gsmthreprint.srw",
        "alternates": [
@@ -811,6 +918,7 @@
       },
       {
        "label": "Update from HO",
+       "name": "m_trn_jewl_update",
        "window": "w_jewl_update",
        "source_ref": "gminet4\\w_jewl_update.srw",
        "alternates": [
@@ -821,9 +929,11 @@
     },
     {
      "label": "Party Wgt Deposit",
+     "name": "m_trans_partywgtdeposit",
      "children": [
       {
        "label": "Transaction",
+       "name": "m_trn_partydep_transaction",
        "window": "w_gsmith",
        "source_ref": "gminet4\\w_gsmith.srw",
        "alternates": [
@@ -832,6 +942,7 @@
       },
       {
        "label": "Edit",
+       "name": "m_trn_partydep_edit",
        "window": "w_gsmtheditno",
        "source_ref": "gminet4\\w_gsmtheditno.srw",
        "alternates": [
@@ -840,6 +951,7 @@
       },
       {
        "label": "Cancel",
+       "name": "m_trn_partydep_cancel",
        "window": "w_gsmthcancel",
        "source_ref": "gminet4\\w_gsmthcancel.srw",
        "alternates": [
@@ -848,6 +960,7 @@
       },
       {
        "label": "Reprint",
+       "name": "m_trn_partydep_reprint",
        "window": "w_gsmthreprint",
        "source_ref": "gminet4\\w_gsmthreprint.srw",
        "alternates": [
@@ -856,6 +969,7 @@
       },
       {
        "label": "Interest Posting",
+       "name": "m_trn_partydep_intpost",
        "window": "w_depositors_intpost",
        "source_ref": "gminet5\\w_depositors_intpost.srw",
        "alternates": [
@@ -866,9 +980,11 @@
     },
     {
      "label": "Order",
+     "name": "m_trans_order",
      "children": [
       {
        "label": "New Order",
+       "name": "m_tran_order_new",
        "shortcut": "Ctrl+O",
        "window": "w_order",
        "source_ref": "gminet3\\w_order.srw",
@@ -878,6 +994,7 @@
       },
       {
        "label": "Edit Order Entry",
+       "name": "m_tran_order_edit",
        "window": "w_ordereditbillno",
        "source_ref": "gminet3\\w_ordereditbillno.srw",
        "alternates": [
@@ -886,6 +1003,7 @@
       },
       {
        "label": "Advance After",
+       "name": "m_tran_order_advanceafter",
        "window": "w_ordadvanceafter",
        "source_ref": "gminet3\\w_ordadvanceafter.srw",
        "alternates": [
@@ -894,6 +1012,7 @@
       },
       {
        "label": "Order Sale",
+       "name": "m_tran_order_orderreturn",
        "shortcut": "Ctrl+S",
        "window": "w_ordno",
        "source_ref": "gminet3\\w_ordno.srw",
@@ -903,6 +1022,7 @@
       },
       {
        "label": "Edit Order Sale",
+       "name": "m_tran_order_editordersale",
        "window": "w_ordsale_editno",
        "source_ref": "gminet3\\w_ordsale_editno.srw",
        "alternates": [
@@ -911,6 +1031,7 @@
       },
       {
        "label": "Sale W/o Order",
+       "name": "m_tran_order_salewoorder",
        "window": "w_ordersale",
        "source_ref": "gminet3\\w_ordersale.srw",
        "alternates": [
@@ -919,6 +1040,7 @@
       },
       {
        "label": "Update from Jewelleries",
+       "name": "m_tran_order_update",
        "shortcut": "Ctrl+Shift+J",
        "window": "w_order_update",
        "source_ref": "gminet3\\w_order_update.srw",
@@ -928,6 +1050,7 @@
       },
       {
        "label": "Block/Unblock an Order",
+       "name": "m_tran_order_blockunblockanorder",
        "window": "w_order_block",
        "source_ref": "gminet3\\w_order_block.srw",
        "alternates": [
@@ -936,6 +1059,7 @@
       },
       {
        "label": "Order Rate Fix",
+       "name": "m_orderratefix",
        "window": "w_order_ratefix",
        "source_ref": "gminet3\\w_order_ratefix.srw",
        "alternates": [
@@ -944,6 +1068,7 @@
       },
       {
        "label": "Cancel",
+       "name": "m_tran_order_cancel",
        "window": "w_ocancel",
        "source_ref": "gminet3\\w_ocancel.srw",
        "alternates": [
@@ -952,6 +1077,7 @@
       },
       {
        "label": "Reprint",
+       "name": "m_tran_order_reprint",
        "window": "w_oreprint",
        "source_ref": "gminet3\\w_oreprint.srw",
        "alternates": [
@@ -962,12 +1088,15 @@
     },
     {
      "label": "Remake / Repair",
+     "name": "m_trans_remake",
      "children": [
       {
        "label": "Rcpt Memo To Party",
+       "name": "m_trn_remke_rcptmemotoparty",
        "children": [
         {
          "label": "New",
+         "name": "m_trn_remk_memotoparty_new",
          "window": "w_reprenter",
          "source_ref": "gminet5\\w_reprenter.srw",
          "alternates": [
@@ -976,6 +1105,7 @@
         },
         {
          "label": "Edit",
+         "name": "m_trn_remk_memotoparty_edit",
          "window": "w_repreditno",
          "source_ref": "gminet5\\w_repreditno.srw",
          "alternates": [
@@ -984,6 +1114,7 @@
         },
         {
          "label": "Cancel",
+         "name": "m_trn_remk_memotoparty_cancel",
          "window": "w_rprcancel",
          "source_ref": "gminehlp\\w_rprcancel.srw",
          "alternates": [
@@ -992,6 +1123,7 @@
         },
         {
          "label": "Reprint",
+         "name": "m_trn_remk_memotoparty_reprint",
          "window": "w_reprreprint",
          "source_ref": "gminet5\\w_reprreprint.srw",
          "alternates": [
@@ -1002,9 +1134,11 @@
       },
       {
        "label": "Issue Memo To Smith",
+       "name": "m_trn_remke_issuememotosmith",
        "children": [
         {
          "label": "New",
+         "name": "m_trn_remk_issuetosmith_new",
          "window": "w_gsmith",
          "source_ref": "gminet4\\w_gsmith.srw",
          "alternates": [
@@ -1013,6 +1147,7 @@
         },
         {
          "label": "Edit",
+         "name": "m_trn_remk_issuetosmith_edit",
          "window": "w_gsmtheditno",
          "source_ref": "gminet4\\w_gsmtheditno.srw",
          "alternates": [
@@ -1021,6 +1156,7 @@
         },
         {
          "label": "Cancel",
+         "name": "m_trn_remk_issuetosmith_cancel",
          "window": "w_gsmthcancel",
          "source_ref": "gminet4\\w_gsmthcancel.srw",
          "alternates": [
@@ -1029,6 +1165,7 @@
         },
         {
          "label": "Reprint",
+         "name": "m_trn_remk_issuetosmith_reprint",
          "window": "w_gsmthreprint",
          "source_ref": "gminet4\\w_gsmthreprint.srw",
          "alternates": [
@@ -1039,9 +1176,11 @@
       },
       {
        "label": "Rcpt Memo From Smith",
+       "name": "m_trn_remke_rcptmemofromsmith",
        "children": [
         {
          "label": "New",
+         "name": "m_trn_remk_rcptfromsmith_new",
          "window": "w_gsmith",
          "source_ref": "gminet4\\w_gsmith.srw",
          "alternates": [
@@ -1050,6 +1189,7 @@
         },
         {
          "label": "Edit",
+         "name": "m_trn_remk_rcptfromsmith_edit",
          "window": "w_gsmtheditno",
          "source_ref": "gminet4\\w_gsmtheditno.srw",
          "alternates": [
@@ -1058,6 +1198,7 @@
         },
         {
          "label": "Cancel",
+         "name": "m_trn_remk_rcptfromsmith_cancel",
          "window": "w_gsmthcancel",
          "source_ref": "gminet4\\w_gsmthcancel.srw",
          "alternates": [
@@ -1066,6 +1207,7 @@
         },
         {
          "label": "Reprint",
+         "name": "m_trn_remk_rcptfromsmith_reprint",
          "window": "w_gsmthreprint",
          "source_ref": "gminet4\\w_gsmthreprint.srw",
          "alternates": [
@@ -1076,9 +1218,11 @@
       },
       {
        "label": "Issue Memo To Party",
+       "name": "m_trn_remke_issuememotoparty",
        "children": [
         {
          "label": "New",
+         "name": "m_trn_remk_issuetoparty_new",
          "window": "w_reprno",
          "source_ref": "gminet5\\w_reprno.srw",
          "alternates": [
@@ -1087,6 +1231,7 @@
         },
         {
          "label": "Edit",
+         "name": "m_trn_remk_issuetoparty_edit",
          "window": "w_repreditno",
          "source_ref": "gminet5\\w_repreditno.srw",
          "alternates": [
@@ -1095,6 +1240,7 @@
         },
         {
          "label": "Cancel",
+         "name": "m_trn_remk_issuetoparty_cancel",
          "window": "w_rprcancel",
          "source_ref": "gminehlp\\w_rprcancel.srw",
          "alternates": [
@@ -1102,7 +1248,8 @@
          ]
         },
         {
-         "label": "Reprint"
+         "label": "Reprint",
+         "name": "m_trn_remk_issuetoparty_reprint"
         }
        ]
       }
@@ -1110,9 +1257,11 @@
     },
     {
      "label": "Item Adjustment",
+     "name": "m_trans_itemadjustment",
      "children": [
       {
        "label": "Stock Transfer",
+       "name": "m_tran_itemadj_entry",
        "shortcut": "Ctrl+A",
        "window": "w_itemadj",
        "source_ref": "gminet5\\w_itemadj.srw",
@@ -1122,6 +1271,7 @@
       },
       {
        "label": "Stock Tranfer(Barcode)",
+       "name": "m_tran_itemadj_barcode",
        "shortcut": "Ctrl+Alt+A",
        "window": "w_itemadj",
        "source_ref": "gminet5\\w_itemadj.srw",
@@ -1131,6 +1281,7 @@
       },
       {
        "label": "Stock Transfer Multi Entry",
+       "name": "m_tran_itemadj_stktransmulti",
        "window": "w_itemadj_multi",
        "source_ref": "gminet5\\w_itemadj_multi.srw",
        "alternates": [
@@ -1139,6 +1290,7 @@
       },
       {
        "label": "Stock Add - Less",
+       "name": "m_tran_itemadj_stockaddless",
        "shortcut": "Ctrl+K",
        "window": "w_stockaddless",
        "source_ref": "gminet5\\w_stockaddless.srw",
@@ -1148,6 +1300,7 @@
       },
       {
        "label": "Stock Add - Less Edit",
+       "name": "m_tran_itemadj_stkaddless_edit",
        "window": "w_itemaddlesshelp",
        "source_ref": "gminehlp\\w_itemaddlesshelp.srw",
        "alternates": [
@@ -1157,6 +1310,7 @@
       },
       {
        "label": "Stock Adjustment",
+       "name": "m_tran_itemadj_stockadjustment",
        "window": "w_stockadj",
        "source_ref": "gminet5\\w_stockadj.srw",
        "alternates": [
@@ -1165,6 +1319,7 @@
       },
       {
        "label": "Edit",
+       "name": "m_tran_itemadj_edit",
        "window": "w_itemadj_wgtrcptpmnt",
        "source_ref": "w_itemadj_wgtrcptpmnt.srw",
        "alternates": [
@@ -1175,6 +1330,7 @@
       },
       {
        "label": "Cancel",
+       "name": "m_tran_itemadj_cancel",
        "window": "w_itemadjhelp",
        "source_ref": "gminehlp\\w_itemadjhelp.srw",
        "alternates": [
@@ -1186,9 +1342,11 @@
     },
     {
      "label": "Partners Deposit(Wgt)",
+     "name": "m_trans_depositwgt",
      "children": [
       {
        "label": "New",
+       "name": "m_tran_deposit_new",
        "shortcut": "Ctrl+W",
        "window": "w_itemadj_wgtrcptpmnt",
        "source_ref": "w_itemadj_wgtrcptpmnt.srw",
@@ -1198,6 +1356,7 @@
       },
       {
        "label": "Edit",
+       "name": "m_tran_deposit_edit",
        "window": "w_itemadj_wgtrcptpmnt",
        "source_ref": "w_itemadj_wgtrcptpmnt.srw",
        "alternates": [
@@ -1207,6 +1366,7 @@
       },
       {
        "label": "Cancel",
+       "name": "m_tran_deposit_cancel",
        "window": "w_wgtrcptpmnt_help",
        "source_ref": "gminet5\\w_wgtrcptpmnt_help.srw",
        "alternates": [
@@ -1215,6 +1375,7 @@
       },
       {
        "label": "Reprint",
+       "name": "m_tran_deposit_reprint",
        "window": "w_wgtrcptpmnt_help",
        "source_ref": "gminet5\\w_wgtrcptpmnt_help.srw",
        "alternates": [
@@ -1223,6 +1384,7 @@
       },
       {
        "label": "Intrest Posting",
+       "name": "m_tran_deposit_intrestposting",
        "window": "w_wgtrcptpmnt_intpost",
        "source_ref": "gminet5\\w_wgtrcptpmnt_intpost.srw",
        "alternates": [
@@ -1231,6 +1393,7 @@
       },
       {
        "label": "Op.Weight Entry",
+       "name": "m_tran_deposit_opweightentry",
        "window": "w_partywgtbal_opbal",
        "source_ref": "gminet5\\w_partywgtbal_opbal.srw",
        "alternates": [
@@ -1241,9 +1404,11 @@
     },
     {
      "label": "Loan",
+     "name": "m_trans_loan",
      "children": [
       {
        "label": "New Loan",
+       "name": "m_tran_loan_amt_new",
        "window": "w_loanentry_amt",
        "source_ref": "gminet3\\w_loanentry_amt.srw",
        "alternates": [
@@ -1252,6 +1417,7 @@
       },
       {
        "label": "Edit Loan",
+       "name": "m_tran_loan_edit",
        "window": "w_loanedit",
        "source_ref": "gminet3\\w_loanedit.srw",
        "alternates": [
@@ -1260,6 +1426,7 @@
       },
       {
        "label": "Cancel Loan",
+       "name": "m_tran_loan_cancel",
        "window": "w_loancancel",
        "source_ref": "gminet3\\w_loancancel.srw",
        "alternates": [
@@ -1268,6 +1435,7 @@
       },
       {
        "label": "Loan Collection",
+       "name": "m_tran_loan_collection",
        "window": "w_loancolln",
        "source_ref": "gminet3\\w_loancolln.srw",
        "alternates": [
@@ -1276,6 +1444,7 @@
       },
       {
        "label": "Loan Termination",
+       "name": "m_tran_loan_termination",
        "window": "w_loan_termination",
        "source_ref": "gminet3\\w_loan_termination.srw",
        "alternates": [
@@ -1286,9 +1455,11 @@
     },
     {
      "label": "Finance",
+     "name": "m_trans_finance",
      "children": [
       {
        "label": "Finance Issue",
+       "name": "m_trn_fin_issue",
        "window": "w_finance_entry",
        "source_ref": "w_finance_entry.srw",
        "alternates": [
@@ -1297,6 +1468,7 @@
       },
       {
        "label": "Finance Settlement",
+       "name": "m_trn_fin_settlement",
        "window": "w_finance_entry",
        "source_ref": "w_finance_entry.srw",
        "alternates": [
@@ -1305,6 +1477,7 @@
       },
       {
        "label": "Edit",
+       "name": "m_trn_fin_edit",
        "window": "w_finance_help",
        "source_ref": "gminet5\\w_finance_help.srw",
        "alternates": [
@@ -1314,6 +1487,7 @@
       },
       {
        "label": "Cancel",
+       "name": "m_trn_fin_cancel",
        "window": "w_finance_help",
        "source_ref": "gminet5\\w_finance_help.srw",
        "alternates": [
@@ -1322,6 +1496,7 @@
       },
       {
        "label": "Reprint",
+       "name": "m_trn_fin_reprint",
        "window": "w_finance_help",
        "source_ref": "gminet5\\w_finance_help.srw",
        "alternates": [
@@ -1332,9 +1507,11 @@
     },
     {
      "label": "Staff",
+     "name": "m_trans_stafftransaction",
      "children": [
       {
        "label": "Transaction",
+       "name": "m_trans_stff_trans",
        "window": "w_stafftrans",
        "source_ref": "gminet5\\w_stafftrans.srw",
        "alternates": [
@@ -1343,6 +1520,7 @@
       },
       {
        "label": "Staff Log Update",
+       "name": "m_stafflogupdate",
        "window": "w_staff_attand_update",
        "source_ref": "gminet5\\w_staff_attand_update.srw",
        "alternates": [
@@ -1351,6 +1529,7 @@
       },
       {
        "label": "Leave Entry",
+       "name": "m_trans_stff_leave",
        "window": "w_staffleave",
        "source_ref": "gminet5\\w_staffleave.srw",
        "alternates": [
@@ -1359,6 +1538,7 @@
       },
       {
        "label": "Wgt Transaction",
+       "name": "m_trans_stff_wgttransaction",
        "window": "w_staffwgttran",
        "source_ref": "gminet5\\w_staffwgttran.srw",
        "alternates": [
@@ -1369,12 +1549,15 @@
     },
     {
      "label": "Other Items Trans",
+     "name": "m_trans_oitemtran",
      "children": [
       {
        "label": "Sales",
+       "name": "m_trans_oisale",
        "children": [
         {
          "label": "New",
+         "name": "m_trans_ois_new",
          "window": "w_otheritemtran",
          "source_ref": "gminet6\\w_otheritemtran.srw",
          "alternates": [
@@ -1383,6 +1566,7 @@
         },
         {
          "label": "Edit",
+         "name": "m_trans_ois_edit",
          "window": "w_oitedit",
          "source_ref": "w_oitedit.srw",
          "alternates": [
@@ -1391,6 +1575,7 @@
         },
         {
          "label": "Cancel",
+         "name": "m_trans_ois_cancel",
          "window": "w_oitcancel",
          "source_ref": "w_oitcancel.srw",
          "alternates": [
@@ -1398,15 +1583,18 @@
          ]
         },
         {
-         "label": "Reprint"
+         "label": "Reprint",
+         "name": "m_trans_ois_reprint"
         }
        ]
       },
       {
        "label": "Purchase",
+       "name": "m_trans_oipurchase",
        "children": [
         {
          "label": "New",
+         "name": "m_trans_oip_new",
          "window": "w_otheritemtran",
          "source_ref": "gminet6\\w_otheritemtran.srw",
          "alternates": [
@@ -1415,6 +1603,7 @@
         },
         {
          "label": "Edit",
+         "name": "m_trans_oip_edit",
          "window": "w_oitedit",
          "source_ref": "w_oitedit.srw",
          "alternates": [
@@ -1423,6 +1612,7 @@
         },
         {
          "label": "Cancel",
+         "name": "m_trans_oip_cancel",
          "window": "w_oitcancel",
          "source_ref": "w_oitcancel.srw",
          "alternates": [
@@ -1430,7 +1620,8 @@
          ]
         },
         {
-         "label": "Reprint"
+         "label": "Reprint",
+         "name": "m_trans_oip_reprint"
         }
        ]
       }
@@ -1438,9 +1629,11 @@
     },
     {
      "label": "Barcode",
+     "name": "m_trans_barcode",
      "children": [
       {
        "label": "Barcode Single Entry",
+       "name": "m_trans_bcwostktran",
        "window": "w_barcode_entry",
        "source_ref": "gminem1\\w_barcode_entry.srw",
        "alternates": [
@@ -1449,6 +1642,7 @@
       },
       {
        "label": "Barcode Multi Entry",
+       "name": "m_trans_bcwstktran",
        "window": "w_barcode_entryall",
        "source_ref": "gminem1\\w_barcode_entryall.srw",
        "alternates": [
@@ -1457,6 +1651,7 @@
       },
       {
        "label": "Counter Issue",
+       "name": "m_trans_counterissue",
        "window": "w_counter_issue",
        "source_ref": "gminem1\\w_counter_issue.srw",
        "alternates": [
@@ -1465,6 +1660,7 @@
       },
       {
        "label": "Stock Verification",
+       "name": "m_trans_bcstkveriy",
        "window": "w_barcodestkverify",
        "source_ref": "gminem1\\w_barcodestkverify.srw",
        "alternates": [
@@ -1475,9 +1671,11 @@
     },
     {
      "label": "Stock Suspense Entry",
+     "name": "m_trans_modeltrans",
      "children": [
       {
        "label": "New Issue",
+       "name": "m_tran_modltran_newissue",
        "shortcut": "Ctrl+F8",
        "window": "w_modeltrans",
        "source_ref": "w_modeltrans.srw",
@@ -1487,6 +1685,7 @@
       },
       {
        "label": "New Receipt",
+       "name": "m_tran_modltran_newreceipt",
        "window": "w_modeltrans",
        "source_ref": "w_modeltrans.srw",
        "alternates": [
@@ -1495,6 +1694,7 @@
       },
       {
        "label": "Cancel",
+       "name": "m_tran_modltran_cancel",
        "window": "w_modeltranhelp",
        "source_ref": "w_modeltranhelp.srw",
        "alternates": [
@@ -1503,6 +1703,7 @@
       },
       {
        "label": "Reprint",
+       "name": "m_tran_modltran_reprint",
        "window": "w_modeltranhelp",
        "source_ref": "w_modeltranhelp.srw",
        "alternates": [
@@ -1513,9 +1714,11 @@
     },
     {
      "label": "Purity Testing",
+     "name": "m_trans_puritytesting",
      "children": [
       {
        "label": "New",
+       "name": "m_tran_purity_new",
        "window": "w_purity_entry",
        "source_ref": "gminet5\\w_purity_entry.srw",
        "alternates": [
@@ -1523,18 +1726,22 @@
        ]
       },
       {
-       "label": "Edit"
+       "label": "Edit",
+       "name": "m_tran_purity_edit"
       },
       {
-       "label": "Cancel"
+       "label": "Cancel",
+       "name": "m_tran_purity_cancel"
       },
       {
-       "label": "Reprint"
+       "label": "Reprint",
+       "name": "m_tran_purity_reprint"
       }
      ]
     },
     {
      "label": "Ruff Work",
+     "name": "m_trans_ruffwork",
      "shortcut": "Ctrl+U",
      "window": "w_ruffwork",
      "source_ref": "gminet6\\w_ruffwork.srw",
@@ -1544,6 +1751,7 @@
     },
     {
      "label": "Smith Suspense Entry",
+     "name": "m_trans_itemsuspenseentry",
      "window": "w_gsmithsuspense",
      "source_ref": "gminet4\\w_gsmithsuspense.srw",
      "alternates": [
@@ -1552,9 +1760,11 @@
     },
     {
      "label": "Stock Summary",
+     "name": "m_trans_stocksummary",
      "children": [
       {
        "label": "Cost wise",
+       "name": "m_tran_stocksumm_costwise",
        "window": "w_stksummary",
        "source_ref": "gminer9\\w_stksummary.srw",
        "alternates": [
@@ -1563,6 +1773,7 @@
       },
       {
        "label": "Rate wise",
+       "name": "m_tran_stocksumm_ratewise",
        "window": "w_stksummary_rate",
        "source_ref": "gminer9\\w_stksummary_rate.srw",
        "alternates": [
@@ -1573,6 +1784,7 @@
     },
     {
      "label": "Purity Certificate",
+     "name": "m_trans_purity",
      "window": "w_puritycertificate",
      "source_ref": "gminet7\\w_puritycertificate.srw",
      "alternates": [
@@ -1581,9 +1793,11 @@
     },
     {
      "label": "Kuri Details",
+     "name": "m_trans_kuridetails",
      "children": [
       {
        "label": "Enter Customers",
+       "name": "m_trans_kuri_entercust",
        "window": "w_sucu_kuri",
        "source_ref": "gminem2\\w_sucu_kuri.srw",
        "alternates": [
@@ -1592,6 +1806,7 @@
       },
       {
        "label": "Kuri Collection",
+       "name": "m_trans_kuri_colln",
        "shortcut": "Alt+K",
        "window": "w_kuricolln",
        "source_ref": "gminet7\\w_kuricolln.srw",
@@ -1601,6 +1816,7 @@
       },
       {
        "label": "Interest Posting",
+       "name": "m_trans_kuri_intpost",
        "window": "w_kuri_intpost",
        "source_ref": "gminet7\\w_kuri_intpost.srw",
        "alternates": [
@@ -1609,6 +1825,7 @@
       },
       {
        "label": "Kuri Draw",
+       "name": "m_trans_kuri_draw",
        "window": "w_kuri_draw",
        "source_ref": "gminet7\\w_kuri_draw.srw",
        "alternates": [
@@ -1617,6 +1834,7 @@
       },
       {
        "label": "Kuri Finish",
+       "name": "m_trans_kuri_finish",
        "window": "w_kuri_finish",
        "source_ref": "gminet7\\w_kuri_finish.srw",
        "alternates": [
@@ -1627,9 +1845,11 @@
     },
     {
      "label": "Scheme Details",
+     "name": "m_trans_schemedetails",
      "children": [
       {
        "label": "Customer Registration",
+       "name": "m_trans_schme_custregistration",
        "shortcut": "Ctrl+M",
        "window": "w_sucu_kuri",
        "source_ref": "gminem2\\w_sucu_kuri.srw",
@@ -1639,6 +1859,7 @@
       },
       {
        "label": "Scheme Collection",
+       "name": "m_trans_schme_collection",
        "shortcut": "Ctrl+L",
        "window": "w_kuricolln",
        "source_ref": "gminet7\\w_kuricolln.srw",
@@ -1648,6 +1869,7 @@
       },
       {
        "label": "Scheme Part Refund",
+       "name": "m_trans_schme_partrefund",
        "window": "w_schm_partpayment",
        "source_ref": "gminet7\\w_schm_partpayment.srw",
        "alternates": [
@@ -1656,6 +1878,7 @@
       },
       {
        "label": "Interest Posting",
+       "name": "m_trans_schme_interestposting",
        "window": "w_kuri_intpost",
        "source_ref": "gminet7\\w_kuri_intpost.srw",
        "alternates": [
@@ -1664,6 +1887,7 @@
       },
       {
        "label": "Scheme Finished",
+       "name": "m_trans_schme_schemefinished",
        "window": "w_schm_finish",
        "source_ref": "gminet7\\w_schm_finish.srw",
        "alternates": [
@@ -1672,6 +1896,7 @@
       },
       {
        "label": "POS Upload",
+       "name": "m_trans_schme_posupload",
        "window": "w_pos_update_tofile",
        "source_ref": "gminet7\\w_pos_update_tofile.srw",
        "alternates": [
@@ -1680,6 +1905,7 @@
       },
       {
        "label": "POS Download",
+       "name": "m_trans_schme_posdownload",
        "window": "w_pos_update",
        "source_ref": "gminet7\\w_pos_update.srw",
        "alternates": [
@@ -1688,6 +1914,7 @@
       },
       {
        "label": "Pass Book Print",
+       "name": "m_trans_schme_passbookprint",
        "window": "w_passbook_print",
        "source_ref": "gminet7\\w_passbook_print.srw",
        "alternates": [
@@ -1698,9 +1925,11 @@
     },
     {
      "label": "Accounts",
+     "name": "m_trans_accounts",
      "children": [
       {
        "label": "Receipt",
+       "name": "m_tran_acct_receipt",
        "shortcut": "Alt+F2",
        "window": "w_rcpt",
        "source_ref": "gminet7\\w_rcpt.srw",
@@ -1710,6 +1939,7 @@
       },
       {
        "label": "Payment",
+       "name": "m_tran_acct_payment",
        "shortcut": "Alt+F3",
        "window": "w_pmnt",
        "source_ref": "gminet7\\w_pmnt.srw",
@@ -1719,6 +1949,7 @@
       },
       {
        "label": "Daily Statement Entry",
+       "name": "m_tran_acct_dailystatemententry",
        "shortcut": "Ctrl+Alt+F2",
        "window": "w_dailystatement_entry",
        "source_ref": "gminet7\\w_dailystatement_entry.srw",
@@ -1728,6 +1959,7 @@
       },
       {
        "label": "Suspense Entry",
+       "name": "m_tran_acct_suspentry",
        "shortcut": "Ctrl+Shift+S",
        "window": "w_susprcptpmnt",
        "source_ref": "gminet7\\w_susprcptpmnt.srw",
@@ -1737,6 +1969,7 @@
       },
       {
        "label": "Edit Rcpt/Pmnt entry",
+       "name": "m_tran_acct_edit",
        "window": "w_acceditno",
        "source_ref": "gminet7\\w_acceditno.srw",
        "alternates": [
@@ -1745,6 +1978,7 @@
       },
       {
        "label": "Customer Billwise Rcpt",
+       "name": "m_tran_acct_customerbillwisercpt",
        "shortcut": "Alt+F1",
        "window": "w_custbillwisealoc",
        "source_ref": "gminet7\\w_custbillwisealoc.srw",
@@ -1754,6 +1988,7 @@
       },
       {
        "label": "Supplier Billwise Payment",
+       "name": "m_tran_acct_supbillwisepmnt",
        "window": "w_suppbillwisealoc",
        "source_ref": "gminet7\\w_suppbillwisealoc.srw",
        "alternates": [
@@ -1762,6 +1997,7 @@
       },
       {
        "label": "Journal",
+       "name": "m_tran_acct_journal",
        "shortcut": "Alt+J",
        "window": "w_journal",
        "source_ref": "gminet7\\w_journal.srw",
@@ -1771,6 +2007,7 @@
       },
       {
        "label": "Debit/Credit Note",
+       "name": "m_tran_acct_dbcrnote",
        "window": "w_dbcrnote_entry",
        "source_ref": "gminet7\\w_dbcrnote_entry.srw",
        "alternates": [
@@ -1779,6 +2016,7 @@
       },
       {
        "label": "Expense Voucher Entry",
+       "name": "m_tran_acct_expvoucherentry",
        "window": "w_purchase_amtentry",
        "source_ref": "gminet2\\w_purchase_amtentry.srw",
        "alternates": [
@@ -1787,6 +2025,7 @@
       },
       {
        "label": "Cancel",
+       "name": "m_tran_acct_cancel",
        "window": "w_accancel",
        "source_ref": "gminet7\\w_accancel.srw",
        "alternates": [
@@ -1795,6 +2034,7 @@
       },
       {
        "label": "Reprint",
+       "name": "m_tran_acct_reprint",
        "window": "w_acreprint",
        "source_ref": "gminehlp\\w_acreprint.srw",
        "alternates": [
@@ -1803,6 +2043,7 @@
       },
       {
        "label": "Discount Allocation",
+       "name": "m_tran_acct_discountallocation",
        "shortcut": "Ctrl+D",
        "window": "w_discafter",
        "source_ref": "gminet1\\w_discafter.srw",
@@ -1812,6 +2053,7 @@
       },
       {
        "label": "Cheque Clearance",
+       "name": "m_tran_acct_chequeclearance",
        "window": "w_pdc_colln",
        "source_ref": "gminet7\\w_pdc_colln.srw",
        "alternates": [
@@ -1820,6 +2062,7 @@
       },
       {
        "label": "Rate Diff Adjustment",
+       "name": "m_ratediffadjustment",
        "window": "w_ratediffadjust",
        "source_ref": "gminet3\\w_ratediffadjust.srw",
        "alternates": [
@@ -1828,6 +2071,7 @@
       },
       {
        "label": "Change Duedate",
+       "name": "m_tran_acct_chduedate",
        "window": "w_duedate_change",
        "source_ref": "gminet7\\w_duedate_change.srw",
        "alternates": [
@@ -1836,6 +2080,7 @@
       },
       {
        "label": "Group Amt Allocation",
+       "name": "m_tran_acct_grpamtallocn",
        "window": "w_acgrpamtallocn",
        "source_ref": "gminet5\\w_acgrpamtallocn.srw",
        "alternates": [
@@ -1844,6 +2089,7 @@
       },
       {
        "label": "A/c Restart Date",
+       "name": "m_tran_acct_acrestartdate",
        "window": "w_acstartdate_change",
        "source_ref": "gminet7\\w_acstartdate_change.srw",
        "alternates": [
@@ -1852,6 +2098,7 @@
       },
       {
        "label": "Amt, Wgt Transfer Entry",
+       "name": "m_tran_acct_amtwgttransferentry",
        "window": "w_amttowgt_entry",
        "source_ref": "gminet7\\w_amttowgt_entry.srw",
        "alternates": [
@@ -1860,6 +2107,7 @@
       },
       {
        "label": "Payment Confirmation",
+       "name": "m_tran_acct_paymentconfirmation",
        "window": "w_payment_confirm",
        "source_ref": "gminet7\\w_payment_confirm.srw",
        "alternates": [
@@ -1868,6 +2116,7 @@
       },
       {
        "label": "Denomination Entry",
+       "name": "m_tran_acct_denom_entry",
        "window": "w_denom_trans",
        "source_ref": "gminet7\\w_denom_trans.srw",
        "alternates": [
@@ -1880,12 +2129,15 @@
   },
   {
    "label": "Reports",
+   "name": "m_reports",
    "children": [
     {
      "label": "Sales",
+     "name": "m_reprts_sales",
      "children": [
       {
        "label": "Sales Book",
+       "name": "m_reprt_sales_salesbook",
        "window": "w_salesbook",
        "source_ref": "w_salesbook.srw",
        "alternates": [
@@ -1894,6 +2146,7 @@
       },
       {
        "label": "Sales Return Book",
+       "name": "m_reprt_sales_sretbook",
        "window": "w_salesbook",
        "source_ref": "w_salesbook.srw",
        "alternates": [
@@ -1902,6 +2155,7 @@
       },
       {
        "label": "Monthly Sales",
+       "name": "m_reprt_sales_monthlysales",
        "window": "w_mnthsalereport",
        "source_ref": "gminer1\\w_mnthsalereport.srw",
        "alternates": [
@@ -1910,6 +2164,7 @@
       },
       {
        "label": "Sales Check List",
+       "name": "m_reprt_sales_saleschecklist",
        "window": "w_salechklist",
        "source_ref": "gminer1\\w_salechklist.srw",
        "alternates": [
@@ -1918,6 +2173,7 @@
       },
       {
        "label": "Sales Register",
+       "name": "m_reprt_sales_salesregister",
        "window": "w_saleregister",
        "source_ref": "gminer1\\w_saleregister.srw",
        "alternates": [
@@ -1926,6 +2182,7 @@
       },
       {
        "label": "Sales Return Register",
+       "name": "m_reprt_sales_salesreturnregister",
        "window": "w_saleretregister",
        "source_ref": "gminer1\\w_saleretregister.srw",
        "alternates": [
@@ -1934,6 +2191,7 @@
       },
       {
        "label": "Net Sales Report",
+       "name": "m_reprt_sales_netsalesreport",
        "window": "w_netsalesrep",
        "source_ref": "gminer1\\w_netsalesrep.srw",
        "alternates": [
@@ -1942,6 +2200,7 @@
       },
       {
        "label": "Barcode Register",
+       "name": "m_reprt_sales_barcoderegister",
        "window": "w_salesbarcoderep",
        "source_ref": "gminer1\\w_salesbarcoderep.srw",
        "alternates": [
@@ -1950,6 +2209,7 @@
       },
       {
        "label": "Marked List",
+       "name": "m_reprt_sales_markedlist",
        "window": "w_markeditemlist",
        "source_ref": "gminer1\\w_markeditemlist.srw",
        "alternates": [
@@ -1958,6 +2218,7 @@
       },
       {
        "label": "Barcode Profit Report",
+       "name": "m_reprt_sales_bcodeprofrep",
        "window": "w_salesbarcode_profit_rep",
        "source_ref": "gminer1\\w_salesbarcode_profit_rep.srw",
        "alternates": [
@@ -1966,6 +2227,7 @@
       },
       {
        "label": "MC Profit Report",
+       "name": "m_reprt_sales_mcprofitreport",
        "window": "w_saleregister_mcprofit",
        "source_ref": "gminer1\\w_saleregister_mcprofit.srw",
        "alternates": [
@@ -1974,6 +2236,7 @@
       },
       {
        "label": "V/A Check List",
+       "name": "m_reprts_vachecklist",
        "window": "w_vacheck",
        "source_ref": "gminer9\\w_vacheck.srw",
        "alternates": [
@@ -1982,6 +2245,7 @@
       },
       {
        "label": "VA Check Report",
+       "name": "m_reprt_sales_varep",
        "window": "w_salesvarep",
        "source_ref": "gminer1\\w_salesvarep.srw",
        "alternates": [
@@ -1990,6 +2254,7 @@
       },
       {
        "label": "Delivery Status Report",
+       "name": "m_reprt_sales_delstatus",
        "window": "w_sales_dstatus_rep",
        "source_ref": "gminer1\\w_sales_dstatus_rep.srw",
        "alternates": [
@@ -2000,9 +2265,11 @@
     },
     {
      "label": "Purchase",
+     "name": "m_reprts_purchase",
      "children": [
       {
        "label": "Purchase Book",
+       "name": "m_reprt_purch_purchasebook",
        "window": "w_purhbook",
        "source_ref": "gminer2\\w_purhbook.srw",
        "alternates": [
@@ -2011,6 +2278,7 @@
       },
       {
        "label": "Purchase Check List",
+       "name": "m_reprt_purch_purchasechecklist",
        "window": "w_purhchklist",
        "source_ref": "gminer2\\w_purhchklist.srw",
        "alternates": [
@@ -2019,6 +2287,7 @@
       },
       {
        "label": "Purchase Register",
+       "name": "m_reprt_purch_purchaseregister",
        "window": "w_purhregister",
        "source_ref": "gminer2\\w_purhregister.srw",
        "alternates": [
@@ -2027,6 +2296,7 @@
       },
       {
        "label": "Purchase Return Register",
+       "name": "m_reprt_purch_purchasereturnregister",
        "window": "w_purhretregister",
        "source_ref": "gminer2\\w_purhretregister.srw",
        "alternates": [
@@ -2037,9 +2307,11 @@
     },
     {
      "label": "Tax Reports",
+     "name": "m_reprts_taxreports",
      "children": [
       {
        "label": "Stock Register",
+       "name": "m_reprts_tax_stockregister",
        "window": "w_stockregister",
        "source_ref": "gminer6\\w_stockregister.srw",
        "alternates": [
@@ -2048,6 +2320,7 @@
       },
       {
        "label": "Sales Book",
+       "name": "m_reprts_tax_salesbook",
        "window": "w_taxreport",
        "source_ref": "w_taxreport.srw",
        "alternates": [
@@ -2056,6 +2329,7 @@
       },
       {
        "label": "Purchase Book",
+       "name": "m_reprts_tax_purchasebook",
        "window": "w_taxreport",
        "source_ref": "w_taxreport.srw",
        "alternates": [
@@ -2064,6 +2338,7 @@
       },
       {
        "label": "Smith Book",
+       "name": "m_reprts_tax_smithbook",
        "window": "w_taxreport",
        "source_ref": "w_taxreport.srw",
        "alternates": [
@@ -2072,6 +2347,7 @@
       },
       {
        "label": "Jewllery Book",
+       "name": "m_reprts_tax_jewllerybook",
        "window": "w_taxreport",
        "source_ref": "w_taxreport.srw",
        "alternates": [
@@ -2080,6 +2356,7 @@
       },
       {
        "label": "Outstanding Tax Report",
+       "name": "m_reprts_tax_outstandingrep",
        "window": "w_taxreport",
        "source_ref": "w_taxreport.srw",
        "alternates": [
@@ -2090,9 +2367,11 @@
     },
     {
      "label": "Goldsmith",
+     "name": "m_reprts_goldsmith",
      "children": [
       {
        "label": "Transactions",
+       "name": "m_reprt_smith_transactions",
        "window": "w_smithentry",
        "source_ref": "gminer3\\w_smithentry.srw",
        "alternates": [
@@ -2101,6 +2380,7 @@
       },
       {
        "label": "Smith Ledger",
+       "name": "m_smithledger",
        "window": "w_smithledger",
        "source_ref": "gminer3\\w_smithledger.srw",
        "alternates": [
@@ -2109,9 +2389,11 @@
       },
       {
        "label": "Wgt./Amt. Summary",
+       "name": "m_reprt_smith_wgtamtsummary",
        "children": [
         {
          "label": "Simple",
+         "name": "m_rept_smith_simple",
          "window": "w_smithwasummary",
          "source_ref": "gminer3\\w_smithwasummary.srw",
          "alternates": [
@@ -2120,6 +2402,7 @@
         },
         {
          "label": "Details",
+         "name": "m_rept_smith_details",
          "window": "w_smithwasummary2",
          "source_ref": "w_smithwasummary2.srw",
          "alternates": [
@@ -2130,6 +2413,7 @@
       },
       {
        "label": "Ageing Report",
+       "name": "m_reprt_smith_ageingreport",
        "window": "w_smithageingreport",
        "source_ref": "gminer3\\w_smithageingreport.srw",
        "alternates": [
@@ -2138,6 +2422,7 @@
       },
       {
        "label": "Smith Trans Summary",
+       "name": "m_reprt_smith_smithtranssummary",
        "window": "w_smithmcsummary",
        "source_ref": "gminer3\\w_smithmcsummary.srw",
        "alternates": [
@@ -2146,6 +2431,7 @@
       },
       {
        "label": "Lot No Report",
+       "name": "m_reprt_smith_lotnoreport",
        "window": "w_smithjewl_lot_rep",
        "source_ref": "gminer3\\w_smithjewl_lot_rep.srw",
        "alternates": [
@@ -2154,6 +2440,7 @@
       },
       {
        "label": "Fix/Unfix Report",
+       "name": "m_reprt_smith_fixunfixreport",
        "window": "w_smithjewl_fixunfix_rep",
        "source_ref": "gminer3\\w_smithjewl_fixunfix_rep.srw",
        "alternates": [
@@ -2162,6 +2449,7 @@
       },
       {
        "label": "Smith List",
+       "name": "m_reprt_smith_smithlist",
        "window": "w_suculist",
        "source_ref": "gminer4\\w_suculist.srw",
        "alternates": [
@@ -2172,9 +2460,11 @@
     },
     {
      "label": "Refinery",
+     "name": "m_reprts_refinery",
      "children": [
       {
        "label": "Refinery Entry Report",
+       "name": "m_reprt_refn_entryreport",
        "window": "w_refnentryrep",
        "source_ref": "gminer3\\w_refnentryrep.srw",
        "alternates": [
@@ -2183,6 +2473,7 @@
       },
       {
        "label": "Refiner's Summary",
+       "name": "m_reprt_refn_refinerssummary",
        "window": "w_refnsummary",
        "source_ref": "gminer3\\w_refnsummary.srw",
        "alternates": [
@@ -2191,6 +2482,7 @@
       },
       {
        "label": "Analysis",
+       "name": "m_reprt_refn_analysis",
        "window": "w_refnanalysis",
        "source_ref": "gminer3\\w_refnanalysis.srw",
        "alternates": [
@@ -2199,6 +2491,7 @@
       },
       {
        "label": "A/c Summary",
+       "name": "m_reprt_refn_acsummary",
        "window": "w_acsummary",
        "source_ref": "gminer8\\w_acsummary.srw",
        "alternates": [
@@ -2207,6 +2500,7 @@
       },
       {
        "label": "Less Comparison Report",
+       "name": "m_reprt_refn_lessreport",
        "window": "w_lesscomparisonrep",
        "source_ref": "gminer3\\w_lesscomparisonrep.srw",
        "alternates": [
@@ -2217,9 +2511,11 @@
     },
     {
      "label": "Jewellery",
+     "name": "m_jewellery",
      "children": [
       {
        "label": "Transactions",
+       "name": "m_reprt_jewl_transactions",
        "window": "w_smithentry",
        "source_ref": "gminer3\\w_smithentry.srw",
        "alternates": [
@@ -2228,6 +2524,7 @@
       },
       {
        "label": "Jewellery Ledger",
+       "name": "m_reprt_jewl_jewelleryledger",
        "window": "w_smithledger",
        "source_ref": "gminer3\\w_smithledger.srw",
        "alternates": [
@@ -2236,6 +2533,7 @@
       },
       {
        "label": "Ageing Report",
+       "name": "m_reprt_jewl_ageingreport",
        "window": "w_smithageingreport",
        "source_ref": "gminer3\\w_smithageingreport.srw",
        "alternates": [
@@ -2244,6 +2542,7 @@
       },
       {
        "label": "Wgt/Amt Summary",
+       "name": "m_reprt_jewl_wgtamtsummary",
        "window": "w_smithwasummary",
        "source_ref": "gminer3\\w_smithwasummary.srw",
        "alternates": [
@@ -2252,6 +2551,7 @@
       },
       {
        "label": "Wgt/Amt Analysis",
+       "name": "m_reprt_jewl_wgtamtanalysis",
        "window": "w_smithwasummary2",
        "source_ref": "w_smithwasummary2.srw",
        "alternates": [
@@ -2260,6 +2560,7 @@
       },
       {
        "label": "Sales/Purchase Item Report",
+       "name": "m_reprt_jewl_acsummary",
        "window": "w_jewelsummary",
        "source_ref": "gminer4\\w_jewelsummary.srw",
        "alternates": [
@@ -2268,6 +2569,7 @@
       },
       {
        "label": "Profit Report",
+       "name": "m_reprt_jewl_profitreport",
        "window": "w_jewlprof_rep",
        "source_ref": "gminer3\\w_jewlprof_rep.srw",
        "alternates": [
@@ -2276,6 +2578,7 @@
       },
       {
        "label": "Jewl Trans Summary",
+       "name": "m_reprt_jewl_transsummary",
        "window": "w_smithmcsummary",
        "source_ref": "gminer3\\w_smithmcsummary.srw",
        "alternates": [
@@ -2284,6 +2587,7 @@
       },
       {
        "label": "TDS Report",
+       "name": "m_reprt_jewl_tdsreport",
        "window": "w_tdsreport",
        "source_ref": "gminer4\\w_tdsreport.srw",
        "alternates": [
@@ -2292,6 +2596,7 @@
       },
       {
        "label": "Extra Amt Report",
+       "name": "m_reprt_jewl_extraamtreport",
        "window": "w_jewl_extraamt_report",
        "source_ref": "gminer4\\w_jewl_extraamt_report.srw",
        "alternates": [
@@ -2300,6 +2605,7 @@
       },
       {
        "label": "A/c Summary",
+       "name": "m_reprt_jewl_ledger",
        "window": "w_acsummary",
        "source_ref": "gminer8\\w_acsummary.srw",
        "alternates": [
@@ -2308,6 +2614,7 @@
       },
       {
        "label": "Send Mail To Jewl",
+       "name": "m_reprt_jewl_sendmail",
        "window": "w_jewlrep_email",
        "source_ref": "gminer3\\w_jewlrep_email.srw",
        "alternates": [
@@ -2318,9 +2625,11 @@
     },
     {
      "label": "Party Wgt Deposit",
+     "name": "m_reprts_partywgtdeposit",
      "children": [
       {
        "label": "Transactions",
+       "name": "m_reprt_pdep_transactions",
        "window": "w_smithentry",
        "source_ref": "gminer3\\w_smithentry.srw",
        "alternates": [
@@ -2329,6 +2638,7 @@
       },
       {
        "label": "Depositer Ledger",
+       "name": "m_reprt_pdep_depositerledger",
        "window": "w_smithledger",
        "source_ref": "gminer3\\w_smithledger.srw",
        "alternates": [
@@ -2337,6 +2647,7 @@
       },
       {
        "label": "Wgt/Amt Summary",
+       "name": "m_reprt_pdep_wgtamtsummary",
        "window": "w_smithwasummary",
        "source_ref": "gminer3\\w_smithwasummary.srw",
        "alternates": [
@@ -2347,9 +2658,11 @@
     },
     {
      "label": "Order",
+     "name": "m_reprts_order",
      "children": [
       {
        "label": "Order Entries",
+       "name": "m_reprt_order_orderentries",
        "window": "w_orderentry",
        "source_ref": "gminer2\\w_orderentry.srw",
        "alternates": [
@@ -2358,6 +2671,7 @@
       },
       {
        "label": "Pending Register",
+       "name": "m_reprt_order_pendingregister",
        "window": "w_orderpendreg",
        "source_ref": "gminer2\\w_orderpendreg.srw",
        "alternates": [
@@ -2366,6 +2680,7 @@
       },
       {
        "label": "Order Enquiry",
+       "name": "m_reprt_order_enquiry",
        "window": "w_orderenquiry",
        "source_ref": "gminer2\\w_orderenquiry.srw",
        "alternates": [
@@ -2374,6 +2689,7 @@
       },
       {
        "label": "Pending Details",
+       "name": "m_reprt_order_orderpending",
        "window": "w_orderpend",
        "source_ref": "gminer2\\w_orderpend.srw",
        "alternates": [
@@ -2382,6 +2698,7 @@
       },
       {
        "label": "Order Returns",
+       "name": "m_reprt_order_orderreturns",
        "window": "w_ordersales",
        "source_ref": "gminer2\\w_ordersales.srw",
        "alternates": [
@@ -2390,6 +2707,7 @@
       },
       {
        "label": "Order Advance Report",
+       "name": "m_reprt_order_orderadvancereport",
        "window": "w_orderadvrep",
        "source_ref": "gminer2\\w_orderadvrep.srw",
        "alternates": [
@@ -2398,6 +2716,7 @@
       },
       {
        "label": "Order Sale Prof Analysis",
+       "name": "m_reprt_order_ordsaleprofanalysis",
        "window": "w_order_prof_rep",
        "source_ref": "gminer2\\w_order_prof_rep.srw",
        "alternates": [
@@ -2406,6 +2725,7 @@
       },
       {
        "label": "Sample Stock Register",
+       "name": "m_reprt_order_samplestockregister",
        "window": "w_samplestkregister",
        "source_ref": "gminer2\\w_samplestkregister.srw",
        "alternates": [
@@ -2414,6 +2734,7 @@
       },
       {
        "label": "Order Nos List",
+       "name": "m_reprt_order_ordernoslist",
        "window": "w_order_ordnolist",
        "source_ref": "gminer2\\w_order_ordnolist.srw",
        "alternates": [
@@ -2422,6 +2743,7 @@
       },
       {
        "label": "Order Process",
+       "name": "m_reprt_order_orderprocess",
        "shortcut": "Ctrl+P",
        "window": "w_order_process",
        "source_ref": "gminer2\\w_order_process.srw",
@@ -2431,6 +2753,7 @@
       },
       {
        "label": "Send Mail To HO",
+       "name": "m_reprt_order_sendmail",
        "shortcut": "Ctrl+E",
        "window": "w_orderrep_email",
        "source_ref": "gminer2\\w_orderrep_email.srw",
@@ -2442,9 +2765,11 @@
     },
     {
      "label": "Remake",
+     "name": "m_reprts_repair",
      "children": [
       {
        "label": "Remake Reports",
+       "name": "m_reprt_repair_remakereports",
        "window": "w_remakereport",
        "source_ref": "gminer2\\w_remakereport.srw",
        "alternates": [
@@ -2453,6 +2778,7 @@
       },
       {
        "label": "Remake Pending",
+       "name": "m_reprt_repair_repairpending",
        "window": "w_repairpend",
        "source_ref": "gminer2\\w_repairpend.srw",
        "alternates": [
@@ -2461,6 +2787,7 @@
       },
       {
        "label": "Remake Returns",
+       "name": "m_reprt_repair_repairreturns",
        "window": "w_repairreturns",
        "source_ref": "gminer2\\w_repairreturns.srw",
        "alternates": [
@@ -2471,9 +2798,11 @@
     },
     {
      "label": "Loan",
+     "name": "m_reprts_loan",
      "children": [
       {
        "label": "Entry Report",
+       "name": "m_reprt_loan_entryreport",
        "window": "w_loanentry_rep",
        "source_ref": "gminer9\\w_loanentry_rep.srw",
        "alternates": [
@@ -2482,6 +2811,7 @@
       },
       {
        "label": "Balance Report",
+       "name": "m_reprt_loan_balancerep",
        "window": "w_loanbalance_rep",
        "source_ref": "gminer9\\w_loanbalance_rep.srw",
        "alternates": [
@@ -2490,6 +2820,7 @@
       },
       {
        "label": "Loan Ledger",
+       "name": "m_reprt_loan_ledger",
        "window": "w_loanledger_rep",
        "source_ref": "gminer9\\w_loanledger_rep.srw",
        "alternates": [
@@ -2498,6 +2829,7 @@
       },
       {
        "label": "Item Report",
+       "name": "m_reprt_loan_itemreport",
        "window": "w_loanentry_item_rep",
        "source_ref": "gminer9\\w_loanentry_item_rep.srw",
        "alternates": [
@@ -2508,9 +2840,11 @@
     },
     {
      "label": "Other Item Reports",
+     "name": "m_reprts_oitemreports",
      "children": [
       {
        "label": "Sales Book",
+       "name": "m_reprts_oit_sbook",
        "window": "w_oitbook",
        "source_ref": "w_oitbook.srw",
        "alternates": [
@@ -2519,6 +2853,7 @@
       },
       {
        "label": "Sales Register",
+       "name": "m_reprts_oit_sregister",
        "window": "w_oitregister",
        "source_ref": "w_oitregister.srw",
        "alternates": [
@@ -2527,6 +2862,7 @@
       },
       {
        "label": "Purchase Book",
+       "name": "m_reprts_oit_pbook",
        "window": "w_oitbook",
        "source_ref": "w_oitbook.srw",
        "alternates": [
@@ -2535,6 +2871,7 @@
       },
       {
        "label": "Purchase Register",
+       "name": "m_reprts_oit_pregister",
        "window": "w_oitregister",
        "source_ref": "w_oitregister.srw",
        "alternates": [
@@ -2543,6 +2880,7 @@
       },
       {
        "label": "Stock Ledger",
+       "name": "m_reprts_oit_stkledger",
        "window": "w_oistockledger",
        "source_ref": "gminer6\\w_oistockledger.srw",
        "alternates": [
@@ -2551,6 +2889,7 @@
       },
       {
        "label": "Stock List",
+       "name": "m_reprts_oit_stklist",
        "window": "w_oistocklist",
        "source_ref": "gminer6\\w_oistocklist.srw",
        "alternates": [
@@ -2561,9 +2900,11 @@
     },
     {
      "label": "Customers",
+     "name": "m_reprts_customers",
      "children": [
       {
        "label": "A/c Receivable",
+       "name": "m_reprt_customers_acreceivable",
        "window": "w_acrcvblesummary",
        "source_ref": "w_acrcvblesummary.srw",
        "alternates": [
@@ -2572,6 +2913,7 @@
       },
       {
        "label": "Credit Bill Details",
+       "name": "m_reprt_customers_crdbilldetails",
        "window": "w_partycreditbills",
        "source_ref": "gminer4\\w_partycreditbills.srw",
        "alternates": [
@@ -2580,6 +2922,7 @@
       },
       {
        "label": "Customer Summary",
+       "name": "m_reprt_customers_customersummary",
        "window": "w_custaccoutsummary",
        "source_ref": "gminer4\\w_custaccoutsummary.srw",
        "alternates": [
@@ -2588,6 +2931,7 @@
       },
       {
        "label": "Billwise Receivable",
+       "name": "m_reprt_customers_billwisereceivable",
        "window": "w_custbillwisercvble",
        "source_ref": "gminer4\\w_custbillwisercvble.srw",
        "alternates": [
@@ -2596,6 +2940,7 @@
       },
       {
        "label": "Received Details",
+       "name": "m_reprt_customers_receiveddetails",
        "window": "w_rcptdetail",
        "source_ref": "w_rcptdetail.srw",
        "alternates": [
@@ -2604,6 +2949,7 @@
       },
       {
        "label": "Payment Details",
+       "name": "m_reprt_customers_paymentdetails",
        "window": "w_pmntdetail",
        "source_ref": "w_pmntdetail.srw",
        "alternates": [
@@ -2612,6 +2958,7 @@
       },
       {
        "label": "Customer Sales Summary",
+       "name": "m_reprt_customers_salessummary",
        "window": "w_partysummaryrep",
        "source_ref": "gminer4\\w_partysummaryrep.srw",
        "alternates": [
@@ -2620,6 +2967,7 @@
       },
       {
        "label": "Billwise Details",
+       "name": "m_reprt_customers_billwisedetails",
        "window": "w_custbillwise",
        "source_ref": "w_custbillwise.srw",
        "alternates": [
@@ -2628,6 +2976,7 @@
       },
       {
        "label": "Bill Collection Details",
+       "name": "m_reprt_customers_billcollectiondetails",
        "window": "w_custcollectionrep",
        "source_ref": "gminer4\\w_custcollectionrep.srw",
        "alternates": [
@@ -2636,6 +2985,7 @@
       },
       {
        "label": "A/c Summary",
+       "name": "m_reprt_customers_acsummary",
        "window": "w_acsummary",
        "source_ref": "gminer8\\w_acsummary.srw",
        "alternates": [
@@ -2644,6 +2994,7 @@
       },
       {
        "label": "Duedate Report",
+       "name": "m_reprt_customers_duedatereport",
        "window": "w_duedaterep",
        "source_ref": "w_duedaterep.srw",
        "alternates": [
@@ -2652,6 +3003,7 @@
       },
       {
        "label": "Party History",
+       "name": "m_reprt_customers_partyhistory",
        "window": "w_partyhistory",
        "source_ref": "gminer4\\w_partyhistory.srw",
        "alternates": [
@@ -2660,6 +3012,7 @@
       },
       {
        "label": "Visit Report",
+       "name": "m_reprt_customers_visitreport",
        "window": "w_customer_visitreport",
        "source_ref": "gminer4\\w_customer_visitreport.srw",
        "alternates": [
@@ -2668,6 +3021,7 @@
       },
       {
        "label": "Prev. Card Point Report",
+       "name": "m_reprt_customers_pcardpointreport",
        "window": "w_sales_pcardpoint_rep",
        "source_ref": "gminer1\\w_sales_pcardpoint_rep.srw",
        "alternates": [
@@ -2676,6 +3030,7 @@
       },
       {
        "label": "Customer List",
+       "name": "m_reprt_customers_customerlist",
        "window": "w_customer_list",
        "source_ref": "gminer4\\w_customer_list.srw",
        "alternates": [
@@ -2686,9 +3041,11 @@
     },
     {
      "label": "Supplier",
+     "name": "m_reprts_suppliers",
      "children": [
       {
        "label": "A/c Payable",
+       "name": "m_reprt_suppliers_acpayable",
        "window": "w_acrcvblesummary",
        "source_ref": "w_acrcvblesummary.srw",
        "alternates": [
@@ -2697,6 +3054,7 @@
       },
       {
        "label": "Duedate Report",
+       "name": "m_reprt_suppliers_duedatereport",
        "window": "w_duedaterep",
        "source_ref": "w_duedaterep.srw",
        "alternates": [
@@ -2705,6 +3063,7 @@
       },
       {
        "label": "A/c Summary",
+       "name": "m_reprt_suppliers_acsummary",
        "window": "w_acsummary",
        "source_ref": "gminer8\\w_acsummary.srw",
        "alternates": [
@@ -2713,6 +3072,7 @@
       },
       {
        "label": "Billwise Payable",
+       "name": "m_reprt_suppliers_billwisepayable",
        "window": "w_suppbillwisepayable",
        "source_ref": "gminer4\\w_suppbillwisepayable.srw",
        "alternates": [
@@ -2721,6 +3081,7 @@
       },
       {
        "label": "Supplier List",
+       "name": "m_reprt_suppliers_supplierlist",
        "window": "w_suculist",
        "source_ref": "gminer4\\w_suculist.srw",
        "alternates": [
@@ -2731,9 +3092,11 @@
     },
     {
      "label": "Staff",
+     "name": "m_reprts_staff",
      "children": [
       {
        "label": "Summary",
+       "name": "m_reprt_staff_summary",
        "window": "w_staffsummary",
        "source_ref": "w_staffsummary.srw",
        "alternates": [
@@ -2742,6 +3105,7 @@
       },
       {
        "label": "Term Summary",
+       "name": "m_reprt_staff_termsummary",
        "window": "w_staffsummary",
        "source_ref": "w_staffsummary.srw",
        "alternates": [
@@ -2750,6 +3114,7 @@
       },
       {
        "label": "Ledger",
+       "name": "m_reprt_staff_ledger",
        "window": "w_acsummary",
        "source_ref": "gminer8\\w_acsummary.srw",
        "alternates": [
@@ -2758,6 +3123,7 @@
       },
       {
        "label": "Staff Log Report",
+       "name": "m_reprt_staff_logrep",
        "window": "w_staff_log_report",
        "source_ref": "gminer8\\w_staff_log_report.srw",
        "alternates": [
@@ -2766,6 +3132,7 @@
       },
       {
        "label": "Attendance Report",
+       "name": "m_reprt_staff_attendance",
        "window": "w_staff_attendance_rep",
        "source_ref": "gminer8\\w_staff_attendance_rep.srw",
        "alternates": [
@@ -2774,6 +3141,7 @@
       },
       {
        "label": "Leave Report",
+       "name": "m_reprts_staff_leave",
        "window": "w_staff_leaverep",
        "source_ref": "gminer8\\w_staff_leaverep.srw",
        "alternates": [
@@ -2782,6 +3150,7 @@
       },
       {
        "label": "Wgt Trans Report",
+       "name": "m_reprts_staff_wgttransreport",
        "window": "w_staffwgt_report",
        "source_ref": "gminer11\\w_staffwgt_report.srw",
        "alternates": [
@@ -2790,6 +3159,7 @@
       },
       {
        "label": "Sales Man Report",
+       "name": "m_reprts_sman",
        "window": "w_smreport",
        "source_ref": "gminer4\\w_smreport.srw",
        "alternates": [
@@ -2800,9 +3170,11 @@
     },
     {
      "label": "Kuri Reports",
+     "name": "m_reprts_kurireports",
      "children": [
       {
        "label": "Collection Report",
+       "name": "m_reprts_kuri_colln",
        "window": "w_kuri_colln_report",
        "source_ref": "gminer11\\w_kuri_colln_report.srw",
        "alternates": [
@@ -2811,6 +3183,7 @@
       },
       {
        "label": "Chart",
+       "name": "m_reprts_kuri_chart",
        "window": "w_kuri_chart_rep",
        "source_ref": "gminer11\\w_kuri_chart_rep.srw",
        "alternates": [
@@ -2821,9 +3194,11 @@
     },
     {
      "label": "Scheme Reports",
+     "name": "m_schemereports",
      "children": [
       {
        "label": "Scheme Book",
+       "name": "m_reprts_schm_schmbook",
        "window": "w_schemebook_report",
        "source_ref": "gminer11\\w_schemebook_report.srw",
        "alternates": [
@@ -2832,6 +3207,7 @@
       },
       {
        "label": "Scheme Collection",
+       "name": "m_reprts_schm_collection",
        "window": "w_schemecolln_report",
        "source_ref": "gminer11\\w_schemecolln_report.srw",
        "alternates": [
@@ -2840,6 +3216,7 @@
       },
       {
        "label": "Scheme Details",
+       "name": "m_reprts_schm_details",
        "window": "w_schemebook_details",
        "source_ref": "gminer11\\w_schemebook_details.srw",
        "alternates": [
@@ -2848,6 +3225,7 @@
       },
       {
        "label": "Scheme Maturity",
+       "name": "m_reprts_schm_maturity",
        "window": "w_schemematurity_report",
        "source_ref": "gminer11\\w_schemematurity_report.srw",
        "alternates": [
@@ -2856,6 +3234,7 @@
       },
       {
        "label": "Colln Commision Report",
+       "name": "m_reprts_schm_collncomn",
        "window": "w_schemebook_comnrep",
        "source_ref": "gminer11\\w_schemebook_comnrep.srw",
        "alternates": [
@@ -2866,9 +3245,11 @@
     },
     {
      "label": "Partners Deposit(Wgt) Reports",
+     "name": "m_depositwgtreports",
      "children": [
       {
        "label": "Deposit Book",
+       "name": "m_reprts_deposit_depositbook",
        "window": "w_deposit_book_report",
        "source_ref": "gminer11\\w_deposit_book_report.srw",
        "alternates": [
@@ -2877,6 +3258,7 @@
       },
       {
        "label": "Wgt Balance Summary",
+       "name": "m_reprts_deposit_wgtbalsummary",
        "window": "w_partywgtpend_report",
        "source_ref": "gminer6\\w_partywgtpend_report.srw",
        "alternates": [
@@ -2887,9 +3269,11 @@
     },
     {
      "label": "Finance Report",
+     "name": "m_reprts_financereport",
      "children": [
       {
        "label": "Finance Book",
+       "name": "m_reprts_fin_financebook",
        "window": "w_finance_book_report",
        "source_ref": "gminer11\\w_finance_book_report.srw",
        "alternates": [
@@ -2900,9 +3284,11 @@
     },
     {
      "label": "Accounts",
+     "name": "m_reprts_accounts",
      "children": [
       {
        "label": "A/c Ledger",
+       "name": "m_acledger",
        "shortcut": "Alt+L",
        "window": "w_acledger",
        "source_ref": "gminer8\\w_acledger.srw",
@@ -2912,6 +3298,7 @@
       },
       {
        "label": "Group Ledger",
+       "name": "m_reprt_acct_grpledger",
        "window": "w_acledger_group",
        "source_ref": "gminer8\\w_acledger_group.srw",
        "alternates": [
@@ -2920,6 +3307,7 @@
       },
       {
        "label": "Day Book",
+       "name": "m_reprt_acct_daybook",
        "window": "w_daybookreport",
        "source_ref": "gminer8\\w_daybookreport.srw",
        "alternates": [
@@ -2928,6 +3316,7 @@
       },
       {
        "label": "Cash Book",
+       "name": "m_reprt_acct_cashbook",
        "shortcut": "Alt+H",
        "window": "w_cashbookreport",
        "source_ref": "gminer8\\w_cashbookreport.srw",
@@ -2937,6 +3326,7 @@
       },
       {
        "label": "Rcpt/Pmnt Report",
+       "name": "m_reprt_acct_rcptpmntreport",
        "shortcut": "Alt+P",
        "window": "w_rcptpmnts",
        "source_ref": "gminer8\\w_rcptpmnts.srw",
@@ -2946,6 +3336,7 @@
       },
       {
        "label": "Suspense A/c Ledger",
+       "name": "m_suspenseacledger",
        "window": "w_suspledger",
        "source_ref": "gminer8\\w_suspledger.srw",
        "alternates": [
@@ -2954,6 +3345,7 @@
       },
       {
        "label": "Cash Flow Statement",
+       "name": "m_reprt_acct_cashflowstatement",
        "window": "w_cashflowreport",
        "source_ref": "gminer8\\w_cashflowreport.srw",
        "alternates": [
@@ -2962,6 +3354,7 @@
       },
       {
        "label": "Yearly Cash Balance",
+       "name": "m_reprt_acct_yearlycashbalance",
        "window": "w_cashbookreport_year",
        "source_ref": "gminer8\\w_cashbookreport_year.srw",
        "alternates": [
@@ -2970,6 +3363,7 @@
       },
       {
        "label": "Bank Book",
+       "name": "m_reprt_acct_bankbook",
        "window": "w_bankbookreport",
        "source_ref": "gminer4\\w_bankbookreport.srw",
        "alternates": [
@@ -2978,6 +3372,7 @@
       },
       {
        "label": "PDC Report",
+       "name": "m_reprt_acct_pdcreport",
        "window": "w_pdclist_report",
        "source_ref": "gminer7\\w_pdclist_report.srw",
        "alternates": [
@@ -2986,6 +3381,7 @@
       },
       {
        "label": "Journal",
+       "name": "m_reprt_acct_journal",
        "window": "w_journrpt",
        "source_ref": "gminer8\\w_journrpt.srw",
        "alternates": [
@@ -2994,9 +3390,11 @@
       },
       {
        "label": "Trial Balance",
+       "name": "m_reprt_acct_trialbalance",
        "children": [
         {
          "label": "Upto a date",
+         "name": "m_reprt_acct_trialbal_uptoadate",
          "window": "w_trialbal",
          "source_ref": "gminer7\\w_trialbal.srw",
          "alternates": [
@@ -3005,6 +3403,7 @@
         },
         {
          "label": "Between two dates",
+         "name": "m_reprt_acct_trialbal_betweentwodates",
          "window": "w_trialbal_term",
          "source_ref": "gminer7\\w_trialbal_term.srw",
          "alternates": [
@@ -3015,9 +3414,11 @@
       },
       {
        "label": "Profit and Loss",
+       "name": "m_reprt_acct_profitandloss",
        "children": [
         {
          "label": "Upto a Date",
+         "name": "m_reprt_acct_profloss_uptoadate",
          "window": "w_pandlac_trading",
          "source_ref": "w_pandlac_trading.srw",
          "alternates": [
@@ -3026,6 +3427,7 @@
         },
         {
          "label": "For a Period",
+         "name": "m_reprt_acct_profloss_foraperiod",
          "window": "w_pandlac_trading",
          "source_ref": "w_pandlac_trading.srw",
          "alternates": [
@@ -3036,6 +3438,7 @@
       },
       {
        "label": "Balance Sheet",
+       "name": "m_reprt_acct_balancesheet",
        "window": "w_balsheet",
        "source_ref": "gminer7\\w_balsheet.srw",
        "alternates": [
@@ -3044,6 +3447,7 @@
       },
       {
        "label": "A/c Receivable/Payable Summary",
+       "name": "m_reprt_acct_acrcvblpayable",
        "shortcut": "Alt+F5",
        "window": "w_acrcvblesummary",
        "source_ref": "w_acrcvblesummary.srw",
@@ -3053,6 +3457,7 @@
       },
       {
        "label": "Group A/c Summary",
+       "name": "m_reprt_acct_grpacsummary",
        "shortcut": "Alt+F9",
        "window": "w_group_accountsummary",
        "source_ref": "gminer8\\w_group_accountsummary.srw",
@@ -3062,6 +3467,7 @@
       },
       {
        "label": "Groupwise Expanded List",
+       "name": "m_reprt_acct_grpexpdlist",
        "window": "w_account_grpwise_expand_rep",
        "source_ref": "gminer7\\w_account_grpwise_expand_rep.srw",
        "alternates": [
@@ -3070,6 +3476,7 @@
       },
       {
        "label": "All Trans Report",
+       "name": "m_reprt_acct_alltransreport",
        "window": "w_trans_rearrange_report",
        "source_ref": "gminer9\\w_trans_rearrange_report.srw",
        "alternates": [
@@ -3078,6 +3485,7 @@
       },
       {
        "label": "Chart of Accounts",
+       "name": "m_reprt_acct_chartofaccounts",
        "window": "w_accountlist",
        "source_ref": "gminer7\\w_accountlist.srw",
        "alternates": [
@@ -3086,6 +3494,7 @@
       },
       {
        "label": "Non Transactional Days Report",
+       "name": "m_reprt_acct_nontransdaysrep",
        "window": "w_nontransactionaldays_report",
        "source_ref": "gminer7\\w_nontransactionaldays_report.srw",
        "alternates": [
@@ -3094,6 +3503,7 @@
       },
       {
        "label": "Integrity Checking",
+       "name": "m_reprt_acct_integritychecking",
        "window": "w_account_checking",
        "source_ref": "gminer8\\w_account_checking.srw",
        "alternates": [
@@ -3104,9 +3514,11 @@
     },
     {
      "label": "Item Reports",
+     "name": "m_reprts_itemreports",
      "children": [
       {
        "label": "Item Adjustment",
+       "name": "m_reprt_itemrep_itemadjustment",
        "window": "w_itemadjrepo",
        "source_ref": "w_itemadjrepo.srw",
        "alternates": [
@@ -3115,6 +3527,7 @@
       },
       {
        "label": "Item Add Less Report",
+       "name": "m_reprt_itemrep_itemaddlessreport",
        "window": "w_itemaddlessrep",
        "source_ref": "gminer3\\w_itemaddlessrep.srw",
        "alternates": [
@@ -3123,6 +3536,7 @@
       },
       {
        "label": "Item Movement",
+       "name": "m_reprt_itemrep_itemmovement",
        "window": "w_itemanalysis",
        "source_ref": "gminer6\\w_itemanalysis.srw",
        "alternates": [
@@ -3131,6 +3545,7 @@
       },
       {
        "label": "Stock Register Summary",
+       "name": "m_reprt_itemrep_stkregsummary",
        "window": "w_stockregister_summary",
        "source_ref": "gminer6\\w_stockregister_summary.srw",
        "alternates": [
@@ -3139,6 +3554,7 @@
       },
       {
        "label": "Itemwise Profit",
+       "name": "m_reprt_itemrep_itemwiseprofit",
        "window": "w_itemwiseprofit",
        "source_ref": "gminer6\\w_itemwiseprofit.srw",
        "alternates": [
@@ -3147,6 +3563,7 @@
       },
       {
        "label": "Item History",
+       "name": "m_reprt_itemrep_itemhistory",
        "window": "w_itemhistory",
        "source_ref": "gminer6\\w_itemhistory.srw",
        "alternates": [
@@ -3155,6 +3572,7 @@
       },
       {
        "label": "ReOrderLevel",
+       "name": "m_reprt_itemrep_reorderlevel",
        "window": "w_rolreport",
        "source_ref": "gminer9\\w_rolreport.srw",
        "alternates": [
@@ -3163,6 +3581,7 @@
       },
       {
        "label": "Item Rate Report",
+       "name": "m_reprt_itemrep_itemraterep",
        "window": "w_itemrate_report",
        "source_ref": "gminer6\\w_itemrate_report.srw",
        "alternates": [
@@ -3171,6 +3590,7 @@
       },
       {
        "label": "Cost List",
+       "name": "m_reprt_itemrep_costlist",
        "window": "w_costlist",
        "source_ref": "gminer5\\w_costlist.srw",
        "alternates": [
@@ -3179,6 +3599,7 @@
       },
       {
        "label": "Rate History",
+       "name": "m_reprt_itemrep_ratehistory",
        "window": "w_ratehistory",
        "source_ref": "gminer6\\w_ratehistory.srw",
        "alternates": [
@@ -3187,6 +3608,7 @@
       },
       {
        "label": "Model Transfer Report",
+       "name": "m_reprt_itemrep_modlrep",
        "window": "w_modeltransrep",
        "source_ref": "gminer3\\w_modeltransrep.srw",
        "alternates": [
@@ -3195,6 +3617,7 @@
       },
       {
        "label": "Stone Trans Analysis",
+       "name": "m_reprt_itemrep_stonetransanalysis",
        "window": "w_stonetrans_analysis",
        "source_ref": "gminer4\\w_stonetrans_analysis.srw",
        "alternates": [
@@ -3203,6 +3626,7 @@
       },
       {
        "label": "Trans RA Report",
+       "name": "m_reprt_itemrep_transrareport",
        "window": "w_trans_rearrange_report",
        "source_ref": "gminer9\\w_trans_rearrange_report.srw",
        "alternates": [
@@ -3211,6 +3635,7 @@
       },
       {
        "label": "Item Stock,Party Wgt Report",
+       "name": "m_reprt_itemrep_stockpartywgtreport",
        "window": "w_stockbal_smithjewlstock_rep",
        "source_ref": "gminer6\\w_stockbal_smithjewlstock_rep.srw",
        "alternates": [
@@ -3221,9 +3646,11 @@
     },
     {
      "label": "Barcode Reports",
+     "name": "m_reprts_bcreports",
      "children": [
       {
        "label": "Barcode List",
+       "name": "m_rep_bcrep_barcodelist",
        "window": "w_barcodelist",
        "source_ref": "gminer5\\w_barcodelist.srw",
        "alternates": [
@@ -3232,6 +3659,7 @@
       },
       {
        "label": "Stock Verification Report",
+       "name": "m_rep_bcrep_stkverify",
        "window": "w_bcstkverifyrep",
        "source_ref": "gminer5\\w_bcstkverifyrep.srw",
        "alternates": [
@@ -3240,6 +3668,7 @@
       },
       {
        "label": "Barcode SAmt List",
+       "name": "m_rep_bcrep_bcodesamtlist",
        "window": "w_barcodelist_salesamtlist",
        "source_ref": "gminer5\\w_barcodelist_salesamtlist.srw",
        "alternates": [
@@ -3248,6 +3677,7 @@
       },
       {
        "label": "Barcode History",
+       "name": "m_rep_bcrep_bchistory",
        "window": "w_barcode_history",
        "source_ref": "gminer5\\w_barcode_history.srw",
        "alternates": [
@@ -3256,6 +3686,7 @@
       },
       {
        "label": "Barcode Stock List",
+       "name": "m_rep_bcrep_bcodestklist",
        "window": "w_barcode_stocklist",
        "source_ref": "w_barcode_stocklist.srw",
        "alternates": [
@@ -3264,6 +3695,7 @@
       },
       {
        "label": "Barcode Entry Comparison",
+       "name": "m_rep_bcrep_entrycomparison",
        "window": "w_barcode_comparison_report",
        "source_ref": "gminer5\\w_barcode_comparison_report.srw",
        "alternates": [
@@ -3272,6 +3704,7 @@
       },
       {
        "label": "Diamond/Pres.Stone Stock list",
+       "name": "m_rep_bcrep_dmdplstocklist",
        "window": "w_stocklist_dmdplt",
        "source_ref": "gminer6\\w_stocklist_dmdplt.srw",
        "alternates": [
@@ -3282,9 +3715,11 @@
     },
     {
      "label": "Stock Ledger",
+     "name": "m_reprts_stockledger",
      "children": [
       {
        "label": "Item Based",
+       "name": "m_reprt_stkledger_itembased",
        "shortcut": "Ctrl+Alt+L",
        "window": "w_stockledger_stktype",
        "source_ref": "w_stockledger_stktype.srw",
@@ -3295,6 +3730,7 @@
       },
       {
        "label": "Group Based",
+       "name": "m_reprt_stkledger_groupbased",
        "window": "w_stockledger",
        "source_ref": "w_stockledger.srw",
        "alternates": [
@@ -3303,6 +3739,7 @@
       },
       {
        "label": "Subgroup Based",
+       "name": "m_reprt_stkledger_subgrpbased",
        "window": "w_stockledger",
        "source_ref": "w_stockledger.srw",
        "alternates": [
@@ -3313,9 +3750,11 @@
     },
     {
      "label": "Stock List",
+     "name": "m_reprts_stocklist",
      "children": [
       {
        "label": "Items",
+       "name": "m_items1",
        "shortcut": "Ctrl+Alt+I",
        "window": "w_stocklist",
        "source_ref": "w_stocklist.srw",
@@ -3325,6 +3764,7 @@
       },
       {
        "label": "Group",
+       "name": "m_group1",
        "window": "w_stocklist",
        "source_ref": "w_stocklist.srw",
        "alternates": [
@@ -3333,6 +3773,7 @@
       },
       {
        "label": "Stock Type Wise",
+       "name": "m_reprt_stklist_stocktypewise",
        "shortcut": "Ctrl+Alt+T",
        "window": "w_stocklist_stktype",
        "source_ref": "gminer6\\w_stocklist_stktype.srw",
@@ -3342,6 +3783,7 @@
       },
       {
        "label": "Upto a date",
+       "name": "m_reprt_stklist_uptoadate",
        "window": "w_stocklist_uptoadate",
        "source_ref": "gminer5\\w_stocklist_uptoadate.srw",
        "alternates": [
@@ -3350,6 +3792,7 @@
       },
       {
        "label": "Stock Check List",
+       "name": "m_reprt_stklist_stkchklist",
        "window": "w_stocklist_check",
        "source_ref": "w_stocklist_check.srw",
        "alternates": [
@@ -3360,6 +3803,7 @@
     },
     {
      "label": "Term Summary",
+     "name": "m_reprts_termsummary",
      "shortcut": "Ctrl+T",
      "window": "w_termsummary",
      "source_ref": "gminer10\\w_termsummary.srw",
@@ -3369,9 +3813,11 @@
     },
     {
      "label": "Other Reports",
+     "name": "m_reprts_otherreports",
      "children": [
       {
        "label": "All Report Print",
+       "name": "m_reprts_allreportprint",
        "window": "w_allinone_report",
        "source_ref": "gminer9\\w_allinone_report.srw",
        "alternates": [
@@ -3380,6 +3826,7 @@
       },
       {
        "label": "Month End Report",
+       "name": "m_reprt_otherrep_monthendreport",
        "window": "w_monthendrep",
        "source_ref": "gminedi\\w_monthendrep.srw",
        "alternates": [
@@ -3388,6 +3835,7 @@
       },
       {
        "label": "Daysummary Malayalam",
+       "name": "m_reprt_otherrep_daysummarymalayalam",
        "window": "w_daysummarydate_mala",
        "source_ref": "gminedi\\w_daysummarydate_mala.srw",
        "alternates": [
@@ -3396,6 +3844,7 @@
       },
       {
        "label": "Term Summary Malayalam",
+       "name": "m_reprt_otherrep_termsummarymalayalam",
        "window": "w_termsummary_mala",
        "source_ref": "gminedi\\w_termsummary_mala.srw",
        "alternates": [
@@ -3404,6 +3853,7 @@
       },
       {
        "label": "Day History",
+       "name": "m_reprts_daysummary",
        "window": "w_daysumm",
        "source_ref": "gminer3\\w_daysumm.srw",
        "alternates": [
@@ -3412,6 +3862,7 @@
       },
       {
        "label": "Day Report",
+       "name": "m_reprt_otherrep_dayreport",
        "window": "w_dayreport_gk",
        "source_ref": "gminer11\\w_dayreport_gk.srw",
        "alternates": [
@@ -3420,6 +3871,7 @@
       },
       {
        "label": "Daily All Report",
+       "name": "m_reprt_otherrep_dailyallreport",
        "shortcut": "Ctrl+F12",
        "window": "w_dailyallreport",
        "source_ref": "gminer11\\w_dailyallreport.srw",
@@ -3429,6 +3881,7 @@
       },
       {
        "label": "Day Cash Book Report",
+       "name": "m_reprt_otherrep_daycashbook",
        "window": "w_daycashbook",
        "source_ref": "gminer11\\w_daycashbook.srw",
        "alternates": [
@@ -3437,6 +3890,7 @@
       },
       {
        "label": "Purity Test Report",
+       "name": "m_reprts_puritytest",
        "window": "w_purity_report",
        "source_ref": "gminer9\\w_purity_report.srw",
        "alternates": [
@@ -3445,6 +3899,7 @@
       },
       {
        "label": "StockValue And Profit Report",
+       "name": "m_reprt_otherrep_stkandprofitreport",
        "window": "w_stkandprofitreport",
        "source_ref": "gminer8\\w_stkandprofitreport.srw",
        "alternates": [
@@ -3453,6 +3908,7 @@
       },
       {
        "label": "Stock,Asset,Liablity,Expense Report",
+       "name": "m_reprt_stkassetliabexpreport",
        "window": "w_stockandexpreport",
        "source_ref": "gminer10\\w_stockandexpreport.srw",
        "alternates": [
@@ -3463,6 +3919,7 @@
     },
     {
      "label": "Cash Balance",
+     "name": "m_reprts_cashbalance",
      "shortcut": "Ctrl+H",
      "window": "w_cashbal",
      "source_ref": "gminer9\\w_cashbal.srw",
@@ -3474,9 +3931,11 @@
   },
   {
    "label": "Utilities",
+   "name": "m_utilities",
    "children": [
     {
      "label": "Administration",
+     "name": "m_utils_admin",
      "window": "w_administration",
      "source_ref": "gminegen\\w_administration.srw",
      "alternates": [
@@ -3484,10 +3943,12 @@
      ]
     },
     {
-     "label": "Calculator"
+     "label": "Calculator",
+     "name": "m_utils_calculator"
     },
     {
      "label": "Day Lock",
+     "name": "m_daylock",
      "shortcut": "Ctrl+L",
      "window": "w_daylock",
      "source_ref": "gminer9\\w_daylock.srw",
@@ -3497,6 +3958,7 @@
     },
     {
      "label": "Calendar",
+     "name": "m_utils_calendar",
      "window": "w_calander1",
      "source_ref": "gmineu1\\w_calander1.srw",
      "alternates": [
@@ -3505,19 +3967,23 @@
     },
     {
      "label": "Games",
+     "name": "m_utils_games",
      "children": [
       {
        "label": "Gobman",
+       "name": "m_util_games_gobman",
        "shortcut": "Ctrl+Shift+Z"
       },
       {
        "label": "Eraser",
+       "name": "m_util_games_eraser",
        "shortcut": "Ctrl+Shift+A"
       }
      ]
     },
     {
      "label": "Backup",
+     "name": "m_utils_backup",
      "window": "w_backup",
      "source_ref": "gminedi\\w_backup.srw",
      "alternates": [
@@ -3526,6 +3992,7 @@
     },
     {
      "label": "Year End Account Close",
+     "name": "m_utils_closeaccounts",
      "window": "w_closeaccnt",
      "source_ref": "gminegen\\w_closeaccnt.srw",
      "alternates": [
@@ -3534,6 +4001,7 @@
     },
     {
      "label": "Phone Book",
+     "name": "m_utils_phonebook",
      "window": "w_phonebook",
      "source_ref": "gmineu1\\w_phonebook.srw",
      "alternates": [
@@ -3542,6 +4010,7 @@
     },
     {
      "label": "Appointment",
+     "name": "m_utils_appointment",
      "window": "w_appointments",
      "source_ref": "gmineu1\\w_appointments.srw",
      "alternates": [
@@ -3550,6 +4019,7 @@
     },
     {
      "label": "PSR Reader",
+     "name": "m_utils_psrreader",
      "window": "w_psr_viewer",
      "source_ref": "gmineu1\\w_psr_viewer.srw",
      "alternates": [
@@ -3558,6 +4028,7 @@
     },
     {
      "label": "Data Sync",
+     "name": "m_utils_datatransfer",
      "shortcut": "Ctrl+Alt+T",
      "window": "w_datatransfer2",
      "source_ref": "gminegen\\w_datatransfer2.srw",
@@ -3567,6 +4038,7 @@
     },
     {
      "label": "Reminder",
+     "name": "m_utils_reminder",
      "shortcut": "Ctrl+R",
      "window": "w_reminderrep",
      "source_ref": "w_reminderrep.srw",
@@ -3576,10 +4048,12 @@
     },
     {
      "label": "Clear Block(Hang)",
+     "name": "m_clearblockhang",
      "shortcut": "Alt+F12"
     },
     {
      "label": "Show WM Weight",
+     "name": "m_utils_showwmwgt",
      "shortcut": "Ctrl+Alt+W",
      "window": "w_wgtshow",
      "source_ref": "gminestr\\w_wgtshow.srw",
@@ -3591,12 +4065,15 @@
   },
   {
    "label": "Help",
+   "name": "m_help",
    "children": [
     {
-     "label": "Contents"
+     "label": "Contents",
+     "name": "m_help_contents"
     },
     {
      "label": "About",
+     "name": "m_help_aboutgoldmine",
      "window": "w_about",
      "source_ref": "gminegen\\w_about.srw",
      "alternates": [

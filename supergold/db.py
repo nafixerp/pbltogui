@@ -77,6 +77,7 @@ def get_connection():
         import sqlite3
         conn = sqlite3.connect(SQLITE_PATH)
         conn.execute("PRAGMA foreign_keys = ON;")
+        _register_sqlanywhere_functions(conn)
         return conn
 
     # ODBC-based engines.
@@ -195,6 +196,51 @@ def execute(sql, params=()):
             return None
     finally:
         conn.close()
+
+
+def _register_sqlanywhere_functions(conn):
+    """SQL Anywhere functions the original queries use, for the SQLite mode.
+
+    The screens run the application's own SQL. SQLite has no ``ifnull`` with
+    three arguments, no ``left``/``right`` and no ``list`` aggregate, so they
+    are provided here and the original statements run unchanged.
+    """
+    def _isnull(*args):
+        for value in args:
+            if value is not None:
+                return value
+        return None
+
+    def _left(text, count):
+        return None if text is None else str(text)[:int(count or 0)]
+
+    def _right(text, count):
+        count = int(count or 0)
+        return None if text is None else (str(text)[-count:] if count else "")
+
+    class _List:
+        def __init__(self):
+            self.items = []
+
+        def step(self, value):
+            if value is not None:
+                self.items.append(str(value))
+
+        def finalize(self):
+            return ",".join(self.items)
+
+    for name, argc, fn in (("ifnull", -1, _isnull), ("isnull", -1, _isnull),
+                           ("left", 2, _left), ("right", 2, _right),
+                           ("string", -1, lambda *a: "".join(
+                               "" if x is None else str(x) for x in a))):
+        try:
+            conn.create_function(name, argc, fn)
+        except Exception:
+            pass
+    try:
+        conn.create_aggregate("list", 1, _List)
+    except Exception:
+        pass
 
 
 # ---------------------------------------------------------------------------
