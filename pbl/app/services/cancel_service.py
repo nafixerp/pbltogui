@@ -456,16 +456,15 @@ def cancel_refinery(slno, user="", incharge="", level=1):
     result = CancelResult(document=str(head.get("docno", "")).strip(),
                           slno=slno, kind="Refinery")
 
-    for row in _rows("SELECT code, issuedqty, issuedwgt, rcvdqty, rcvdwgt, "
-                     "bottlestk, testpcs, stwgt, stktype "
-                     "FROM refineryd WHERE slno = ?", (slno,)):
+    for row in _rows("SELECT * FROM refineryd WHERE slno = ?", (slno,)):
         stktype = row.get("stktype") or ""
+        issued_stone = row.get("issuedstwgt", row.get("stwgt"))
         # What came back from the refiner goes out again …
         adjust_stock(row["code"], stktype, control, qty=row.get("rcvdqty"),
                      weight=row.get("rcvdwgt"), sign=-1)
         # … and what was issued comes back in.
         adjust_stock(row["code"], stktype, control, qty=row.get("issuedqty"),
-                     weight=row.get("issuedwgt"), stonewgt=row.get("stwgt"),
+                     weight=row.get("issuedwgt"), stonewgt=issued_stone,
                      sign=+1)
         for code, weight in (("BS", row.get("bottlestk")), ("TP", row.get("testpcs"))):
             if _num(weight):

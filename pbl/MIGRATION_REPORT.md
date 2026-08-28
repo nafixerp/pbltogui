@@ -305,3 +305,32 @@ with 0 errors.
   reversal), the reports the original builds in code, the designed bill print
   layouts other than the sales tax invoice, and the two hardware/second-database
   screens.
+
+
+## Phase 10 — Nothing left as a dead form ✅
+- **Cancellations** (`app/services/cancel_service.py`, `app/modules/cancel.py`)
+  ported from `w_scancel`, `w_sretcancel`, `w_pcancel`, `w_gsmthcancel`,
+  `w_ocancel`, `w_rprcancel`, `w_oitcancel`, `w_refncancel`, `w_accancel`,
+  `w_loancancel`; atomic through the new `db.transaction()`.
+- **Final accounts** (`app/reports/final_accounts.py`): Trading & Profit and
+  Loss, Balance Sheet, Cash Balance, Yearly Cash Balance.
+- **Code-built reports** (`app/reports/analysis.py`): Party History, Barcode
+  History, Groupwise Expanded List, Non-Transactional Days, Integrity Checking,
+  Loan Ledger, Stock Register Summary, Day Report, Daily All Report, and the
+  Stock/Asset/Liability/Expense summary.
+- **Stock movements** (`app/services/stock_service.py`, `app/modules/extras.py`):
+  Stock Transfer, Stock Transfer Multi Entry and Stock Add - Less write the
+  `itemadj` row and move `items`/`itemsstk` exactly as the originals did.
+- **Refinery** (`app/services/refinery_service.py`, `app/modules/refinery.py`):
+  issue, returns and the all-in-one screen, with stock moving as the metal does.
+- **Settings and utilities**: Application/Book Stock/Op.Stock Value settings
+  editors over `generali`/`generald`/`generals`, Block-Unblock an Order, Staff
+  Log Update, Reprint, Administration, All Report Print, Change Incharge and the
+  Purity Certificate.
+- **External screens** (`app/modules/integrations.py`): Company Select, POS
+  Download / PSR Reader (open a file, map its columns, import), Update from HO /
+  from Jewelleries (copy missing rows from another database), Show WM Weight.
+- Result: **all 393 menu items** are a hand-written module (107), an editable
+  DataWindow grid (115), a data view (89), a field-mapped editor (67) or a
+  record list with the flow to the next screen (15). No menu item opens a dead
+  form. All 313 distinct screens build; 183 tests pass.

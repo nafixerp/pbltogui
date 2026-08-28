@@ -95,22 +95,18 @@ Levels of conversion:
 
   | What the screen gives you | Menu items |
   |---|---|
-  | Hand-written module (full business logic) | 41 |
+  | Hand-written module (full business logic) | 107 |
   | Editable DataWindow grid (add / edit / delete) | 115 |
-  | Mapped fields (add / edit / delete) | 72 |
   | Data view: the window's own query, parameters, totals, print, CSV/PDF | 89 |
-  | Form + record list, with the flow to the next screen | 17 |
-  | Form + read-only record list | 59 |
+  | Mapped fields (add / edit / delete) | 67 |
+  | Record list with the flow to the next screen | 15 |
+
+  **Every one of the 393 menu items does real work — none is a dead form.**
 
   **Every screen prints** — the rows on show go through the standard print
   dialog — and **60 screens carry you to the next one**: pick a bill in an
   Edit / Reprint window and press *Open …*, and the entry screen opens on that
   record, the way the original chained its windows.
-
-  The last group is the cancellation screens and the few reports the original
-  builds in code: they open and show their data, but the posting behind them
-  (stock and ledger reversal) still needs its own logic — see *What is not
-  converted*.
 
 ## Records — adding, editing and deleting
 
