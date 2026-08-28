@@ -1,0 +1,171 @@
+"""Sale W/o Order — w_ordersale.
+
+Generated from the PowerBuilder window ``w_ordersale.srw`` by
+``tools/generate_forms.py``. It is ordinary PySide6 code: the controls below
+are the original ones, at their original positions. Behaviour (record editing,
+the data view over this window's own query, search and export) comes from
+:class:`app.ui.form_base.GeneratedForm`.
+
+Re-running the generator overwrites this file. Put hand-written business logic
+in ``app/modules/`` instead — a module registered there takes precedence.
+"""
+
+from app.pb_parser import Window
+from app.ui.form_base import GeneratedForm
+
+WINDOW = Window(
+    name='w_ordersale',
+    title='Sale W/o Order',
+    width=4389,
+    height=2236,
+    controls=[],
+    tables=['daybook', 'items', 'itemsstk', 'orderm', 'barcode', 'clients', 'advafter', 'pdclist', 'purchased', 'salesm', 'salesrm', 'salesd', 'stkandprofit', 'salesrd', 'purchasem', 'spdmddet', 'orderd', 'salestype', 'kuricolln', 'daybookratewgt', 'itemadj', 'oglist', 'orderdga', 'order', 'accountm', 'copartylimit', 'barcodedmd', 'sman', 'clients_kuridet', 'itemstmp', 'itemsubgrp', 'wstg', 'pcard', 'generali', 'generals', 'userm', 'userd', 'generald', 'daybookpart', 'delpart'],
+    source_path='w_ordersale.srw',
+    opens=['w_tran_view', 'w_clientshelp', 'w_cbachdhelp', 'w_sreturn', 'w_sucu', 'w_exchange', 'w_sales_status', 'w_passverify_modify', 'w_sales_view', 'w_diamond_sales_print', 'w_dmdpopup', 'w_stktypeqtype', 'w_itemhelp', 'w_itemtmphelp', 'w_itemadjpopup', 'w_wastage', 'w_vaperc', 'w_mcharge', 'w_rmno', 'w_mcharge_perc'],
+    prints=['d_saleprint_thermal'],
+)
+
+
+class SaleWOOrderForm(GeneratedForm):
+    """Sale W/o Order"""
+
+    WINDOW = WINDOW
+
+    def build_controls(self):
+        self.add('statictext', 'st_billno', 311, 0, 402, 88)
+        self.add('datawindow', 'dw_counter', 1125, 0, 658, 88, dataobject='d_countercode', taborder=10)
+        self.add('statictext', 'st_orderno', 2043, 0, 416, 88)
+        self.add('editmask', 'em_date', 2830, 0, 366, 88)
+        self.add('statictext', 'st_time', 3195, 0, 256, 80)
+        self.add('singlelineedit', 'sle_mobile', 3744, 0, 539, 84, limit=60, taborder=70)
+        self.add('statictext', 'st_31', 782, 4, 261, 76, text='Counter')
+        self.add('statictext', 'st_bill', 5, 8, 297, 64, text='Bill No')
+        self.add('statictext', 'st_19', 1810, 8, 229, 76, text='Ord No.')
+        self.add('statictext', 'st_date', 2514, 8, 311, 64, text='Date')
+        self.add('statictext', 'st_39', 3529, 8, 233, 76, text='Mobile')
+        self.add('commandbutton', 'cb_showord', 718, 92, 347, 92, text='Order Details')
+        self.add('editmask', 'em_rate', 311, 96, 402, 88)
+        self.add('datawindow', 'dw_billtype', 1358, 96, 425, 88, dataobject='d_billtypecode', taborder=20)
+        self.add('statictext', 'st_20', 1810, 96, 229, 76, text='C/o')
+        self.add('datawindow', 'dw_co', 2043, 96, 402, 88, dataobject='d_cust', taborder=30)
+        self.add('editmask', 'em_rate8gm', 2830, 96, 366, 88)
+        self.add('singlelineedit', 'sle_pan', 3744, 96, 539, 84, limit=60, taborder=80)
+        self.add('statictext', 'st_1', 5, 100, 297, 72, text='Rate/gm')
+        self.add('commandbutton', 'cb_cohelp', 2450, 100, 55, 80, text='^')
+        self.add('statictext', 'st_2', 2514, 100, 311, 64, text='Rate/8 gm')
+        self.add('statictext', 'st_22', 1157, 104, 197, 76, text='BType :')
+        self.add('checkbox', 'cbx_updtfr', 3296, 104, 151, 68, text='Fr')
+        self.add('statictext', 'st_37', 3529, 108, 233, 76, text='PAN/Adhr')
+        self.add('datawindow', 'dw_1', 311, 188, 402, 88, dataobject='d_cust', taborder=40)
+        self.add('commandbutton', 'cb_custhelp', 713, 188, 64, 88, text='^')
+        self.add('singlelineedit', 'st_custname', 773, 188, 1015, 88, limit=30, taborder=50)
+        self.add('editmask', 'em_ob', 2043, 188, 425, 88, taborder=450)
+        self.add('datawindow', 'dw_smcode', 2830, 188, 677, 88, dataobject='d_smancode', taborder=60)
+        self.add('statictext', 'st_custcode', 5, 192, 297, 72, text='Customer')
+        self.add('statictext', 'st_ob', 1810, 192, 229, 72, text='OB')
+        self.add('singlelineedit', 'sle_tin', 3744, 192, 539, 84, limit=60)
+        self.add('statictext', 'st_15', 2514, 196, 311, 76, text='Sales Man')
+        self.add('statictext', 'st_41', 3529, 200, 233, 76, text='GSTIN')
+        self.add('datawindow', 'dw_sale', 9, 288, 4274, 916, dataobject='d_saleissue', taborder=90)
+        self.add('statictext', 'st_12', 448, 292, 5, 740)
+        self.add('statictext', 'st_25', 1047, 292, 5, 748)
+        self.add('statictext', 'st_4', 1390, 292, 5, 832)
+        self.add('statictext', 'st_5', 1591, 292, 5, 832)
+        self.add('statictext', 'st_6', 1888, 292, 5, 832)
+        self.add('statictext', 'st_7', 2130, 292, 5, 832)
+        self.add('statictext', 'st_35', 2437, 292, 5, 832)
+        self.add('statictext', 'st_10', 3145, 292, 5, 832)
+        self.add('statictext', 'st_11', 3419, 292, 5, 832)
+        self.add('statictext', 'st_100', 3675, 292, 5, 832)
+        self.add('statictext', 'st_8', 2706, 296, 5, 832)
+        self.add('statictext', 'st_9', 2958, 296, 5, 832)
+        self.add('commandbutton', 'cb_add', 18, 1036, 210, 80, text='&Add', taborder=100)
+        self.add('commandbutton', 'cb_delete', 233, 1036, 210, 80, text='&Delete', taborder=110)
+        self.add('statictext', 'st_stktype', 645, 1040, 247, 76)
+        self.add('statictext', 'st_kdm', 2738, 1040, 183, 72)
+        self.add('statictext', 'st_itemadj', 1591, 1132, 443, 60)
+        self.add('statictext', 'st_vap', 2971, 1132, 174, 60)
+        self.add('statictext', 'st_va', 3145, 1132, 293, 60)
+        self.add('editmask', 'em_gadvance', 306, 1208, 384, 92)
+        self.add('editmask', 'em_gadvrate', 923, 1208, 265, 96, taborder=130)
+        self.add('editmask', 'em_amttowgtamt', 1522, 1208, 315, 96)
+        self.add('editmask', 'em_billtotal', 2258, 1208, 384, 96)
+        self.add('editmask', 'em_taxperc', 3136, 1208, 123, 96, taborder=180)
+        self.add('editmask', 'em_tax', 3259, 1208, 261, 96, taborder=170)
+        self.add('roundrectangle', 'rr_1', 3776, 1216, 512, 540)
+        self.add('statictext', 'st_14', 9, 1220, 297, 76, text='Gold Adv')
+        self.add('statictext', 'st_17', 2871, 1220, 261, 76, text='Tax')
+        self.add('statictext', 'st_28', 722, 1224, 201, 68, text='Rate')
+        self.add('statictext', 'st_billtotal', 1957, 1224, 297, 76, text='Bill Total')
+        self.add('commandbutton', 'cb_exchange', 3803, 1232, 466, 96, text='&Exchange', taborder=380)
+        self.add('statictext', 'st_43', 3529, 1300, 233, 124, text='Redeem Points')
+        self.add('editmask', 'em_astperc', 306, 1308, 119, 96, taborder=140)
+        self.add('editmask', 'em_ast', 425, 1308, 265, 96, taborder=120)
+        self.add('editmask', 'em_rcamt', 923, 1308, 265, 96, taborder=190)
+        self.add('editmask', 'em_hmc', 1522, 1308, 315, 96, taborder=150)
+        self.add('editmask', 'em_exchange', 2258, 1308, 384, 96)
+        self.add('editmask', 'em_sretamt', 3136, 1308, 384, 96)
+        self.add('statictext', 'st_21', 9, 1316, 297, 76, text='Cess')
+        self.add('statictext', 'st_26', 1307, 1316, 197, 76, text='HMC')
+        self.add('statictext', 'st_exchange', 1957, 1316, 297, 76, text='Exchange')
+        self.add('statictext', 'st_16', 2871, 1316, 261, 76, text='S.Return')
+        self.add('statictext', 'st_repair', 722, 1328, 219, 68, text='Repair')
+        self.add('commandbutton', 'cb_sreturn', 3803, 1332, 466, 96, text='&Return', taborder=390)
+        self.add('editmask', 'em_advance', 306, 1408, 384, 96)
+        self.add('editmask', 'em_rddisc', 1522, 1408, 315, 96, taborder=160)
+        self.add('editmask', 'em_nettot', 2258, 1408, 384, 96)
+        self.add('editmask', 'em_discperc', 3136, 1408, 123, 96, taborder=200)
+        self.add('editmask', 'em_discount', 3259, 1408, 261, 96, taborder=210)
+        self.add('statictext', 'st_3', 9, 1412, 297, 76, text='Cash Adv')
+        self.add('statictext', 'st_nettot', 1957, 1416, 297, 76, text='Net Total')
+        self.add('statictext', 'st_27', 1307, 1420, 197, 76, text='RDDisc')
+        self.add('editmask', 'em_redmpoints', 3529, 1420, 233, 84, taborder=410)
+        self.add('statictext', 'st_discount', 2871, 1424, 261, 76, text='Discount')
+        self.add('commandbutton', 'cb_save', 3803, 1436, 466, 96, text='&Save', taborder=400)
+        self.add('editmask', 'em_rcvd', 306, 1508, 384, 96, taborder=220)
+        self.add('editmask', 'em_schmamt', 1522, 1508, 315, 96, taborder=420)
+        self.add('editmask', 'em_balance', 2258, 1508, 384, 96)
+        self.add('editmask', 'em_cb', 3136, 1508, 384, 96)
+        self.add('checkbox', 'cbx_credit', 718, 1516, 242, 76, text='&Credit')
+        self.add('statictext', 'st_38', 1147, 1516, 370, 76, text='Scheme Less')
+        self.add('statictext', 'st_rcvd', 9, 1520, 297, 76, text='Received')
+        self.add('statictext', 'st_balance', 1957, 1524, 297, 76, text='Balance')
+        self.add('statictext', 'st_cb', 2871, 1528, 261, 76, text='CB')
+        self.add('commandbutton', 'cb_exit', 3803, 1536, 466, 96, text='E&xit', taborder=430)
+        self.add('datawindow', 'dw_cashbank', 306, 1612, 882, 88, dataobject='d_cashbankcode', taborder=270)
+        self.add('singlelineedit', 'sle_note', 2258, 1612, 567, 84, limit=40, taborder=230)
+        self.add('editmask', 'em_duedate', 3136, 1612, 389, 96, taborder=240)
+        self.add('statictext', 'st_24', 9, 1616, 293, 76, text='Cash/Bank')
+        self.add('statictext', 'st_23', 1957, 1620, 297, 76, text='Note')
+        self.add('statictext', 'st_13', 2871, 1624, 261, 76, text='DDate')
+        self.add('commandbutton', 'cb_short', 3803, 1644, 466, 92, text='Shor&t Print', taborder=440)
+        self.add('singlelineedit', 'sle_pos', 2258, 1700, 567, 84, limit=60, taborder=250)
+        self.add('editmask', 'em_ccamt', 306, 1704, 375, 84, taborder=280)
+        self.add('editmask', 'em_bcperc', 773, 1704, 146, 84, taborder=300)
+        self.add('editmask', 'em_bcharge', 919, 1704, 265, 84, taborder=290)
+        self.add('statictext', 'st_29', 695, 1712, 105, 76, text='BC')
+        self.add('statictext', 'st_40', 1957, 1712, 293, 76, text='Supply Place :')
+        self.add('datawindow', 'dw_state', 3136, 1712, 567, 88, dataobject='d_state_sel', taborder=260)
+        self.add('statictext', 'st_30', 9, 1716, 297, 76, text='CCardAmt')
+        self.add('statictext', 'st_42', 2871, 1720, 261, 76, text='State')
+        self.add('checkbox', 'cbx_laserprint', 3803, 1764, 402, 80, text='Laser Print')
+        self.add('datawindow', 'dw_chqbank', 306, 1792, 882, 88, dataobject='d_cashbankcode', taborder=310)
+        self.add('checkbox', 'cbx_pdc', 2336, 1792, 261, 72, text='PDC')
+        self.add('editmask', 'em_chqamt', 1522, 1796, 393, 84, taborder=320)
+        self.add('editmask', 'em_chqdate', 1920, 1796, 389, 84, taborder=330)
+        self.add('statictext', 'st_33', 9, 1800, 297, 76, text='Chq Bank')
+        self.add('statictext', 'st_34', 1216, 1804, 306, 76, text='Chq.Amt/ Dt')
+        self.add('checkbox', 'cbx_ratefromorder', 3136, 1816, 489, 80, text='Rate from order')
+        self.add('checkbox', 'cbx_showwgt', 3803, 1844, 608, 80, text='Show Wgt in Ledger')
+        self.add('datawindow', 'dw_agent', 306, 1880, 882, 88, dataobject='d_agent_sel', taborder=370)
+        self.add('singlelineedit', 'sle_chqno', 1522, 1884, 786, 88, limit=20, taborder=340)
+        self.add('checkbox', 'cbx_cst', 2336, 1888, 416, 80, text='Interstate')
+        self.add('statictext', 'st_32', 9, 1892, 297, 76, text='Agent')
+        self.add('statictext', 'st_36', 1216, 1900, 306, 76, text='Chq. No')
+        self.add('commandbutton', 'cb_updtratefromorder', 3131, 1900, 567, 92, text='All Rate from order')
+        self.add('checkbox', 'cbx_printwanda', 3803, 1920, 599, 76, text='Print Wgt and Amt Bal')
+        self.add('datawindow', 'dw_approvedby', 306, 1968, 882, 88, dataobject='d_staff_approval_sel', taborder=360)
+        self.add('statictext', 'st_44', 0, 1976, 334, 76, text='Approved by')
+        self.add('checkbox', 'cbx_sendsms', 2336, 1976, 402, 68, text='Send Sms')
+        self.add('checkbox', 'cbx_ccpdc', 1527, 1984, 352, 76, text='CCard PDC ?')
+        self.add('datawindow', 'dw_print', 3831, 1992, 96, 72, dataobject='d_saleprint_thermal', taborder=350)

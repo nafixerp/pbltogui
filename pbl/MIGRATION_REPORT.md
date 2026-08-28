@@ -10,11 +10,21 @@ nothing skipped, then layer in business logic and package an EXE.
 - `db.py` data layer reused as-is (SQL Anywhere / SQL Server / SQLite engines).
 
 ## Phase 2 — Menu ✅
-- `app/menu_loader.py` parses `project_tree.txt` (the authoritative GMINE menu
-  map) into the full menu bar **and** a Module Explorer tree.
+- `app/pb_menu.py` parses the application's own menu object,
+  `gminestr/m_mainmenu.srm`, into the full menu bar **and** a Module Explorer
+  tree: item nesting (`type X from menu within Y`), the creation order of each
+  submenu, captions, accelerators (`Ctrl+G`, `Alt+F2`, …), hidden items and
+  separators, and the window every entry opens — read out of its `clicked`
+  script (`open` / `openwithparm` / `opensheet` / `setfocus`).
 - All 6 sections (File, Master, Transactions, Reports, Utilities, Help) and
-  **331 leaf modules** are present, in the original order. 328 resolve to a
-  located `.srw` source; 3 are marked "source not found" in the export itself.
+  **393 leaf modules** are present, in the original order, and every one of them
+  resolves to a located `.srw` source.
+- `app/menu_loader.py` still parses `project_tree.txt`; it supplies the
+  window→source-file map and is the fallback menu if the menu object is missing
+  from an export.
+- Where a menu script can open one of several windows depending on a runtime
+  setting (e.g. Purchase with/without barcode), all candidates are kept on the
+  node and a hand-converted module wins.
 
 ## Phase 3 — All windows converted to PySide6 screens ✅
 - `app/pb_parser.py`: parser for the PowerBuilder export format. Per window it
@@ -211,3 +221,152 @@ with 0 errors.
   `w_gsmith`), and the two `wtmp` report stubs open the Stock Register. With the
   bridges, **all 331 menu items resolve to a working screen — 0 placeholders.**
   Supplying the real sources later overrides the bridges automatically.
+
+
+## Phase 6 — Records: full CRUD on the generic screens ✅
+- `app/services/crud_service.py` is the insert/update/delete engine used by
+  every auto-rendered window. Column names come from the database itself
+  (`db.table_columns`), a field is written only when it matches a real column,
+  statements are parameterised, and a table without a primary key is matched on
+  all its values with the match count shown before anything is written.
+- `app/pb_parser.parse_datawindow` reads the `.srd` DataWindow objects: the
+  table each screen **updates**, its **key** columns and its column list — the
+  original application's own definition of what the screen may write.
+  `tools/build_catalog.py` stores the best writable DataWindow per window, so
+  97 screens edit their records in a grid, exactly like the original.
+- Screens without a writable DataWindow map their input fields onto their
+  table's columns (57 screens). `data/field_map.json` pins anything the
+  automatic matching cannot work out, without a code change.
+- `tools/build_schema.py` recovers the original schema (132 tables, 2221
+  columns) from the DataWindow definitions and the embedded SQL, so the local
+  SQLite mode starts with the real tables and columns.
+- `tools/crud_report.py` reports, against whatever database is configured,
+  which screens can edit records and which still need a correction.
+- Coverage on the delivered build: 24 hand-written modules, 97 DataWindow-grid
+  screens, 57 field-mapped screens; the rest are reports, print dialogs and
+  record pickers that only read, plus multi-table transaction screens that need
+  their own business logic.
+
+
+## Phase 7 — Every menu item does something real ✅
+- `pb_parser.pbselect_to_sql` converts a DataWindow's `PBSELECT(...)`
+  definition (or its verbatim SQL) into a runnable statement, with its
+  retrieval arguments preserved. `tools/build_catalog.py` stores it for
+  **197 windows**.
+- `app/reports/generic.py` turns that into a working data view: a parameter bar
+  built from the original arguments (dates, party, level), the query run
+  against the configured database, original column headings, totals on numeric
+  columns and CSV/PDF export.
+- `db.get_connection` registers the SQL Anywhere functions the original queries
+  use (`ifnull` with three arguments, `left`, `right`, `list`, `string`) for
+  the SQLite mode; `tools/build_schema.py` also mines qualified `table.column`
+  references. 189 of the 197 stored queries now run unchanged on the local
+  database.
+- Menu access control: `MenuNode` carries the PowerBuilder menu item name, and
+  items listed in `userd` for the logged-in user are disabled and refuse to
+  open — the behaviour of `chkmenuaccess`.
+- Coverage across the 393 menu items: 37 hand-written, 115 editable grids,
+  72 field-mapped, 89 data views, 80 form + read-only list (bill-number pickers
+  and screens whose query is built in code).
+
+
+## Phase 8 — Every screen is a real Python module ✅
+- `tools/generate_forms.py` writes one PySide6 module per window into
+  `app/forms/` — **317 files**, each listing that screen's controls at their
+  original positions plus the table it edits and the query it displays.
+- `app/ui/form_base.py` (`GeneratedForm`) supplies the shared behaviour, so a
+  generated module is layout only and stays readable.
+- `app/forms/__init__.py` is a lazy registry: a screen's module is imported the
+  first time it is opened. The main window asks `app/modules/` first, so
+  hand-written implementations always win over a generated form.
+- All 317 modules import and build; every one of the 393 menu items resolves to
+  a hand-written module or a generated form.
+
+
+## Phase 9 — Flow, printing and the utility screens ✅
+- **Screen flow.** `tools/build_catalog.py` records which windows a screen's
+  scripts open (`opens`), so the bill-number screens (Edit / Cancel / Reprint /
+  Order Sale …) carry the record you select into the entry screen: *Open …* and
+  double-click both work, and the target's retrieval arguments are seeded from
+  the row (`:rslno` from `slno`, `:rbillno` from `billno`, …). 60 screens have a
+  working flow button. `app/ui/navigation.py` keeps the forms independent of the
+  main window.
+- **Printing.** `app/ui/printing.py` renders the rows on show as a table
+  document and sends it through the standard print dialog; every record list and
+  every data view has a Print button next to its CSV/PDF export.
+- **Utility screens** are now real (`app/modules/utilities.py`): Day Lock
+  (inserts/deletes `daylock` rows over a date range, as `w_daylock` did),
+  Backup (SQLite file copy, `BACKUP DATABASE DIRECTORY` on SQL Anywhere,
+  `BACKUP DATABASE TO DISK` on SQL Server), Calendar, Reminders (add/delete),
+  Change Password (`fpencrypt` into `userm.pcode`) and About.
+- Coverage over the 393 menu items: 41 hand-written, 115 editable grids,
+  72 field-mapped, 89 data views, 17 flow screens, 59 form + record list.
+- Not converted, deliberately: the cancellation postings (stock/ledger
+  reversal), the reports the original builds in code, the designed bill print
+  layouts other than the sales tax invoice, and the two hardware/second-database
+  screens.
+
+
+## Phase 10 — Nothing left as a dead form ✅
+- **Cancellations** (`app/services/cancel_service.py`, `app/modules/cancel.py`)
+  ported from `w_scancel`, `w_sretcancel`, `w_pcancel`, `w_gsmthcancel`,
+  `w_ocancel`, `w_rprcancel`, `w_oitcancel`, `w_refncancel`, `w_accancel`,
+  `w_loancancel`; atomic through the new `db.transaction()`.
+- **Final accounts** (`app/reports/final_accounts.py`): Trading & Profit and
+  Loss, Balance Sheet, Cash Balance, Yearly Cash Balance.
+- **Code-built reports** (`app/reports/analysis.py`): Party History, Barcode
+  History, Groupwise Expanded List, Non-Transactional Days, Integrity Checking,
+  Loan Ledger, Stock Register Summary, Day Report, Daily All Report, and the
+  Stock/Asset/Liability/Expense summary.
+- **Stock movements** (`app/services/stock_service.py`, `app/modules/extras.py`):
+  Stock Transfer, Stock Transfer Multi Entry and Stock Add - Less write the
+  `itemadj` row and move `items`/`itemsstk` exactly as the originals did.
+- **Refinery** (`app/services/refinery_service.py`, `app/modules/refinery.py`):
+  issue, returns and the all-in-one screen, with stock moving as the metal does.
+- **Settings and utilities**: Application/Book Stock/Op.Stock Value settings
+  editors over `generali`/`generald`/`generals`, Block-Unblock an Order, Staff
+  Log Update, Reprint, Administration, All Report Print, Change Incharge and the
+  Purity Certificate.
+- **External screens** (`app/modules/integrations.py`): Company Select, POS
+  Download / PSR Reader (open a file, map its columns, import), Update from HO /
+  from Jewelleries (copy missing rows from another database), Show WM Weight.
+- Result: **all 393 menu items** are a hand-written module (107), an editable
+  DataWindow grid (115), a data view (89), a field-mapped editor (67) or a
+  record list with the flow to the next screen (15). No menu item opens a dead
+  form. All 313 distinct screens build; 183 tests pass.
+
+
+## Phase 11 — The designed print forms ✅
+- `pb_parser.parse_layout` reads a print DataWindow's `.srd` as a layout: band
+  heights, and every label, column, computed total, line and box with its
+  position, size, alignment and font, plus the paper size, orientation and
+  margins the form was designed for.
+- `tools/build_layouts.py` stores **301 forms** (bills, memos, vouchers,
+  certificates, labels) in `data/layouts.json`.
+- `app/reports/dw_print.py` draws them: header band per page, detail band per
+  row, summary and footer, DataWindow format masks (`#####0.000`,
+  `dd/mm/yyyy`, `[GENERAL]`), `sum()/count()/avg()/max()/min()` computes and
+  `today()`, fields shrunk to their box so nothing overprints. The output is a
+  PDF, so it prints the same from any machine.
+- 75 screens show a **Print Form** button beside Print, offering the forms that
+  belong to that document (the original ships several variants per form; the
+  screen lets the user choose). The Reprint screens print on the designed form
+  too.
+
+
+## Phase 12 — The calculations ✅
+- `app/reports/dw_expr.py`: a recursive-descent parser and evaluator for
+  DataWindow expressions — the language the original's calculations are written
+  in. Arithmetic, comparisons, `and/or/not`, `if`, `case … when … then … else`,
+  the aggregates (`sum/count/avg/max/min/cumulativeSum`, with `for all` and
+  `for group n`), `string` with format masks, the string and number functions,
+  `today/now/page/pageCount`, `profilestring`, and `column[-1]` for the previous
+  row. **99% of the 13,000+ expressions in the export parse**; nothing is passed
+  to Python's `eval`.
+- `pb_parser._attr` now honours the `~"` escape, so an expression containing a
+  quote is no longer cut in half (this also fixed the stored print layouts).
+- Wired in: 151 data views add their calculated columns, 62 editable grids show
+  them read-only beside the stored fields (marked `*`, recalculated on refresh,
+  never written), and every printed form evaluates its own computed fields and
+  totals — the sales bill now prints Gold Amt, Value Addition and the footer
+  totals exactly as the original did.

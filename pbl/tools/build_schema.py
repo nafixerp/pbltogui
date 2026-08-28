@@ -1,0 +1,161 @@
+"""
+Derive the original database schema from the PowerBuilder export.
+
+Every DataWindow (``.srd``) declares the real table and column it is bound to,
+with its database type::
+
+    column=(type=decimal(2) name=salesm_billamt dbname="salesm.billamt" )
+
+Reading all of them recovers the GMINE schema — table by table, column by
+column — which is what lets the software run (and the generic screens do full
+CRUD) on a local SQLite database, with the same table and column names as the
+live system.
+
+    python tools/build_schema.py --source <export folder> --out data/schema.sql
+"""
+
+from __future__ import annotations
+
+import argparse
+import os
+import re
+import sys
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, os.path.dirname(HERE))
+
+from app.pb_parser import decode_pb  # noqa: E402
+
+_COLUMN_RE = re.compile(r'column=\(type=([a-z]+)(?:\((\d+)\))?[^)]*?dbname="([^"]+)"')
+_TABLE_RE = re.compile(r'TABLE\(NAME=~"(\w+)~"')
+# Embedded SQL in window scripts, for tables no DataWindow covers.
+_INSERT_RE = re.compile(r'insert\s+into\s+(\w+)\s*\(([^)]*)\)', re.I)
+_UPDATE_RE = re.compile(r'update\s+(\w+)\s+set\s+([\s\S]{0,400}?);', re.I)
+_SET_COL_RE = re.compile(r'(\w+)\s*=')
+
+_TYPES = {
+    "char": "TEXT", "varchar": "TEXT", "string": "TEXT", "text": "TEXT",
+    "long": "INTEGER", "int": "INTEGER", "integer": "INTEGER",
+    "ulong": "INTEGER", "uint": "INTEGER", "number": "REAL",
+    "decimal": "REAL", "real": "REAL", "double": "REAL",
+    "date": "DATE", "datetime": "TIMESTAMP", "time": "TIME", "timestamp": "TIMESTAMP",
+}
+
+# Never emit these: PowerBuilder objects and computed aliases, not tables.
+_SKIP_TABLE = re.compile(r'^(w_|d_|m_|f_|u_|n_|compute|dw_)', re.I)
+
+
+def _sql_type(pbtype: str) -> str:
+    return _TYPES.get(pbtype.lower(), "TEXT")
+
+
+def scan_datawindows(source: str) -> dict:
+    schema: dict[str, dict] = {}
+    for root, _dirs, files in os.walk(source):
+        for fname in files:
+            if not fname.lower().endswith(".srd"):
+                continue
+            try:
+                text = decode_pb(os.path.join(root, fname))
+            except Exception:
+                continue
+            tables = _TABLE_RE.findall(text)
+            default = tables[0] if len(set(tables)) == 1 else ""
+            for pbtype, _size, dbname in _COLUMN_RE.findall(text):
+                if "." in dbname:
+                    table, _, column = dbname.partition(".")
+                else:
+                    table, column = default, dbname
+                table, column = table.strip().lower(), column.strip().lower()
+                if not table or not column or _SKIP_TABLE.match(table):
+                    continue
+                if not re.fullmatch(r"[a-z_][a-z0-9_]*", table + column):
+                    continue
+                schema.setdefault(table, {}).setdefault(column, _sql_type(pbtype))
+    return schema
+
+
+def scan_scripts(source: str, schema: dict) -> dict:
+    """Add tables/columns that appear only in embedded SQL (INSERT/UPDATE)."""
+    for root, _dirs, files in os.walk(source):
+        for fname in files:
+            if not fname.lower().endswith((".srw", ".srm", ".srf", ".sru")):
+                continue
+            try:
+                text = decode_pb(os.path.join(root, fname))
+            except Exception:
+                continue
+            for table, cols in _INSERT_RE.findall(text):
+                table = table.lower()
+                if _SKIP_TABLE.match(table):
+                    continue
+                for col in re.findall(r"[a-z_][a-z0-9_]*", cols.lower()):
+                    schema.setdefault(table, {}).setdefault(col, "TEXT")
+            for table, body in _UPDATE_RE.findall(text):
+                table = table.lower()
+                if _SKIP_TABLE.match(table):
+                    continue
+                for col in _SET_COL_RE.findall(body.lower()):
+                    if col in ("where", "and", "or", "set"):
+                        continue
+                    schema.setdefault(table, {}).setdefault(col, "TEXT")
+    return schema
+
+
+_QUALIFIED_RE = re.compile(r'\b([a-z][a-z0-9_]{2,})\.([a-z][a-z0-9_]*)\b')
+
+
+def scan_references(source: str, schema: dict) -> dict:
+    """Add columns that only ever appear as ``table.column`` in SQL text."""
+    known = set(schema)
+    for root, _dirs, files in os.walk(source):
+        for fname in files:
+            if not fname.lower().endswith((".srw", ".srd", ".srf", ".sru", ".srm")):
+                continue
+            try:
+                text = decode_pb(os.path.join(root, fname)).lower()
+            except Exception:
+                continue
+            for table, column in _QUALIFIED_RE.findall(text):
+                if table in known and column not in schema[table]:
+                    schema[table][column] = "TEXT"
+    return schema
+
+
+def to_sql(schema: dict) -> str:
+    lines = ["-- GMINE schema recovered from the PowerBuilder export.",
+             "-- Generated by tools/build_schema.py — do not edit by hand.", ""]
+    for table in sorted(schema):
+        cols = schema[table]
+        if not cols:
+            continue
+        body = ",\n    ".join(f"{c} {t}" for c, t in sorted(cols.items()))
+        lines.append(f"CREATE TABLE IF NOT EXISTS {table} (\n    {body}\n);")
+    return "\n".join(lines) + "\n"
+
+
+def main() -> int:
+    ap = argparse.ArgumentParser(description=__doc__)
+    ap.add_argument("--source", required=True,
+                    help="folder holding the gmine* PowerBuilder source folders")
+    ap.add_argument("--out", default=os.path.join(os.path.dirname(HERE),
+                                                  "data", "schema.sql"))
+    ap.add_argument("--scripts", action="store_true",
+                    help="also mine INSERT/UPDATE statements in window scripts")
+    args = ap.parse_args()
+
+    schema = scan_datawindows(os.path.abspath(args.source))
+    if args.scripts:
+        schema = scan_scripts(os.path.abspath(args.source), schema)
+        schema = scan_references(os.path.abspath(args.source), schema)
+
+    os.makedirs(os.path.dirname(os.path.abspath(args.out)), exist_ok=True)
+    with open(args.out, "w", encoding="utf-8") as fh:
+        fh.write(to_sql(schema))
+    columns = sum(len(c) for c in schema.values())
+    print(f"tables: {len(schema)}  columns: {columns}  -> {args.out}")
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

@@ -1,0 +1,4 @@
+# Extra tools for building the .exe and running the test suite.
+-r requirements.txt
+pyinstaller>=6.0
+pytest>=8.0

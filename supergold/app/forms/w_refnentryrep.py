@@ -1,0 +1,45 @@
+"""Refinery Entry Report — w_refnentryrep.
+
+Generated from the PowerBuilder window ``w_refnentryrep.srw`` by
+``tools/generate_forms.py``. It is ordinary PySide6 code: the controls below
+are the original ones, at their original positions. Behaviour (record editing,
+the data view over this window's own query, search and export) comes from
+:class:`app.ui.form_base.GeneratedForm`.
+
+Re-running the generator overwrites this file. Put hand-written business logic
+in ``app/modules/`` instead — a module registered there takes precedence.
+"""
+
+from app.pb_parser import Window
+from app.ui.form_base import GeneratedForm
+
+WINDOW = Window(
+    name='w_refnentryrep',
+    title='Refinery Entry Report',
+    width=3675,
+    height=2200,
+    controls=[],
+    tables=[],
+    source_path='w_refnentryrep.srw',
+    report={'dataobject': 'd_refnentryrep', 'sql': 'SELECT refineryd.code AS refineryd_code, items.name AS items_name, refineryd.issuedwgt AS refineryd_issuedwgt, refineryd.issuedqty AS refineryd_issuedqty, refineryd.rcvdwgt AS refineryd_rcvdwgt, refineryd.rcvdqty AS refineryd_rcvdqty, refineryd.bottlestk AS refineryd_bottlestk, refineryd.testpcs AS refineryd_testpcs, refinerym.slno AS refinerym_slno, refinerym.docno AS refinerym_docno, refinerym.tdate AS refinerym_tdate, refinerym.refcode AS refinerym_refcode, refinerym.tbottlestk AS refinerym_tbottlestk, refinerym.ttestpcs AS refinerym_ttestpcs, refinerym.charge AS refinerym_charge, refinerym.paidamt AS refinerym_paidamt, refinerym.testperc AS refinerym_testperc, refinerym.status AS refinerym_status, refinerym.ttime AS refinerym_ttime, refineryd.mudless AS refineryd_mudless, refineryd.issuedstwgt AS refineryd_issuedstwgt, (select clients.name from clients where clients.code = refinerym.refcode) as refnname FROM items, refineryd, refinerym WHERE items.code = refineryd.code AND refineryd.slno = refinerym.slno AND refinerym.control <= :rlevel AND refinerym.tdate between :rdate1 and :rdate2 ORDER BY refinerym.tdate ASC, refinerym.docno ASC, refinerym.slno ASC', 'computes': [{'name': 'c_depr_w_cp', 'expression': 'if( refinerym_status = 2, refineryd_issuedwgt,0)   -  refineryd_rcvdwgt', 'format': '####0.000', 'label': 'c_depr_w_cp', 'band': 'detail'}, {'name': 'c_depr_wo_cp', 'expression': "if( refinerym_status = 2 and refineryd_code <> 'CP', refineryd_issuedwgt,0)   -  refineryd_rcvdwgt ", 'format': '####0.000', 'label': 'c_depr_wo_cp', 'band': 'detail'}, {'name': 'compute_7', 'expression': 'sum(  refinerym_paidamt for all distinct  refinerym_slno )', 'format': '#####0.00', 'label': 'compute_7', 'band': 'summary'}, {'name': 'c_totrcvd', 'expression': 'sum( refineryd_rcvdwgt for all)', 'format': '###0.000', 'label': 'c_totrcvd', 'band': 'summary'}, {'name': 'compute_4', 'expression': 'sum( refineryd_issuedqty for all)', 'format': '###0', 'label': 'compute_4', 'band': 'summary'}, {'name': 'c_totissued', 'expression': 'sum( refineryd_issuedwgt for all)', 'format': '###0.000', 'label': 'c_totissued', 'band': 'summary'}, {'name': 'c_totstwgt', 'expression': 'sum(refineryd_issuedstwgt for all)', 'format': '######0.000', 'label': 'c_totstwgt', 'band': 'summary'}, {'name': 'compute_6', 'expression': 'sum(refineryd_mudless for all)', 'format': '#####.000', 'label': 'compute_6', 'band': 'summary'}, {'name': 'compute_5', 'expression': 'sum( refineryd_bottlestk for all)', 'format': '##0.000', 'label': 'compute_5', 'band': 'summary'}, {'name': 'c_ttestpcs', 'expression': 'sum( refineryd_testpcs for all)', 'format': '##0.000', 'label': 'c_ttestpcs', 'band': 'summary'}, {'name': 'compute_9', 'expression': 'sum(  if(  refinerym_testperc >0 ,refinerym_testperc ,0) for all ) / sum(  if( refinerym_testperc > 0,1,0) for all ) ', 'format': '#####.###', 'label': 'compute_9', 'band': 'summary'}], 'args': ['rdate1', 'rdate2', 'rlevel'], 'arg_types': {'rdate1': 'date', 'rdate2': 'date', 'rlevel': 'number'}, 'tables': ['items', 'refineryd', 'refinerym'], 'columns': [{'name': 'refineryd_code', 'label': 'refineryd_code', 'type': 'char'}, {'name': 'items_name', 'label': 'items_name', 'type': 'char'}, {'name': 'refineryd_issuedwgt', 'label': 'refineryd_issuedwgt', 'type': 'decimal'}, {'name': 'refineryd_issuedqty', 'label': 'refineryd_issuedqty', 'type': 'long'}, {'name': 'refineryd_rcvdwgt', 'label': 'refineryd_rcvdwgt', 'type': 'decimal'}, {'name': 'refineryd_rcvdqty', 'label': 'refineryd_rcvdqty', 'type': 'long'}, {'name': 'refineryd_bottlestk', 'label': 'refineryd_bottlestk', 'type': 'decimal'}, {'name': 'refineryd_testpcs', 'label': 'refineryd_testpcs', 'type': 'decimal'}, {'name': 'refinerym_slno', 'label': 'refinerym_slno', 'type': 'decimal'}, {'name': 'refinerym_docno', 'label': 'refinerym_docno', 'type': 'char'}, {'name': 'refinerym_tdate', 'label': 'refinerym_tdate', 'type': 'date'}, {'name': 'refinerym_refcode', 'label': 'refinerym_refcode', 'type': 'char'}, {'name': 'refinerym_tbottlestk', 'label': 'refinerym_tbottlestk', 'type': 'decimal'}, {'name': 'refinerym_ttestpcs', 'label': 'refinerym_ttestpcs', 'type': 'decimal'}, {'name': 'refinerym_charge', 'label': 'refinerym_charge', 'type': 'decimal'}, {'name': 'refinerym_paidamt', 'label': 'refinerym_paidamt', 'type': 'decimal'}, {'name': 'refinerym_testperc', 'label': 'refinerym_testperc', 'type': 'decimal'}, {'name': 'refinerym_status', 'label': 'refinerym_status', 'type': 'long'}, {'name': 'refinerym_ttime', 'label': 'refinerym_ttime', 'type': 'time'}, {'name': 'refineryd_mudless', 'label': 'refineryd_mudless', 'type': 'decimal'}, {'name': 'refineryd_issuedstwgt', 'label': 'refineryd_issuedstwgt', 'type': 'decimal'}, {'name': 'crefnname', 'label': 'crefnname', 'type': 'char'}]},
+    opens=['w_clientshelp'],
+)
+
+
+class RefineryEntryReportForm(GeneratedForm):
+    """Refinery Entry Report"""
+
+    WINDOW = WINDOW
+
+    def build_controls(self):
+        self.add('datawindow', 'dw_accode', 325, 0, 425, 92, dataobject='d_refncode', taborder=40)
+        self.add('editmask', 'em_date1', 1243, 0, 430, 100, taborder=10)
+        self.add('editmask', 'em_date2', 2002, 0, 425, 100, taborder=20)
+        self.add('commandbutton', 'cb_show', 2446, 0, 279, 100, text='&Show', taborder=30)
+        self.add('commandbutton', 'cb_3', 2807, 0, 256, 96, text='Save &As', taborder=80)
+        self.add('commandbutton', 'cb_1', 3077, 0, 265, 96, text='&Print', taborder=70)
+        self.add('commandbutton', 'cb_2', 3342, 0, 265, 96, text='E&xit', taborder=60)
+        self.add('statictext', 'st_3', 27, 8, 297, 72, text='Refiner  :')
+        self.add('statictext', 'st_1', 864, 16, 366, 64, text='Date From :')
+        self.add('statictext', 'st_2', 1691, 16, 302, 72, text='Date To :')
+        self.add('datawindow', 'dw_1', 0, 100, 3625, 1976, dataobject='d_refnentryrep', taborder=50)
