@@ -45,6 +45,7 @@ from app.modules import repair  # noqa: E402,F401
 from app.modules import goldsmith  # noqa: E402,F401
 from app.modules import kuri  # noqa: E402,F401
 from app.modules import utilities  # noqa: E402,F401
+from app.modules import cancel  # noqa: E402,F401
 # Bridges for menu items whose PB source is missing from the export (loaded last
 # so real modules/reports above take precedence).
 from app.modules import bridges  # noqa: E402,F401
@@ -56,3 +57,4 @@ from app.reports import trial_balance  # noqa: E402,F401
 from app.reports import ac_ledger  # noqa: E402,F401
 from app.reports import cash_book  # noqa: E402,F401
 from app.reports import stock_register  # noqa: E402,F401
+from app.reports import final_accounts  # noqa: E402,F401

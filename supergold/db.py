@@ -18,6 +18,7 @@ The rest of the app only uses the engine-agnostic helpers:
 Placeholders are '?' for both engines, so module SQL stays portable.
 """
 
+import contextlib
 import os
 import sys
 import hashlib
@@ -161,7 +162,47 @@ def _connstr_dsnless(database):
 # Engine-agnostic data helpers
 # ---------------------------------------------------------------------------
 
+_ACTIVE = None          # connection of the transaction in progress, if any
+
+
+@contextlib.contextmanager
+def transaction():
+    """Run several statements as one unit of work.
+
+    Cancelling a document reverses stock, removes the document and writes an
+    audit line; either all of that happens or none of it does. Inside this
+    block :func:`execute` and the fetch helpers share one connection, which is
+    committed at the end and rolled back if anything raises.
+    """
+    global _ACTIVE
+    if _ACTIVE is not None:              # already inside one: join it
+        yield _ACTIVE
+        return
+    conn = get_connection()
+    _ACTIVE = conn
+    try:
+        yield conn
+        conn.commit()
+    except Exception:
+        try:
+            conn.rollback()
+        finally:
+            pass
+        raise
+    finally:
+        _ACTIVE = None
+        try:
+            conn.close()
+        except Exception:
+            pass
+
+
 def fetch_all(sql, params=()):
+    if _ACTIVE is not None:
+        cur = _ACTIVE.cursor()
+        cur.execute(sql, params)
+        cols = [d[0] for d in cur.description]
+        return [dict(zip(cols, row)) for row in cur.fetchall()]
     conn = get_connection()
     try:
         cur = conn.cursor()
@@ -173,6 +214,12 @@ def fetch_all(sql, params=()):
 
 
 def fetch_one(sql, params=()):
+    if _ACTIVE is not None:
+        cur = _ACTIVE.cursor()
+        cur.execute(sql, params)
+        cols = [d[0] for d in cur.description]
+        row = cur.fetchone()
+        return dict(zip(cols, row)) if row else None
     conn = get_connection()
     try:
         cur = conn.cursor()
@@ -185,6 +232,13 @@ def fetch_one(sql, params=()):
 
 
 def execute(sql, params=()):
+    if _ACTIVE is not None:
+        cur = _ACTIVE.cursor()
+        cur.execute(sql, params)
+        try:
+            return cur.lastrowid
+        except Exception:
+            return None
     conn = get_connection()
     try:
         cur = conn.cursor()
