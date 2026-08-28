@@ -352,3 +352,21 @@ with 0 errors.
   belong to that document (the original ships several variants per form; the
   screen lets the user choose). The Reprint screens print on the designed form
   too.
+
+
+## Phase 12 — The calculations ✅
+- `app/reports/dw_expr.py`: a recursive-descent parser and evaluator for
+  DataWindow expressions — the language the original's calculations are written
+  in. Arithmetic, comparisons, `and/or/not`, `if`, `case … when … then … else`,
+  the aggregates (`sum/count/avg/max/min/cumulativeSum`, with `for all` and
+  `for group n`), `string` with format masks, the string and number functions,
+  `today/now/page/pageCount`, `profilestring`, and `column[-1]` for the previous
+  row. **99% of the 13,000+ expressions in the export parse**; nothing is passed
+  to Python's `eval`.
+- `pb_parser._attr` now honours the `~"` escape, so an expression containing a
+  quote is no longer cut in half (this also fixed the stored print layouts).
+- Wired in: 151 data views add their calculated columns, 62 editable grids show
+  them read-only beside the stored fields (marked `*`, recalculated on refresh,
+  never written), and every printed form evaluates its own computed fields and
+  totals — the sales bill now prints Gold Amt, Value Addition and the footer
+  totals exactly as the original did.

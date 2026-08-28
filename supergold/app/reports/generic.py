@@ -26,6 +26,7 @@ from PySide6.QtWidgets import (
 )
 
 import db
+from app.reports import dw_expr
 from app.reports.framework import export_csv, export_pdf
 from app.ui.printing import print_table
 
@@ -166,20 +167,41 @@ class GenericDataView(QWidget):
             self._rows = []
             self._message(f"Query failed: {exc}")
             return
+        self._apply_computes()
         self._columns = list(self._rows[0].keys()) if self._rows else \
             [c["name"] for c in self.spec.get("columns", [])]
         self._fill()
         self._status.setText(f"{len(self._rows)} rows")
 
+    def _apply_computes(self):
+        """Add the DataWindow's own calculated fields to every row."""
+        computes = [c for c in self.spec.get("computes", [])
+                    if c.get("band") == "detail"]
+        if not computes or not self._rows:
+            return
+        for index, row in enumerate(self._rows):
+            context = {"row_index": index}
+            for compute in computes:
+                value = dw_expr.evaluate(compute["expression"], row,
+                                         self._rows, context)
+                if value is not None:
+                    row[compute["name"]] = value
+
     def _labels(self) -> list:
         labels = {c["name"].lower(): (c.get("label") or c["name"])
                   for c in self.spec.get("columns", [])}
+        labels.update({c["name"].lower(): (c.get("label") or c["name"])
+                       for c in self.spec.get("computes", [])})
         return [labels.get(c.lower(), c.replace("_", " ").title())
                 for c in self._columns]
 
     def _numeric_columns(self) -> list:
         typed = {c["name"].lower(): (c.get("type") or "").lower()
                  for c in self.spec.get("columns", [])}
+        for compute in self.spec.get("computes", []):
+            mask = compute.get("format") or ""
+            if "0" in mask or "#" in mask:
+                typed[compute["name"].lower()] = "decimal"
         out = []
         for col in self._columns:
             if any(t in typed.get(col.lower(), "") for t in _NUMERIC_TYPES):

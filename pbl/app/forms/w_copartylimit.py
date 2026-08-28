@@ -21,8 +21,8 @@ WINDOW = Window(
     controls=[],
     tables=[],
     source_path='w_copartylimit.srw',
-    grid={'control': 'dw_places', 'dataobject': 'd_copartylimit', 'table': 'copartylimit', 'keys': ['code'], 'columns': [{'name': 'code', 'label': 'C/o Party', 'type': 'char'}, {'name': 'maxamt', 'label': 'Max Crd Amt', 'type': 'decimal'}, {'name': 'maxwgt', 'label': 'maxwgt', 'type': 'decimal'}]},
-    report={'dataobject': 'd_copartylimit', 'sql': 'SELECT copartylimit.code AS copartylimit_code, copartylimit.maxamt AS copartylimit_maxamt, copartylimit.maxwgt AS copartylimit_maxwgt FROM copartylimit', 'args': [], 'arg_types': {}, 'tables': ['copartylimit'], 'columns': [{'name': 'code', 'label': 'C/o Party', 'type': 'char'}, {'name': 'maxamt', 'label': 'Max Crd Amt', 'type': 'decimal'}, {'name': 'maxwgt', 'label': 'maxwgt', 'type': 'decimal'}]},
+    grid={'control': 'dw_places', 'dataobject': 'd_copartylimit', 'table': 'copartylimit', 'keys': ['code'], 'computes': [], 'columns': [{'name': 'code', 'label': 'C/o Party', 'type': 'char'}, {'name': 'maxamt', 'label': 'Max Crd Amt', 'type': 'decimal'}, {'name': 'maxwgt', 'label': 'maxwgt', 'type': 'decimal'}]},
+    report={'dataobject': 'd_copartylimit', 'sql': 'SELECT copartylimit.code AS copartylimit_code, copartylimit.maxamt AS copartylimit_maxamt, copartylimit.maxwgt AS copartylimit_maxwgt FROM copartylimit', 'computes': [], 'args': [], 'arg_types': {}, 'tables': ['copartylimit'], 'columns': [{'name': 'code', 'label': 'C/o Party', 'type': 'char'}, {'name': 'maxamt', 'label': 'Max Crd Amt', 'type': 'decimal'}, {'name': 'maxwgt', 'label': 'maxwgt', 'type': 'decimal'}]},
     opens=['w_cbachdhelp'],
 )
 

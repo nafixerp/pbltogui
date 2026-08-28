@@ -111,6 +111,27 @@ Levels of conversion:
   Edit / Reprint window and press *Open …*, and the entry screen opens on that
   record, the way the original chained its windows.
 
+## The original's own calculations
+
+The figures the shop reads on a bill or a register are not stored columns —
+the original computes them in its DataWindows: *weight less stone*, *value
+addition = making charge + wastage × rate*, *net amount*, the totals, the GST
+captions. There are over thirteen thousand of those expressions in the export.
+
+`app/reports/dw_expr.py` is a parser and evaluator for that little language
+(arithmetic, comparisons, `and/or/not`, `if`, `case`, `sum/count/avg/max/min`,
+`string` with its format masks, `left/mid/right/len/pos/trim/upper/lower`,
+`round/abs/int/number`, `today/page/pageCount`, `profilestring`, and
+`column[-1]` for the previous row). Nothing from a DataWindow ever reaches
+Python's `eval`.
+
+It is used everywhere the original used it:
+
+* **151 report screens** show their calculated columns beside the queried ones;
+* **62 grid screens** show them next to the stored fields, marked with `*` and
+  read-only — they are recalculated, never saved;
+* **every printed form** computes its own fields and totals.
+
 ## Records — adding, editing and deleting
 
 Every screen that is *about* a table can add, edit and delete records. There are

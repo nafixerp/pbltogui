@@ -21,7 +21,7 @@ WINDOW = Window(
     controls=[],
     tables=['appoint', 'generali'],
     source_path='w_appointments.srw',
-    report={'dataobject': 'd_appoint', 'sql': 'SELECT appoint.tdatetime AS appoint_tdatetime, appoint.desc AS appoint_desc, appoint.slno AS appoint_slno FROM appoint ORDER BY appoint.tdatetime ASC', 'args': [], 'arg_types': {}, 'tables': ['appoint'], 'columns': [{'name': 'tdatetime', 'label': 'Date and Time', 'type': 'datetime'}, {'name': 'desc', 'label': 'Description', 'type': 'char'}, {'name': 'slno', 'label': 'slno', 'type': 'decimal'}]},
+    report={'dataobject': 'd_appoint', 'sql': 'SELECT appoint.tdatetime AS appoint_tdatetime, appoint.desc AS appoint_desc, appoint.slno AS appoint_slno FROM appoint ORDER BY appoint.tdatetime ASC', 'computes': [], 'args': [], 'arg_types': {}, 'tables': ['appoint'], 'columns': [{'name': 'tdatetime', 'label': 'Date and Time', 'type': 'datetime'}, {'name': 'desc', 'label': 'Description', 'type': 'char'}, {'name': 'slno', 'label': 'slno', 'type': 'decimal'}]},
 )
 
 

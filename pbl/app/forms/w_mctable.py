@@ -21,7 +21,7 @@ WINDOW = Window(
     controls=[],
     tables=['mctable', 'items'],
     source_path='w_mctable.srw',
-    report={'dataobject': 'd_mcmast', 'sql': 'SELECT mctable.weight1 AS mctable_weight1, mctable.weight2 AS mctable_weight2, mctable.mc AS mctable_mc, mctable.mcpergm AS mctable_mcpergm, mctable.mcperqty AS mctable_mcperqty, mctable.vaperc AS mctable_vaperc FROM mctable', 'args': ['rcode', 'rtype'], 'arg_types': {'rcode': 'string', 'rtype': 'string'}, 'tables': ['mctable'], 'columns': [{'name': 'weight1', 'label': 'From Wgt', 'type': 'decimal'}, {'name': 'weight2', 'label': 'To Wgt', 'type': 'decimal'}, {'name': 'mc', 'label': 'mc', 'type': 'decimal'}, {'name': 'mcpergm', 'label': 'mcpergm', 'type': 'decimal'}, {'name': 'mcperqty', 'label': 'mcperqty', 'type': 'decimal'}, {'name': 'vaperc', 'label': 'vaperc', 'type': 'decimal'}]},
+    report={'dataobject': 'd_mcmast', 'sql': 'SELECT mctable.weight1 AS mctable_weight1, mctable.weight2 AS mctable_weight2, mctable.mc AS mctable_mc, mctable.mcpergm AS mctable_mcpergm, mctable.mcperqty AS mctable_mcperqty, mctable.vaperc AS mctable_vaperc FROM mctable', 'computes': [], 'args': ['rcode', 'rtype'], 'arg_types': {'rcode': 'string', 'rtype': 'string'}, 'tables': ['mctable'], 'columns': [{'name': 'weight1', 'label': 'From Wgt', 'type': 'decimal'}, {'name': 'weight2', 'label': 'To Wgt', 'type': 'decimal'}, {'name': 'mc', 'label': 'mc', 'type': 'decimal'}, {'name': 'mcpergm', 'label': 'mcpergm', 'type': 'decimal'}, {'name': 'mcperqty', 'label': 'mcperqty', 'type': 'decimal'}, {'name': 'vaperc', 'label': 'vaperc', 'type': 'decimal'}]},
     opens=['w_itemhelp'],
 )
 

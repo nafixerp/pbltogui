@@ -21,8 +21,8 @@ WINDOW = Window(
     controls=[],
     tables=['items', 'mctable', 'purchased', 'salesd', 'salesrd', 'barcode', 'orderd', 'orderdga', 'wstgtable'],
     source_path='w_itemqualitytype.srw',
-    grid={'control': 'dw_sman', 'dataobject': 'd_itemqtype', 'table': 'itemsqtype', 'keys': ['code'], 'columns': [{'name': 'code', 'label': 'Purity', 'type': 'char'}, {'name': 'touch', 'label': 'Touch', 'type': 'decimal'}, {'name': 'code2', 'label': 'code2', 'type': 'char'}]},
-    report={'dataobject': 'd_itemqtype', 'sql': 'SELECT itemsqtype.code AS itemsqtype_code, itemsqtype.touch AS itemsqtype_touch, (code) as code2 FROM itemsqtype', 'args': [], 'arg_types': {}, 'tables': ['itemsqtype'], 'columns': [{'name': 'code', 'label': 'Purity', 'type': 'char'}, {'name': 'touch', 'label': 'Touch', 'type': 'decimal'}, {'name': 'code2', 'label': 'code2', 'type': 'char'}]},
+    grid={'control': 'dw_sman', 'dataobject': 'd_itemqtype', 'table': 'itemsqtype', 'keys': ['code'], 'computes': [], 'columns': [{'name': 'code', 'label': 'Purity', 'type': 'char'}, {'name': 'touch', 'label': 'Touch', 'type': 'decimal'}, {'name': 'code2', 'label': 'code2', 'type': 'char'}]},
+    report={'dataobject': 'd_itemqtype', 'sql': 'SELECT itemsqtype.code AS itemsqtype_code, itemsqtype.touch AS itemsqtype_touch, (code) as code2 FROM itemsqtype', 'computes': [], 'args': [], 'arg_types': {}, 'tables': ['itemsqtype'], 'columns': [{'name': 'code', 'label': 'Purity', 'type': 'char'}, {'name': 'touch', 'label': 'Touch', 'type': 'decimal'}, {'name': 'code2', 'label': 'code2', 'type': 'char'}]},
     opens=['w_regional', 'w_itemhelp'],
 )
 

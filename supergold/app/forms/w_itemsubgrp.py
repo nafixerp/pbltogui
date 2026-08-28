@@ -21,8 +21,8 @@ WINDOW = Window(
     controls=[],
     tables=['barcode'],
     source_path='w_itemsubgrp.srw',
-    grid={'control': 'dw_sman', 'dataobject': 'd_itemsubgrpmaster', 'table': 'itemsubgrp', 'keys': ['code'], 'columns': [{'name': 'code', 'label': 'Code', 'type': 'char'}, {'name': 'name', 'label': 'Name', 'type': 'char'}]},
-    report={'dataobject': 'd_itemsubgrpmaster', 'sql': 'SELECT itemsubgrp.code AS itemsubgrp_code, itemsubgrp.name AS itemsubgrp_name FROM itemsubgrp', 'args': [], 'arg_types': {}, 'tables': ['itemsubgrp'], 'columns': [{'name': 'code', 'label': 'Code', 'type': 'char'}, {'name': 'name', 'label': 'Name', 'type': 'char'}]},
+    grid={'control': 'dw_sman', 'dataobject': 'd_itemsubgrpmaster', 'table': 'itemsubgrp', 'keys': ['code'], 'computes': [], 'columns': [{'name': 'code', 'label': 'Code', 'type': 'char'}, {'name': 'name', 'label': 'Name', 'type': 'char'}]},
+    report={'dataobject': 'd_itemsubgrpmaster', 'sql': 'SELECT itemsubgrp.code AS itemsubgrp_code, itemsubgrp.name AS itemsubgrp_name FROM itemsubgrp', 'computes': [], 'args': [], 'arg_types': {}, 'tables': ['itemsubgrp'], 'columns': [{'name': 'code', 'label': 'Code', 'type': 'char'}, {'name': 'name', 'label': 'Name', 'type': 'char'}]},
 )
 
 

@@ -21,7 +21,7 @@ WINDOW = Window(
     controls=[],
     tables=['delpart', 'userhist'],
     source_path='w_userhistory.srw',
-    report={'dataobject': 'd_userhistory', 'sql': 'SELECT userhist.tdate AS userhist_tdate, userhist.time1 AS userhist_time1, userhist.time2 AS userhist_time2, userm.name AS userm_name, userhist.code AS userhist_code FROM userhist, userm WHERE userhist.code = userm.code ORDER BY userhist.tdate ASC, userhist.time1 ASC', 'args': ['rdate1', 'rdate2'], 'arg_types': {'rdate1': 'date', 'rdate2': 'date'}, 'tables': ['userhist', 'userm'], 'columns': [{'name': 'userhist_tdate', 'label': 'userhist_tdate', 'type': 'date'}, {'name': 'userhist_time1', 'label': 'userhist_time1', 'type': 'time'}, {'name': 'userhist_time2', 'label': 'userhist_time2', 'type': 'time'}, {'name': 'userm_name', 'label': 'userm_name', 'type': 'char'}, {'name': 'userhist_code', 'label': 'userhist_code', 'type': 'char'}]},
+    report={'dataobject': 'd_userhistory', 'sql': 'SELECT userhist.tdate AS userhist_tdate, userhist.time1 AS userhist_time1, userhist.time2 AS userhist_time2, userm.name AS userm_name, userhist.code AS userhist_code FROM userhist, userm WHERE userhist.code = userm.code ORDER BY userhist.tdate ASC, userhist.time1 ASC', 'computes': [], 'args': ['rdate1', 'rdate2'], 'arg_types': {'rdate1': 'date', 'rdate2': 'date'}, 'tables': ['userhist', 'userm'], 'columns': [{'name': 'userhist_tdate', 'label': 'userhist_tdate', 'type': 'date'}, {'name': 'userhist_time1', 'label': 'userhist_time1', 'type': 'time'}, {'name': 'userhist_time2', 'label': 'userhist_time2', 'type': 'time'}, {'name': 'userm_name', 'label': 'userm_name', 'type': 'char'}, {'name': 'userhist_code', 'label': 'userhist_code', 'type': 'char'}]},
 )
 
 

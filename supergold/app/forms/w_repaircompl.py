@@ -21,8 +21,8 @@ WINDOW = Window(
     controls=[],
     tables=['items'],
     source_path='w_repaircompl.srw',
-    grid={'control': 'dw_sman', 'dataobject': 'd_repcomplmast', 'table': 'repcompl', 'keys': ['part'], 'columns': [{'name': 'part', 'label': 'Complaint', 'type': 'char'}]},
-    report={'dataobject': 'd_repcomplmast', 'sql': 'SELECT repcompl.part AS repcompl_part FROM repcompl', 'args': [], 'arg_types': {}, 'tables': ['repcompl'], 'columns': [{'name': 'part', 'label': 'Complaint', 'type': 'char'}]},
+    grid={'control': 'dw_sman', 'dataobject': 'd_repcomplmast', 'table': 'repcompl', 'keys': ['part'], 'computes': [], 'columns': [{'name': 'part', 'label': 'Complaint', 'type': 'char'}]},
+    report={'dataobject': 'd_repcomplmast', 'sql': 'SELECT repcompl.part AS repcompl_part FROM repcompl', 'computes': [], 'args': [], 'arg_types': {}, 'tables': ['repcompl'], 'columns': [{'name': 'part', 'label': 'Complaint', 'type': 'char'}]},
     opens=['w_regional', 'w_itemhelp'],
 )
 

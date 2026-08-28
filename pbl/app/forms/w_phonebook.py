@@ -21,7 +21,7 @@ WINDOW = Window(
     controls=[],
     tables=['phonebook'],
     source_path='w_phonebook.srw',
-    report={'dataobject': 'd_phonehlp', 'sql': 'SELECT phonebook.name AS phonebook_name, phonebook.no AS phonebook_no, phonebook.resphone AS phonebook_resphone, phonebook.offphone AS phonebook_offphone, phonebook.ptype AS phonebook_ptype FROM phonebook ORDER BY phonebook.name ASC', 'args': [], 'arg_types': {}, 'tables': ['phonebook'], 'columns': [{'name': 'name', 'label': 'name', 'type': 'char'}, {'name': 'no', 'label': 'no', 'type': 'char'}, {'name': 'resphone', 'label': 'resphone', 'type': 'char'}, {'name': 'offphone', 'label': 'offphone', 'type': 'char'}, {'name': 'ptype', 'label': 'ptype', 'type': 'char'}]},
+    report={'dataobject': 'd_phonehlp', 'sql': 'SELECT phonebook.name AS phonebook_name, phonebook.no AS phonebook_no, phonebook.resphone AS phonebook_resphone, phonebook.offphone AS phonebook_offphone, phonebook.ptype AS phonebook_ptype FROM phonebook ORDER BY phonebook.name ASC', 'computes': [], 'args': [], 'arg_types': {}, 'tables': ['phonebook'], 'columns': [{'name': 'name', 'label': 'name', 'type': 'char'}, {'name': 'no', 'label': 'no', 'type': 'char'}, {'name': 'resphone', 'label': 'resphone', 'type': 'char'}, {'name': 'offphone', 'label': 'offphone', 'type': 'char'}, {'name': 'ptype', 'label': 'ptype', 'type': 'char'}]},
     opens=['w_phoneptype', 'w_phonebooklist'],
     prints=['d_phonebook_print'],
 )

@@ -21,7 +21,7 @@ WINDOW = Window(
     controls=[],
     tables=['stkandprofit'],
     source_path='w_stkandprofitreport.srw',
-    report={'dataobject': 'd_stkandprof_profsummary', 'sql': 'SELECT stkandprofit.tdate AS stkandprofit_tdate, (select sum(stkprof.profit) from stkandprofit stkprof where stkprof.tdate = stkandprofit.tdate and stkprof.control <= :rlevel) as totprof FROM stkandprofit ORDER BY stkandprofit.tdate ASC', 'args': ['rdate1', 'rdate2', 'rlevel'], 'arg_types': {'rdate1': 'date', 'rdate2': 'date', 'rlevel': 'number'}, 'tables': ['stkandprofit'], 'columns': [{'name': 'tdate', 'label': 'tdate', 'type': 'date'}, {'name': 'totprof', 'label': 'totprof', 'type': 'decimal'}]},
+    report={'dataobject': 'd_stkandprof_profsummary', 'sql': 'SELECT stkandprofit.tdate AS stkandprofit_tdate, (select sum(stkprof.profit) from stkandprofit stkprof where stkprof.tdate = stkandprofit.tdate and stkprof.control <= :rlevel) as totprof FROM stkandprofit ORDER BY stkandprofit.tdate ASC', 'computes': [{'name': 'compute_2', 'expression': 'sum(totprof for all)', 'format': '#########0.00', 'label': 'compute_2', 'band': 'summary'}], 'args': ['rdate1', 'rdate2', 'rlevel'], 'arg_types': {'rdate1': 'date', 'rdate2': 'date', 'rlevel': 'number'}, 'tables': ['stkandprofit'], 'columns': [{'name': 'tdate', 'label': 'tdate', 'type': 'date'}, {'name': 'totprof', 'label': 'totprof', 'type': 'decimal'}]},
 )
 
 

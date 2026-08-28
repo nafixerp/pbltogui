@@ -29,6 +29,7 @@ from app.reports.generic import GenericDataView
 from app.services import crud_service
 from app.ui import navigation
 from app.ui.printing import print_table
+from app.reports import dw_expr
 from app.reports import layouts as dw_layouts
 from app.reports.dw_print import print_document
 
@@ -329,20 +330,35 @@ class PBWindowForm(QWidget):
         if self._status is not None:
             self._status.setText(text)
 
-    def _grid_columns(self) -> list:
-        """Columns shown in the editable grid (grid mode only)."""
+    def _computed_columns(self) -> list:
+        """The DataWindow's calculated fields — shown, never stored."""
+        if not self.grid_mode:
+            return []
+        stored = {c.lower() for c in self._stored_columns()}
+        return [c for c in (self.window_def.grid or {}).get("computes", [])
+                if c.get("band") == "detail" and c["name"].lower() not in stored]
+
+    def _stored_columns(self) -> list:
         if not self.grid_mode or self.mapping is None:
             return []
         names = list(self.mapping.fields.values())
         return names or self.mapping.column_names
 
+    def _grid_columns(self) -> list:
+        """Columns shown in the editable grid (grid mode only)."""
+        return self._stored_columns() + [c["name"] for c in self._computed_columns()]
+
     def _grid_headers(self) -> list:
         labels = {c["name"].lower(): c.get("label") or c["name"]
                   for c in (self.window_def.grid or {}).get("columns", [])}
+        labels.update({c["name"].lower(): f"{c.get('label') or c['name']} *"
+                       for c in self._computed_columns()})
         return [labels.get(c.lower(), c) for c in self._grid_columns()]
 
     def _fill_editable_grid(self, rows: list):
         cols = self._grid_columns()
+        computed = {c["name"] for c in self._computed_columns()}
+        self._recalculate(rows)
         self._grid.blockSignals(True)
         self._grid.clear()
         self._grid.setColumnCount(len(cols))
@@ -351,13 +367,30 @@ class PBWindowForm(QWidget):
         for r, row in enumerate(rows):
             for c, col in enumerate(cols):
                 value = row.get(col)
-                self._grid.setItem(r, c, QTableWidgetItem(
-                    "" if value is None else str(value)))
+                item = QTableWidgetItem("" if value is None else str(value))
+                if col in computed:            # calculated: shown, not edited
+                    item.setFlags(item.flags() & ~Qt.ItemIsEditable)
+                    item.setForeground(Qt.darkBlue)
+                self._grid.setItem(r, c, item)
         self._grid.blockSignals(False)
         self._grid.resizeColumnsToContents()
 
+    def _recalculate(self, rows: list):
+        """Evaluate the screen's own calculated fields for every row."""
+        computes = self._computed_columns()
+        if not computes:
+            return
+        for index, row in enumerate(rows):
+            if not isinstance(row, dict):
+                continue
+            for compute in computes:
+                value = dw_expr.evaluate(compute["expression"], row, rows,
+                                         {"row_index": index})
+                if value is not None:
+                    row[compute["name"]] = value
+
     def _row_values(self, r: int) -> dict:
-        cols = self._grid_columns()
+        cols = self._stored_columns()          # calculated fields are not saved
         out = {}
         for c, col in enumerate(cols):
             item = self._grid.item(r, c)

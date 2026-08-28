@@ -21,8 +21,8 @@ WINDOW = Window(
     controls=[],
     tables=['ratehistory', 'itemsqtype', 'internet', 'generald', 'userd', 'generals'],
     source_path='w_setuprate_international.srw',
-    grid={'control': 'dw_1', 'dataobject': 'd_ratesetup', 'table': 'itemsqtype', 'keys': ['code'], 'columns': [{'name': 'code', 'label': 'Purity', 'type': 'char'}, {'name': 'touch', 'label': 'Touch', 'type': 'decimal'}, {'name': 'rate', 'label': 'Rate', 'type': 'decimal'}]},
-    report={'dataobject': 'd_ratesetup', 'sql': 'SELECT itemsqtype.code AS itemsqtype_code, itemsqtype.touch AS itemsqtype_touch, itemsqtype.rate AS itemsqtype_rate FROM itemsqtype', 'args': [], 'arg_types': {}, 'tables': ['itemsqtype'], 'columns': [{'name': 'code', 'label': 'Purity', 'type': 'char'}, {'name': 'touch', 'label': 'Touch', 'type': 'decimal'}, {'name': 'rate', 'label': 'Rate', 'type': 'decimal'}]},
+    grid={'control': 'dw_1', 'dataobject': 'd_ratesetup', 'table': 'itemsqtype', 'keys': ['code'], 'computes': [], 'columns': [{'name': 'code', 'label': 'Purity', 'type': 'char'}, {'name': 'touch', 'label': 'Touch', 'type': 'decimal'}, {'name': 'rate', 'label': 'Rate', 'type': 'decimal'}]},
+    report={'dataobject': 'd_ratesetup', 'sql': 'SELECT itemsqtype.code AS itemsqtype_code, itemsqtype.touch AS itemsqtype_touch, itemsqtype.rate AS itemsqtype_rate FROM itemsqtype', 'computes': [], 'args': [], 'arg_types': {}, 'tables': ['itemsqtype'], 'columns': [{'name': 'code', 'label': 'Purity', 'type': 'char'}, {'name': 'touch', 'label': 'Touch', 'type': 'decimal'}, {'name': 'rate', 'label': 'Rate', 'type': 'decimal'}]},
 )
 
 

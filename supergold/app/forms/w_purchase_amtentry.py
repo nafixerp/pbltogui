@@ -21,8 +21,8 @@ WINDOW = Window(
     controls=[],
     tables=['daybook', 'purchasem', 'salestype', 'clients', 'generali', 'daybookpart', 'generals'],
     source_path='w_purchase_amtentry.srw',
-    grid={'control': 'dw_accode', 'dataobject': 'd_supp', 'table': 'codehelp', 'keys': ['code'], 'columns': [{'name': 'code', 'label': 'code', 'type': 'char'}]},
-    report={'dataobject': 'd_supp', 'sql': 'SELECT codehelp.code AS codehelp_code FROM codehelp', 'args': [], 'arg_types': {}, 'tables': ['codehelp'], 'columns': [{'name': 'code', 'label': 'code', 'type': 'char'}]},
+    grid={'control': 'dw_accode', 'dataobject': 'd_supp', 'table': 'codehelp', 'keys': ['code'], 'computes': [], 'columns': [{'name': 'code', 'label': 'code', 'type': 'char'}]},
+    report={'dataobject': 'd_supp', 'sql': 'SELECT codehelp.code AS codehelp_code FROM codehelp', 'computes': [], 'args': [], 'arg_types': {}, 'tables': ['codehelp'], 'columns': [{'name': 'code', 'label': 'code', 'type': 'char'}]},
     opens=['w_clientshelp', 'w_rcptpmnt_view'],
 )
 

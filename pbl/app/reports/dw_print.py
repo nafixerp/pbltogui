@@ -20,6 +20,7 @@ import re
 import tempfile
 
 from app.pb_parser import DWLayout
+from app.reports import dw_expr
 
 # Paper sizes the DataWindows use (PowerBuilder codes), in points.
 PAPER = {1: (612.0, 792.0),      # Letter
@@ -70,38 +71,28 @@ def format_value(value, mask: str) -> str:
     return str(value)
 
 
-def value_for(obj, row: dict, rows: list):
-    """What a column or computed field shows for this row."""
+def value_for(obj, row: dict, rows: list, context: dict | None = None):
+    """What a column or computed field shows for this row.
+
+    Computed fields are the original's own calculations, evaluated by
+    :mod:`app.reports.dw_expr` — totals, weight less stone, value addition,
+    the GST captions, and so on.
+    """
     if obj.kind == "column":
         key = obj.name
         if key in row:
             return row[key]
         short = key.split("_", 1)[-1]
         return row.get(short)
-    expression = (obj.expression or "").strip().strip("'\"")
+    expression = (obj.expression or "").strip()
     if not expression:
         return ""
-    if expression.lower().startswith("today"):
-        return datetime.date.today().isoformat()
-    m = _SUM_RE.match(expression)
-    if m:
-        function, column = m.group(1).lower(), m.group(2)
-        values = []
-        for source in rows:
-            raw = source.get(column, source.get(column.split("_", 1)[-1]))
-            try:
-                values.append(float(raw or 0))
-            except (TypeError, ValueError):
-                continue
-        if not values:
-            return 0
-        return {"sum": sum(values), "count": len(values),
-                "avg": sum(values) / len(values),
-                "max": max(values), "min": min(values)}[function]
-    return ""
+    value = dw_expr.evaluate(expression, row, rows, context)
+    return "" if value is None else value
 
 
-def render_pdf(layout: DWLayout, rows: list, path: str, header: dict | None = None):
+def render_pdf(layout: DWLayout, rows: list, path: str, header: dict | None = None,
+               settings: dict | None = None):
     """Draw ``rows`` on ``layout`` and write the PDF to ``path``."""
     from reportlab.pdfgen import canvas as pdfcanvas
 
@@ -121,6 +112,8 @@ def render_pdf(layout: DWLayout, rows: list, path: str, header: dict | None = No
     top = height - 36.0
     header_row = dict(header or (rows[0] if rows else {}))
 
+    context = {"page": 1, "pagecount": 1, "settings": settings or {}}
+
     def draw_band(band: str, origin_y: float, row: dict) -> float:
         band_height = px(layout.bands.get(band, 0))
         for obj in layout.band(band):
@@ -137,7 +130,8 @@ def render_pdf(layout: DWLayout, rows: list, path: str, header: dict | None = No
             if obj.kind == "text":
                 text = obj.text
             else:
-                text = format_value(value_for(obj, row, rows), obj.format)
+                text = format_value(value_for(obj, row, rows, context),
+                                    obj.format)
             if text in (None, ""):
                 continue
             name, size = font(obj)
@@ -163,8 +157,10 @@ def render_pdf(layout: DWLayout, rows: list, path: str, header: dict | None = No
     y = top
     y -= draw_band("header", y, header_row)
     for index, row in enumerate(rows or [{}]):
+        context["row_index"] = index
         if y - detail_height < 36.0 + footer_height:
             pdf.showPage()
+            context["page"] += 1
             y = top
             y -= draw_band("header", y, header_row)
         y -= draw_band("detail", y, row)

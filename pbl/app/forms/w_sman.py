@@ -21,8 +21,8 @@ WINDOW = Window(
     controls=[],
     tables=['sman', 'orderm'],
     source_path='w_sman.srw',
-    grid={'control': 'dw_sman', 'dataobject': 'd_sman', 'table': 'sman', 'keys': ['code'], 'columns': [{'name': 'code', 'label': 'Code', 'type': 'char'}, {'name': 'name', 'label': 'Name', 'type': 'char'}, {'name': 'accode', 'label': 'accode', 'type': 'char'}, {'name': 'active', 'label': 'active', 'type': 'char'}]},
-    report={'dataobject': 'd_sman', 'sql': 'SELECT sman.code AS sman_code, sman.name AS sman_name, sman.accode AS sman_accode, sman.active AS sman_active FROM sman', 'args': [], 'arg_types': {}, 'tables': ['sman'], 'columns': [{'name': 'code', 'label': 'Code', 'type': 'char'}, {'name': 'name', 'label': 'Name', 'type': 'char'}, {'name': 'accode', 'label': 'accode', 'type': 'char'}, {'name': 'active', 'label': 'active', 'type': 'char'}]},
+    grid={'control': 'dw_sman', 'dataobject': 'd_sman', 'table': 'sman', 'keys': ['code'], 'computes': [], 'columns': [{'name': 'code', 'label': 'Code', 'type': 'char'}, {'name': 'name', 'label': 'Name', 'type': 'char'}, {'name': 'accode', 'label': 'accode', 'type': 'char'}, {'name': 'active', 'label': 'active', 'type': 'char'}]},
+    report={'dataobject': 'd_sman', 'sql': 'SELECT sman.code AS sman_code, sman.name AS sman_name, sman.accode AS sman_accode, sman.active AS sman_active FROM sman', 'computes': [], 'args': [], 'arg_types': {}, 'tables': ['sman'], 'columns': [{'name': 'code', 'label': 'Code', 'type': 'char'}, {'name': 'name', 'label': 'Name', 'type': 'char'}, {'name': 'accode', 'label': 'accode', 'type': 'char'}, {'name': 'active', 'label': 'active', 'type': 'char'}]},
 )
 
 

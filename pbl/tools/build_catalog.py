@@ -78,9 +78,33 @@ def _grid_spec(win, source_dir: str) -> dict | None:
         "dataobject": dw.name,
         "table": dw.update_table,
         "keys": dw.keys,
+        "computes": _computes(dw.name, source_dir),
         "columns": [{"name": c.column, "label": c.label, "type": c.type}
                     for c in dw.updatable],
     }
+
+
+def _computes(dataobject: str, source_dir: str) -> list:
+    """The DataWindow's own calculated fields (detail band), in order."""
+    path = pb_parser.find_datawindow(dataobject, source_dir)
+    if not path:
+        return []
+    try:
+        layout = pb_parser.parse_layout(path)
+    except Exception:
+        return []
+    labels = {o.name: o.text for o in layout.objects if o.kind == "text"}
+    out = []
+    for obj in layout.objects:
+        if obj.kind != "compute" or obj.band not in ("detail", "summary"):
+            continue
+        if not obj.expression.strip() or obj.expression.strip() in ("''", '""'):
+            continue
+        out.append({"name": obj.name, "expression": obj.expression,
+                    "format": obj.format,
+                    "label": labels.get(f"{obj.name}_t", obj.name),
+                    "band": obj.band})
+    return out[:24]
 
 
 def _report_spec(win, source_dir: str) -> dict | None:
@@ -107,9 +131,11 @@ def _report_spec(win, source_dir: str) -> dict | None:
             best, best_score = dw, score
     if best is None:
         return None
+    computes = _computes(best.name, source_dir)
     return {
         "dataobject": best.name,
         "sql": best.sql,
+        "computes": computes,
         "args": best.args,
         "arg_types": best.arg_types,
         "tables": best.tables,

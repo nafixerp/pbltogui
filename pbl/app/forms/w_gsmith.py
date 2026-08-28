@@ -21,8 +21,8 @@ WINDOW = Window(
     controls=[],
     tables=['daybook', 'items', 'smithm', 'barcode', 'smithd', 'itemsstk', 'clients', 'repairm', 'accountm', 'clientsgs', 'smithnewwrk', 'itemadj', 'goldsmith', 'orderm', 'orderd', 'stktype', 'sman', 'repaird', 'pmctable', 'generals', 'generali', 'userd', 'daybookpart', 'delpart', 'generald'],
     source_path='w_gsmith.srw',
-    grid={'control': 'dw_1', 'dataobject': 'd_smith', 'table': 'codehelp', 'keys': ['code'], 'columns': [{'name': 'code', 'label': 'code', 'type': 'char'}]},
-    report={'dataobject': 'd_smith', 'sql': 'SELECT codehelp.code AS codehelp_code FROM codehelp', 'args': [], 'arg_types': {}, 'tables': ['codehelp'], 'columns': [{'name': 'code', 'label': 'code', 'type': 'char'}]},
+    grid={'control': 'dw_1', 'dataobject': 'd_smith', 'table': 'codehelp', 'keys': ['code'], 'computes': [], 'columns': [{'name': 'code', 'label': 'code', 'type': 'char'}]},
+    report={'dataobject': 'd_smith', 'sql': 'SELECT codehelp.code AS codehelp_code FROM codehelp', 'computes': [], 'args': [], 'arg_types': {}, 'tables': ['codehelp'], 'columns': [{'name': 'code', 'label': 'code', 'type': 'char'}]},
     opens=['w_stktypeqtype', 'w_gsmthrefhelp', 'w_gsmithnewwrk', 'w_repairhelp', 'w_clientshelp', 'w_smith', 'w_gsmithprint_view', 'w_barcodelist', 'w_mc_smith', 'w_itemhelp', 'w_mcharge', 'w_wastage', 'w_ageinghelp', 'w_osalehelp', 'w_orderitemhelp'],
 )
 

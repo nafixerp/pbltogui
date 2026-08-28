@@ -21,7 +21,7 @@ WINDOW = Window(
     controls=[],
     tables=['models', 'pmctable'],
     source_path='w_models.srw',
-    report={'dataobject': 'd_models', 'sql': 'SELECT models.name AS models_name FROM models', 'args': ['rtype'], 'arg_types': {'rtype': 'string'}, 'tables': ['models'], 'columns': [{'name': 'name', 'label': 'Name', 'type': 'char'}]},
+    report={'dataobject': 'd_models', 'sql': 'SELECT models.name AS models_name FROM models', 'computes': [], 'args': ['rtype'], 'arg_types': {'rtype': 'string'}, 'tables': ['models'], 'columns': [{'name': 'name', 'label': 'Name', 'type': 'char'}]},
 )
 
 

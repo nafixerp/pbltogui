@@ -21,7 +21,7 @@ WINDOW = Window(
     controls=[],
     tables=[],
     source_path='w_daysumm.srw',
-    report={'dataobject': 'd_daysummary_part1', 'sql': 'SELECT items.name AS items_name, salesd.qty AS salesd_qty, salesd.weight AS salesd_weight, salesm.slno AS salesm_slno FROM items, salesd, salesm WHERE items.code = salesd.code AND salesd.slno = salesm.slno AND salesm.tdate = :rdate AND salesm.control <= :rlevel ORDER BY items.name ASC', 'args': ['rdate', 'rlevel'], 'arg_types': {'rdate': 'date', 'rlevel': 'number'}, 'tables': ['items', 'salesd', 'salesm'], 'columns': [{'name': 'slno', 'label': 'Slno', 'type': 'number'}, {'name': 'qty', 'label': 'Qty', 'type': 'number'}, {'name': 'weight', 'label': 'Weight', 'type': 'number'}]},
+    report={'dataobject': 'd_daysummary_part1', 'sql': 'SELECT items.name AS items_name, salesd.qty AS salesd_qty, salesd.weight AS salesd_weight, salesm.slno AS salesm_slno FROM items, salesd, salesm WHERE items.code = salesd.code AND salesd.slno = salesm.slno AND salesm.tdate = :rdate AND salesm.control <= :rlevel ORDER BY items.name ASC', 'computes': [{'name': '', 'expression': 'sum(qty for all )', 'format': '###0', 'label': '', 'band': 'summary'}, {'name': '', 'expression': 'sum(weight for all )', 'format': '####0.000', 'label': '', 'band': 'summary'}], 'args': ['rdate', 'rlevel'], 'arg_types': {'rdate': 'date', 'rlevel': 'number'}, 'tables': ['items', 'salesd', 'salesm'], 'columns': [{'name': 'slno', 'label': 'Slno', 'type': 'number'}, {'name': 'qty', 'label': 'Qty', 'type': 'number'}, {'name': 'weight', 'label': 'Weight', 'type': 'number'}]},
 )
 
 

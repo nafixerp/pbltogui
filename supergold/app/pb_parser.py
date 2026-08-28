@@ -438,12 +438,15 @@ class DWLayout:
 
 _LAYOUT_OBJ_RE = re.compile(
     r'(?m)^(text|column|compute|line|rectangle)\(([\s\S]*?)\)\s*$')
+
 _BAND_RE = re.compile(r'(?m)^(header|detail|summary|footer)\(height=(\d+)')
 _PRINT_RE = re.compile(r'print\.(orientation|paper\.size|margin\.\w+)=(\d+)')
 
 
 def _attr(body: str, key: str, default=""):
-    m = re.search(rf'\b{re.escape(key)}="([^"]*)"', body)
+    # Values may contain PowerBuilder's ~" escape, so a plain [^"]* would cut
+    # an expression in half.
+    m = re.search(rf'\b{re.escape(key)}="((?:~.|[^"~])*)"', body)
     if m:
         return m.group(1)
     m = re.search(rf'\b{re.escape(key)}=([\w.-]+)', body)

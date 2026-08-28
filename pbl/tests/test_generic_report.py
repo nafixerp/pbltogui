@@ -138,3 +138,34 @@ def test_most_windows_have_a_query_definition():
     assert len(with_report) >= 190
     for spec in with_report[:20]:
         assert spec["report"]["sql"].lower().startswith("select")
+
+
+# --- the screen's own calculated fields ------------------------------------
+
+def test_computed_columns_are_added_to_every_row(qapp, sales_db):
+    """A data view shows the DataWindow's calculations, not just the query."""
+    spec = dict(sales_db)
+    spec["computes"] = [
+        {"name": "netamt", "expression": "salesm_billamt - 100",
+         "format": "#####0.00", "label": "Net", "band": "detail"},
+        {"name": "twice", "expression": "netamt * 2", "format": "#####0.00",
+         "label": "Twice", "band": "detail"},
+    ]
+    view = GenericDataView(spec, "Sales Book")
+    view._param_widgets["rdate1"].setDate(
+        view._param_widgets["rdate1"].date().fromString("2026-01-01", "yyyy-MM-dd"))
+    view._param_widgets["rdate2"].setDate(
+        view._param_widgets["rdate2"].date().fromString("2026-12-31", "yyyy-MM-dd"))
+    view.run()
+    assert view._rows[0]["netamt"] == 0.5          # 100.5 - 100
+    assert view._rows[0]["twice"] == 1.0           # one compute feeds the next
+    assert "Net" in view._labels()
+
+
+def test_summary_computes_are_not_added_per_row(qapp, sales_db):
+    spec = dict(sales_db)
+    spec["computes"] = [{"name": "total", "expression": "sum(salesm_billamt for all)",
+                         "format": "#####0.00", "label": "Total", "band": "summary"}]
+    view = GenericDataView(spec, "Sales Book")
+    view.run()
+    assert all("total" not in row for row in view._rows)

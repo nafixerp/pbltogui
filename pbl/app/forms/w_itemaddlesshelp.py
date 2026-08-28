@@ -21,7 +21,7 @@ WINDOW = Window(
     controls=[],
     tables=[],
     source_path='w_itemaddlesshelp.srw',
-    report={'dataobject': 'd_itemaddlesshelp', 'sql': 'SELECT itemadj.tdate AS itemadj_tdate FROM itemadj ORDER BY itemadj.tdate DESC', 'args': [], 'arg_types': {}, 'tables': ['itemadj'], 'columns': [{'name': 'itemadj_tdate', 'label': 'Date', 'type': 'date'}]},
+    report={'dataobject': 'd_itemaddlesshelp', 'sql': 'SELECT itemadj.tdate AS itemadj_tdate FROM itemadj ORDER BY itemadj.tdate DESC', 'computes': [], 'args': [], 'arg_types': {}, 'tables': ['itemadj'], 'columns': [{'name': 'itemadj_tdate', 'label': 'Date', 'type': 'date'}]},
 )
 
 

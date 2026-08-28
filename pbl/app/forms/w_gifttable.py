@@ -21,8 +21,8 @@ WINDOW = Window(
     controls=[],
     tables=[],
     source_path='w_gifttable.srw',
-    grid={'control': 'dw_1', 'dataobject': 'd_gifttable', 'table': 'gifttable', 'keys': ['points'], 'columns': [{'name': 'points', 'label': 'Points', 'type': 'long'}, {'name': 'particulars', 'label': 'Particulars', 'type': 'char'}]},
-    report={'dataobject': 'd_gifttable', 'sql': 'SELECT gifttable.points AS gifttable_points, gifttable.particulars AS gifttable_particulars FROM gifttable ORDER BY gifttable.points ASC', 'args': [], 'arg_types': {}, 'tables': ['gifttable'], 'columns': [{'name': 'points', 'label': 'Points', 'type': 'long'}, {'name': 'particulars', 'label': 'Particulars', 'type': 'char'}]},
+    grid={'control': 'dw_1', 'dataobject': 'd_gifttable', 'table': 'gifttable', 'keys': ['points'], 'computes': [], 'columns': [{'name': 'points', 'label': 'Points', 'type': 'long'}, {'name': 'particulars', 'label': 'Particulars', 'type': 'char'}]},
+    report={'dataobject': 'd_gifttable', 'sql': 'SELECT gifttable.points AS gifttable_points, gifttable.particulars AS gifttable_particulars FROM gifttable ORDER BY gifttable.points ASC', 'computes': [], 'args': [], 'arg_types': {}, 'tables': ['gifttable'], 'columns': [{'name': 'points', 'label': 'Points', 'type': 'long'}, {'name': 'particulars', 'label': 'Particulars', 'type': 'char'}]},
 )
 
 

@@ -21,8 +21,8 @@ WINDOW = Window(
     controls=[],
     tables=['salesm'],
     source_path='w_denom_master.srw',
-    grid={'control': 'dw_1', 'dataobject': 'd_denom_master', 'table': 'denom_master', 'keys': ['code'], 'columns': [{'name': 'code', 'label': 'Code', 'type': 'char'}, {'name': 'name', 'label': 'Name', 'type': 'char'}, {'name': 'cvalue', 'label': 'Value', 'type': 'decimal'}]},
-    report={'dataobject': 'd_denom_master', 'sql': 'SELECT denom_master.code AS denom_master_code, denom_master.name AS denom_master_name, denom_master.cvalue AS denom_master_cvalue FROM denom_master ORDER BY denom_master.code ASC', 'args': [], 'arg_types': {}, 'tables': ['denom_master'], 'columns': [{'name': 'code', 'label': 'Code', 'type': 'char'}, {'name': 'name', 'label': 'Name', 'type': 'char'}, {'name': 'cvalue', 'label': 'Value', 'type': 'decimal'}]},
+    grid={'control': 'dw_1', 'dataobject': 'd_denom_master', 'table': 'denom_master', 'keys': ['code'], 'computes': [], 'columns': [{'name': 'code', 'label': 'Code', 'type': 'char'}, {'name': 'name', 'label': 'Name', 'type': 'char'}, {'name': 'cvalue', 'label': 'Value', 'type': 'decimal'}]},
+    report={'dataobject': 'd_denom_master', 'sql': 'SELECT denom_master.code AS denom_master_code, denom_master.name AS denom_master_name, denom_master.cvalue AS denom_master_cvalue FROM denom_master ORDER BY denom_master.code ASC', 'computes': [], 'args': [], 'arg_types': {}, 'tables': ['denom_master'], 'columns': [{'name': 'code', 'label': 'Code', 'type': 'char'}, {'name': 'name', 'label': 'Name', 'type': 'char'}, {'name': 'cvalue', 'label': 'Value', 'type': 'decimal'}]},
 )
 
 

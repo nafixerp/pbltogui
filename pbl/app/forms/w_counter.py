@@ -21,8 +21,8 @@ WINDOW = Window(
     controls=[],
     tables=['salesm', 'barcode', 'generali'],
     source_path='w_counter.srw',
-    grid={'control': 'dw_sman', 'dataobject': 'd_counter', 'table': 'counter', 'keys': ['code'], 'columns': [{'name': 'code', 'label': 'Code', 'type': 'char'}, {'name': 'name', 'label': 'Name', 'type': 'char'}, {'name': 'startbillno', 'label': 'startbillno', 'type': 'decimal'}]},
-    report={'dataobject': 'd_counter', 'sql': 'SELECT counter.code AS counter_code, counter.name AS counter_name, counter.startbillno AS counter_startbillno FROM counter', 'args': [], 'arg_types': {}, 'tables': ['counter'], 'columns': [{'name': 'code', 'label': 'Code', 'type': 'char'}, {'name': 'name', 'label': 'Name', 'type': 'char'}, {'name': 'startbillno', 'label': 'startbillno', 'type': 'decimal'}]},
+    grid={'control': 'dw_sman', 'dataobject': 'd_counter', 'table': 'counter', 'keys': ['code'], 'computes': [], 'columns': [{'name': 'code', 'label': 'Code', 'type': 'char'}, {'name': 'name', 'label': 'Name', 'type': 'char'}, {'name': 'startbillno', 'label': 'startbillno', 'type': 'decimal'}]},
+    report={'dataobject': 'd_counter', 'sql': 'SELECT counter.code AS counter_code, counter.name AS counter_name, counter.startbillno AS counter_startbillno FROM counter', 'computes': [], 'args': [], 'arg_types': {}, 'tables': ['counter'], 'columns': [{'name': 'code', 'label': 'Code', 'type': 'char'}, {'name': 'name', 'label': 'Name', 'type': 'char'}, {'name': 'startbillno', 'label': 'startbillno', 'type': 'decimal'}]},
 )
 
 

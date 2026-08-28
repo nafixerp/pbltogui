@@ -21,8 +21,8 @@ WINDOW = Window(
     controls=[],
     tables=['daybookpart'],
     source_path='w_incharge_master.srw',
-    grid={'control': 'dw_places', 'dataobject': 'd_incharge_master', 'table': 'incharge', 'keys': ['code'], 'columns': [{'name': 'code', 'label': 'Code', 'type': 'char'}, {'name': 'name', 'label': 'Name', 'type': 'char'}]},
-    report={'dataobject': 'd_incharge_master', 'sql': 'SELECT incharge.code AS incharge_code, incharge.name AS incharge_name FROM incharge', 'args': [], 'arg_types': {}, 'tables': ['incharge'], 'columns': [{'name': 'code', 'label': 'Code', 'type': 'char'}, {'name': 'name', 'label': 'Name', 'type': 'char'}]},
+    grid={'control': 'dw_places', 'dataobject': 'd_incharge_master', 'table': 'incharge', 'keys': ['code'], 'computes': [], 'columns': [{'name': 'code', 'label': 'Code', 'type': 'char'}, {'name': 'name', 'label': 'Name', 'type': 'char'}]},
+    report={'dataobject': 'd_incharge_master', 'sql': 'SELECT incharge.code AS incharge_code, incharge.name AS incharge_name FROM incharge', 'computes': [], 'args': [], 'arg_types': {}, 'tables': ['incharge'], 'columns': [{'name': 'code', 'label': 'Code', 'type': 'char'}, {'name': 'name', 'label': 'Name', 'type': 'char'}]},
 )
 
 

@@ -21,7 +21,7 @@ WINDOW = Window(
     controls=[],
     tables=['accountm', 'daybook'],
     source_path='w_jewelsummary.srw',
-    report={'dataobject': 'd_jewlsummary', 'sql': 'SELECT onerec.field AS onerec_field FROM onerec', 'args': ['rdate1', 'rdate2', 'rlevel', 'rcode', 'rname', 'rclbalance'], 'arg_types': {'rdate1': 'date', 'rdate2': 'date', 'rlevel': 'number', 'rcode': 'string', 'rname': 'string', 'rclbalance': 'decimal'}, 'tables': ['onerec'], 'columns': [{'name': 'field', 'label': 'field', 'type': 'char'}]},
+    report={'dataobject': 'd_jewlsummary', 'sql': 'SELECT onerec.field AS onerec_field FROM onerec', 'computes': [{'name': 'compute_7', 'expression': 'abs( rclbalance )', 'format': '######0.00', 'label': 'compute_7', 'band': 'summary'}, {'name': 'compute_6', 'expression': 'if(rclbalance < 0 ,~"To Receive~",~"To Give~")', 'format': '[general]', 'label': 'compute_6', 'band': 'summary'}], 'args': ['rdate1', 'rdate2', 'rlevel', 'rcode', 'rname', 'rclbalance'], 'arg_types': {'rdate1': 'date', 'rdate2': 'date', 'rlevel': 'number', 'rcode': 'string', 'rname': 'string', 'rclbalance': 'decimal'}, 'tables': ['onerec'], 'columns': [{'name': 'field', 'label': 'field', 'type': 'char'}]},
     opens=['w_clientshelp'],
 )
 

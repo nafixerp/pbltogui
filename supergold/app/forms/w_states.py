@@ -21,8 +21,8 @@ WINDOW = Window(
     controls=[],
     tables=['salesm'],
     source_path='w_states.srw',
-    grid={'control': 'dw_group', 'dataobject': 'd_state_master', 'table': 'state', 'keys': ['code'], 'columns': [{'name': 'code', 'label': 'Code', 'type': 'char'}, {'name': 'name', 'label': 'Name', 'type': 'char'}]},
-    report={'dataobject': 'd_state_master', 'sql': 'SELECT state.code AS state_code, state.name AS state_name FROM state', 'args': [], 'arg_types': {}, 'tables': ['state'], 'columns': [{'name': 'code', 'label': 'Code', 'type': 'char'}, {'name': 'name', 'label': 'Name', 'type': 'char'}]},
+    grid={'control': 'dw_group', 'dataobject': 'd_state_master', 'table': 'state', 'keys': ['code'], 'computes': [], 'columns': [{'name': 'code', 'label': 'Code', 'type': 'char'}, {'name': 'name', 'label': 'Name', 'type': 'char'}]},
+    report={'dataobject': 'd_state_master', 'sql': 'SELECT state.code AS state_code, state.name AS state_name FROM state', 'computes': [], 'args': [], 'arg_types': {}, 'tables': ['state'], 'columns': [{'name': 'code', 'label': 'Code', 'type': 'char'}, {'name': 'name', 'label': 'Name', 'type': 'char'}]},
 )
 
 
