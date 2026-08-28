@@ -10,11 +10,21 @@ nothing skipped, then layer in business logic and package an EXE.
 - `db.py` data layer reused as-is (SQL Anywhere / SQL Server / SQLite engines).
 
 ## Phase 2 — Menu ✅
-- `app/menu_loader.py` parses `project_tree.txt` (the authoritative GMINE menu
-  map) into the full menu bar **and** a Module Explorer tree.
+- `app/pb_menu.py` parses the application's own menu object,
+  `gminestr/m_mainmenu.srm`, into the full menu bar **and** a Module Explorer
+  tree: item nesting (`type X from menu within Y`), the creation order of each
+  submenu, captions, accelerators (`Ctrl+G`, `Alt+F2`, …), hidden items and
+  separators, and the window every entry opens — read out of its `clicked`
+  script (`open` / `openwithparm` / `opensheet` / `setfocus`).
 - All 6 sections (File, Master, Transactions, Reports, Utilities, Help) and
-  **331 leaf modules** are present, in the original order. 328 resolve to a
-  located `.srw` source; 3 are marked "source not found" in the export itself.
+  **393 leaf modules** are present, in the original order, and every one of them
+  resolves to a located `.srw` source.
+- `app/menu_loader.py` still parses `project_tree.txt`; it supplies the
+  window→source-file map and is the fallback menu if the menu object is missing
+  from an export.
+- Where a menu script can open one of several windows depending on a runtime
+  setting (e.g. Purchase with/without barcode), all candidates are kept on the
+  node and a hand-converted module wins.
 
 ## Phase 3 — All windows converted to PySide6 screens ✅
 - `app/pb_parser.py`: parser for the PowerBuilder export format. Per window it

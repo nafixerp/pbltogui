@@ -23,16 +23,20 @@ pyinstaller JewelleryERP.spec
 ```
 
 Produces `dist/JewelleryERP.exe`, bundling the PowerBuilder source folders and
-`project_tree.txt` so every window renders at runtime.
+`project_tree.txt` so the menu builds and every window renders at runtime.
 
 ## How the conversion works
 
 Rather than hand-rewrite 500+ windows, the app converts the original
 PowerBuilder source at runtime and improves fidelity module by module:
 
-1. **Menu** — `app/menu_loader.py` reads `project_tree.txt` (the authoritative
-   GMINE menu map) and builds the complete menu bar + Module Explorer, in the
-   original order.
+1. **Menu** — `app/pb_menu.py` parses the original menu object
+   `gminestr/m_mainmenu.srm`: item nesting, creation order, captions,
+   accelerators, and the window each entry opens (recovered from its `clicked`
+   script). That drives the complete menu bar + Module Explorer, in the original
+   order. `app/menu_loader.py` keeps reading `project_tree.txt` for the
+   window→source-file map, and serves as the fallback if the menu object is not
+   in the export.
 2. **Screens** — `app/pb_parser.py` parses each window's `.srw` source (controls,
    geometry, captions, field lengths, embedded SQL tables). `app/ui/pb_form.py`
    reconstructs a faithful PySide6 screen for any window, with the standard
@@ -48,7 +52,8 @@ PowerBuilder source at runtime and improves fidelity module by module:
 ```
 main.py                  entry point: db init -> login -> main window
 db.py / pb_compat.py     engine-agnostic data layer (SQL Anywhere / SQL Server / SQLite)
-app/menu_loader.py       full menu from project_tree.txt
+app/pb_menu.py           menu built from the PB menu object m_mainmenu.srm
+app/menu_loader.py       project_tree.txt map + MenuNode tree (menu fallback)
 app/pb_parser.py         PowerBuilder .srw/.srd source parser
 app/ui/                  login, main window, generic PB form renderer
 app/modules/             Phase-4 hand-written business-logic screens

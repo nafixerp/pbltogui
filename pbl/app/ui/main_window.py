@@ -5,12 +5,13 @@ from __future__ import annotations
 import os
 
 from PySide6.QtCore import Qt
+from PySide6.QtGui import QKeySequence
 from PySide6.QtWidgets import (
     QDockWidget, QLabel, QMainWindow, QMenu, QMessageBox, QTabWidget,
     QTreeWidget, QTreeWidgetItem, QVBoxLayout, QWidget,
 )
 
-from app import menu_loader, modules, pb_parser
+from app import menu_loader, modules, pb_menu, pb_parser
 from app.menu_loader import MenuNode
 from app.ui.pb_form import PBWindowForm
 
@@ -24,8 +25,7 @@ class MainWindow(QMainWindow):
         self.setWindowTitle("Jewellery ERP Enterprise")
         self.resize(1280, 820)
 
-        tree_path = os.path.join(BASE_DIR, "project_tree.txt")
-        self.sections = menu_loader.load_menu(tree_path)
+        self.sections = self._load_sections()
 
         self.tabs = QTabWidget()
         self.tabs.setTabsClosable(True)
@@ -39,9 +39,31 @@ class MainWindow(QMainWindow):
             f"Logged in as {self.user.get('name', 'ADMIN')}  |  "
             f"{sum(1 for _ in menu_loader.iter_leaves(self.sections))} modules")
 
+    # -- menu ------------------------------------------------------------
+    def _load_sections(self) -> list[MenuNode]:
+        """Build the menu from the PowerBuilder menu object, if it is exported.
+
+        ``m_mainmenu.srm`` is the original application's own menu definition, so
+        it carries the real structure, captions and accelerators. Fall back to
+        the project_tree.txt map when the menu object is not in the export.
+        """
+        tree_path = os.path.join(BASE_DIR, "project_tree.txt")
+        refs = menu_loader.source_ref_index(tree_path) if os.path.exists(tree_path) else {}
+        srm = pb_menu.find_menu_source(BASE_DIR)
+        if srm:
+            try:
+                sections = pb_menu.load_menu(
+                    srm, source_refs=refs, prefer=modules.registered_windows())
+                if sections:
+                    return sections
+            except Exception:
+                pass  # fall through to the maintained map
+        return menu_loader.load_menu(tree_path)
+
     # -- menu bar ----------------------------------------------------------
     def _build_menubar(self):
         bar = self.menuBar()
+        self._used_shortcuts: set[str] = set()
         for section in self.sections:
             menu = bar.addMenu(section.label)
             self._populate_menu(menu, section.children)
@@ -51,9 +73,18 @@ class MainWindow(QMainWindow):
             if node.children:
                 submenu = menu.addMenu(node.label)
                 self._populate_menu(submenu, node.children)
-            else:
+            elif node.window:
                 act = menu.addAction(node.label)
+                # The original assigns a few accelerators twice; first wins,
+                # so Qt never reports an ambiguous shortcut.
+                if node.shortcut and node.shortcut not in self._used_shortcuts:
+                    self._used_shortcuts.add(node.shortcut)
+                    act.setShortcut(QKeySequence(node.shortcut))
                 act.triggered.connect(lambda _=False, n=node: self.open_module(n))
+            else:
+                # Menu entry whose script does not open a window (e.g. Printer
+                # Setup) — shown for fidelity with the original, not clickable.
+                menu.addAction(node.label).setEnabled(False)
 
     # -- module explorer ---------------------------------------------------
     def _build_explorer(self):

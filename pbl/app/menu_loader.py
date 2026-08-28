@@ -21,6 +21,8 @@ class MenuNode:
     children: list = field(default_factory=list)
     window: str | None = None          # PB window object name, e.g. w_item
     source_ref: str | None = None      # e.g. gminem1\\w_item.srw  (None if not found)
+    shortcut: str = ""                 # accelerator, e.g. "Ctrl+G" (menu object only)
+    alternates: list = field(default_factory=list)  # windows the item may open
 
     @property
     def is_leaf(self) -> bool:
@@ -75,6 +77,15 @@ def load_menu(tree_path: str) -> list[MenuNode]:
             node = existing
 
     return [roots[k] for k in order]
+
+
+def source_ref_index(tree_path: str) -> dict:
+    """Map ``window name -> source reference`` as recorded in project_tree.txt."""
+    index: dict[str, str] = {}
+    for node in iter_leaves(load_menu(tree_path)):
+        if node.window and node.source_ref and node.window not in index:
+            index[node.window] = node.source_ref
+    return index
 
 
 def iter_leaves(nodes: list[MenuNode]):
