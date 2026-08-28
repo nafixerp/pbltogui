@@ -268,3 +268,16 @@ with 0 errors.
 - Coverage across the 393 menu items: 37 hand-written, 115 editable grids,
   72 field-mapped, 89 data views, 80 form + read-only list (bill-number pickers
   and screens whose query is built in code).
+
+
+## Phase 8 — Every screen is a real Python module ✅
+- `tools/generate_forms.py` writes one PySide6 module per window into
+  `app/forms/` — **317 files**, each listing that screen's controls at their
+  original positions plus the table it edits and the query it displays.
+- `app/ui/form_base.py` (`GeneratedForm`) supplies the shared behaviour, so a
+  generated module is layout only and stays readable.
+- `app/forms/__init__.py` is a lazy registry: a screen's module is imported the
+  first time it is opened. The main window asks `app/modules/` first, so
+  hand-written implementations always win over a generated form.
+- All 317 modules import and build; every one of the 393 menu items resolves to
+  a hand-written module or a generated form.

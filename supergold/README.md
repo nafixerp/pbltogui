@@ -47,6 +47,8 @@ data/schema.sql          the original database schema (132 tables) recovered
                          from the export, used by the local SQLite mode
 data/field_map.json      optional hand corrections (see "Records" below)
 app/catalog.py           loads data/ into menu + window objects
+app/forms/               one Python form module per screen (317 files)
+app/ui/form_base.py      base class the generated forms inherit
 app/ui/                  login, main window (menu bar + module explorer + tabs)
 app/ui/pb_form.py        generic screen renderer with the standard data toolbar
 app/modules/             hand-written business-logic screens
@@ -58,6 +60,7 @@ tests/                   pytest suite (python -m pytest)
 tools/build_catalog.py   PowerBuilder export -> data/*.json converter
 tools/build_schema.py    PowerBuilder export -> data/schema.sql
 tools/crud_report.py     which screens can edit records on your database
+tools/generate_forms.py  catalog -> app/forms/*.py (regenerate the screens)
 ```
 
 ## Modules
@@ -84,9 +87,11 @@ Levels of conversion:
   vouchers, master-data screens, and the converted reports (Sales Register,
   Purchase Register, Day Book, Trial Balance, A/c Ledger, Cash Book, Stock
   Register), including the tax-invoice PDF print.
-* Every other window opens through the generic screen engine, rebuilt from
-  `data/windows.json`: the original layout, captions and field lengths, plus a
-  working data area. Across the whole menu (393 items):
+* Every other window has its **own Python form module** in `app/forms/` — one
+  file per screen (317 of them), listing that screen's controls at their
+  original positions, the table it edits and the query it shows. They inherit
+  their behaviour from `app/ui/form_base.py`, so a screen is plain PySide6 code
+  you can open and edit. Across the whole menu (393 items):
 
   | What the screen gives you | Menu items |
   |---|---|
@@ -148,6 +153,28 @@ in `data/field_map.json` — no code change needed:
 Login is the original password-only check against `userm`. Menu items blocked
 for a user in **Master > Users > Provide Access** (the `userd` table) are shown
 disabled and refuse to open, exactly as `chkmenuaccess` did in the original.
+
+## The forms
+
+`app/forms/w_<name>.py` is the screen for that window, for example:
+
+```python
+class SubGroupsForm(GeneratedForm):
+    WINDOW = WINDOW
+
+    def build_controls(self):
+        self.add('datawindow', 'dw_sman', 9, 0, 1723, 1084,
+                 dataobject='d_itemsubgrpmaster')
+        self.add('commandbutton', 'cb_add', 27, 1000, 178, 76, text='&Add')
+```
+
+Edit one freely — but note the generator overwrites `app/forms/` when it runs,
+so permanent hand-written logic belongs in `app/modules/`, which always takes
+precedence over a generated form. Regenerate with:
+
+```bat
+python tools\generate_forms.py
+```
 
 ## Re-converting from a PowerBuilder export
 

@@ -13,7 +13,7 @@ from PySide6.QtWidgets import (
 
 import db
 
-from app import catalog, menu_loader, modules, pb_menu, pb_parser
+from app import catalog, forms, menu_loader, modules, pb_menu, pb_parser
 from app.menu_loader import MenuNode
 from app.ui.pb_form import PBWindowForm
 
@@ -168,6 +168,14 @@ class MainWindow(QMainWindow):
             try:
                 return factory(parsed)
             except Exception as exc:  # never let one module break navigation
+                return self._error_widget(node, exc)
+
+        # Otherwise the screen's own generated form module (app/forms/).
+        form_cls = forms.get_form(node.window or "")
+        if form_cls is not None:
+            try:
+                return form_cls(parsed)
+            except Exception as exc:
                 return self._error_widget(node, exc)
 
         if parsed is not None:

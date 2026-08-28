@@ -1,0 +1,50 @@
+"""Customer Summary — w_custaccoutsummary.
+
+Generated from the PowerBuilder window ``w_custaccoutsummary.srw`` by
+``tools/generate_forms.py``. It is ordinary PySide6 code: the controls below
+are the original ones, at their original positions. Behaviour (record editing,
+the data view over this window's own query, search and export) comes from
+:class:`app.ui.form_base.GeneratedForm`.
+
+Re-running the generator overwrites this file. Put hand-written business logic
+in ``app/modules/`` instead — a module registered there takes precedence.
+"""
+
+from app.pb_parser import Window
+from app.ui.form_base import GeneratedForm
+
+WINDOW = Window(
+    name='w_custaccoutsummary',
+    title='Customer Summary',
+    width=3639,
+    height=2252,
+    controls=[],
+    tables=['accountm'],
+    source_path='w_custaccoutsummary.srw',
+    grid={'control': 'dw_1', 'dataobject': 'd_custaccountsummary', 'table': 'clients', 'keys': ['code'], 'columns': [{'name': 'code', 'label': 'code', 'type': 'char'}, {'name': 'name', 'label': 'clients_name', 'type': 'char'}, {'name': 'addr1', 'label': 'clients_addr1', 'type': 'char'}, {'name': 'addr2', 'label': 'clients_addr2', 'type': 'char'}, {'name': 'tdebitamt', 'label': 'ctdebitamt', 'type': 'decimal'}, {'name': 'tcreditamt', 'label': 'ctcreditamt', 'type': 'decimal'}, {'name': 'tsalesrcvdamt', 'label': 'tsalesrcvdamt', 'type': 'decimal'}, {'name': 'tcashadv', 'label': 'tcashadv', 'type': 'decimal'}, {'name': 'texchadv', 'label': 'texchadv', 'type': 'decimal'}, {'name': 'ctype', 'label': 'ctype', 'type': 'char'}, {'name': 'telephone', 'label': 'telephone', 'type': 'char'}, {'name': 'cocode', 'label': 'cocode', 'type': 'char'}, {'name': 'tsalesamt', 'label': 'tsalesamt', 'type': 'decimal'}, {'name': 'tsalesrcvdafter2', 'label': 'tsalesrcvdafter2', 'type': 'decimal'}, {'name': 'tsalesrcvdafter', 'label': 'tsalesrcvdafter', 'type': 'decimal'}]},
+    report={'dataobject': 'd_custaccountsummary', 'sql': "SELECT clients.code AS clients_code, clients.name AS clients_name, clients.addr1 AS clients_addr1, clients.addr2 AS clients_addr2, clients.ctype AS clients_ctype, clients.telephone AS clients_telephone, clients.cocode AS clients_cocode, (select sum(abs(daybook.amount)) from daybook,daybookpart where daybookpart.slno = daybook.slno and daybook.accode = clients.code and daybook.amount < 0 and daybook.control <= :rlevel and daybook.tdate >= :rdate and daybook.tdate <= :rdate2 and trim(daybookpart.vchno) <> '') as tdebitamt, (select sum(abs(daybook.amount)) from daybook,daybookpart where daybookpart.slno = daybook.slno and daybook.accode = clients.code and daybook.amount > 0 and daybook.control <= :rlevel and daybook.tdate >= :rdate and daybook.tdate <= :rdate2 and trim(daybookpart.vchno) <> '') as tcreditamt, (select sum(salesm.ramt) from salesm where salesm.custcode = clients.code and salesm.tdate >= :rdate and salesm.tdate <= :rdate2 and salesm.control <= :rlevel ) as tsalesrcvdamt, (select sum(orderm.advance) from orderm where orderm.custcode = clients.code and orderm.tdate >= :rdate and orderm.tdate <= :rdate2 and orderm.control <= :rlevel and orderm.status = 1) as tcashadv, (select sum(orderm.eamt) from orderm where orderm.custcode = clients.code and orderm.tdate >= :rdate and orderm.tdate <= :rdate2 and orderm.control <= :rlevel and orderm.status = 1) as texchadv, (select sum(salesm.netamt ) from salesm where salesm.custcode = clients.code and salesm.tdate >= :rdate and salesm.tdate <= :rdate2 and salesm.control <= :rlevel ) as tsalesamt, (select sum(collection.tranamt + collection.discount) from collection,salesm where collection.islno = salesm.slno and salesm.custcode = clients.code and salesm.tdate >= :rdate and salesm.tdate <= :rdate2 and salesm.control <= :rlevel ) as tsalesrcvdafter2, (select sum(collection.tranamt + collection.discount) from collection,salesm where collection.islno = salesm.slno and salesm.custcode = clients.code and salesm.tdate >= :rdate and salesm.tdate <= :rdate2 and collection.tdate <= :rdate2 and salesm.control <= :rlevel ) as tsalesrcvdafter FROM clients ORDER BY clients.name ASC, clients.code ASC", 'args': ['rdate', 'rdate2', 'rlevel', 'rtype'], 'arg_types': {'rdate': 'date', 'rdate2': 'date', 'rlevel': 'number', 'rtype': 'number'}, 'tables': ['clients'], 'columns': [{'name': 'code', 'label': 'code', 'type': 'char'}, {'name': 'clients_name', 'label': 'clients_name', 'type': 'char'}, {'name': 'clients_addr1', 'label': 'clients_addr1', 'type': 'char'}, {'name': 'clients_addr2', 'label': 'clients_addr2', 'type': 'char'}, {'name': 'ctdebitamt', 'label': 'ctdebitamt', 'type': 'decimal'}, {'name': 'ctcreditamt', 'label': 'ctcreditamt', 'type': 'decimal'}, {'name': 'tsalesrcvdamt', 'label': 'tsalesrcvdamt', 'type': 'decimal'}, {'name': 'tcashadv', 'label': 'tcashadv', 'type': 'decimal'}, {'name': 'texchadv', 'label': 'texchadv', 'type': 'decimal'}, {'name': 'ctype', 'label': 'ctype', 'type': 'char'}, {'name': 'telephone', 'label': 'telephone', 'type': 'char'}, {'name': 'cocode', 'label': 'cocode', 'type': 'char'}, {'name': 'tsalesamt', 'label': 'tsalesamt', 'type': 'decimal'}, {'name': 'tsalesrcvdafter2', 'label': 'tsalesrcvdafter2', 'type': 'decimal'}, {'name': 'tsalesrcvdafter', 'label': 'tsalesrcvdafter', 'type': 'decimal'}]},
+)
+
+
+class CustomerSummaryForm(GeneratedForm):
+    """Customer Summary"""
+
+    WINDOW = WINDOW
+
+    def build_controls(self):
+        self.add('editmask', 'em_date1', 389, 0, 393, 88, taborder=10)
+        self.add('editmask', 'em_date2', 1161, 0, 393, 88, taborder=20)
+        self.add('datawindow', 'dw_co', 1906, 0, 402, 88, dataobject='d_cust', taborder=31)
+        self.add('commandbutton', 'cb_show', 2441, 0, 270, 92, text='&Show', taborder=30)
+        self.add('commandbutton', 'cb_3', 2720, 0, 256, 92, text='Save &As', taborder=60)
+        self.add('commandbutton', 'cb_1', 2981, 0, 238, 92, text='&Print', taborder=80)
+        self.add('commandbutton', 'cb_2', 3227, 0, 238, 92, text='E&xit', taborder=70)
+        self.add('statictext', 'st_1', 18, 12, 361, 76, text='Date  From :')
+        self.add('statictext', 'st_2', 837, 12, 315, 76, text='Date  To :')
+        self.add('statictext', 'st_16', 1733, 16, 165, 76, text='C/o :')
+        self.add('datawindow', 'dw_1', 0, 96, 3607, 2048, dataobject='d_custaccountsummary', taborder=50)
+        self.add('checkbox', 'cbx_withtran', 2441, 100, 549, 76, text='With transactions')
+        self.add('dropdownlistbox', 'ddlb_sort', 1906, 104, 507, 456, items=['Clients Name', 'Clients Code', 'Net Bill Amt', 'Bill Balance'], taborder=40)
+        self.add('statictext', 'st_3', 1623, 116, 274, 76, text='Sort On :')
+        self.add('checkbox', 'cbx_grandbal', 2441, 164, 475, 76, text='Grand Balance')
+        self.add('checkbox', 'cbx_customers_only', 2441, 232, 512, 76, text='Customers Only')
